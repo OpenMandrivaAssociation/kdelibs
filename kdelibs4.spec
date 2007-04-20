@@ -613,6 +613,9 @@ rm -fr %buildroot
 %dir %_includedir/threadweaver/
 %_includedir/threadweaver/*.h
 
+%dir %_includedir/kross/ui/
+%_includedir/kross/ui/*.h
+
 %dir %_datadir/apps/cmake/modules/
 %_datadir/apps/cmake/modules/*
 %_libdir/*.so
@@ -643,6 +646,4 @@ rm -fr %buildroot
 %_docdir/HTML/en/common/favicon.ico
 %_docdir/HTML/en/common/fdl-license
 %_docdir/HTML/en/common/gpl-license
-
-
 
