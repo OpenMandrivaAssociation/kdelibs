@@ -147,7 +147,7 @@ BuildRequires: libacl-devel
 BuildRequires: krb5-devel
 BuildRequires: cmake >= 2.4.5
 BuildRequires:	ungif-devel
-BuildRequires:	strigi-devel >=  0.3.11-0.20070311
+BuildRequires:	strigi-devel >=  0.3.11-0.20070502
 # Now kdelibs4 implemented mimetype freedesktop spec
 BuildRequires:	shared-mime-info
 # Now nepomuk was merged into kdelibs
