@@ -150,6 +150,8 @@ BuildRequires:	ungif-devel
 BuildRequires:	strigi-devel >=  0.3.11-0.20070311
 # Now kdelibs4 implemented mimetype freedesktop spec
 BuildRequires:	shared-mime-info
+# Now nepomuk was merged into kdelibs
+BuildRequires:	soprano-devel
 
 %description 
 Libraries for the K Desktop Environment.
@@ -356,10 +358,8 @@ INFO about snapshot
 -------------------
 Now kde4 uses xdg mimetype.
 kde4 requires cmake 2.4.5
-Merge js from apple.
 Requires qt4.3
-oKular (new kpdf version) comes back into kdegraphics
-Cleanup kdelibs
+Nepomuk merged into kdelibs
 
 
 EOF
