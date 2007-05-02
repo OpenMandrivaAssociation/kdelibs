@@ -385,9 +385,6 @@ rm -fr %buildroot
 %_bindir/kde-menu
 %_bindir/kde4-config
 %_bindir/kded
-%_bindir/kdeinit
-%_bindir/kdeinit_shutdown
-%_bindir/kdeinit_wrapper
 %_bindir/kdesu_stub
 %_bindir/kdontchangethehostname
 %_bindir/kdostartupconfig
@@ -400,17 +397,21 @@ rm -fr %buildroot
 %_bindir/kpac_dhcp_helper
 %_bindir/kross
 %_bindir/ksendbugmail
-%_bindir/kshell
 %_bindir/kstartupconfig
 %_bindir/ksvgtopng
 %_bindir/ktradertest
 %_bindir/kunittestmodrunner
-%_bindir/kwrapper
 %_bindir/make_driver_db_cups
 %_bindir/make_driver_db_lpr
 %_bindir/makekdewidgets
 %_bindir/meinproc
 %_bindir/preparetips
+%_bindir/kdeinit4
+%_bindir/kdeinit4_shutdown
+%_bindir/kdeinit4_wrapper
+%_bindir/kmetadata_rcgen
+%_bindir/kshell4
+%_bindir/kwrapper4
 
 %dir %_datadir/apps/LICENSES/
 %_datadir/apps/LICENSES/*
@@ -471,7 +472,6 @@ rm -fr %buildroot
 %_datadir/apps/ksgmltools2/docbook/README.kde
 %_datadir/apps/ksgmltools2/docbook/*
 
-%_datadir/apps/solidfakebluetoothbackend/fakebluetooth.xml
 %_datadir/config/kdxspreviewrc
 %_datadir/mime/packages/kde.xml
 
@@ -489,8 +489,6 @@ rm -fr %buildroot
 %_datadir/apps/ktexteditor_kdatatool/ktexteditor_kdatatoolui.rc
 %_datadir/apps/ktexteditor_docwordcompletion/docwordcompletionui.rc
 %_datadir/apps/proxyscout/proxyscout.notifyrc
-%_datadir/apps/solidfakehwbackend/fakecomputer.xml
-%_datadir/apps/solidfakenetbackend/fakenetworking.xml
 %dir %_datadir/config/colors/
 %_datadir/config/colors/*.colors
 %_datadir/config/katefiletyperc
@@ -511,7 +509,6 @@ rm -fr %buildroot
 %_datadir/kde4/services/*.desktop
 %_datadir/kde4/services/kded/*.desktop
 %_datadir/kde4/services/qimageioplugins/*.desktop
-%_datadir/kde4/services/solidbackends/*
 %_datadir/kde4/services/phononbackends/*.desktop
 %_datadir/kde4/servicetypes/*.desktop
 %dir %_datadir/apps/katepart/syntax/
@@ -523,6 +520,15 @@ rm -fr %buildroot
 %_sysconfdir/xdg/menus/applications.menu
 /etc/profile.d/kde4.sh
 
+%dir %_datadir/apps/kcharselect/
+%_datadir/apps/kcharselect/kcharselect-data
+%dir %_datadir/apps/kmetadata/
+%dir %_datadir/apps/kmetadata/pics/
+%_datadir/apps/kmetadata/pics/*.png
+%dir %_datadir/apps/knepomuk/
+%dir %_datadir/apps/knepomuk/ontologies/
+%_datadir/apps/knepomuk/ontologies/nao.desktop
+%_datadir/apps/knepomuk/ontologies/nao.nrl
 
 %files -n %{lib_name}
 %defattr(-,root,root,-)
@@ -534,6 +540,8 @@ rm -fr %buildroot
 %_libdir/kde4/plugins/imageformats/*.so
 %dir %_libdir/kde4/plugins/styles/
 %_libdir/kde4/plugins/styles/*.so
+%dir %_libdir/kde4/plugins/phonon_platform/
+%_libdir/kde4/plugins/phonon_platform/kde.so
 
 %dir %_libdir/kde4/libexec/
 %_libdir/kde4/libexec/kgrantpty
@@ -554,6 +562,16 @@ rm -fr %buildroot
 
 %files -n %lib_name-devel
 %defattr(-,root,root,-)
+%dir %_includedir/kmetadata/
+%_includedir/kmetadata/*.h
+%dir %_includedir/knepomuk/
+%_includedir/knepomuk/*.h
+%dir %_includedir/knepomuk/rdf/
+%_includedir/knepomuk/rdf/*.h
+%dir %_includedir/knepomuk/services/
+%_includedir/knepomuk/services/*.h
+%dir %_includedir/konto/
+%_includedir/konto/*.h
 %dir %_includedir/knewstuff2/
 %dir %_includedir/knewstuff2/core/
 %_includedir/knewstuff2/core/*.h
@@ -602,12 +620,8 @@ rm -fr %buildroot
 %_includedir/kunittest/*.h
 %dir %_includedir/phonon/
 %_includedir/phonon/*.h
-%dir %_includedir/phonon/ui/
-%_includedir/phonon/ui/*.h
 %dir %_includedir/solid/
 %_includedir/solid/*.h
-%dir %_includedir/solid/ifaces/
-%_includedir/solid/ifaces/*.h
 %dir %_includedir/sonnet/
 %_includedir/sonnet/*.h
 %dir %_includedir/threadweaver/
