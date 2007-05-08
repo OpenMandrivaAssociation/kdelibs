@@ -360,7 +360,7 @@ Now kde4 uses xdg mimetype.
 kde4 requires cmake 2.4.5
 Requires qt4.3
 Nepomuk merged into kdelibs
-
+Konsole/kpilot was merged into trunk
 
 EOF
 
