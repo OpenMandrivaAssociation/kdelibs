@@ -48,8 +48,8 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 3.80.3
-Release: %mkrel 0.%branch_date.6
+Version: 3.90.1
+Release: %mkrel 0.%branch_date.1
 Epoch: %epoch_kdelibs
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -147,7 +147,7 @@ BuildRequires: libacl-devel
 BuildRequires: krb5-devel
 BuildRequires: cmake >= 2.4.5
 BuildRequires:	ungif-devel
-BuildRequires:	strigi-devel >=  0.3.11-0.20070502
+BuildRequires:	strigi-devel >=  0.5.1
 # Now kdelibs4 implemented mimetype freedesktop spec
 BuildRequires:	shared-mime-info
 # Now nepomuk was merged into kdelibs
