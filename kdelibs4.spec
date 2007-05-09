@@ -404,7 +404,7 @@ rm -fr %buildroot
 %_bindir/make_driver_db_cups
 %_bindir/make_driver_db_lpr
 %_bindir/makekdewidgets
-%_bindir/meinproc
+%_bindir/meinproc4
 %_bindir/preparetips
 %_bindir/kdeinit4
 %_bindir/kdeinit4_shutdown
@@ -550,13 +550,13 @@ rm -fr %buildroot
 %_libdir/kde4/libexec/kmailservice
 %_libdir/kde4/libexec/ktelnetservice
 
-%_libdir/libkdeinit_cupsdconf.so
-%_libdir/libkdeinit_kaddprinterwizard.so
-%_libdir/libkdeinit_kbuildsycoca4.so.*
-%_libdir/libkdeinit_kconf_update.so
-%_libdir/libkdeinit_kded.so
-%_libdir/libkdeinit_kio_http_cache_cleaner.so
-%_libdir/libkdeinit_klauncher.so
+%_libdir/libkdeinit4_cupsdconf.so
+%_libdir/libkdeinit4_kaddprinterwizard.so
+%_libdir/libkdeinit4_kbuildsycoca4.so.*
+%_libdir/libkdeinit4_kconf_update.so
+%_libdir/libkdeinit4_kded.so
+%_libdir/libkdeinit4_kio_http_cache_cleaner.so
+%_libdir/libkdeinit4_klauncher.so
 
 
 
@@ -634,12 +634,12 @@ rm -fr %buildroot
 %_datadir/apps/cmake/modules/*
 %_libdir/*.so
 
-%exclude %_libdir/libkdeinit_cupsdconf.so
-%exclude %_libdir/libkdeinit_kaddprinterwizard.so
-%exclude %_libdir/libkdeinit_kconf_update.so
-%exclude %_libdir/libkdeinit_kded.so
-%exclude %_libdir/libkdeinit_kio_http_cache_cleaner.so
-%exclude %_libdir/libkdeinit_klauncher.so
+%exclude %_libdir/libkdeinit4_cupsdconf.so
+%exclude %_libdir/libkdeinit4_kaddprinterwizard.so
+%exclude %_libdir/libkdeinit4_kconf_update.so
+%exclude %_libdir/libkdeinit4_kded.so
+%exclude %_libdir/libkdeinit4_kio_http_cache_cleaner.so
+%exclude %_libdir/libkdeinit4_klauncher.so
 
 
 
