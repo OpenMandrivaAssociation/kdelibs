@@ -407,8 +407,8 @@ rm -fr %buildroot
 
 %dir %_datadir/emoticons/
 %dir %_datadir/emoticons/Default/
-%_datadir/apps/emoticons/Default/*.png
-%_datadir/apps/emoticons/Default/*.xml
+%_datadir/emoticons/Default/*.png
+%_datadir/emoticons/Default/*.xml
 %dir %_datadir/apps/knepomuk
 %dir %_datadir/apps/knepomuk/ontologies
 %_datadir/apps/knepomuk/ontologies/*.desktop
@@ -551,9 +551,7 @@ rm -fr %buildroot
 
 %_libdir/libkdeinit4_cupsdconf.so
 %_libdir/libkdeinit4_kaddprinterwizard.so
-#%_libdir/libkdeinit4_kbuildsycoca4.so.*
 %_libdir/libkdeinit4_kconf_update.so
-#%_libdir/libkdeinit4_kded.so
 %_libdir/libkdeinit4_kio_http_cache_cleaner.so
 %_libdir/libkdeinit4_klauncher.so
 
@@ -636,7 +634,6 @@ rm -fr %buildroot
 %exclude %_libdir/libkdeinit4_cupsdconf.so
 %exclude %_libdir/libkdeinit4_kaddprinterwizard.so
 %exclude %_libdir/libkdeinit4_kconf_update.so
-#%exclude %_libdir/libkdeinit4_kded.so
 %exclude %_libdir/libkdeinit4_kio_http_cache_cleaner.so
 %exclude %_libdir/libkdeinit4_klauncher.so
 
