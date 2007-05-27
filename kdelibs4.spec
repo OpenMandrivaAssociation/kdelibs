@@ -10,7 +10,7 @@
 %define _sysconfdir %_prefix/etc/
 %define _docdir %_datadir/doc/
 
-%define branch_date 20070502
+%define branch_date 20070527
 
 %define use_enable_final 0
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
@@ -375,34 +375,23 @@ rm -fr %buildroot
 %_bindir/checkXML
 %_bindir/cupsdconf
 %_bindir/cupsdoprint
-%_bindir/imagetops
 %_bindir/js
-%_bindir/kaddprinterwizard
 %_bindir/kbuildsycoca4
-%_bindir/kconf_update
 %_bindir/kconfig_compiler
-%_bindir/kcookiejar
+%_bindir/kcookiejar4
 %_bindir/kde-menu
 %_bindir/kde4-config
-%_bindir/kded
-%_bindir/kdesu_stub
-%_bindir/kdontchangethehostname
+%_bindir/kded4
 %_bindir/kdostartupconfig
-%_bindir/kio_http_cache_cleaner
 %_bindir/kioslave
 %_bindir/kjscmd
 %_bindir/kjsconsole
-%_bindir/klauncher
 %_bindir/knotifytest
-%_bindir/kpac_dhcp_helper
 %_bindir/kross
-%_bindir/ksendbugmail
 %_bindir/kstartupconfig
 %_bindir/ksvgtopng
 %_bindir/ktradertest
 %_bindir/kunittestmodrunner
-%_bindir/make_driver_db_cups
-%_bindir/make_driver_db_lpr
 %_bindir/makekdewidgets
 %_bindir/meinproc4
 %_bindir/preparetips
@@ -416,11 +405,14 @@ rm -fr %buildroot
 %dir %_datadir/apps/LICENSES/
 %_datadir/apps/LICENSES/*
 
-%dir %_datadir/apps/emoticons/
-%dir %_datadir/apps/emoticons/Default/
+%dir %_datadir/emoticons/
+%dir %_datadir/emoticons/Default/
 %_datadir/apps/emoticons/Default/*.png
 %_datadir/apps/emoticons/Default/*.xml
-
+%dir %_datadir/apps/knepomuk
+%dir %_datadir/apps/knepomuk/ontologies
+%_datadir/apps/knepomuk/ontologies/*.desktop
+%_datadir/apps/knepomuk/ontologies/*.rdf
 %_datadir/apps/katepart/katepartreadonlyui.rc
 %_datadir/apps/katepart/katepartui.rc
 %_datadir/apps/katepart/scripts/*.js
@@ -441,8 +433,6 @@ rm -fr %buildroot
 %_datadir/apps/kdeprint/apsdriver2
 %_datadir/apps/kdeprint/cups_logo.png
 %_datadir/apps/kdeprint/cupsd.conf.template
-%_datadir/apps/kdeprint/filters/*.desktop
-%_datadir/apps/kdeprint/filters/*.xml
 %_datadir/apps/kdeprint/icons/crystalsvg/*
 %_datadir/apps/kdeprint/lprngtooldriver1
 %_datadir/apps/kdeprint/pics/*.png
@@ -491,7 +481,6 @@ rm -fr %buildroot
 %_datadir/apps/proxyscout/proxyscout.notifyrc
 %dir %_datadir/config/colors/
 %_datadir/config/colors/*.colors
-%_datadir/config/katefiletyperc
 %_datadir/config/katesyntaxhighlightingrc
 %_datadir/config/kdebug.areas
 %_datadir/config/kdebugrc
@@ -549,12 +538,22 @@ rm -fr %buildroot
 %_libdir/kde4/libexec/fileshareset
 %_libdir/kde4/libexec/kmailservice
 %_libdir/kde4/libexec/ktelnetservice
+%_libdir/kde4/libexec/kaddprinterwizard
+%_libdir/kde4/libexec/kconf_update
+%_libdir/kde4/libexec/kdesu_stub
+%_libdir/kde4/libexec/kdontchangethehostname
+%_libdir/kde4/libexec/kio_http_cache_cleaner
+%_libdir/kde4/libexec/klauncher
+%_libdir/kde4/libexec/kpac_dhcp_helper
+%_libdir/kde4/libexec/ksendbugmail
+%_libdir/kde4/libexec/make_driver_db_cups
+%_libdir/kde4/libexec/make_driver_db_lpr
 
 %_libdir/libkdeinit4_cupsdconf.so
 %_libdir/libkdeinit4_kaddprinterwizard.so
-%_libdir/libkdeinit4_kbuildsycoca4.so.*
+#%_libdir/libkdeinit4_kbuildsycoca4.so.*
 %_libdir/libkdeinit4_kconf_update.so
-%_libdir/libkdeinit4_kded.so
+#%_libdir/libkdeinit4_kded.so
 %_libdir/libkdeinit4_kio_http_cache_cleaner.so
 %_libdir/libkdeinit4_klauncher.so
 
@@ -637,7 +636,7 @@ rm -fr %buildroot
 %exclude %_libdir/libkdeinit4_cupsdconf.so
 %exclude %_libdir/libkdeinit4_kaddprinterwizard.so
 %exclude %_libdir/libkdeinit4_kconf_update.so
-%exclude %_libdir/libkdeinit4_kded.so
+#%exclude %_libdir/libkdeinit4_kded.so
 %exclude %_libdir/libkdeinit4_kio_http_cache_cleaner.so
 %exclude %_libdir/libkdeinit4_klauncher.so
 
