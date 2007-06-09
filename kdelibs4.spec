@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 672878
+%define revision 673230
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -743,6 +743,13 @@ KDE 4 core library.
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications.
+Requires: kde4-macros
+Requires: acl-devel
+Requires: qt4-devel >= 4.3.0
+Requires: cmake
+Requires: soprano-devel
+Requires: strigi-devel
+Requires: kdelibs4-core = %version
 Requires: %libkaudiodevicelist = %version
 Requires: %libkde3support = %version
 Requires: %libkdecore = %version
@@ -778,9 +785,6 @@ Requires: %libphonon = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
 Requires: %libwtf = %version
-Requires: acl-devel
-Requires: qt4-devel >= 4.3.0
-Requires: cmake
 Obsoletes: %{_lib}kdecore5-devel
 
 %description devel
@@ -796,6 +800,9 @@ browsing.
 %_kde_libdir/*.so
 %_kde_libdir/*.a
 %_kde_libdir/kde4/plugins/designer
+%_kde_bindir/kde4-config
+%_kde_bindir/checkXML
+%_kde_bindir/kconfig_compiler
 %exclude %_kde_libdir/libkdeinit4_*
 
 #--------------------------------------------------------------
@@ -845,6 +852,9 @@ This packages contains all icons, config file etc...
 %_sysconfdir/profile.d/kde4.sh
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_kde_docdir/HTML/en/common/*
+%exclude %_kde_bindir/kde4-config
+%exclude %_kde_bindir/checkXML
+%exclude %_kde_bindir/kconfig_compiler
 
 #--------------------------------------------------------------
 
