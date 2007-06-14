@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 673230
+%define revision 675664
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -32,7 +32,6 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revisio
 %else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
-Source1: kde4.sh
 Patch0: kdelibs4-homedir.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
@@ -398,41 +397,44 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkmetadata %mklibname kmetadata 5
+%define libnepomukmiddleware %mklibname nepomuk-middleware 5
 
-%package -n %libkmetadata
+%package -n %libnepomukmiddleware
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
 
-%description -n %libkmetadata
+%description -n %libnepomukmiddleware
 KDE 4 core library.
 
-%post -n %libkmetadata -p /sbin/ldconfig
-%postun -n %libkmetadata -p /sbin/ldconfig
+%post -n %libnepomukmiddleware -p /sbin/ldconfig
+%postun -n %libnepomukmiddleware -p /sbin/ldconfig
 
-%files -n %libkmetadata
+%files -n %libnepomukmiddleware
 %defattr(-,root,root)
-%_kde_libdir/libkmetadata.so.*
+%_kde_libdir/libnepomuk-middleware.so.*
 
 #------------------------------------------------	
 
-%define libknepomuk %mklibname knepomuk 5
+%define libnepomuk %mklibname nepomuk 5
 
-%package -n %libknepomuk
+%package -n %libnepomuk
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}knepomuk5
+Obsoletes: %{_lib}kmetadata5
+Obsoletes: %{_lib}konto5
 
-%description -n %libknepomuk
+%description -n %libnepomuk
 KDE 4 core library.
 
-%post -n %libknepomuk -p /sbin/ldconfig
-%postun -n %libknepomuk -p /sbin/ldconfig
+%post -n %libnepomuk -p /sbin/ldconfig
+%postun -n %libnepomuk -p /sbin/ldconfig
 
-%files -n %libknepomuk
+%files -n %libnepomuk
 %defattr(-,root,root)
-%_kde_libdir/libknepomuk.so.*
+%_kde_libdir/libnepomuk.so.*
 
 #------------------------------------------------	
 
@@ -490,25 +492,6 @@ KDE 4 core library.
 %files -n %libkntlm
 %defattr(-,root,root)
 %_kde_libdir/libkntlm.so.*
-
-#------------------------------------------------	
-
-%define libkonto %mklibname konto 5
-
-%package -n %libkonto
-Summary: KDE 4 core library
-Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
-
-%description -n %libkonto
-KDE 4 core library.
-
-%post -n %libkonto -p /sbin/ldconfig
-%postun -n %libkonto -p /sbin/ldconfig
-
-%files -n %libkonto
-%defattr(-,root,root)
-%_kde_libdir/libkonto.so.*
 
 #------------------------------------------------	
 
@@ -719,25 +702,6 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libthreadweaver.so.*
 
-#------------------------------------------------	
-
-%define libwtf %mklibname wtf 5
-
-%package -n %libwtf
-Summary: KDE 4 core library
-Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
-
-%description -n %libwtf
-KDE 4 core library.
-
-%post -n %libwtf -p /sbin/ldconfig
-%postun -n %libwtf -p /sbin/ldconfig
-
-%files -n %libwtf
-%defattr(-,root,root)
-%_kde_libdir/libwtf.so.*
-
 #--------------------------------------------------------------
 
 %package devel
@@ -767,12 +731,11 @@ Requires: %libkio = %version
 Requires: %libkjsembed = %version
 Requires: %libkjs = %version
 Requires: %libkmediaplayer = %version
-Requires: %libkmetadata = %version
-Requires: %libknepomuk = %version
+Requires: %libnepomuk = %version
+Requires: %libnepomukmiddleware = %version
 Requires: %libknewstuff2 = %version
 Requires: %libknotifyconfig = %version
 Requires: %libkntlm = %version
-Requires: %libkonto = %version
 Requires: %libkparts = %version
 Requires: %libkrosscore = %version
 Requires: %libkrossui = %version
@@ -784,7 +747,6 @@ Requires: %libphononexperimental = %version
 Requires: %libphonon = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
-Requires: %libwtf = %version
 Obsoletes: %{_lib}kdecore5-devel
 
 %description devel
@@ -849,7 +811,6 @@ This packages contains all icons, config file etc...
 %_kde_datadir/kde4/servicetypes/*
 %_kde_docdir/HTML/en/sonnet
 %_kde_configdir/xdg/menus/applications.menu
-%_sysconfdir/profile.d/kde4.sh
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_kde_docdir/HTML/en/common/*
 %exclude %_kde_bindir/kde4-config
@@ -903,7 +864,6 @@ make DESTDIR=%buildroot install
 
 install -d %buildroot/etc/profile.d/
 install -d %buildroot/etc/ld.so.conf.d
-install -m 0755 %SOURCE1 %buildroot/etc/profile.d/kde4.sh
 
 cat > %buildroot/etc/ld.so.conf.d/kde4.conf <<EOF
 %_kde_libdir
