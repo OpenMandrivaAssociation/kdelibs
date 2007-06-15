@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 675664
+%define revision 675929
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -781,8 +781,8 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 %defattr(-,root,root,-)
 %_iconsdir/*/*/*/*
 %_iconsdir/oxygen/index.theme
-%exclude %_iconsdir/hicolor
-%exclude %_iconsdir/crystalsvg
+%_kde_prefix/share/icons/hicolor
+%_kde_prefix/share/icons/crystalsvg
 
 #--------------------------------------------------------------
 
@@ -854,13 +854,22 @@ CXXFLAGS="-fPIC"
     -DCMAKE_BUILD_TYPE=debugfull 
 %endif
 
-%make VERBOSE=1
+%make
+
+#%if %{compile_apidox}
+#    doc/api/doxygen.sh --doxdatadir=doc/common .
+#%endif
 
 %install
 rm -fr %buildroot
 cd build
 
 make DESTDIR=%buildroot install
+
+# Old legacy icons moved for kde_prefix/share/icons
+mkdir -p %buildroot/%_kde_prefix/share/icons
+mv %buildroot%_iconsdir/hicolor %buildroot/%_kde_prefix/share/icons/hicolor
+mv %buildroot%_iconsdir/crystalsvg %buildroot/%_kde_prefix/share/icons/crystalsvg
 
 install -d %buildroot/etc/profile.d/
 install -d %buildroot/etc/ld.so.conf.d
