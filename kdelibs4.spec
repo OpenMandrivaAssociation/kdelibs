@@ -853,7 +853,7 @@ CXXFLAGS="-fPIC"
     -DCMAKE_BUILD_TYPE=debugfull 
 %endif
 
-%make VERBOSE=1
+make VERBOSE=1
 
 
 %if %{compile_apidox}
