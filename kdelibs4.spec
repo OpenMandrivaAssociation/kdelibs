@@ -1,7 +1,7 @@
 %define use_enable_final 1
 %{?_no_enable_final: %{expand: %%global use_enable_final 0}}
 
-%define compile_apidox 1
+%define compile_apidox 0
 %{?_no_apidox: %{expand: %%global compile_apidox 0}}
 
 %define unstable 1
@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 675929
+%define revision 676099
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -779,22 +779,21 @@ Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
 
 %files -n oxygen-icon-theme
 %defattr(-,root,root,-)
-%_iconsdir/*/*/*/*
-%_iconsdir/oxygen/index.theme
-%_kde_prefix/share/icons/hicolor
-%_kde_prefix/share/icons/crystalsvg
+%dir %_kde_iconsdir/oxygen
+%_kde_iconsdir/*/index.theme
+%_kde_iconsdir/*/*/*/*
 
 #--------------------------------------------------------------
 
 %package core
 Group: Graphical desktop/KDE
-Summary:  Config file and icons file for %name.
+Summary: KDE 4 system core files
 Requires: aspell
 Requires: kde4-icon-theme
 Obsoletes: kdelibs4-common
 
 %description core
-This packages contains all icons, config file etc...
+KDE 4 system core files.
 
 %files core
 %defattr(-,root,root,-)
@@ -856,9 +855,11 @@ CXXFLAGS="-fPIC"
 
 %make
 
-#%if %{compile_apidox}
-#    doc/api/doxygen.sh --doxdatadir=doc/common .
-#%endif
+
+%if %{compile_apidox}
+    cd ..
+    doc/api/doxygen.sh --doxdatadir=${PWD}/doc/common .
+%endif
 
 %install
 rm -fr %buildroot
@@ -866,12 +867,6 @@ cd build
 
 make DESTDIR=%buildroot install
 
-# Old legacy icons moved for kde_prefix/share/icons
-mkdir -p %buildroot/%_kde_prefix/share/icons
-mv %buildroot%_iconsdir/hicolor %buildroot/%_kde_prefix/share/icons/hicolor
-mv %buildroot%_iconsdir/crystalsvg %buildroot/%_kde_prefix/share/icons/crystalsvg
-
-install -d %buildroot/etc/profile.d/
 install -d %buildroot/etc/ld.so.conf.d
 
 cat > %buildroot/etc/ld.so.conf.d/kde4.conf <<EOF
@@ -888,23 +883,8 @@ These packages are not STABLE. Not to use them in production.
 Install theses packages just for testing (otherwise uninstall
 them)
 
-To start kde just to type "kde4" in Shell.
-
-Don't try to use Kmail, mail can be lose.
-KDesktop doesn't work very well and will be replaced by Plasma.
-
 We use for the moment KDE standard menu, Mandriva menu is not 
 supported for the moment.
-
-
-INFO about snapshot
--------------------
-Now kde4 uses xdg mimetype.
-kde4 requires cmake 2.4.5
-Requires qt4.3
-Nepomuk merged into kdelibs
-Konsole/kpilot was merged into trunk
-
 EOF
 
 
