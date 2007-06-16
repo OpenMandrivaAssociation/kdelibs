@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 676099
+%define revision 676122
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -853,7 +853,7 @@ CXXFLAGS="-fPIC"
     -DCMAKE_BUILD_TYPE=debugfull 
 %endif
 
-make VERBOSE=1
+%make VERBOSE=1
 
 
 %if %{compile_apidox}
