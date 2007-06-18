@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 676703
+%define revision 677229
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -757,7 +757,7 @@ browsing.
 %files devel
 %defattr(-,root,root,-)
 %_kde_prefix/include/*
-%_kde_datadir/apps/cmake/modules/*
+%_kde_appsdir/cmake/modules/*
 %_datadir/dbus-1/*/*
 %_kde_libdir/*.so
 %_kde_libdir/*.a
@@ -801,7 +801,7 @@ KDE 4 system core files.
 %_kde_bindir/*
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
-%_kde_datadir/apps/*/*
+%_kde_appsdir/*/*
 %_kde_datadir/emoticons/*
 %_kde_datadir/config/*
 %_kde_datadir/mime/packages/kde.xml
@@ -815,6 +815,7 @@ KDE 4 system core files.
 %exclude %_kde_bindir/kde4-config
 %exclude %_kde_bindir/checkXML
 %exclude %_kde_bindir/kconfig_compiler
+%exclude %_kde_appsdir/cmake/modules/*
 
 #--------------------------------------------------------------
 
@@ -850,10 +851,10 @@ CXXFLAGS="-fPIC"
     -DKDE4_ENABLE_FPIE=ON \
 %endif
 %if %unstable
-    -DCMAKE_BUILD_TYPE=debugfull 
+    -DCMAKE_BUILD_TYPE=debug
 %endif
 
-%make VERBOSE=1
+%make
 
 
 %if %{compile_apidox}
