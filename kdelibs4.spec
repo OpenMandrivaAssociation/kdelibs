@@ -706,7 +706,8 @@ KDE 4 core library.
 
 %package devel
 Group: Development/KDE and Qt
-Summary: Header files and documentation for compiling KDE applications.
+Summary: Header files and documentation for compiling KDE applications
+Conflicts: kdelibs4-core <= 3.90.2-0.676703mdv2008.0
 Requires: kde4-macros
 Requires: acl-devel
 Requires: qt4-devel >= 4.3.0
