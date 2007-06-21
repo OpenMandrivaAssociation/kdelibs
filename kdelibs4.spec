@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 677520
+%define revision 678253
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -707,7 +707,7 @@ KDE 4 core library.
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
-Conflicts: kdelibs4-core <= 3.90.2-0.676703mdv2008.0
+Conflicts: kdelibs4-core < 3.90.2-0.678253 
 Requires: kde4-macros
 Requires: acl-devel
 Requires: qt4-devel >= 4.3.0
@@ -763,7 +763,6 @@ browsing.
 %_kde_libdir/*.so
 %_kde_libdir/*.a
 %_kde_libdir/kde4/plugins/designer
-%_kde_bindir/kde4-config
 %_kde_bindir/checkXML
 %_kde_bindir/kconfig_compiler
 %exclude %_kde_libdir/libkdeinit4_*
@@ -792,6 +791,7 @@ Summary: KDE 4 system core files
 Requires: aspell
 Requires: kde4-icon-theme
 Obsoletes: kdelibs4-common
+Conflicts: kdelibs4-devel < 3.90.2-0.678253 
 
 %description core
 KDE 4 system core files.
@@ -799,6 +799,7 @@ KDE 4 system core files.
 %files core
 %defattr(-,root,root,-)
 %_kde_prefix/README.urpmi
+%_kde_bindir/kde4-config
 %_kde_bindir/*
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
