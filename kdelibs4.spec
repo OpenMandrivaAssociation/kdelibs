@@ -814,7 +814,6 @@ KDE 4 system core files.
 %_kde_configdir/xdg/menus/applications.menu
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_kde_docdir/HTML/en/common/*
-%exclude %_kde_bindir/kde4-config
 %exclude %_kde_bindir/checkXML
 %exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
