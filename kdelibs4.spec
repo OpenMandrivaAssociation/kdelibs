@@ -17,12 +17,12 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 680680
+%define revision 680966
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 3.90.2
-Release: %mkrel 0.%revision
+Version: 3.91
+Release: %mkrel 0.%revision.1
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
