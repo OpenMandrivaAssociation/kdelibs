@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 682345
+%define revision 682420
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -61,7 +61,7 @@ BuildRequires: libalsa-devel
 BuildRequires: libmad-devel
 BuildRequires: gdbm-devel
 BuildRequires: jasper-devel
-BuildRequires:	OpenEXR-devel
+BuildRequires: OpenEXR-devel
 BuildRequires: libacl-devel
 BuildRequires: krb5-devel
 BuildRequires: ungif-devel
@@ -778,7 +778,7 @@ browsing.
 %defattr(-,root,root,-)
 %_kde_prefix/include/*
 %_kde_appsdir/cmake/modules/*
-%_kde_datadir/dbus-1/*/*
+%_datadir/dbus-1/*/*
 %_kde_libdir/*.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
@@ -852,7 +852,7 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
-%setup -q -n kdelibs
+%setup -q -n kdelibs-%version
 %patch0 -p1 -b .homedir
 
 %build
