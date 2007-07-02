@@ -780,7 +780,6 @@ browsing.
 %_kde_appsdir/cmake/modules/*
 %_kde_datadir/dbus-1/*/*
 %_kde_libdir/*.so
-#%_kde_libdir/*.a
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_bindir/kconfig_compiler
