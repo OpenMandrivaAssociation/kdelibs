@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 680966
+%define revision 682345
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -588,6 +588,25 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libkunittest.so.*
 
+#------------------------------------------------
+
+%define libcupsdconf %mklibname cupsdconf 5
+
+%package -n %libcupsdconf
+Summary: KDE 4 core library
+Group: System/Libraries
+Obsoletes: 30000000:%{_lib}kdecore5
+
+%description -n %libcupsdconf
+KDE 4 core library.
+
+%post -n %libcupsdconf -p /sbin/ldconfig
+%postun -n %libcupsdconf -p /sbin/ldconfig
+
+%files -n %libcupsdconf
+%defattr(-,root,root)
+%_kde_libdir/libcupsdconf.so.*
+
 #------------------------------------------------	
 
 %define libkutils %mklibname kutils 5
@@ -759,9 +778,9 @@ browsing.
 %defattr(-,root,root,-)
 %_kde_prefix/include/*
 %_kde_appsdir/cmake/modules/*
-%_datadir/dbus-1/*/*
+%_kde_datadir/dbus-1/*/*
 %_kde_libdir/*.so
-%_kde_libdir/*.a
+#%_kde_libdir/*.a
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_bindir/kconfig_compiler
@@ -834,7 +853,7 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
-%setup -q -n kdelibs-%version
+%setup -q -n kdelibs
 %patch0 -p1 -b .homedir
 
 %build
