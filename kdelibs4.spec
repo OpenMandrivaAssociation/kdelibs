@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 685748
+%define revision 686439
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -902,8 +902,6 @@ These packages are not STABLE. Not to use them in production.
 Install theses packages just for testing (otherwise uninstall
 them)
 
-We use for the moment KDE standard menu, Mandriva menu is not 
-supported for the moment.
 EOF
 
 
