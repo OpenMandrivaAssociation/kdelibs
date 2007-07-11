@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 686439
+%define revision 686496
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -817,6 +817,7 @@ KDE 4 system core files.
 %files core
 %defattr(-,root,root,-)
 %_kde_prefix/README.urpmi
+%_sysconfdir/profile.d/*
 %_kde_bindir/*
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
@@ -829,11 +830,11 @@ KDE 4 system core files.
 %_kde_datadir/kde4/servicetypes/*
 %_kde_docdir/HTML/en/sonnet
 %_kde_configdir/xdg/menus/applications.menu
-%_sysconfdir/ld.so.conf.d/kde4.conf
 %_kde_docdir/HTML/en/common/*
 %exclude %_kde_bindir/checkXML
 %exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
+%exclude %_kde_libdir/kde4/plugins/designer
 
 #--------------------------------------------------------------
 
@@ -856,11 +857,6 @@ This packages contains all development documentation for kdelibs
 %patch0 -p1 -b .homedir
 
 %build
-%if %unstable
-CFLAGS="-fPIC"
-CXXFLAGS="-fPIC"
-%endif
-
 %cmake_kde4 \
 %if %use_enable_final
     -DKDE4_ENABLE_FINAL=ON \
@@ -886,12 +882,58 @@ cd build
 
 make DESTDIR=%buildroot install
 
-install -d %buildroot/etc/ld.so.conf.d
+# Are libs really conflicting with kde3 libs ?  
+#install -d %buildroot/etc/ld.so.conf.d
 
-cat > %buildroot/etc/ld.so.conf.d/kde4.conf <<EOF
-%_kde_libdir
+#cat > %buildroot/etc/ld.so.conf.d/kde4.conf <<EOF
+#%_kde_libdir
+#EOF
+
+# Env entry for setup kde4  environment
+install -d -m 0755 %buildroot/etc/profile.d
+
+cat > %buildroot%_sysconfdir/profile.d/kde4env.sh << EOF
+#!/bin/bash
+
+if [ -z \$PKG_CONFIG_PATH ]; then
+    PKG_CONFIG_PATH=%{_kde_libdir}/pkgconfig
+else
+    PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:%{_kde_libdir}/pkgconfig
+fi
+
+export PKG_CONFIG_PATH
+
+function kde4env {
+    # KDE
+    KDEDIR=%{_kde_prefix}
+    KDEHOME=\$HOME/.kde4
+    KDETMP=\$HOME/tmp/\$USER-kde4
+    KDEVARTMP=\$HOME/tmp/\$USER-kde4
+    if [ -z \$KDEDIRS ]; then
+        KDEDIRS=%{_kde_prefix}
+    else
+        KDEDIRS=\$KDEDIRS:%{_kde_prefix}
+    fi
+    # Qt
+    export QTDIR=%{qt4dir}
+    if [ -z \$QT_PLUGIN_PATH ]; then
+        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins
+    else
+        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins:\$QT_PLUGIN_PATH
+    fi
+    # DBus
+    DBUSDIR=%{_kde_prefix}
+    # Path
+    PATH=%{qt4dir}/bin:%{_kde_bindir}:\$PATH
+    # Library
+    LD_LIBRARY_PATH=%{_kde_libdir}:\$LD_LIBRARY_PATH
+    # XDG
+    unset XDG_DATA_DIRS # unset XDG_DATA_DIRS, to avoid seeing kde3 files from /usr
+    unset XDG_CONFIG_DIRS
+
+    export KDEDIR KDEHOME KDETMP KDEVARTMP KDEDIRS QTDIR QT_PLUGIN_PATH DBUSDIR PATH LD_LIBRARY_PATH 
+}
 EOF
-
 
 cat > %buildroot/%_kde_prefix/README.urpmi <<EOF
 Mandriva RPM specific notes
