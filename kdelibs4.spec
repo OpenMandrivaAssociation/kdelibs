@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 686496
+%define revision 687061
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -817,7 +817,7 @@ KDE 4 system core files.
 %files core
 %defattr(-,root,root,-)
 %_kde_prefix/README.urpmi
-%_sysconfdir/profile.d/*
+%attr(0755,root,root) %_sysconfdir/profile.d/*
 %_kde_bindir/*
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
