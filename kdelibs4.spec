@@ -908,7 +908,8 @@ function kde4env {
     KDEDIR=%{_kde_prefix}
     KDEHOME=\$HOME/.kde4
     KDETMP=\$HOME/tmp/\$USER-kde4
-    KDEVARTMP=\$HOME/tmp/\$USER-kde4
+    KDEVARTMP=/var/tmp/\$USER-kde4
+    mkdir -p \$KDETMP \$KDEVARTMP
     if [ -z \$KDEDIRS ]; then
         KDEDIRS=%{_kde_prefix}
     else
