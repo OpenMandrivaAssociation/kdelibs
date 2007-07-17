@@ -17,7 +17,7 @@
 
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
-%define revision 688734
+%define revision 688867
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -74,12 +74,13 @@ Libraries for the K Desktop Environment.
 
 #------------------------------------------------	
 
-%define libkaudiodevicelist %mklibname kaudiodevicelist 5
+%define libkaudiodevicelist %mklibname kaudiodevicelist 4
 
 %package -n %libkaudiodevicelist
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kaudiodevicelist5
 
 %description -n %libkaudiodevicelist
 KDE 4 core library.
@@ -93,12 +94,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkde3support %mklibname kde3support 5
+%define libkde3support %mklibname kde3support 4
 
 %package -n %libkde3support
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kde3support5
 
 %description -n %libkde3support
 KDE 4 core library.
@@ -169,12 +171,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkdeprint_management %mklibname kdeprint_management 5
+%define libkdeprint_management %mklibname kdeprint_management 4
 
 %package -n %libkdeprint_management
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdeprint_management5
 
 %description -n %libkdeprint_management
 KDE 4 core library.
@@ -264,12 +267,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkfile %mklibname kfile 5
+%define libkfile %mklibname kfile 4
 
 %package -n %libkfile
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kfile5
 
 %description -n %libkfile
 KDE 4 core library.
@@ -302,12 +306,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkimproxy %mklibname kimproxy 5
+%define libkimproxy %mklibname kimproxy 4
 
 %package -n %libkimproxy
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kimproxy5
 
 %description -n %libkimproxy
 KDE 4 core library.
@@ -340,12 +345,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkjsembed %mklibname kjsembed 5
+%define libkjsembed %mklibname kjsembed 4
 
 %package -n %libkjsembed
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kjsembed5
 
 %description -n %libkjsembed
 KDE 4 core library.
@@ -359,12 +365,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkjs %mklibname kjs 5
+%define libkjs %mklibname kjs 4
 
 %package -n %libkjs
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kjs5
 
 %description -n %libkjs
 KDE 4 core library.
@@ -378,12 +385,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkmediaplayer %mklibname kmediaplayer 5
+%define libkmediaplayer %mklibname kmediaplayer 4
 
 %package -n %libkmediaplayer
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kmediaplayer5
 
 %description -n %libkmediaplayer
 KDE 4 core library.
@@ -438,12 +446,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libknewstuff2 %mklibname knewstuff2 5
+%define libknewstuff2 %mklibname knewstuff2 4
 
 %package -n %libknewstuff2
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}knewstuff25
 
 %description -n %libknewstuff2
 KDE 4 core library.
@@ -457,12 +466,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libknotifyconfig %mklibname knotifyconfig 5
+%define libknotifyconfig %mklibname knotifyconfig 4
 
 %package -n %libknotifyconfig
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}knotifyconfig5
 
 %description -n %libknotifyconfig
 KDE 4 core library.
@@ -476,12 +486,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkntlm %mklibname kntlm 5
+%define libkntlm %mklibname kntlm 4
 
 %package -n %libkntlm
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kntlm5
 
 %description -n %libkntlm
 KDE 4 core library.
@@ -495,12 +506,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkparts %mklibname kparts 5
+%define libkparts %mklibname kparts 4
 
 %package -n %libkparts
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kparts5
 
 %description -n %libkparts
 KDE 4 core library.
@@ -514,12 +526,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkrosscore %mklibname krosscore 5
+%define libkrosscore %mklibname krosscore 4
 
 %package -n %libkrosscore
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}krosscore5
 
 %description -n %libkrosscore
 KDE 4 core library.
@@ -533,12 +546,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkrossui %mklibname krossui 5
+%define libkrossui %mklibname krossui 4
 
 %package -n %libkrossui
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}krossui5
 
 %description -n %libkrossui
 KDE 4 core library.
@@ -552,12 +566,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libktexteditor %mklibname ktexteditor 5
+%define libktexteditor %mklibname ktexteditor 4
 
 %package -n %libktexteditor
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}ktexteditor5
 
 %description -n %libktexteditor
 KDE 4 core library.
@@ -571,12 +586,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkunittest %mklibname kunittest 5
+%define libkunittest %mklibname kunittest 4
 
 %package -n %libkunittest
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kunittest5
 
 %description -n %libkunittest
 KDE 4 core library.
@@ -590,12 +606,13 @@ KDE 4 core library.
 
 #------------------------------------------------
 
-%define libcupsdconf %mklibname cupsdconf 5
+%define libcupsdconf %mklibname cupsdconf 4
 
 %package -n %libcupsdconf
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}cupsdconf5
 
 %description -n %libcupsdconf
 KDE 4 core library.
@@ -609,12 +626,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkutils %mklibname kutils 5
+%define libkutils %mklibname kutils 4
 
 %package -n %libkutils
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kutils5
 
 %description -n %libkutils
 KDE 4 core library.
@@ -628,12 +646,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkwalletbackend %mklibname kwalletbackend 5
+%define libkwalletbackend %mklibname kwalletbackend 4
 
 %package -n %libkwalletbackend
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kwalletbackend5
 
 %description -n %libkwalletbackend
 KDE 4 core library.
@@ -647,12 +666,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libphononexperimental %mklibname phononexperimental 5
+%define libphononexperimental %mklibname phononexperimental 4
 
 %package -n %libphononexperimental
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}phononexperimental5
 
 %description -n %libphononexperimental
 KDE 4 core library.
@@ -666,12 +686,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libphonon %mklibname phonon 5
+%define libphonon %mklibname phonon 4
 
 %package -n %libphonon
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}phonon5
 
 %description -n %libphonon
 KDE 4 core library.
@@ -685,12 +706,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libsolid %mklibname solid 5
+%define libsolid %mklibname solid 4
 
 %package -n %libsolid
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}solid5
 
 %description -n %libsolid
 KDE 4 core library.
