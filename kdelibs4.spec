@@ -248,12 +248,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libkdnssd %mklibname kdnssd 5
+%define libkdnssd %mklibname kdnssd 4
 
 %package -n %libkdnssd
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdnssd5
 
 %description -n %libkdnssd
 KDE 4 core library.
@@ -405,12 +406,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libnepomukmiddleware %mklibname nepomuk-middleware 5
+%define libnepomukmiddleware %mklibname nepomuk-middleware 4
 
 %package -n %libnepomukmiddleware
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}nepomuk-middleware5
 
 %description -n %libnepomukmiddleware
 KDE 4 core library.
@@ -424,13 +426,14 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libnepomuk %mklibname nepomuk 5
+%define libnepomuk %mklibname nepomuk 4
 
 %package -n %libnepomuk
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
 Obsoletes: %{_lib}knepomuk5
+Obsoletes: %{_lib}nepomuk5
 Obsoletes: %{_lib}kmetadata5
 Obsoletes: %{_lib}konto5
 
@@ -726,12 +729,13 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define libthreadweaver %mklibname threadweaver 5
+%define libthreadweaver %mklibname threadweaver 4
 
 %package -n %libthreadweaver
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}threadweaver5
 
 %description -n %libthreadweaver
 KDE 4 core library.
