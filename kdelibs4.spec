@@ -1,22 +1,9 @@
-%define use_enable_final 1
-%{?_no_enable_final: %{expand: %%global use_enable_final 0}}
-
 %define compile_apidox 0
 %{?_no_apidox: %{expand: %%global compile_apidox 0}}
 
-%define unstable 1
-%{?_unstable: %{expand: %%global unstable 1}}
-
-%define use_enable_pie 1
-%{?_no_enable_pie: %{expand: %%global use_enable_pie 0}}
-
-%if %unstable
-%define dont_strip 1
-%define use_enable_final 0
-%endif
-
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
+
 %define revision 690298
 
 Name: kdelibs4
@@ -883,16 +870,7 @@ This packages contains all development documentation for kdelibs
 %patch0 -p1 -b .homedir
 
 %build
-%cmake_kde4 \
-%if %use_enable_final
-    -DKDE4_ENABLE_FINAL=ON \
-%endif
-%if %use_enable_pie
-    -DKDE4_ENABLE_FPIE=ON \
-%endif
-%if %unstable
-    -DCMAKE_BUILD_TYPE=debug
-%endif
+%cmake_kde4 
 
 %make
 
