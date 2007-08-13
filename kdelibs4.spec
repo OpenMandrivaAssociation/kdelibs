@@ -4,7 +4,7 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 698012
+%define revision 699624
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -66,7 +66,7 @@ Libraries for the K Desktop Environment.
 %package -n %libkaudiodevicelist
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kaudiodevicelist5
 
 %description -n %libkaudiodevicelist
@@ -86,7 +86,7 @@ KDE 4 core library.
 %package -n %libkde3support
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kde3support5
 
 %description -n %libkde3support
@@ -106,7 +106,7 @@ KDE 4 core library.
 %package -n %libkdecore
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdecore
 KDE 4 core library.
@@ -125,7 +125,7 @@ KDE 4 core library.
 %package -n %libkdefakes
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdefakes
 KDE 4 core library.
@@ -144,7 +144,7 @@ KDE 4 core library.
 %package -n %libkdefx
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdefx
 KDE 4 core library.
@@ -163,7 +163,7 @@ KDE 4 core library.
 %package -n %libkdeprint_management
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kdeprint_management5
 
 %description -n %libkdeprint_management
@@ -183,7 +183,7 @@ KDE 4 core library.
 %package -n %libkdeprint
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdeprint
 KDE 4 core library.
@@ -202,7 +202,7 @@ KDE 4 core library.
 %package -n %libkdesu
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdesu
 KDE 4 core library.
@@ -221,7 +221,7 @@ KDE 4 core library.
 %package -n %libkdeui
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdeui
 KDE 4 core library.
@@ -240,7 +240,7 @@ KDE 4 core library.
 %package -n %libkdnssd
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kdnssd5
 
 %description -n %libkdnssd
@@ -260,7 +260,7 @@ KDE 4 core library.
 %package -n %libkfile
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kfile5
 
 %description -n %libkfile
@@ -280,7 +280,7 @@ KDE 4 core library.
 %package -n %libkhtml
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkhtml
 KDE 4 core library.
@@ -299,7 +299,7 @@ KDE 4 core library.
 %package -n %libkimproxy
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kimproxy5
 
 %description -n %libkimproxy
@@ -319,7 +319,7 @@ KDE 4 core library.
 %package -n %libkio
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkio
 KDE 4 core library.
@@ -338,7 +338,7 @@ KDE 4 core library.
 %package -n %libkjsembed
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kjsembed5
 
 %description -n %libkjsembed
@@ -358,7 +358,7 @@ KDE 4 core library.
 %package -n %libkjs
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kjs5
 
 %description -n %libkjs
@@ -378,7 +378,7 @@ KDE 4 core library.
 %package -n %libkmediaplayer
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kmediaplayer5
 
 %description -n %libkmediaplayer
@@ -398,7 +398,7 @@ KDE 4 core library.
 %package -n %libnepomukmiddleware
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}nepomuk-middleware5
 
 %description -n %libnepomukmiddleware
@@ -418,7 +418,7 @@ KDE 4 core library.
 %package -n %libnepomuk
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}knepomuk5
 Obsoletes: %{_lib}nepomuk5
 Obsoletes: %{_lib}kmetadata5
@@ -441,7 +441,7 @@ KDE 4 core library.
 %package -n %libknewstuff2
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}knewstuff25
 
 %description -n %libknewstuff2
@@ -461,7 +461,7 @@ KDE 4 core library.
 %package -n %libknotifyconfig
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}knotifyconfig5
 
 %description -n %libknotifyconfig
@@ -481,7 +481,7 @@ KDE 4 core library.
 %package -n %libkntlm
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kntlm5
 
 %description -n %libkntlm
@@ -501,7 +501,7 @@ KDE 4 core library.
 %package -n %libkparts
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kparts5
 
 %description -n %libkparts
@@ -521,7 +521,7 @@ KDE 4 core library.
 %package -n %libkrosscore
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}krosscore5
 
 %description -n %libkrosscore
@@ -541,7 +541,7 @@ KDE 4 core library.
 %package -n %libkrossui
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}krossui5
 
 %description -n %libkrossui
@@ -561,7 +561,7 @@ KDE 4 core library.
 %package -n %libktexteditor
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}ktexteditor5
 
 %description -n %libktexteditor
@@ -581,7 +581,7 @@ KDE 4 core library.
 %package -n %libkunittest
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kunittest5
 
 %description -n %libkunittest
@@ -601,7 +601,7 @@ KDE 4 core library.
 %package -n %libcupsdconf
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}cupsdconf5
 
 %description -n %libcupsdconf
@@ -621,7 +621,7 @@ KDE 4 core library.
 %package -n %libkutils
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kutils5
 
 %description -n %libkutils
@@ -641,7 +641,7 @@ KDE 4 core library.
 %package -n %libkwalletbackend
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kwalletbackend5
 
 %description -n %libkwalletbackend
@@ -661,7 +661,7 @@ KDE 4 core library.
 %package -n %libphononexperimental
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}phononexperimental5
 
 %description -n %libphononexperimental
@@ -681,7 +681,7 @@ KDE 4 core library.
 %package -n %libphonon
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}phonon5
 
 %description -n %libphonon
@@ -701,7 +701,7 @@ KDE 4 core library.
 %package -n %libsolid
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}solid5
 
 %description -n %libsolid
@@ -721,7 +721,7 @@ KDE 4 core library.
 %package -n %libthreadweaver
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: 30000000:%{_lib}kdecore5
+Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}threadweaver5
 
 %description -n %libthreadweaver
@@ -800,27 +800,10 @@ browsing.
 
 #--------------------------------------------------------------
 
-%package -n oxygen-icon-theme
-Group: Graphical desktop/KDE
-Summary: Oxygen icon theme
-Provides: kde4-icon-theme
-
-%description -n oxygen-icon-theme
-Oxygen KDE 4 icon theme. Complains with FreeDesktop.org naming schema
-
-%files -n oxygen-icon-theme
-%defattr(-,root,root,-)
-%dir %_kde_iconsdir/oxygen
-%_kde_iconsdir/*/index.theme
-%_kde_iconsdir/*/*/*/*
-
-#--------------------------------------------------------------
-
 %package core
 Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
 Requires: aspell
-Requires: kde4-icon-theme
 Obsoletes: kdelibs4-common
 Conflicts: kdelibs4-devel < 3.90.2-0.678253 
 
@@ -835,7 +818,6 @@ KDE 4 system core files.
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
 %_kde_appsdir/*/*
-%_kde_datadir/emoticons/*
 %_kde_datadir/config/*
 %_kde_datadir/mime/packages/kde.xml
 %_kde_datadir/locale/all_languages
@@ -848,6 +830,8 @@ KDE 4 system core files.
 %exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
 %exclude %_kde_libdir/kde4/plugins/designer
+# exclude remaining icons. should not be here
+%exclude %_kde_datadir/icons
 
 #--------------------------------------------------------------
 
