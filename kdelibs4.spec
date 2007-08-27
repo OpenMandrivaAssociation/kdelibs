@@ -4,7 +4,7 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 705301
+%define revision 705398
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
