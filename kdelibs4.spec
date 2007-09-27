@@ -9,7 +9,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 3.93.0
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -806,6 +806,7 @@ Summary: KDE 4 system core files
 Requires: aspell
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 3.90.2-0.678253 
+Requires: shared-mime-info
 
 %description core
 KDE 4 system core files.
@@ -819,7 +820,7 @@ KDE 4 system core files.
 %_kde_libdir/libkdeinit4_*
 %_kde_appsdir/*/*
 %_kde_datadir/config/*
-%_kde_datadir/mime/packages/kde.xml
+%_kde_datadir/mime
 %_kde_datadir/locale/all_languages
 %_kde_datadir/kde4/services/*
 %_kde_datadir/kde4/servicetypes/*
@@ -832,6 +833,11 @@ KDE 4 system core files.
 %exclude %_kde_libdir/kde4/plugins/designer
 # exclude remaining icons. should not be here
 %exclude %_kde_datadir/icons
+
+%pre core
+if [ -d %_kde_datadir/mime ]; then
+	rm -rf %_kde_datadir/mime
+fi
 
 #--------------------------------------------------------------
 
@@ -880,6 +886,10 @@ make DESTDIR=%buildroot install
 # Env entry for setup kde4  environment
 install -d -m 0755 %buildroot/etc/profile.d
 install -m 0755 %_sourcedir/kde4env.sh %buildroot/etc/profile.d/
+
+# use shared-mime-info
+rm -rf %buildroot%_kde_datadir/mime
+ln -s %_datadir/mime %buildroot%_kde_datadir/mime
 
 cat > %buildroot/%_kde_prefix/README.urpmi <<EOF
 Mandriva RPM specific notes
