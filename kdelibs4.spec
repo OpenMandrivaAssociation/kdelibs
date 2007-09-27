@@ -19,6 +19,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revisio
 %else
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
+Source1: kde4env.sh
 Patch0: kdelibs4-homedir.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
