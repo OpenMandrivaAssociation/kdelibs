@@ -879,50 +879,7 @@ make DESTDIR=%buildroot install
 
 # Env entry for setup kde4  environment
 install -d -m 0755 %buildroot/etc/profile.d
-
-cat > %buildroot%_sysconfdir/profile.d/kde4env.sh << EOF
-#!/bin/bash
-
-if [ -z \$PKG_CONFIG_PATH ]; then
-    PKG_CONFIG_PATH=%{_kde_libdir}/pkgconfig
-else
-    PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:%{_kde_libdir}/pkgconfig
-fi
-
-export PKG_CONFIG_PATH
-
-function kde4env {
-    # KDE
-    KDEDIR=%{_kde_prefix}
-    KDEHOME=\$HOME/.kde4
-    KDETMP=\$HOME/tmp/\$USER-kde4
-    KDEVARTMP=/var/tmp/\$USER-kde4
-    mkdir -p \$KDETMP \$KDEVARTMP
-    if [ -z \$KDEDIRS ]; then
-        KDEDIRS=%{_kde_prefix}
-    else
-        KDEDIRS=\$KDEDIRS:%{_kde_prefix}
-    fi
-    # Qt
-    export QTDIR=%{qt4dir}
-    if [ -z \$QT_PLUGIN_PATH ]; then
-        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins
-    else
-        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins:\$QT_PLUGIN_PATH
-    fi
-    # DBus
-    DBUSDIR=%{_kde_prefix}
-    # Path
-    PATH=%{qt4dir}/bin:%{_kde_bindir}:\$PATH
-    # Library
-    LD_LIBRARY_PATH=%{_kde_libdir}:\$LD_LIBRARY_PATH
-    # XDG
-    unset XDG_DATA_DIRS # unset XDG_DATA_DIRS, to avoid seeing kde3 files from /usr
-    unset XDG_CONFIG_DIRS
-
-    export KDEDIR KDEHOME KDETMP KDEVARTMP KDEDIRS QTDIR QT_PLUGIN_PATH DBUSDIR PATH LD_LIBRARY_PATH 
-}
-EOF
+install -m 0755 %_sourcedir/kde4env.sh %buildroot/etc/profile.d/
 
 cat > %buildroot/%_kde_prefix/README.urpmi <<EOF
 Mandriva RPM specific notes
