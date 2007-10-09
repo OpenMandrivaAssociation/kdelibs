@@ -844,7 +844,7 @@ fi
 
 %package apidoc
 Group: Development/KDE and Qt
-Summary: Development documentation for %name.
+Summary: Development documentation for %name
 Requires: qt4-doc
 Obsoletes: kdelibs4-apidoc < 3.93.0-0.714006.1
 
