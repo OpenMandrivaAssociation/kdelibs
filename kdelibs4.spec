@@ -4,7 +4,7 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 714006
+%define revision 725600
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -55,7 +55,7 @@ BuildRequires: krb5-devel
 BuildRequires: ungif-devel
 BuildRequires: strigi-devel >=  0.5.1
 BuildRequires: shared-mime-info
-BuildRequires: soprano-devel
+BuildRequires: soprano-devel >= 1.97.0
 
 %description 
 Libraries for the K Desktop Environment.
@@ -139,24 +139,24 @@ KDE 4 core library.
 %_kde_libdir/libkdefakes.so.*
 
 #------------------------------------------------	
-
-%define libkdefx %mklibname kdefx 5
-
-%package -n %libkdefx
-Summary: KDE 4 core library
-Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
-
-%description -n %libkdefx
-KDE 4 core library.
-
-%post -n %libkdefx -p /sbin/ldconfig
-%postun -n %libkdefx -p /sbin/ldconfig
-
-%files -n %libkdefx
-%defattr(-,root,root)
-%_kde_libdir/libkdefx.so.*
-
+#
+#%define libkdefx %mklibname kdefx 5
+#
+#%package -n %libkdefx
+#Summary: KDE 4 core library
+#Group: System/Libraries
+#Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+#
+#%description -n %libkdefx
+#KDE 4 core library.
+#
+#%post -n %libkdefx -p /sbin/ldconfig
+#%postun -n %libkdefx -p /sbin/ldconfig
+#
+#%files -n %libkdefx
+#%defattr(-,root,root)
+#%_kde_libdir/libkdefx.so.*
+#
 #------------------------------------------------	
 
 %define libkdeprint_management %mklibname kdeprint_management 4
@@ -393,25 +393,25 @@ KDE 4 core library.
 %_kde_libdir/libkmediaplayer.so.*
 
 #------------------------------------------------	
-
-%define libnepomukmiddleware %mklibname nepomuk-middleware 4
-
-%package -n %libnepomukmiddleware
-Summary: KDE 4 core library
-Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}nepomuk-middleware5 < 3.93.0-0.714006.1
-
-%description -n %libnepomukmiddleware
-KDE 4 core library.
-
-%post -n %libnepomukmiddleware -p /sbin/ldconfig
-%postun -n %libnepomukmiddleware -p /sbin/ldconfig
-
-%files -n %libnepomukmiddleware
-%defattr(-,root,root)
-%_kde_libdir/libnepomuk-middleware.so.*
-
+#
+#%define libnepomukmiddleware %mklibname nepomuk-middleware 4
+#
+#%package -n %libnepomukmiddleware
+#Summary: KDE 4 core library
+#Group: System/Libraries
+#Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+#Obsoletes: %{_lib}nepomuk-middleware5 < 3.93.0-0.714006.1
+#
+#%description -n %libnepomukmiddleware
+#KDE 4 core library.
+#
+#%post -n %libnepomukmiddleware -p /sbin/ldconfig
+#%postun -n %libnepomukmiddleware -p /sbin/ldconfig
+#
+#%files -n %libnepomukmiddleware
+#%defattr(-,root,root)
+#%_kde_libdir/libnepomuk-middleware.so.*
+#
 #------------------------------------------------	
 
 %define libnepomuk %mklibname nepomuk 4
@@ -715,7 +715,7 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libsolid.so.*
 
-#------------------------------------------------	
+#------------------------------------------------
 
 %define libthreadweaver %mklibname threadweaver 4
 
@@ -735,7 +735,25 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libthreadweaver.so.*
 
-#--------------------------------------------------------------
+#------------------------------------------------
+
+%define  libkpty %mklibname kpty 4
+
+%package -n %libkpty
+Summary: KDE 4 core library
+Group: System/Libraries
+
+%description -n %libkpty
+KDE 4 core library.
+
+%post -n %libkpty -p /sbin/ldconfig
+%postun -n %libkpty -p /sbin/ldconfig
+
+%files -n %libkpty
+%defattr(-,root,root)
+%_kde_libdir/libkpty.so.*
+
+#------------------------------------------------
 
 %package devel
 Group: Development/KDE and Qt
@@ -828,6 +846,11 @@ KDE 4 system core files.
 %_kde_docdir/HTML/en/sonnet
 %_kde_configdir/xdg/menus/applications.menu
 %_kde_docdir/HTML/en/common/*
+%_kde_datadir/man/man1/checkXML.1
+%_kde_datadir/man/man1/kde4-config.1
+%_kde_datadir/man/man7/kdeoptions.7
+%_kde_datadir/man/man7/qtoptions.7
+%_kde_datadir/man/man8/kbuildsycoca4.8
 %exclude %_kde_bindir/checkXML
 %exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
