@@ -4,12 +4,12 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 725600
+%define revision 726000
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 3.93.0
-Release: %mkrel 0.%revision.2
+Release: %mkrel 0.%revision.1
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -770,7 +770,6 @@ Requires: %libkaudiodevicelist = %version
 Requires: %libkde3support = %version
 Requires: %libkdecore = %version
 Requires: %libkdefakes = %version
-Requires: %libkdefx = %version
 Requires: %libkdeprint_management = %version
 Requires: %libkdeprint = %version
 Requires: %libkdesu = %version
@@ -784,7 +783,6 @@ Requires: %libkjsembed = %version
 Requires: %libkjs = %version
 Requires: %libkmediaplayer = %version
 Requires: %libnepomuk = %version
-Requires: %libnepomukmiddleware = %version
 Requires: %libknewstuff2 = %version
 Requires: %libknotifyconfig = %version
 Requires: %libkntlm = %version
@@ -799,6 +797,7 @@ Requires: %libphononexperimental = %version
 Requires: %libphonon = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
+Requires: %libkpty = %version
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 
 %description devel
