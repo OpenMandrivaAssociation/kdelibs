@@ -9,7 +9,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 3.94.0
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -393,26 +393,6 @@ KDE 4 core library.
 %_kde_libdir/libkmediaplayer.so.*
 
 #------------------------------------------------	
-#
-#%define libnepomukmiddleware %mklibname nepomuk-middleware 4
-#
-#%package -n %libnepomukmiddleware
-#Summary: KDE 4 core library
-#Group: System/Libraries
-#Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
-#Obsoletes: %{_lib}nepomuk-middleware5 < 3.93.0-0.714006.1
-#
-#%description -n %libnepomukmiddleware
-#KDE 4 core library.
-#
-#%post -n %libnepomukmiddleware -p /sbin/ldconfig
-#%postun -n %libnepomukmiddleware -p /sbin/ldconfig
-#
-#%files -n %libnepomukmiddleware
-#%defattr(-,root,root)
-#%_kde_libdir/libnepomuk-middleware.so.*
-#
-#------------------------------------------------	
 
 %define libnepomuk %mklibname nepomuk 4
 
@@ -424,6 +404,8 @@ Obsoletes: %{_lib}knepomuk5 < 3.93.0-0.714006.1
 Obsoletes: %{_lib}nepomuk5 < 3.93.0-0.714006.1
 Obsoletes: %{_lib}kmetadata5 < 3.93.0-0.714006.1
 Obsoletes: %{_lib}konto5 < 3.93.0-0.714006.1
+Obsoletes: %{_lib}nepomukmiddleware4 < 3.93.0-0.725600.1
+
 
 %description -n %libnepomuk
 KDE 4 core library.
