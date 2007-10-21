@@ -9,7 +9,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 3.94.0
-Release: %mkrel 0.%revision.2
+Release: %mkrel 0.%revision.3
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -57,6 +57,8 @@ BuildRequires: strigi-devel >=  0.5.1
 BuildRequires: shared-mime-info
 BuildRequires: soprano-devel >= 1.97.0
 
+Requires:      kde4-l10n
+
 %description 
 Libraries for the K Desktop Environment.
 
@@ -67,7 +69,7 @@ Libraries for the K Desktop Environment.
 %package -n %libkaudiodevicelist
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kaudiodevicelist5 < 3.93.0-0.714006.1
 
 %description -n %libkaudiodevicelist
@@ -87,7 +89,7 @@ KDE 4 core library.
 %package -n %libkde3support
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kde3support5 < 3.93.0-0.714006.1
 
 %description -n %libkde3support
@@ -126,7 +128,7 @@ KDE 4 core library.
 %package -n %libkdefakes
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdefakes
 KDE 4 core library.
@@ -145,7 +147,7 @@ KDE 4 core library.
 #%package -n %libkdefx
 #Summary: KDE 4 core library
 #Group: System/Libraries
-#Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+#Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 #
 #%description -n %libkdefx
 #KDE 4 core library.
@@ -164,7 +166,7 @@ KDE 4 core library.
 %package -n %libkdeprint_management
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kdeprint_management5 < 3.93.0-0.714006.1
 
 %description -n %libkdeprint_management
@@ -184,7 +186,7 @@ KDE 4 core library.
 %package -n %libkdeprint
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdeprint
 KDE 4 core library.
@@ -203,7 +205,7 @@ KDE 4 core library.
 %package -n %libkdesu
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdesu
 KDE 4 core library.
@@ -222,7 +224,7 @@ KDE 4 core library.
 %package -n %libkdeui
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkdeui
 KDE 4 core library.
@@ -241,7 +243,7 @@ KDE 4 core library.
 %package -n %libkdnssd
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kdnssd5 < 3.93.0-0.714006.1
 
 %description -n %libkdnssd
@@ -261,7 +263,7 @@ KDE 4 core library.
 %package -n %libkfile
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kfile5 < 3.93.0-0.714006.1
 
 %description -n %libkfile
@@ -281,7 +283,7 @@ KDE 4 core library.
 %package -n %libkhtml
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkhtml
 KDE 4 core library.
@@ -300,7 +302,7 @@ KDE 4 core library.
 %package -n %libkimproxy
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kimproxy5 < 3.93.0-0.714006.1
 
 %description -n %libkimproxy
@@ -320,7 +322,7 @@ KDE 4 core library.
 %package -n %libkio
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 
 %description -n %libkio
 KDE 4 core library.
@@ -339,7 +341,7 @@ KDE 4 core library.
 %package -n %libkjsembed
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kjsembed5 < 3.93.0-0.714006.1
 
 %description -n %libkjsembed
@@ -359,7 +361,7 @@ KDE 4 core library.
 %package -n %libkjs
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kjs5 < 3.93.0-0.714006.1
 
 %description -n %libkjs
@@ -379,7 +381,7 @@ KDE 4 core library.
 %package -n %libkmediaplayer
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kmediaplayer5 < 3.93.0-0.714006.1
 
 %description -n %libkmediaplayer
@@ -399,7 +401,7 @@ KDE 4 core library.
 %package -n %libnepomuk
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}knepomuk5 < 3.93.0-0.714006.1
 Obsoletes: %{_lib}nepomuk5 < 3.93.0-0.714006.1
 Obsoletes: %{_lib}kmetadata5 < 3.93.0-0.714006.1
@@ -424,7 +426,7 @@ KDE 4 core library.
 %package -n %libknewstuff2
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}knewstuff25 < 3.93.0-0.714006.1
 
 %description -n %libknewstuff2
@@ -444,7 +446,7 @@ KDE 4 core library.
 %package -n %libknotifyconfig
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}knotifyconfig5 < 3.93.0-0.714006.1
 
 %description -n %libknotifyconfig
@@ -464,7 +466,7 @@ KDE 4 core library.
 %package -n %libkntlm
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kntlm5 < 3.93.0-0.714006.1
 
 %description -n %libkntlm
@@ -484,7 +486,7 @@ KDE 4 core library.
 %package -n %libkparts
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kparts5 < 3.93.0-0.714006.1
 
 %description -n %libkparts
@@ -504,7 +506,7 @@ KDE 4 core library.
 %package -n %libkrosscore
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}krosscore5 < 3.93.0-0.714006.1
 
 %description -n %libkrosscore
@@ -524,7 +526,7 @@ KDE 4 core library.
 %package -n %libkrossui
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}krossui5 < 3.93.0-0.714006.1
 
 %description -n %libkrossui
@@ -544,7 +546,7 @@ KDE 4 core library.
 %package -n %libktexteditor
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}ktexteditor5 < 3.93.0-0.714006.1
 
 %description -n %libktexteditor
@@ -564,7 +566,7 @@ KDE 4 core library.
 %package -n %libkunittest
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kunittest5 < 3.93.0-0.714006.1
 
 %description -n %libkunittest
@@ -584,7 +586,7 @@ KDE 4 core library.
 %package -n %libcupsdconf
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}cupsdconf5 < 3.93.0-0.714006.1
 
 %description -n %libcupsdconf
@@ -604,7 +606,7 @@ KDE 4 core library.
 %package -n %libkutils
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kutils5 < 3.93.0-0.714006.1
 
 %description -n %libkutils
@@ -624,7 +626,7 @@ KDE 4 core library.
 %package -n %libkwalletbackend
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
 
 %description -n %libkwalletbackend
@@ -644,7 +646,7 @@ KDE 4 core library.
 %package -n %libphononexperimental
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}phononexperimental5 < 3.93.0-0.714006.1
 
 %description -n %libphononexperimental
@@ -664,7 +666,7 @@ KDE 4 core library.
 %package -n %libphonon
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}phonon5 < 3.93.0-0.714006.1
 
 %description -n %libphonon
@@ -684,7 +686,7 @@ KDE 4 core library.
 %package -n %libsolid
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}solid5 < 3.93.0-0.714006.1
 
 %description -n %libsolid
@@ -704,7 +706,7 @@ KDE 4 core library.
 %package -n %libthreadweaver
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}threadweaver5 < 3.93.0-0.714006.1
 
 %description -n %libthreadweaver
