@@ -71,6 +71,10 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kaudiodevicelist5 < 3.93.0-0.714006.1
+Obsoletes: %{_lib}cupsdconf4 < 3.93.0-0.728415.2
+Obsoletes: %{_lib}kdefx5 < 3.93.0-0.728415.2
+Obsoletes: %{_lib}kdeprint_management4 < 3.93.0-0.728415.2
+Obsoletes: %{_lib}kdeprint5 < 3.93.0-0.728415.2
 
 %description -n %libkaudiodevicelist
 KDE 4 core library.
@@ -139,64 +143,6 @@ KDE 4 core library.
 %files -n %libkdefakes
 %defattr(-,root,root)
 %_kde_libdir/libkdefakes.so.*
-
-#------------------------------------------------	
-#
-#%define libkdefx %mklibname kdefx 5
-#
-#%package -n %libkdefx
-#Summary: KDE 4 core library
-#Group: System/Libraries
-#Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-#
-#%description -n %libkdefx
-#KDE 4 core library.
-#
-#%post -n %libkdefx -p /sbin/ldconfig
-#%postun -n %libkdefx -p /sbin/ldconfig
-#
-#%files -n %libkdefx
-#%defattr(-,root,root)
-#%_kde_libdir/libkdefx.so.*
-#
-#------------------------------------------------	
-
-%define libkdeprint_management %mklibname kdeprint_management 4
-
-%package -n %libkdeprint_management
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}kdeprint_management5 < 3.93.0-0.714006.1
-
-%description -n %libkdeprint_management
-KDE 4 core library.
-
-%post -n %libkdeprint_management -p /sbin/ldconfig
-%postun -n %libkdeprint_management -p /sbin/ldconfig
-
-%files -n %libkdeprint_management
-%defattr(-,root,root)
-%_kde_libdir/libkdeprint_management.so.*
-
-#------------------------------------------------	
-
-%define libkdeprint %mklibname kdeprint 5
-
-%package -n %libkdeprint
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-
-%description -n %libkdeprint
-KDE 4 core library.
-
-%post -n %libkdeprint -p /sbin/ldconfig
-%postun -n %libkdeprint -p /sbin/ldconfig
-
-%files -n %libkdeprint
-%defattr(-,root,root)
-%_kde_libdir/libkdeprint.so.*
 
 #------------------------------------------------	
 
@@ -580,25 +526,25 @@ KDE 4 core library.
 %_kde_libdir/libkunittest.so.*
 
 #------------------------------------------------
-
-%define libcupsdconf %mklibname cupsdconf 4
-
-%package -n %libcupsdconf
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}cupsdconf5 < 3.93.0-0.714006.1
-
-%description -n %libcupsdconf
-KDE 4 core library.
-
-%post -n %libcupsdconf -p /sbin/ldconfig
-%postun -n %libcupsdconf -p /sbin/ldconfig
-
-%files -n %libcupsdconf
-%defattr(-,root,root)
-%_kde_libdir/libcupsdconf.so.*
-
+#
+#%define libcupsdconf %mklibname cupsdconf 4
+#
+#%package -n %libcupsdconf
+#Summary: KDE 4 core library
+#Group: System/Libraries
+#Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
+#Obsoletes: %{_lib}cupsdconf5 < 3.93.0-0.714006.1
+#
+#%description -n %libcupsdconf
+#KDE 4 core library.
+#
+#%post -n %libcupsdconf -p /sbin/ldconfig
+#%postun -n %libcupsdconf -p /sbin/ldconfig
+#
+#%files -n %libcupsdconf
+#%defattr(-,root,root)
+#%_kde_libdir/libcupsdconf.so.*
+#
 #------------------------------------------------	
 
 %define libkutils %mklibname kutils 4
