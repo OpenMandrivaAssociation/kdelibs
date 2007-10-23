@@ -525,26 +525,6 @@ KDE 4 core library.
 %defattr(-,root,root)
 %_kde_libdir/libkunittest.so.*
 
-#------------------------------------------------
-#
-#%define libcupsdconf %mklibname cupsdconf 4
-#
-#%package -n %libcupsdconf
-#Summary: KDE 4 core library
-#Group: System/Libraries
-#Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-#Obsoletes: %{_lib}cupsdconf5 < 3.93.0-0.714006.1
-#
-#%description -n %libcupsdconf
-#KDE 4 core library.
-#
-#%post -n %libcupsdconf -p /sbin/ldconfig
-#%postun -n %libcupsdconf -p /sbin/ldconfig
-#
-#%files -n %libcupsdconf
-#%defattr(-,root,root)
-#%_kde_libdir/libcupsdconf.so.*
-#
 #------------------------------------------------	
 
 %define libkutils %mklibname kutils 4
@@ -700,8 +680,6 @@ Requires: %libkaudiodevicelist = %version
 Requires: %libkde3support = %version
 Requires: %libkdecore = %version
 Requires: %libkdefakes = %version
-Requires: %libkdeprint_management = %version
-Requires: %libkdeprint = %version
 Requires: %libkdesu = %version
 Requires: %libkdeui = %version
 Requires: %libkdnssd = %version
