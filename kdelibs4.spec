@@ -852,11 +852,6 @@ install -m 0755 %_sourcedir/kde4env.sh %buildroot/etc/profile.d/
 rm -rf %buildroot%_kde_datadir/mime
 ln -s %_datadir/mime %buildroot%_kde_datadir/mime
 
-# Use the new ld.so.conf.d 
-pushd %buildroot/%_sysconfdir/ld.so.conf.d
-echo "%{_kde_libdir}" > kde4.conf
-popd
-
 cat > %buildroot/%_kde_prefix/README.urpmi <<EOF
 Mandriva RPM specific notes
 
