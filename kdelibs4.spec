@@ -769,7 +769,6 @@ KDE 4 system core files.
 %files core
 %defattr(-,root,root,-)
 %_kde_prefix/README.urpmi
-%_sysconfdir/ld.so.conf.d/*
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %_kde_bindir/*
 %_kde_libdir/kde4/*
