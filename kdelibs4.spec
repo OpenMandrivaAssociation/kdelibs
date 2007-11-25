@@ -704,6 +704,7 @@ Requires: qt4-devel >= 4.3.0
 Requires: cmake
 Requires: soprano-devel
 Requires: strigi-devel
+Requires: libxml2-utils
 Requires: kdelibs4-core = %version
 Requires: %libkaudiodevicelist = %version
 Requires: %libkde3support = %version
