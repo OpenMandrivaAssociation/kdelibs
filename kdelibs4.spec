@@ -4,7 +4,7 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 739810
+%define revision 741480
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -771,6 +771,7 @@ KDE 4 system core files.
 %defattr(-,root,root,-)
 %_kde_prefix/README.urpmi
 %attr(0755,root,root) %_sysconfdir/profile.d/*
+%_sysconfdir/ld.so.conf.d/kde4.conf
 %_kde_bindir/*
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
@@ -838,15 +839,14 @@ cd build
 make DESTDIR=%buildroot install
 
 # Are libs really conflicting with kde3 libs ?  
-#install -d %buildroot/etc/ld.so.conf.d
-
-#cat > %buildroot/etc/ld.so.conf.d/kde4.conf <<EOF
-#%_kde_libdir
-#EOF
+install -d %buildroot/%_sysconfdir/ld.so.conf.d
+cat > %buildroot/%_sysconfdir/ld.so.conf.d/kde4.conf <<EOF
+%_kde_libdir
+EOF
 
 # Env entry for setup kde4  environment
-install -d -m 0755 %buildroot/etc/profile.d
-install -m 0755 %_sourcedir/kde4env.sh %buildroot/etc/profile.d/
+install -d -m 0755 %buildroot/%_sysconfdir/profile.d
+install -m 0755 %_sourcedir/kde4env.sh %buildroot/%_sysconfdir/profile.d/
 
 # use shared-mime-info
 rm -rf %buildroot%_kde_datadir/mime
