@@ -704,6 +704,8 @@ Requires: qt4-devel >= 4.3.0
 Requires: cmake
 Requires: soprano-devel
 Requires: strigi-devel
+# add requires on libxml2-utils, as when building most kde applications,
+# it will call xmllint to validate the docbook files:
 Requires: libxml2-utils
 Requires: kdelibs4-core = %version
 Requires: %libkaudiodevicelist = %version
