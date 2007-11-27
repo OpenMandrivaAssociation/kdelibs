@@ -9,7 +9,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 3.96.1
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -21,6 +21,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
 Source1: kde4env.sh
 Patch0: kdelibs4-homedir.patch
+Patch1: kdelibs-3.96.1-fix-empty-page-bugzilla.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.3.0
@@ -822,7 +823,7 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p1 -b .homedir
-
+%patch1 -p0
 %build
 %cmake_kde4 
 
