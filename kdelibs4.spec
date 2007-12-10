@@ -4,11 +4,11 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 745252
+%define revision 746866
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 3.97.0
+Version: 3.97.1
 Release: %mkrel 0.%revision.1
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -55,7 +55,7 @@ BuildRequires: krb5-devel
 BuildRequires: ungif-devel
 BuildRequires: strigi-devel >=  0.5.1
 BuildRequires: shared-mime-info
-BuildRequires: soprano-devel >= 1.97.0
+BuildRequires: soprano-devel >= 1.99.0
 
 Requires:      kde4-l10n
 
