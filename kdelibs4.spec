@@ -4,7 +4,7 @@
 %define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 746866
+%define revision 751982
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -772,7 +772,7 @@ KDE 4 system core files.
 %defattr(-,root,root,-)
 %_kde_prefix/README.urpmi
 %attr(0755,root,root) %_sysconfdir/profile.d/*
-%_sysconfdir/ld.so.conf.d/kde4.conf
+#%_sysconfdir/ld.so.conf.d/kde4.conf
 %_kde_bindir/*
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
@@ -840,10 +840,10 @@ cd build
 make DESTDIR=%buildroot install
 
 # Are libs really conflicting with kde3 libs ?  
-install -d %buildroot/%_sysconfdir/ld.so.conf.d
-cat > %buildroot/%_sysconfdir/ld.so.conf.d/kde4.conf <<EOF
-%_kde_libdir
-EOF
+#install -d %buildroot/%_sysconfdir/ld.so.conf.d
+#cat > %buildroot/%_sysconfdir/ld.so.conf.d/kde4.conf <<EOF
+#%_kde_libdir
+#EOF
 
 # Env entry for setup kde4  environment
 install -d -m 0755 %buildroot/%_sysconfdir/profile.d
