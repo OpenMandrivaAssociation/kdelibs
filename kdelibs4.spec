@@ -14,13 +14,14 @@ License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
 %if %branch
-Release: %mkrel 0.%revision.1
+Release: %mkrel 0.%revision.2
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
 %else
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
 Source1: kde4env.sh
+Source2: kde.pam
 Patch0: kdelibs4-homedir.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
@@ -798,6 +799,7 @@ KDE 4 system core files.
 %exclude %_kde_libdir/kde4/plugins/designer
 # exclude remaining icons. should not be here
 %exclude %_kde_datadir/icons
+%_sysconfdir/pam.d/kde
 
 %pre core
 if [ -d %_kde_datadir/mime ]; then
@@ -841,11 +843,10 @@ cd build
 
 make DESTDIR=%buildroot install
 
-# Are libs really conflicting with kde3 libs ?  
-#install -d %buildroot/%_sysconfdir/ld.so.conf.d
-#cat > %buildroot/%_sysconfdir/ld.so.conf.d/kde4.conf <<EOF
-#%_kde_libdir
-#EOF
+# Install kde pam configuration file
+install -d -m 0755 %buildroot%_sysconfdir/pam.d/
+install -m 0644 %SOURCE2 %buildroot%_sysconfdir/pam.d/kde
+
 
 # Env entry for setup kde4  environment
 install -d -m 0755 %buildroot/%_sysconfdir/profile.d
