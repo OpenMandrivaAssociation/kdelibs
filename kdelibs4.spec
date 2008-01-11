@@ -17,7 +17,7 @@ URL: http://www.kde.org
 Release: %mkrel 0.%revision.2
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
 %else
-Release: %mkrel 2
+Release: %mkrel 3
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
 Source1: kde4env.sh
