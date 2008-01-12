@@ -66,7 +66,8 @@ Libraries for the K Desktop Environment.
 
 #------------------------------------------------	
 
-%define libkaudiodevicelist %mklibname kaudiodevicelist 4
+%define kaudiodevicelist_major 4
+%define libkaudiodevicelist %mklibname kaudiodevicelist %kaudiodevicelist_major
 
 %package -n %libkaudiodevicelist
 Summary: KDE 4 core library
@@ -87,11 +88,12 @@ KDE 4 core library.
 
 %files -n %libkaudiodevicelist
 %defattr(-,root,root)
-%_kde_libdir/libkaudiodevicelist.so.*
+%_kde_libdir/libkaudiodevicelist.so.%{kaudiodevicelist_major}*
 
 #------------------------------------------------	
 
-%define libkde3support %mklibname kde3support 4
+%define kde3support_major 4
+%define libkde3support %mklibname kde3support %kde3support_major
 
 %package -n %libkde3support
 Summary: KDE 4 core library
@@ -108,11 +110,12 @@ KDE 4 core library.
 
 %files -n %libkde3support
 %defattr(-,root,root)
-%_kde_libdir/libkde3support.so.*
+%_kde_libdir/libkde3support.so.%{kde3support_major}*
 
 #------------------------------------------------	
 
-%define libkdecore %mklibname kdecore 5
+%define kdecore_major 5
+%define libkdecore %mklibname kdecore %kdecore_major
 
 %package -n %libkdecore
 Summary: KDE 4 core library
@@ -128,11 +131,12 @@ KDE 4 core library.
 
 %files -n %libkdecore
 %defattr(-,root,root)
-%_kde_libdir/libkdecore.so.*
+%_kde_libdir/libkdecore.so.%{kdecore_major}*
 
 #------------------------------------------------	
 
-%define libkdefakes %mklibname kdefakes 5
+%define kdefakes_major 5
+%define libkdefakes %mklibname kdefakes %kdefakes_major
 
 %package -n %libkdefakes
 Summary: KDE 4 core library
@@ -148,11 +152,12 @@ KDE 4 core library.
 
 %files -n %libkdefakes
 %defattr(-,root,root)
-%_kde_libdir/libkdefakes.so.*
+%_kde_libdir/libkdefakes.so.%{kdefakes_major}*
 
 #------------------------------------------------	
 
-%define libkdesu %mklibname kdesu 5
+%define kdesu_major 5
+%define libkdesu %mklibname kdesu %kdesu_major
 
 %package -n %libkdesu
 Summary: KDE 4 core library
@@ -168,11 +173,12 @@ KDE 4 core library.
 
 %files -n %libkdesu
 %defattr(-,root,root)
-%_kde_libdir/libkdesu.so.*
+%_kde_libdir/libkdesu.so.%{kdesu_major}*
 
 #------------------------------------------------	
 
-%define libkdeui %mklibname kdeui 5
+%define kdeui_major 5
+%define libkdeui %mklibname kdeui %kdeui_major
 
 %package -n %libkdeui
 Summary: KDE 4 core library
@@ -188,11 +194,12 @@ KDE 4 core library.
 
 %files -n %libkdeui
 %defattr(-,root,root)
-%_kde_libdir/libkdeui.so.*
+%_kde_libdir/libkdeui.so.%{kdeui_major}*
 
 #------------------------------------------------	
 
-%define libkdnssd %mklibname kdnssd 4
+%define kdnssd_major 4
+%define libkdnssd %mklibname kdnssd %kdnssd_major
 
 %package -n %libkdnssd
 Summary: KDE 4 core library
@@ -209,11 +216,12 @@ KDE 4 core library.
 
 %files -n %libkdnssd
 %defattr(-,root,root)
-%_kde_libdir/libkdnssd.so.*
+%_kde_libdir/libkdnssd.so.%{kdnssd_major}*
 
 #------------------------------------------------	
 
-%define libkfile %mklibname kfile 4
+%define kfile_major 4
+%define libkfile %mklibname kfile %kfile_major
 
 %package -n %libkfile
 Summary: KDE 4 core library
@@ -230,11 +238,12 @@ KDE 4 core library.
 
 %files -n %libkfile
 %defattr(-,root,root)
-%_kde_libdir/libkfile.so.*
+%_kde_libdir/libkfile.so.%{kfile_major}*
 
 #------------------------------------------------	
 
-%define libkhtml %mklibname khtml 5
+%define khtml_major 5
+%define libkhtml %mklibname khtml %khtml_major
 
 %package -n %libkhtml
 Summary: KDE 4 core library
@@ -250,11 +259,12 @@ KDE 4 core library.
 
 %files -n %libkhtml
 %defattr(-,root,root)
-%_kde_libdir/libkhtml.so.*
+%_kde_libdir/libkhtml.so.%{khtml_major}*
 
 #------------------------------------------------	
 
-%define libkimproxy %mklibname kimproxy 4
+%define kimproxy_major 4
+%define libkimproxy %mklibname kimproxy %kimproxy_major
 
 %package -n %libkimproxy
 Summary: KDE 4 core library
@@ -271,11 +281,12 @@ KDE 4 core library.
 
 %files -n %libkimproxy
 %defattr(-,root,root)
-%_kde_libdir/libkimproxy.so.*
+%_kde_libdir/libkimproxy.so.%{kimproxy_major}*
 
 #------------------------------------------------	
 
-%define libkio %mklibname kio 5
+%define kio_major 5
+%define libkio %mklibname kio %kio_major
 
 %package -n %libkio
 Summary: KDE 4 core library
@@ -291,11 +302,12 @@ KDE 4 core library.
 
 %files -n %libkio
 %defattr(-,root,root)
-%_kde_libdir/libkio.so.*
+%_kde_libdir/libkio.so.%{kio_major}*
 
 #------------------------------------------------	
 
-%define libkjsembed %mklibname kjsembed 4
+%define kjsembed_major 4
+%define libkjsembed %mklibname kjsembed %kjsembed_major
 
 %package -n %libkjsembed
 Summary: KDE 4 core library
@@ -312,11 +324,12 @@ KDE 4 core library.
 
 %files -n %libkjsembed
 %defattr(-,root,root)
-%_kde_libdir/libkjsembed.so.*
+%_kde_libdir/libkjsembed.so.%{kjsembed_major}*
 
 #------------------------------------------------	
 
-%define libkjs %mklibname kjs 4
+%define kjs_major 4
+%define libkjs %mklibname kjs %kjs_major
 
 %package -n %libkjs
 Summary: KDE 4 core library
@@ -333,11 +346,12 @@ KDE 4 core library.
 
 %files -n %libkjs
 %defattr(-,root,root)
-%_kde_libdir/libkjs.so.*
+%_kde_libdir/libkjs.so.%{kjs_major}*
 
 #------------------------------------------------	
 
-%define libkmediaplayer %mklibname kmediaplayer 4
+%define kmediaplayer_major 4
+%define libkmediaplayer %mklibname kmediaplayer %kmediaplayer_major
 
 %package -n %libkmediaplayer
 Summary: KDE 4 core library
@@ -354,11 +368,12 @@ KDE 4 core library.
 
 %files -n %libkmediaplayer
 %defattr(-,root,root)
-%_kde_libdir/libkmediaplayer.so.*
+%_kde_libdir/libkmediaplayer.so.%{kmediaplayer_major}*
 
 #------------------------------------------------	
 
-%define libnepomuk %mklibname nepomuk 4
+%define nepomuk_major 4
+%define libnepomuk %mklibname nepomuk %nepomuk_major
 
 %package -n %libnepomuk
 Summary: KDE 4 core library
@@ -379,11 +394,12 @@ KDE 4 core library.
 
 %files -n %libnepomuk
 %defattr(-,root,root)
-%_kde_libdir/libnepomuk.so.*
+%_kde_libdir/libnepomuk.so.%{nepomuk_major}*
 
 #------------------------------------------------	
 
-%define libknewstuff2 %mklibname knewstuff2 4
+%define knewstuff2_major 4
+%define libknewstuff2 %mklibname knewstuff2 %knewstuff2_major
 
 %package -n %libknewstuff2
 Summary: KDE 4 core library
@@ -400,11 +416,12 @@ KDE 4 core library.
 
 %files -n %libknewstuff2
 %defattr(-,root,root)
-%_kde_libdir/libknewstuff2.so.*
+%_kde_libdir/libknewstuff2.so.%{knewstuff2_major}*
 
 #------------------------------------------------	
 
-%define libknotifyconfig %mklibname knotifyconfig 4
+%define knotifyconfig_major 4
+%define libknotifyconfig %mklibname knotifyconfig %knotifyconfig_major
 
 %package -n %libknotifyconfig
 Summary: KDE 4 core library
@@ -421,11 +438,12 @@ KDE 4 core library.
 
 %files -n %libknotifyconfig
 %defattr(-,root,root)
-%_kde_libdir/libknotifyconfig.so.*
+%_kde_libdir/libknotifyconfig.so.%{knotifyconfig_major}*
 
 #------------------------------------------------	
 
-%define libkntlm %mklibname kntlm 4
+%define kntlm_major 4
+%define libkntlm %mklibname kntlm %kntlm_major
 
 %package -n %libkntlm
 Summary: KDE 4 core library
@@ -442,11 +460,12 @@ KDE 4 core library.
 
 %files -n %libkntlm
 %defattr(-,root,root)
-%_kde_libdir/libkntlm.so.*
+%_kde_libdir/libkntlm.so.%{kntlm_major}*
 
 #------------------------------------------------	
 
-%define libkparts %mklibname kparts 4
+%define kparts_major 4
+%define libkparts %mklibname kparts %kparts_major
 
 %package -n %libkparts
 Summary: KDE 4 core library
@@ -463,11 +482,12 @@ KDE 4 core library.
 
 %files -n %libkparts
 %defattr(-,root,root)
-%_kde_libdir/libkparts.so.*
+%_kde_libdir/libkparts.so.%{kparts_major}*
 
 #------------------------------------------------	
 
-%define libkrosscore %mklibname krosscore 4
+%define krosscore_major 4
+%define libkrosscore %mklibname krosscore %krosscore_major
 
 %package -n %libkrosscore
 Summary: KDE 4 core library
@@ -484,11 +504,12 @@ KDE 4 core library.
 
 %files -n %libkrosscore
 %defattr(-,root,root)
-%_kde_libdir/libkrosscore.so.*
+%_kde_libdir/libkrosscore.so.%{krosscore_major}*
 
 #------------------------------------------------	
 
-%define libkrossui %mklibname krossui 4
+%define krossui_major 4
+%define libkrossui %mklibname krossui %krossui_major
 
 %package -n %libkrossui
 Summary: KDE 4 core library
@@ -505,11 +526,12 @@ KDE 4 core library.
 
 %files -n %libkrossui
 %defattr(-,root,root)
-%_kde_libdir/libkrossui.so.*
+%_kde_libdir/libkrossui.so.%{krossui_major}*
 
 #------------------------------------------------	
 
-%define libktexteditor %mklibname ktexteditor 4
+%define ktexteditor_major 4
+%define libktexteditor %mklibname ktexteditor %ktexteditor_major
 
 %package -n %libktexteditor
 Summary: KDE 4 core library
@@ -526,11 +548,12 @@ KDE 4 core library.
 
 %files -n %libktexteditor
 %defattr(-,root,root)
-%_kde_libdir/libktexteditor.so.*
+%_kde_libdir/libktexteditor.so.%{ktexteditor_major}*
 
 #------------------------------------------------	
 
-%define libkunittest %mklibname kunittest 4
+%define kunittest_major 4
+%define libkunittest %mklibname kunittest %kunittest_major
 
 %package -n %libkunittest
 Summary: KDE 4 core library
@@ -547,11 +570,12 @@ KDE 4 core library.
 
 %files -n %libkunittest
 %defattr(-,root,root)
-%_kde_libdir/libkunittest.so.*
+%_kde_libdir/libkunittest.so.%{kunittest_major}*
 
 #------------------------------------------------	
 
-%define libkutils %mklibname kutils 4
+%define kutils_major 4
+%define libkutils %mklibname kutils %kutils_major
 
 %package -n %libkutils
 Summary: KDE 4 core library
@@ -568,11 +592,12 @@ KDE 4 core library.
 
 %files -n %libkutils
 %defattr(-,root,root)
-%_kde_libdir/libkutils.so.*
+%_kde_libdir/libkutils.so.%{kutils_major}*
 
 #------------------------------------------------	
 
-%define libkwalletbackend %mklibname kwalletbackend 4
+%define kwalletbackend_major 4
+%define libkwalletbackend %mklibname kwalletbackend %kwalletbackend_major
 
 %package -n %libkwalletbackend
 Summary: KDE 4 core library
@@ -589,11 +614,12 @@ KDE 4 core library.
 
 %files -n %libkwalletbackend
 %defattr(-,root,root)
-%_kde_libdir/libkwalletbackend.so.*
+%_kde_libdir/libkwalletbackend.so.%{kwalletbackend_major}*
 
 #------------------------------------------------	
 
-%define libphononexperimental %mklibname phononexperimental 4
+%define phononexperimental_major 4
+%define libphononexperimental %mklibname phononexperimental %phononexperimental_major
 
 %package -n %libphononexperimental
 Summary: KDE 4 core library
@@ -610,11 +636,12 @@ KDE 4 core library.
 
 %files -n %libphononexperimental
 %defattr(-,root,root)
-%_kde_libdir/libphononexperimental.so.*
+%_kde_libdir/libphononexperimental.so.%{phononexperimental_major}*
 
 #------------------------------------------------	
 
-%define libphonon %mklibname phonon 4
+%define phonon_major 4
+%define libphonon %mklibname phonon %phonon_major
 
 %package -n %libphonon
 Summary: KDE 4 core library
@@ -631,11 +658,12 @@ KDE 4 core library.
 
 %files -n %libphonon
 %defattr(-,root,root)
-%_kde_libdir/libphonon.so.*
+%_kde_libdir/libphonon.so.%{phonon_major}*
 
 #------------------------------------------------	
 
-%define libsolid %mklibname solid 4
+%define solid_major 4
+%define libsolid %mklibname solid %solid_major
 
 %package -n %libsolid
 Summary: KDE 4 core library
@@ -652,11 +680,12 @@ KDE 4 core library.
 
 %files -n %libsolid
 %defattr(-,root,root)
-%_kde_libdir/libsolid.so.*
+%_kde_libdir/libsolid.so.%{solid_major}*
 
 #------------------------------------------------
 
-%define libthreadweaver %mklibname threadweaver 4
+%define threadweaver_major 4
+%define libthreadweaver %mklibname threadweaver %threadweaver_major
 
 %package -n %libthreadweaver
 Summary: KDE 4 core library
@@ -673,11 +702,12 @@ KDE 4 core library.
 
 %files -n %libthreadweaver
 %defattr(-,root,root)
-%_kde_libdir/libthreadweaver.so.*
+%_kde_libdir/libthreadweaver.so.%{threadweaver_major}*
 
 #------------------------------------------------
 
-%define  libkpty %mklibname kpty 4
+%define  kpty_major 4
+%define  libkpty %mklibname kpty %kpty_major
 
 %package -n %libkpty
 Summary: KDE 4 core library
@@ -692,7 +722,7 @@ KDE 4 core library.
 
 %files -n %libkpty
 %defattr(-,root,root)
-%_kde_libdir/libkpty.so.*
+%_kde_libdir/libkpty.so.%{kpty_major}*
 
 #------------------------------------------------
 
