@@ -14,10 +14,10 @@ License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
 %if %branch
-Release: %mkrel 0.%revision.2
+Release: %mkrel 0.%revision.1
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
 %else
-Release: %mkrel 3
+Release: %mkrel 4
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
 Source1: kde4env.sh
@@ -782,7 +782,31 @@ browsing.
 %_kde_prefix/include/*
 %_kde_appsdir/cmake/modules/*
 %_datadir/dbus-1/*/*
-%_kde_libdir/*.so
+%_kde_libdir/libkaudiodevicelist.so
+%_kde_libdir/libkdecore.so
+%_kde_libdir/libkdefakes.so
+%_kde_libdir/libkdesu.so
+%_kde_libdir/libkdeui.so
+%_kde_libdir/libkdnssd.so
+%_kde_libdir/libkhtml.so
+%_kde_libdir/libkimproxy.so
+%_kde_libdir/libkio.so
+%_kde_libdir/libkjs.so
+%_kde_libdir/libkjsembed.so
+%_kde_libdir/libkmediaplayer.so
+%_kde_libdir/libknewstuff2.so
+%_kde_libdir/libknotifyconfig.so
+%_kde_libdir/libkntlm.so
+%_kde_libdir/libkparts.so
+%_kde_libdir/libkrossui.so
+%_kde_libdir/libktexteditor.so
+%_kde_libdir/libkunittest.so
+%_kde_libdir/libkutils.so
+%_kde_libdir/libkwalletbackend.so
+%_kde_libdir/libnepomuk.so
+%_kde_libdir/libphonon.so
+%_kde_libdir/libphononexperimental.so
+%_kde_libdir/libthreadweaver.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_bindir/kconfig_compiler
@@ -806,10 +830,20 @@ KDE 4 system core files.
 %_kde_prefix/README.urpmi
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 #%_sysconfdir/ld.so.conf.d/kde4.conf
+%dir %_kde_bindir
 %_kde_bindir/*
+%dir %_kde_libdir
+%_kde_libdir/libkde3support.so
+%_kde_libdir/libkpty.so
+%_kde_libdir/libkfile.so
+%_kde_libdir/libsolid.so
+%_kde_libdir/libkrosscore.so
+%dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
+%dir %_kde_appsdir
 %_kde_appsdir/*/*
+%dir %_kde_datadir
 %_kde_datadir/config/*
 %_kde_datadir/mime
 %_kde_datadir/locale/all_languages
@@ -818,11 +852,11 @@ KDE 4 system core files.
 %_kde_docdir/HTML/en/sonnet
 %_kde_configdir/xdg/menus/applications.menu
 %_kde_docdir/HTML/en/common/*
-%_kde_datadir/man/man1/checkXML.1
-%_kde_datadir/man/man1/kde4-config.1
-%_kde_datadir/man/man7/kdeoptions.7
-%_kde_datadir/man/man7/qtoptions.7
-%_kde_datadir/man/man8/kbuildsycoca4.8
+%_kde_mandir/man1/checkXML.1
+%_kde_mandir/man1/kde4-config.1
+%_kde_mandir/man7/kdeoptions.7
+%_kde_mandir/man7/qtoptions.7
+%_kde_mandir/man8/kbuildsycoca4.8
 %exclude %_kde_bindir/checkXML
 %exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
