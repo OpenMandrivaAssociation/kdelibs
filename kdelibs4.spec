@@ -17,7 +17,7 @@ URL: http://www.kde.org
 Release: %mkrel 0.%revision.1
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
 %else
-Release: %mkrel 4
+Release: %mkrel 5
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
 Source1: kde4env.sh
@@ -783,14 +783,11 @@ browsing.
 %_kde_appsdir/cmake/modules/*
 %_datadir/dbus-1/*/*
 %_kde_libdir/libkaudiodevicelist.so
-%_kde_libdir/libkdecore.so
 %_kde_libdir/libkdefakes.so
 %_kde_libdir/libkdesu.so
-%_kde_libdir/libkdeui.so
 %_kde_libdir/libkdnssd.so
 %_kde_libdir/libkhtml.so
 %_kde_libdir/libkimproxy.so
-%_kde_libdir/libkio.so
 %_kde_libdir/libkjs.so
 %_kde_libdir/libkjsembed.so
 %_kde_libdir/libkmediaplayer.so
@@ -838,6 +835,9 @@ KDE 4 system core files.
 %_kde_libdir/libkfile.so
 %_kde_libdir/libsolid.so
 %_kde_libdir/libkrosscore.so
+%_kde_libdir/libkdecore.so
+%_kde_libdir/libkdeui.so
+%_kde_libdir/libkio.so
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
