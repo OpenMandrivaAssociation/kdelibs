@@ -816,7 +816,7 @@ Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
 Requires: aspell
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
-Conflicts: kdelibs4-devel < 3.90.2-0.678253 
+Conflicts: kdelibs4-devel < 4.0.0-5
 Requires: shared-mime-info
 
 %description core
