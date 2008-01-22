@@ -803,6 +803,14 @@ browsing.
 %_kde_libdir/libnepomuk.so
 %_kde_libdir/libphonon.so
 %_kde_libdir/libphononexperimental.so
+%_kde_libdir/libkde3support.so
+%_kde_libdir/libkpty.so
+%_kde_libdir/libkfile.so
+%_kde_libdir/libsolid.so
+%_kde_libdir/libkrosscore.so
+%_kde_libdir/libkdecore.so
+%_kde_libdir/libkdeui.so
+%_kde_libdir/libkio.so
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
@@ -830,14 +838,6 @@ KDE 4 system core files.
 %dir %_kde_bindir
 %_kde_bindir/*
 %dir %_kde_libdir
-%_kde_libdir/libkde3support.so
-%_kde_libdir/libkpty.so
-%_kde_libdir/libkfile.so
-%_kde_libdir/libsolid.so
-%_kde_libdir/libkrosscore.so
-%_kde_libdir/libkdecore.so
-%_kde_libdir/libkdeui.so
-%_kde_libdir/libkio.so
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
