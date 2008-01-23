@@ -1,10 +1,10 @@
 %define compile_apidox 0
 %{?_no_apidox: %{expand: %%global compile_apidox 0}}
 
-%define branch 0
+%define branch 1
 %{?_branch: %{expand: %%global branch 1}}
 
-%define revision 751982
+%define revision 765238
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -14,7 +14,8 @@ License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
 %if %branch
-Release: %mkrel 0.%revision.1
+# If using branch post recent version, but with same version number, use last mkrel from stable
+Release: %mkrel 5.%revision.1
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
 %else
 Release: %mkrel 5
@@ -23,6 +24,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde4env.sh
 Source2: kde.pam
 Patch0: kdelibs4-homedir.patch
+Patch1: kdelibs-nepomuk-4.0-trunk.diff
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.3.0
@@ -889,12 +891,12 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p1 -b .homedir
+%patch1 -p1 -b .nepomuk
 
 %build
 %cmake_kde4 
 
 %make
-
 
 %if %{compile_apidox}
     cd ..
