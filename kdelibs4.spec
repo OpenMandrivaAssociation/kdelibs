@@ -15,14 +15,13 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
 %if %branch
 # If using branch post recent version, but with same version number, use last mkrel from stable
-Release: %mkrel 5.%revision.1
+Release: %mkrel 5.%revision.2
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
 %else
 Release: %mkrel 5
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 %endif
-Source1: kde4env.sh
-Source2: kde.pam
+Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
 Patch1: kdelibs-nepomuk-4.0-trunk.diff
 BuildRequires: kde4-macros
@@ -836,7 +835,8 @@ KDE 4 system core files.
 %defattr(-,root,root,-)
 %_kde_prefix/README.urpmi
 %attr(0755,root,root) %_sysconfdir/profile.d/*
-#%_sysconfdir/ld.so.conf.d/kde4.conf
+%_sysconfdir/ld.so.conf.d/kde4.conf
+%_sysconfdir/pam.d/kde
 %dir %_kde_bindir
 %_kde_bindir/*
 %dir %_kde_libdir
@@ -865,7 +865,6 @@ KDE 4 system core files.
 %exclude %_kde_libdir/kde4/plugins/designer
 # exclude remaining icons. should not be here
 %exclude %_kde_datadir/icons
-%_sysconfdir/pam.d/kde
 
 %pre core
 if [ -d %_kde_datadir/mime ]; then
@@ -911,12 +910,8 @@ make DESTDIR=%buildroot install
 
 # Install kde pam configuration file
 install -d -m 0755 %buildroot%_sysconfdir/pam.d/
-install -m 0644 %SOURCE2 %buildroot%_sysconfdir/pam.d/kde
+install -m 0644 %SOURCE1 %buildroot%_sysconfdir/pam.d/kde
 
-
-# Env entry for setup kde4  environment
-install -d -m 0755 %buildroot/%_sysconfdir/profile.d
-install -m 0755 %_sourcedir/kde4env.sh %buildroot/%_sysconfdir/profile.d/
 
 # use shared-mime-info
 rm -rf %buildroot%_kde_datadir/mime
@@ -933,6 +928,57 @@ them)
 
 EOF
 
+# Env entry for setup kde4  environment
+install -d -m 0755 %buildroot/%_sysconfdir/profile.d
+cat > %buildroot%_sysconfdir/profile.d/kde4env.sh << EOF
+#!/bin/bash
+
+if [ -z \$PKG_CONFIG_PATH ]; then
+    PKG_CONFIG_PATH=%{_kde_libdir}/pkgconfig
+else
+    PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:%{_kde_libdir}/pkgconfig
+fi
+
+export PKG_CONFIG_PATH
+
+function kde4env {
+    # KDE
+    KDEDIR=%{_kde_prefix}
+    KDEHOME=\$HOME/.kde4
+    KDETMP=\$HOME/tmp/\$USER-kde4
+    KDEVARTMP=/var/tmp/\$USER-kde4
+    mkdir -p \$KDETMP \$KDEVARTMP
+    if [ -z \$KDEDIRS ]; then
+        KDEDIRS=%{_kde_prefix}
+    else
+        KDEDIRS=\$KDEDIRS:%{_kde_prefix}
+    fi
+    # Qt
+    export QTDIR=%{qt4dir}
+    if [ -z \$QT_PLUGIN_PATH ]; then
+        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins
+    else
+        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins:\$QT_PLUGIN_PATH
+    fi
+    # DBus
+    DBUSDIR=%{_kde_prefix}
+    # Path
+    PATH=%{qt4dir}/bin:%{_kde_bindir}:\$PATH
+    # Library
+    LD_LIBRARY_PATH=%{_kde_libdir}:\$LD_LIBRARY_PATH
+    # XDG
+    unset XDG_DATA_DIRS # unset XDG_DATA_DIRS, to avoid seeing kde3 files from /usr
+    unset XDG_CONFIG_DIRS
+
+    export KDEDIR KDEHOME KDETMP KDEVARTMP KDEDIRS QTDIR QT_PLUGIN_PATH DBUSDIR PATH LD_LIBRARY_PATH
+}
+EOF
+
+# Are libs really conflicting with kde3 libs ?
+install -d %buildroot/%_sysconfdir/ld.so.conf.d
+cat > %buildroot/%_sysconfdir/ld.so.conf.d/kde4.conf <<EOF
+%_kde_libdir
+EOF
 
 %clean
 rm -fr %buildroot
