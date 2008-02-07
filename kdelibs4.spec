@@ -1,26 +1,15 @@
-%define compile_apidox 0
+%define compile_apidox 1
 %{?_no_apidox: %{expand: %%global compile_apidox 0}}
-
-%define branch 1
-%{?_branch: %{expand: %%global branch 1}}
-
-%define revision 765596
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.0.0
+Version: 4.0.1
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-%if %branch
-# If using branch post recent version, but with same version number, use last mkrel from stable
-Release: %mkrel 5.%revision.2
-Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
-%else
-Release: %mkrel 5
+Release: %mkrel 1
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
-%endif
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
 Patch1: kdelibs-nepomuk-4.0-trunk.diff
