@@ -1,5 +1,5 @@
-%define compile_apidox 1
-%{?_no_apidox: %{expand: %%global compile_apidox 0}}
+%define compile_apidox 0
+%{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -822,7 +822,6 @@ KDE 4 system core files.
 
 %files core
 %defattr(-,root,root,-)
-%_kde_prefix/README.urpmi
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_sysconfdir/pam.d/kde
@@ -862,6 +861,8 @@ fi
 
 #--------------------------------------------------------------
 
+%if %{compile_apidox}
+
 %package apidoc
 Group: Development/KDE and Qt
 Summary: Development documentation for %name
@@ -873,6 +874,9 @@ This packages contains all development documentation for kdelibs
 
 %files apidoc
 %defattr(-,root,root,-)
+%_docdir/kde4/api/*
+
+%endif
 
 #--------------------------------------------------------------
 
@@ -893,29 +897,21 @@ This packages contains all development documentation for kdelibs
 
 %install
 rm -fr %buildroot
-cd build
 
-make DESTDIR=%buildroot install
+make -C build DESTDIR=%buildroot install
+
+%if %{compile_apidox}
+   mkdir -p %buildroot/%_docdir/kde4/api
+   cp -av kdelibs-%version-apidocs %buildroot/%_docdir/kde4/api/kdelibs
+%endif 
 
 # Install kde pam configuration file
 install -d -m 0755 %buildroot%_sysconfdir/pam.d/
 install -m 0644 %SOURCE1 %buildroot%_sysconfdir/pam.d/kde
 
-
 # use shared-mime-info
 rm -rf %buildroot%_kde_datadir/mime
 ln -s %_datadir/mime %buildroot%_kde_datadir/mime
-
-cat > %buildroot/%_kde_prefix/README.urpmi <<EOF
-Mandriva RPM specific notes
-
-WARNING
--------
-These packages are not STABLE. Not to use them in production. 
-Install theses packages just for testing (otherwise uninstall
-them)
-
-EOF
 
 # Env entry for setup kde4  environment
 install -d -m 0755 %buildroot/%_sysconfdir/profile.d
