@@ -8,11 +8,13 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 4
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
 Patch1: kdelibs-nepomuk-4.0-trunk.diff
+Patch2: kdelibs4-show-kde3-applications.patch
+
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.3.0
@@ -884,6 +886,7 @@ This packages contains all development documentation for kdelibs
 %setup -q -n kdelibs-%version
 %patch0 -p1 -b .homedir
 %patch1 -p1 -b .nepomuk
+%patch2 -p1 -b .kde3
 
 %build
 %cmake_kde4 
