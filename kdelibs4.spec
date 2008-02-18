@@ -13,6 +13,7 @@ Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
 Patch1: kdelibs-nepomuk-4.0-trunk.diff
+# (nl) Patch from Ubuntu to have kde3 applications on kde4 menu
 Patch2: kdelibs4-show-kde3-applications.patch
 
 BuildRequires: kde4-macros
@@ -886,7 +887,7 @@ This packages contains all development documentation for kdelibs
 %setup -q -n kdelibs-%version
 %patch0 -p1 -b .homedir
 %patch1 -p1 -b .nepomuk
-%patch2 -p1 -b .kde3
+#%patch2 -p1 -b .kde3
 
 %build
 %cmake_kde4 
