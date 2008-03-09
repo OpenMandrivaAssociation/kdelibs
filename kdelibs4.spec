@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 6
+Release: %mkrel 7
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
@@ -812,7 +812,7 @@ browsing.
 %package core
 Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
-Requires: aspell
+Suggests: enchant-dictionary
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 4.0.0-5
 Requires: shared-mime-info
