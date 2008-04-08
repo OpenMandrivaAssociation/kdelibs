@@ -3,7 +3,7 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.0.3
+Version: 4.0.68
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -12,7 +12,6 @@ Release: %mkrel 1
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
-Patch1: kdelibs-nepomuk-4.0.1-trunk.diff
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.3.0
@@ -68,7 +67,6 @@ Obsoletes: %{_lib}cupsdconf4 < 3.93.0-0.728415.2
 Obsoletes: %{_lib}kdefx5 < 3.93.0-0.728415.2
 Obsoletes: %{_lib}kdeprint_management4 < 3.93.0-0.728415.2
 Obsoletes: %{_lib}kdeprint5 < 3.93.0-0.728415.2
- 
 
 %description -n %libkaudiodevicelist
 KDE 4 core library.
@@ -760,6 +758,8 @@ Requires: %libphonon = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
 Requires: %libkpty = %version
+Conflicts: libkdecore4-devel <= 30000000:3.5.9-10mdv
+Conflicts: kdelibs-common <= 30000000:3.5.9-10mdv
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 
 %description devel
@@ -804,6 +804,7 @@ browsing.
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
+%_kde_mandir/man1/checkXML.1.*
 %_kde_bindir/kconfig_compiler
 %exclude %_kde_libdir/libkdeinit4_*
 
@@ -815,6 +816,8 @@ Summary: KDE 4 system core files
 Suggests: enchant-dictionary
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 4.0.0-5
+Conflicts: kdelibs4-devel < 4.0.0-5
+Conflicts: kdelibs-common <= 30000000:3.5.9-10mdv
 Requires: shared-mime-info
 
 %description core
@@ -835,29 +838,22 @@ KDE 4 system core files.
 %_kde_appsdir/*/*
 %dir %_kde_datadir
 %_kde_datadir/config/*
-%_kde_datadir/mime
-%_kde_datadir/locale/all_languages
+%_kde_datadir/mime/*
 %_kde_datadir/kde4/services/*
 %_kde_datadir/kde4/servicetypes/*
 %_kde_docdir/HTML/en/sonnet
 %_kde_configdir/xdg/menus/applications.menu
 %_kde_docdir/HTML/en/common/*
-%_kde_mandir/man1/checkXML.1
-%_kde_mandir/man1/kde4-config.1
-%_kde_mandir/man7/kdeoptions.7
-%_kde_mandir/man7/qtoptions.7
-%_kde_mandir/man8/kbuildsycoca4.8
+%_kde_mandir/man1/kde4-config.1.*
+%_kde_mandir/man7/kdeoptions.7.*
+%_kde_mandir/man7/qtoptions.7.*
+%_kde_mandir/man8/kbuildsycoca4.8.*
+%_kde_datadir/icons
 %exclude %_kde_bindir/checkXML
 %exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
 %exclude %_kde_libdir/kde4/plugins/designer
-# exclude remaining icons. should not be here
-%exclude %_kde_datadir/icons
-
-%pre core
-if [ -d %_kde_datadir/mime ]; then
-	rm -rf %_kde_datadir/mime
-fi
+%exclude %_kde_datadir/locale/all_languages
 
 #--------------------------------------------------------------
 
@@ -883,10 +879,9 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p1 -b .homedir
-%patch1 -p1 -b .nepomuk
 
 %build
-%cmake_kde4 
+%cmake_kde4
 
 %make
 
@@ -909,10 +904,6 @@ make -C build DESTDIR=%buildroot install
 install -d -m 0755 %buildroot%_sysconfdir/pam.d/
 install -m 0644 %SOURCE1 %buildroot%_sysconfdir/pam.d/kde
 
-# use shared-mime-info
-rm -rf %buildroot%_kde_datadir/mime
-ln -s %_datadir/mime %buildroot%_kde_datadir/mime
-
 # Env entry for setup kde4  environment
 install -d -m 0755 %buildroot/%_sysconfdir/profile.d
 cat > %buildroot%_sysconfdir/profile.d/kde4env.sh << EOF
@@ -926,37 +917,6 @@ fi
 
 export PKG_CONFIG_PATH
 
-function kde4env {
-    # KDE
-    KDEDIR=%{_kde_prefix}
-    KDEHOME=\$HOME/.kde4
-    KDETMP=\$HOME/tmp/\$USER-kde4
-    KDEVARTMP=/var/tmp/\$USER-kde4
-    mkdir -p \$KDETMP \$KDEVARTMP
-    if [ -z \$KDEDIRS ]; then
-        KDEDIRS=%{_kde_prefix}
-    else
-        KDEDIRS=\$KDEDIRS:%{_kde_prefix}
-    fi
-    # Qt
-    export QTDIR=%{qt4dir}
-    if [ -z \$QT_PLUGIN_PATH ]; then
-        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins
-    else
-        QT_PLUGIN_PATH=%{_kde_libdir}/kde4/plugins:\$QT_PLUGIN_PATH
-    fi
-    # DBus
-    DBUSDIR=%{_kde_prefix}
-    # Path
-    PATH=%{qt4dir}/bin:%{_kde_bindir}:\$PATH
-    # Library
-    LD_LIBRARY_PATH=%{_kde_libdir}:\$LD_LIBRARY_PATH
-    # XDG
-    unset XDG_DATA_DIRS # unset XDG_DATA_DIRS, to avoid seeing kde3 files from /usr
-    unset XDG_CONFIG_DIRS
-
-    export KDEDIR KDEHOME KDETMP KDEVARTMP KDEDIRS QTDIR QT_PLUGIN_PATH DBUSDIR PATH LD_LIBRARY_PATH
-}
 EOF
 
 # Are libs really conflicting with kde3 libs ?
