@@ -828,6 +828,7 @@ KDE 4 system core files.
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_sysconfdir/pam.d/kde
+%_sysconfdir/xdg/menus/applications.menu
 %dir %_kde_bindir
 %_kde_bindir/*
 %dir %_kde_libdir
