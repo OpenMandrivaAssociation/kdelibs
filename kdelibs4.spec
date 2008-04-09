@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
@@ -828,7 +828,6 @@ KDE 4 system core files.
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_sysconfdir/pam.d/kde
-%_sysconfdir/xdg/menus/applications.menu
 %dir %_kde_bindir
 %_kde_bindir/*
 %dir %_kde_libdir
@@ -843,13 +842,13 @@ KDE 4 system core files.
 %_kde_datadir/kde4/services/*
 %_kde_datadir/kde4/servicetypes/*
 %_kde_docdir/HTML/en/sonnet
-%_kde_configdir/xdg/menus/applications.menu
 %_kde_docdir/HTML/en/common/*
 %_kde_mandir/man1/kde4-config.1.*
 %_kde_mandir/man7/kdeoptions.7.*
 %_kde_mandir/man7/qtoptions.7.*
 %_kde_mandir/man8/kbuildsycoca4.8.*
 %_kde_datadir/icons
+%exclude %_kde_sysconfdir/xdg/menus/applications.menu
 %exclude %_kde_bindir/checkXML
 %exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
