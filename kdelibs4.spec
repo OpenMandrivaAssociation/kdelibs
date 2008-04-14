@@ -1,24 +1,15 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
-%define branch 1
-%{?_branch: %{expand: %%global branch 1}}
-%define revision 796107
-
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.0.68
+Version: 4.0.69
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-%if %branch
-Release: %mkrel 2.%revision.1
-Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%revision.tar.bz2
-%else
 Release: %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
-%endif
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
 BuildRequires: kde4-macros
