@@ -8,13 +8,13 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
-BuildRequires: qt4-devel >= 4.3.0
+BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
 BuildRequires: avahi-compat-libdns_sd-devel 
@@ -46,7 +46,7 @@ BuildRequires: krb5-devel
 BuildRequires: ungif-devel
 BuildRequires: strigi-devel >=  0.5.1
 BuildRequires: shared-mime-info
-BuildRequires: soprano-devel >= 1.99.0
+BuildRequires: soprano-devel >= 2.0.98
 
 Requires:      kde4-l10n
 
