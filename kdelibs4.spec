@@ -3,7 +3,7 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.0.69
+Version: 4.0.70
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -714,6 +714,26 @@ KDE 4 core library.
 
 #------------------------------------------------
 
+%define  kjsapi_major 4
+%define  libkjsapi %mklibname kjsapi %kjsapi_major
+
+%package -n %libkjsapi
+Summary: KDE 4 core library
+Group: System/Libraries
+
+
+%description -n %libkjsapi
+KDE 4 core library.
+
+%post -n %libkjsapi -p /sbin/ldconfig
+%postun -n %libkjsapi -p /sbin/ldconfig
+
+%files -n %libkjsapi
+%defattr(-,root,root)
+%_kde_libdir/libkjsapi.so.%{kjsapi_major}*
+
+#------------------------------------------------
+
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -802,6 +822,7 @@ browsing.
 %_kde_libdir/libkdeui.so
 %_kde_libdir/libkio.so
 %_kde_libdir/libthreadweaver.so
+%_kde_libdir/libkjsapi.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1.*
