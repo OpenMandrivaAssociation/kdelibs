@@ -3,7 +3,7 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.0.71
+Version: 4.0.72
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -855,6 +855,8 @@ KDE 4 system core files.
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
+%dir %_kde_libdir/kconf_update_bin
+%_kde_libdir/kconf_update_bin/phonon_devicepreference_update
 %dir %_kde_appsdir
 %_kde_appsdir/*/*
 %dir %_kde_datadir
