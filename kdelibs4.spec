@@ -839,6 +839,7 @@ Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 4.0.0-5
 Conflicts: kdelibs4-devel < 4.0.0-5
 Conflicts: kdelibs-common < 30000000:3.5.9-11
+Conflicts: kjsembed < 1:3.5.9-1
 Requires: shared-mime-info
 
 %description core
