@@ -1,17 +1,17 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
-Name: kdelibs4
-Summary: K Desktop Environment - Libraries
-Version: 4.0.73
-Group: Graphical desktop/KDE
-License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
-BuildRoot: %_tmppath/%name-%version-%release-root
-URL: http://www.kde.org
-Release: %mkrel 2
+Name:          kdelibs4
+Summary:       K Desktop Environment - Libraries
+Version:       4.0.73
+Group:         Graphical desktop/KDE
+License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
+BuildRoot:     %_tmppath/%name-%version-%release-root
+URL:           http://www.kde.org
+Release:       %mkrel 3
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
-Source1: kde.pam
-Patch0: kdelibs4-homedir.patch
+Source1:       kde.pam
+Patch0:        kdelibs4-homedir.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -778,8 +778,8 @@ Requires: %libphonon = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
 Requires: %libkpty = %version
-Conflicts: libkdecore4-devel <= 30000000:3.5.9-10mdv
-Conflicts: kdelibs-common <= 30000000:3.5.9-10mdv
+Conflicts: %{_lib}kdecore4-devel < 30000000:3.5.9-11
+Conflicts: kdelibs-common < 30000000:3.5.9-11
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 
 %description devel
@@ -838,7 +838,7 @@ Suggests: enchant-dictionary
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 4.0.0-5
 Conflicts: kdelibs4-devel < 4.0.0-5
-Conflicts: kdelibs-common <= 30000000:3.5.9-10mdv
+Conflicts: kdelibs-common < 30000000:3.5.9-11
 Requires: shared-mime-info
 
 %description core
