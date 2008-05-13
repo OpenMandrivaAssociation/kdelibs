@@ -8,7 +8,7 @@ Group:         Graphical desktop/KDE
 License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot:     %_tmppath/%name-%version-%release-root
 URL:           http://www.kde.org
-Release:       %mkrel 3
+Release:       %mkrel 4
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1:       kde.pam
 Patch0:        kdelibs4-homedir.patch
@@ -839,7 +839,7 @@ Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 4.0.0-5
 Conflicts: kdelibs4-devel < 4.0.0-5
 Conflicts: kdelibs-common < 30000000:3.5.9-11
-Conflicts: kjsembed < 1:3.5.9-1
+Conflicts: kjsembed < 1:3.5.9-2
 Requires: shared-mime-info
 
 %description core
