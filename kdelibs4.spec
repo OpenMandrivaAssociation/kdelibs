@@ -8,7 +8,7 @@ Group:         Graphical desktop/KDE
 License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot:     %_tmppath/%name-%version-%release-root
 URL:           http://www.kde.org
-Release:       %mkrel 4
+Release:       %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1:       kde.pam
 Patch0:        kdelibs4-homedir.patch
@@ -44,9 +44,10 @@ BuildRequires: OpenEXR-devel
 BuildRequires: libacl-devel
 BuildRequires: krb5-devel
 BuildRequires: ungif-devel
-BuildRequires: strigi-devel >=  0.5.1
+BuildRequires: strigi-devel >=  0.5.9
 BuildRequires: shared-mime-info
 BuildRequires: soprano-devel >= 2.0.98
+BuildRequires: automoc
 
 Requires:      kde4-l10n
 
