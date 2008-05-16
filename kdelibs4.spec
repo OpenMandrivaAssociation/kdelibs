@@ -743,6 +743,7 @@ Requires: kde4-macros
 Requires: acl-devel
 Requires: qt4-devel >= 4.3.0
 Requires: cmake
+Requires: automoc
 Requires: soprano-devel
 Requires: strigi-devel
 # add requires on libxml2-utils, as when building most kde applications,
