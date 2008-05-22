@@ -852,9 +852,7 @@ KDE 4 system core files.
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_sysconfdir/pam.d/kde
-%dir %_kde_bindir
 %_kde_bindir/*
-%dir %_kde_libdir
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
@@ -862,13 +860,15 @@ KDE 4 system core files.
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
 %dir %_kde_appsdir
 %_kde_appsdir/*/*
-%dir %_kde_datadir
+%dir %_kde_datadir/config
 %_kde_datadir/config/*
 %_kde_datadir/mime/*
+%dir %_kde_datadir/kde4
+%dir %_kde_datadir/kde4/services
 %_kde_datadir/kde4/services/*
+%dir %_kde_datadir/kde4/servicetypes
 %_kde_datadir/kde4/servicetypes/*
 %_kde_docdir/HTML/en/sonnet
-%_kde_docdir/HTML/en/common/*
 %_kde_mandir/man1/kde4-config.1.*
 %_kde_mandir/man7/kdeoptions.7.*
 %_kde_mandir/man7/qtoptions.7.*
@@ -884,7 +884,6 @@ KDE 4 system core files.
 #--------------------------------------------------------------
 
 %if %{compile_apidox}
-
 %package apidoc
 Group: Development/KDE and Qt
 Summary: Development documentation for %name
@@ -897,7 +896,6 @@ This packages contains all development documentation for kdelibs
 %files apidoc
 %defattr(-,root,root,-)
 %_docdir/kde4/api/*
-
 %endif
 
 #--------------------------------------------------------------
