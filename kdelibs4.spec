@@ -852,7 +852,23 @@ KDE 4 system core files.
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %_sysconfdir/ld.so.conf.d/kde4.conf
 %_sysconfdir/pam.d/kde
-%_kde_bindir/*
+%_kde_bindir/kbuildsycoca4
+%_kde_bindir/kcookiejar4
+%_kde_bindir/kde4-config
+%_kde_bindir/kded4
+%_kde_bindir/kdeinit4
+%_kde_bindir/kdeinit4_shutdown
+%_kde_bindir/kdeinit4_wrapper
+%_kde_bindir/kjs
+%_kde_bindir/kjscmd
+%_kde_bindir/kross
+%_kde_bindir/kshell4
+%_kde_bindir/kunittestmodrunner
+%_kde_bindir/kwrapper4
+%_kde_bindir/makekdewidgets
+%_kde_bindir/meinproc4
+%_kde_bindir/nepomuk-rcgen
+%_kde_bindir/preparetips
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
@@ -875,8 +891,6 @@ KDE 4 system core files.
 %_kde_mandir/man8/kbuildsycoca4.8.*
 %_kde_datadir/icons
 %exclude %_kde_sysconfdir/xdg/menus/applications.menu
-%exclude %_kde_bindir/checkXML
-%exclude %_kde_bindir/kconfig_compiler
 %exclude %_kde_appsdir/cmake/modules/*
 %exclude %_kde_libdir/kde4/plugins/designer
 %exclude %_kde_datadir/locale/all_languages
