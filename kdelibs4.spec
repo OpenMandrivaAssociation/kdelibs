@@ -876,14 +876,11 @@ KDE 4 system core files.
 %_kde_libdir/kconf_update_bin/phonon_devicepreference_update
 %dir %_kde_appsdir
 %_kde_appsdir/*/*
-%dir %_kde_datadir/config
-%_kde_datadir/config/*
+%_kde_datadir/config
 %_kde_datadir/mime/*
-%dir %_kde_datadir/kde4
-%dir %_kde_datadir/kde4/services
-%_kde_datadir/kde4/services/*
-%dir %_kde_datadir/kde4/servicetypes
+%_kde_datadir/kde4
 %_kde_appsdir/proxyscout
+%_kde_appsdir/phonon
 %_kde_datadir/kde4/servicetypes/*
 %_kde_docdir/HTML/en/sonnet
 %_kde_mandir/man1/kde4-config.1.*
