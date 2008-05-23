@@ -882,6 +882,7 @@ KDE 4 system core files.
 %_kde_appsdir/proxyscout
 %_kde_appsdir/phonon
 %_kde_appsdir/nepomuk
+%_kde_appsdir/LICENSES
 %_kde_docdir/HTML/en/sonnet
 %_kde_mandir/man1/kde4-config.1.*
 %_kde_mandir/man7/kdeoptions.7.*
