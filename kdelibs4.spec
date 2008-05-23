@@ -887,6 +887,7 @@ KDE 4 system core files.
 %_kde_appsdir/ktexteditor_kdatatool
 %_kde_appsdir/ktexteditor_insertfile
 %_kde_appsdir/ktexteditor_docwordcompletion
+%_kde_appsdir/kssl
 %_kde_docdir/HTML/en/sonnet
 %_kde_mandir/man1/kde4-config.1.*
 %_kde_mandir/man7/kdeoptions.7.*
