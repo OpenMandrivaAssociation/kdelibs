@@ -872,10 +872,7 @@ KDE 4 system core files.
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
-%dir %_kde_libdir/kconf_update_bin
-%_kde_libdir/kconf_update_bin/phonon_devicepreference_update
-%dir %_kde_appsdir
-%_kde_appsdir/*/*
+%_kde_libdir/kconf_update_bin
 %_kde_datadir/config
 %_kde_datadir/mime/*
 %_kde_datadir/kde4
@@ -890,7 +887,18 @@ KDE 4 system core files.
 %_kde_appsdir/kssl
 %_kde_appsdir/ksgmltools2
 %_kde_appsdir/knewstuff
+%_kde_appsdir/kjava
+%_kde_appsdir/khtml  
+%_kde_appsdir/kdewidgets
+%_kde_appsdir/kdeui
+%_kde_appsdir/kconf_update
+%_kde_appsdir/kcm_phonon
+%_kde_appsdir/kcm_componentchooser
+%_kde_appsdir/katepart
+%_kde_appsdir/kcertpart
+%_kde_appsdir/kcharselect
 %_kde_docdir/HTML/en/sonnet
+%_kde_docdir/HTML/en/common/*
 %_kde_mandir/man1/kde4-config.1.*
 %_kde_mandir/man7/kdeoptions.7.*
 %_kde_mandir/man7/qtoptions.7.*
