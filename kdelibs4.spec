@@ -884,13 +884,18 @@ KDE 4 system core files.
 %_kde_appsdir/nepomuk
 %_kde_appsdir/LICENSES
 %_kde_appsdir/libphonon
+%_kde_appsdir/ktexteditor_kdatatool
+%_kde_appsdir/ktexteditor_insertfile
+%_kde_appsdir/ktexteditor_docwordcompletion
 %_kde_docdir/HTML/en/sonnet
 %_kde_mandir/man1/kde4-config.1.*
 %_kde_mandir/man7/kdeoptions.7.*
 %_kde_mandir/man7/qtoptions.7.*
 %_kde_mandir/man8/kbuildsycoca4.8.*
 %_kde_datadir/icons
+#Do not include this file because provided by desktop-common-data
 %exclude %_kde_sysconfdir/xdg/menus/applications.menu
+
 %exclude %_kde_appsdir/cmake/modules/*
 %exclude %_kde_libdir/kde4/plugins/designer
 %exclude %_kde_datadir/locale/all_languages
