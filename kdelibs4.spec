@@ -8,7 +8,7 @@ Group:         Graphical desktop/KDE
 License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot:     %_tmppath/%name-%version-%release-root
 URL:           http://www.kde.org
-Release:       %mkrel 2
+Release:       %mkrel 3
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1:       kde.pam
 Patch0:        kdelibs4-homedir.patch
@@ -852,7 +852,6 @@ KDE 4 system core files.
 %files core
 %defattr(-,root,root,-)
 %attr(0755,root,root) %_sysconfdir/profile.d/*
-%_sysconfdir/ld.so.conf.d/kde4.conf
 %_sysconfdir/pam.d/kde
 %_kde_bindir/kbuildsycoca4
 %_kde_bindir/kcookiejar4
@@ -974,12 +973,6 @@ fi
 
 export PKG_CONFIG_PATH
 
-EOF
-
-# Are libs really conflicting with kde3 libs ?
-install -d %buildroot/%_sysconfdir/ld.so.conf.d
-cat > %buildroot/%_sysconfdir/ld.so.conf.d/kde4.conf <<EOF
-%_kde_libdir
 EOF
 
 %clean
