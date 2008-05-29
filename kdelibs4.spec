@@ -57,31 +57,6 @@ Libraries for the K Desktop Environment.
 
 #------------------------------------------------	
 
-%define kaudiodevicelist_major 4
-%define libkaudiodevicelist %mklibname kaudiodevicelist %kaudiodevicelist_major
-
-%package -n %libkaudiodevicelist
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}kaudiodevicelist5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}cupsdconf4 < 3.93.0-0.728415.2
-Obsoletes: %{_lib}kdefx5 < 3.93.0-0.728415.2
-Obsoletes: %{_lib}kdeprint_management4 < 3.94.1-0.728203.3
-Obsoletes: %{_lib}kdeprint5 < 3.94.1-0.728203.3
-
-%description -n %libkaudiodevicelist
-KDE 4 core library.
-
-%post -n %libkaudiodevicelist -p /sbin/ldconfig
-%postun -n %libkaudiodevicelist -p /sbin/ldconfig
-
-%files -n %libkaudiodevicelist
-%defattr(-,root,root)
-%_kde_libdir/libkaudiodevicelist.so.%{kaudiodevicelist_major}*
-
-#------------------------------------------------	
-
 %define kde3support_major 4
 %define libkde3support %mklibname kde3support %kde3support_major
 
@@ -90,7 +65,7 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kde3support5 < 3.93.0-0.714006.1
- 
+Obsoletes: %{_lib}kaudiodevicelist < 4.0.81-1
 
 %description -n %libkde3support
 KDE 4 core library.
@@ -707,7 +682,6 @@ Requires: strigi-devel
 # it will call xmllint to validate the docbook files:
 Requires: libxml2-utils
 Requires: kdelibs4-core = %version
-Requires: %libkaudiodevicelist = %version
 Requires: %libkde3support = %version
 Requires: %libkdecore = %version
 Requires: %libkdefakes = %version
@@ -751,7 +725,6 @@ browsing.
 %_kde_prefix/include/*
 %_kde_appsdir/cmake/modules/*
 %_datadir/dbus-1/*/*
-%_kde_libdir/libkaudiodevicelist.so
 %_kde_libdir/libkdefakes.so
 %_kde_libdir/libkdesu.so
 %_kde_libdir/libkdnssd.so
@@ -826,15 +799,12 @@ KDE 4 system core files.
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
-%_kde_libdir/kconf_update_bin
 %_kde_datadir/config
 %_kde_datadir/mime/*
 %_kde_datadir/kde4
 %_kde_appsdir/proxyscout
-%_kde_appsdir/phonon
 %_kde_appsdir/nepomuk
 %_kde_appsdir/LICENSES
-%_kde_appsdir/libphonon
 %_kde_appsdir/ktexteditor_kdatatool
 %_kde_appsdir/ktexteditor_insertfile
 %_kde_appsdir/ktexteditor_docwordcompletion
@@ -846,7 +816,6 @@ KDE 4 system core files.
 %_kde_appsdir/kdewidgets
 %_kde_appsdir/kdeui
 %_kde_appsdir/kconf_update
-%_kde_appsdir/kcm_phonon
 %_kde_appsdir/kcm_componentchooser
 %_kde_appsdir/katepart
 %_kde_appsdir/kcertpart
