@@ -3,12 +3,12 @@
 
 Name:          kdelibs4
 Summary:       K Desktop Environment - Libraries
-Version:       4.0.80
+Version:       4.0.81
 Group:         Graphical desktop/KDE
 License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot:     %_tmppath/%name-%version-%release-root
 URL:           http://www.kde.org
-Release:       %mkrel 4
+Release:       %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1:       kde.pam
 Patch0:        kdelibs4-homedir.patch
@@ -48,6 +48,7 @@ BuildRequires: strigi-devel >=  0.5.9
 BuildRequires: shared-mime-info
 BuildRequires: soprano-devel >= 2.0.98
 BuildRequires: automoc
+BuildRequires: phonon-devel
 
 Requires:      kde4-l10n
 
@@ -607,50 +608,6 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%define phononexperimental_major 4
-%define libphononexperimental %mklibname phononexperimental %phononexperimental_major
-
-%package -n %libphononexperimental
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}phononexperimental5 < 3.93.0-0.714006.1
- 
-
-%description -n %libphononexperimental
-KDE 4 core library.
-
-%post -n %libphononexperimental -p /sbin/ldconfig
-%postun -n %libphononexperimental -p /sbin/ldconfig
-
-%files -n %libphononexperimental
-%defattr(-,root,root)
-%_kde_libdir/libphononexperimental.so.%{phononexperimental_major}*
-
-#------------------------------------------------	
-
-%define phonon_major 4
-%define libphonon %mklibname phonon %phonon_major
-
-%package -n %libphonon
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}phonon5 < 3.93.0-0.714006.1
- 
-
-%description -n %libphonon
-KDE 4 core library.
-
-%post -n %libphonon -p /sbin/ldconfig
-%postun -n %libphonon -p /sbin/ldconfig
-
-%files -n %libphonon
-%defattr(-,root,root)
-%_kde_libdir/libphonon.so.%{phonon_major}*
-
-#------------------------------------------------	
-
 %define solid_major 4
 %define libsolid %mklibname solid %solid_major
 
@@ -775,8 +732,6 @@ Requires: %libktexteditor = %version
 Requires: %libkunittest = %version
 Requires: %libkutils = %version
 Requires: %libkwalletbackend = %version
-Requires: %libphononexperimental = %version
-Requires: %libphonon = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
 Requires: %libkpty = %version
@@ -815,8 +770,6 @@ browsing.
 %_kde_libdir/libkutils.so
 %_kde_libdir/libkwalletbackend.so
 %_kde_libdir/libnepomuk.so
-%_kde_libdir/libphonon.so
-%_kde_libdir/libphononexperimental.so
 %_kde_libdir/libkde3support.so
 %_kde_libdir/libkpty.so
 %_kde_libdir/libkfile.so
