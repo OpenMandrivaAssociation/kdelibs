@@ -8,7 +8,7 @@ Group:         Graphical desktop/KDE
 License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot:     %_tmppath/%name-%version-%release-root
 URL:           http://www.kde.org
-Release:       %mkrel 1
+Release:       %mkrel 2
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1:       kde.pam
 Patch0:        kdelibs4-homedir.patch
@@ -65,12 +65,6 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kde3support5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}kaudiodevicelist < 4.0.81-1
-Obsoletes: %{_lib}kaudiodevicelist5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}cupsdconf4 < 3.93.0-0.728415.2
-Obsoletes: %{_lib}kdefx5 < 3.93.0-0.728415.2
-Obsoletes: %{_lib}kdeprint_management4 < 3.94.1-0.728203.3
-Obsoletes: %{_lib}kdeprint5 < 3.94.1-0.728203.3
 
 %description -n %libkde3support
 KDE 4 core library.
