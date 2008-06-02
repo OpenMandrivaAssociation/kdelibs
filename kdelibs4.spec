@@ -48,7 +48,7 @@ BuildRequires: strigi-devel >=  0.5.9
 BuildRequires: shared-mime-info
 BuildRequires: soprano-devel >= 2.0.98
 BuildRequires: automoc
-BuildRequires: phonon-devel
+BuildRequires: phonon-devel >= 4.2
 
 Requires:      kde4-l10n
 
