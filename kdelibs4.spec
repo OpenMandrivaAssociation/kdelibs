@@ -3,12 +3,12 @@
 
 Name:          kdelibs4
 Summary:       K Desktop Environment - Libraries
-Version: %{VERSION}
+Version: 4.0.81
 Group:         Graphical desktop/KDE
 License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot:     %_tmppath/%name-%version-%release-root
 URL:           http://www.kde.org
-Release: %mkrel 4
+Release: %mkrel 5
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1:       kde.pam
 Patch0:        kdelibs4-homedir.patch
