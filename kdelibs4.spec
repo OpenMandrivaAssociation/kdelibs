@@ -69,8 +69,12 @@ Obsoletes: %{_lib}kde3support5 < 3.93.0-0.714006.1
 %description -n %libkde3support
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkde3support -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkde3support -p /sbin/ldconfig
+%endif
 
 %files -n %libkde3support
 %defattr(-,root,root)
@@ -90,8 +94,12 @@ Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 %description -n %libkdecore
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkdecore -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdecore -p /sbin/ldconfig
+%endif
 
 %files -n %libkdecore
 %defattr(-,root,root)
@@ -111,8 +119,12 @@ Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 %description -n %libkdefakes
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkdefakes -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdefakes -p /sbin/ldconfig
+%endif
 
 %files -n %libkdefakes
 %defattr(-,root,root)
@@ -132,8 +144,12 @@ Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 %description -n %libkdesu
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkdesu -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdesu -p /sbin/ldconfig
+%endif
 
 %files -n %libkdesu
 %defattr(-,root,root)
@@ -153,8 +169,12 @@ Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 %description -n %libkdeui
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkdeui -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdeui -p /sbin/ldconfig
+%endif
 
 %files -n %libkdeui
 %defattr(-,root,root)
@@ -175,8 +195,12 @@ Obsoletes: %{_lib}kdnssd5 < 3.93.0-0.714006.1
 %description -n %libkdnssd
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkdnssd -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkdnssd -p /sbin/ldconfig
+%endif
 
 %files -n %libkdnssd
 %defattr(-,root,root)
@@ -197,8 +221,12 @@ Obsoletes: %{_lib}kfile5 < 3.93.0-0.714006.1
 %description -n %libkfile
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkfile -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkfile -p /sbin/ldconfig
+%endif
 
 %files -n %libkfile
 %defattr(-,root,root)
@@ -218,8 +246,12 @@ Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 %description -n %libkhtml
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkhtml -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkhtml -p /sbin/ldconfig
+%endif
 
 %files -n %libkhtml
 %defattr(-,root,root)
@@ -240,8 +272,12 @@ Obsoletes: %{_lib}kimproxy5 < 3.93.0-0.714006.1
 %description -n %libkimproxy
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkimproxy -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkimproxy -p /sbin/ldconfig
+%endif
 
 %files -n %libkimproxy
 %defattr(-,root,root)
@@ -261,8 +297,12 @@ Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 %description -n %libkio
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkio -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkio -p /sbin/ldconfig
+%endif
 
 %files -n %libkio
 %defattr(-,root,root)
@@ -283,8 +323,12 @@ Obsoletes: %{_lib}kjsembed5 < 3.93.0-0.714006.1
 %description -n %libkjsembed
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkjsembed -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkjsembed -p /sbin/ldconfig
+%endif
 
 %files -n %libkjsembed
 %defattr(-,root,root)
@@ -305,8 +349,12 @@ Obsoletes: %{_lib}kjs5 < 3.93.0-0.714006.1
 %description -n %libkjs
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkjs -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkjs -p /sbin/ldconfig
+%endif
 
 %files -n %libkjs
 %defattr(-,root,root)
@@ -327,8 +375,12 @@ Obsoletes: %{_lib}kmediaplayer5 < 3.93.0-0.714006.1
 %description -n %libkmediaplayer
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkmediaplayer -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkmediaplayer -p /sbin/ldconfig
+%endif
 
 %files -n %libkmediaplayer
 %defattr(-,root,root)
@@ -353,8 +405,12 @@ Obsoletes: %{_lib}nepomuk-middleware4 < 3.93.0-0.725600.1
 %description -n %libnepomuk
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libnepomuk -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libnepomuk -p /sbin/ldconfig
+%endif
 
 %files -n %libnepomuk
 %defattr(-,root,root)
@@ -375,8 +431,12 @@ Obsoletes: %{_lib}knewstuff25 < 3.93.0-0.714006.1
 %description -n %libknewstuff2
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libknewstuff2 -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libknewstuff2 -p /sbin/ldconfig
+%endif
 
 %files -n %libknewstuff2
 %defattr(-,root,root)
@@ -397,8 +457,12 @@ Obsoletes: %{_lib}knotifyconfig5 < 3.93.0-0.714006.1
 %description -n %libknotifyconfig
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libknotifyconfig -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libknotifyconfig -p /sbin/ldconfig
+%endif
 
 %files -n %libknotifyconfig
 %defattr(-,root,root)
@@ -419,8 +483,12 @@ Obsoletes: %{_lib}kntlm5 < 3.93.0-0.714006.1
 %description -n %libkntlm
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkntlm -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkntlm -p /sbin/ldconfig
+%endif
 
 %files -n %libkntlm
 %defattr(-,root,root)
@@ -441,8 +509,12 @@ Obsoletes: %{_lib}kparts5 < 3.93.0-0.714006.1
 %description -n %libkparts
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkparts -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkparts -p /sbin/ldconfig
+%endif
 
 %files -n %libkparts
 %defattr(-,root,root)
@@ -463,8 +535,12 @@ Obsoletes: %{_lib}krosscore5 < 3.93.0-0.714006.1
 %description -n %libkrosscore
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkrosscore -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkrosscore -p /sbin/ldconfig
+%endif
 
 %files -n %libkrosscore
 %defattr(-,root,root)
@@ -485,8 +561,12 @@ Obsoletes: %{_lib}krossui5 < 3.93.0-0.714006.1
 %description -n %libkrossui
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkrossui -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkrossui -p /sbin/ldconfig
+%endif
 
 %files -n %libkrossui
 %defattr(-,root,root)
@@ -507,8 +587,12 @@ Obsoletes: %{_lib}ktexteditor5 < 3.93.0-0.714006.1
 %description -n %libktexteditor
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libktexteditor -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libktexteditor -p /sbin/ldconfig
+%endif
 
 %files -n %libktexteditor
 %defattr(-,root,root)
@@ -529,8 +613,12 @@ Obsoletes: %{_lib}kunittest5 < 3.93.0-0.714006.1
 %description -n %libkunittest
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkunittest -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkunittest -p /sbin/ldconfig
+%endif
 
 %files -n %libkunittest
 %defattr(-,root,root)
@@ -551,8 +639,12 @@ Obsoletes: %{_lib}kutils5 < 3.93.0-0.714006.1
 %description -n %libkutils
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkutils -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkutils -p /sbin/ldconfig
+%endif
 
 %files -n %libkutils
 %defattr(-,root,root)
@@ -573,8 +665,12 @@ Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
 %description -n %libkwalletbackend
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkwalletbackend -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkwalletbackend -p /sbin/ldconfig
+%endif
 
 %files -n %libkwalletbackend
 %defattr(-,root,root)
@@ -595,8 +691,12 @@ Obsoletes: %{_lib}solid5 < 3.93.0-0.714006.1
 %description -n %libsolid
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libsolid -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libsolid -p /sbin/ldconfig
+%endif
 
 %files -n %libsolid
 %defattr(-,root,root)
@@ -617,8 +717,12 @@ Obsoletes: %{_lib}threadweaver5 < 3.93.0-0.714006.1
 %description -n %libthreadweaver
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libthreadweaver -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libthreadweaver -p /sbin/ldconfig
+%endif
 
 %files -n %libthreadweaver
 %defattr(-,root,root)
@@ -637,8 +741,12 @@ Group: System/Libraries
 %description -n %libkpty
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkpty -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkpty -p /sbin/ldconfig
+%endif
 
 %files -n %libkpty
 %defattr(-,root,root)
@@ -657,8 +765,12 @@ Group: System/Libraries
 %description -n %libkjsapi
 KDE 4 core library.
 
+%if %mdkversion < 200900
 %post -n %libkjsapi -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libkjsapi -p /sbin/ldconfig
+%endif
 
 %files -n %libkjsapi
 %defattr(-,root,root)
