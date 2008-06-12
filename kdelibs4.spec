@@ -822,9 +822,11 @@ Requires: %libthreadweaver = %version
 Requires: %libkpty = %version
 Requires: %libkjsapi = %version
 Requires: automoc
+Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
+%if %mdkversion > 20081
 Conflicts: %{_lib}kdecore4-devel < 30000000:3.5.9-11
 Conflicts: kdelibs-common < 30000000:3.5.9-11
-Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
+%endif
 
 %description devel
 This package includes the header files you will need to compile applications 
@@ -835,7 +837,7 @@ browsing.
 %defattr(-,root,root,-)
 %_kde_prefix/include/*
 %_kde_appsdir/cmake/modules/*
-%_datadir/dbus-1/*/*
+%_kde_datadir/dbus-1/*/*
 %_kde_libdir/libkdefakes.so
 %_kde_libdir/libkdesu.so
 %_kde_libdir/libkdnssd.so
@@ -879,8 +881,10 @@ Suggests: enchant-dictionary
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 4.0.0-5
 Conflicts: kdelibs4-devel < 4.0.0-5
+%if %mdkversion > 20081
 Conflicts: kdelibs-common < 30000000:3.5.9-11
 Conflicts: kjsembed < 1:3.5.9-2
+%endif
 Requires: shared-mime-info
 
 %description core
