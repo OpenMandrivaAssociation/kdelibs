@@ -12,8 +12,6 @@ Release: %mkrel 1
 Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1:       kde.pam
 Patch0:        kdelibs4-homedir.patch
-Patch1:        kdelibs-4.0.81-add-extra-catalogs.patch
-Patch2:        kdelibs-4.0.81-fix-translate-desktopfile.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -974,8 +972,6 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p1 -b .homedir
-%patch1 -p0 -b .add_extra_catalogs
-%patch2 -p0
 
 %build
 %cmake_kde4
