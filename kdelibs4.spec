@@ -1,17 +1,17 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
-Name:          kdelibs4
-Summary:       K Desktop Environment - Libraries
+Name: kdelibs4
+Summary: K Desktop Environment - Libraries
 Version: 4.0.82
-Group:         Graphical desktop/KDE
-License:       ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
-BuildRoot:     %_tmppath/%name-%version-%release-root
-URL:           http://www.kde.org
-Release: %mkrel 1
-Source:        ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
-Source1:       kde.pam
-Patch0:        kdelibs4-homedir.patch
+Group: Graphical desktop/KDE
+License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
+BuildRoot: %_tmppath/%name-%version-%release-root
+URL: http://www.kde.org
+Release: %mkrel 3
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+Source1: kde.pam
+Patch0: kdelibs4-homedir.patch
 BuildRequires: kde4-macros
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -49,7 +49,8 @@ BuildRequires: shared-mime-info
 BuildRequires: soprano-devel >= 2.0.98
 BuildRequires: automoc
 BuildRequires: phonon-devel >= 4.2
-
+BuildRequires: xpm-devel
+BuildRequires: xft2-devel
 Requires:      kde4-l10n
 
 %description 
@@ -784,7 +785,8 @@ Summary: Header files and documentation for compiling KDE applications
 Conflicts: kdelibs4-core < 3.90.2-0.678253 
 Requires: kde4-macros
 Requires: acl-devel
-Requires: qt4-devel >= 4.3.0
+Requires: qt4-devel >= 4.4.0
+Requires: kdelibs4-core = %version
 Requires: cmake
 Requires: automoc
 Requires: soprano-devel
@@ -792,7 +794,40 @@ Requires: strigi-devel
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires: libxml2-utils
-Requires: kdelibs4-core = %version
+Requires: aspell-devel
+Requires: hspell-devel
+Requires: avahi-compat-libdns_sd-devel 
+Requires: avahi-client-devel
+Requires: enchant-devel
+Requires: libxslt-proc
+Requires: libxslt-devel
+Requires: openssl-devel
+Requires: cups-devel >= 1.2
+Requires: pcre-devel
+Requires: fam-devel
+Requires: bzip2-devel
+Requires: libart_lgpl-devel
+Requires: libjpeg-devel
+Requires: libpng-devel
+Requires: libsasl-devel
+Requires: libtiff-devel
+Requires: libvorbis-devel
+Requires: pam-devel
+Requires: X11-devel
+Requires: libalsa-devel
+Requires: libmad-devel
+Requires: gdbm-devel
+Requires: jasper-devel
+Requires: OpenEXR-devel
+Requires: libacl-devel
+Requires: krb5-devel
+Requires: ungif-devel
+Requires: strigi-devel >=  0.5.9
+Requires: shared-mime-info
+Requires: soprano-devel >= 2.0.98
+Requires: automoc
+Requires: xpm-devel
+Requires: xft2-devel
 Requires: %libkde3support = %version
 Requires: %libkdecore = %version
 Requires: %libkdefakes = %version
