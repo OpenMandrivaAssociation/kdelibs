@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 5
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0: kdelibs4-homedir.patch
@@ -51,7 +51,6 @@ BuildRequires: automoc
 BuildRequires: phonon-devel >= 4.2
 BuildRequires: xpm-devel
 BuildRequires: xft2-devel
-Requires:      kde4-l10n
 
 %description 
 Libraries for the K Desktop Environment.
@@ -90,7 +89,8 @@ KDE 4 core library.
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
- 
+Requires: kde4-config-file 
+Requires: kde4-l10n
 
 %description -n %libkdecore
 KDE 4 core library.
