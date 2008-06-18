@@ -860,6 +860,7 @@ Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 %if %mdkversion > 200810
 Conflicts: %{_lib}kdecore4-devel < 30000000:3.5.9-11
+Conflicts: %{_lib}kjsembed1-devel < 1:3.5.9-2
 Conflicts: kdelibs-common < 30000000:3.5.9-11
 %endif
 
