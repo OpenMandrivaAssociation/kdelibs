@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 BuildRequires: kde4-macros >= 4.1-8
@@ -104,6 +104,9 @@ KDE 4 core library.
 %files -n %libkdecore
 %defattr(-,root,root)
 %_kde_libdir/libkdecore.so.%{kdecore_major}*
+%if %mdkversion <= 200810
+%_sysconfdir/ld.so.conf.d/%{_lib}kde4.conf
+%endif
 
 #------------------------------------------------	
 
@@ -1031,10 +1034,34 @@ make -C build DESTDIR=%buildroot install
 install -d -m 0755 %buildroot%_sysconfdir/pam.d/
 install -m 0644 %SOURCE1 %buildroot%_sysconfdir/pam.d/kde
 
+# Libraries are in /opt
+%if %mdkversion <= 200810
+install -d -m 0755 %buildroot/%_sysconfdir/ld.so.conf.d
+echo "%_kde_libdir" > %buildroot/%_sysconfdir/ld.so.conf.d/%{_lib}kde4.conf
+%endif
+
 # Env entry for setup kde4  environment
 install -d -m 0755 %buildroot/%_sysconfdir/profile.d
 cat > %buildroot%_sysconfdir/profile.d/kde4env.sh << EOF
 #!/bin/bash
+
+%if %mdkversion <= 200810
+
+if [ -z \$PATH ]; then
+    PATH=%{_bindir}:%{_kde_bindir}
+else
+    PATH=\$PATH:%{_bindir}:%{_kde_bindir}
+fi
+
+if [ -z \$XDG_DATA_DIRS ]; then
+    XDG_DATA_DIRS=%{_datadir}:%{_kde_datadir}
+else
+    XDG_DATA_DIRS=\$XDG_DATA_DIRS:%{_datadir}:%{_kde_datadir}
+fi
+
+export XDG_DATA_DIRS PATH
+
+%endif
 
 if [ -z \$PKG_CONFIG_PATH ]; then
     PKG_CONFIG_PATH=%{_kde_libdir}/pkgconfig
@@ -1042,7 +1069,7 @@ else
     PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:%{_kde_libdir}/pkgconfig
 fi
 
-export PKG_CONFIG_PATH
+export PKG_CONFIG_PATH XDG_DATA_DIRS PATH
 
 EOF
 
