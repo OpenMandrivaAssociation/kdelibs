@@ -655,6 +655,19 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
+%package -n kwallet-daemon
+Summary: Kwallet daemon
+Group: Development/KDE and Qt
+
+%description -n kwallet-daemon
+Kwallet daemon.
+
+%files -n kwallet-daemon
+%defattr(-,root,root)
+%_kde_bindir/kwalletd
+
+#------------------------------------------------	
+
 %define kwalletbackend_major 4
 %define libkwalletbackend %mklibname kwalletbackend %kwalletbackend_major
 
@@ -663,7 +676,7 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
- 
+Requires: kwallet-daemon 
 
 %description -n %libkwalletbackend
 KDE 4 core library.
@@ -873,6 +886,7 @@ browsing.
 
 %files devel
 %defattr(-,root,root,-)
+%_mandir/man1/kdecmake.*
 %_kde_prefix/include/*
 %_kde_appsdir/cmake/modules/*
 %_kde_datadir/dbus-1/*/*
