@@ -8,9 +8,10 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
+Patch0:        kdelibs-4.0.81-add-extra-catalogs.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1023,6 +1024,7 @@ This packages contains all development documentation for kdelibs
 
 %prep
 %setup -q -n kdelibs-%version
+%patch0 -p0
 
 %build
 %cmake_kde4
@@ -1062,7 +1064,7 @@ cat > %buildroot%_sysconfdir/profile.d/kde4env.sh << EOF
 %if %mdkversion <= 200810
 
 if [ -z \$PATH ]; then
-    PATH=%{_bindir}:%{_kde_bindir}
+    PATH=%{_bindir}:/bin:%{_kde_bindir}
 else
     PATH=\$PATH:%{_bindir}:%{_kde_bindir}
 fi
