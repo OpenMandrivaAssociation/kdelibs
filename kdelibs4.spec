@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: kde.pam
 Patch0:        kdelibs-4.0.81-add-extra-catalogs.patch
@@ -947,6 +947,7 @@ KDE 4 system core files.
 %defattr(-,root,root,-)
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %_sysconfdir/pam.d/kde
+%_sysconfdir/pam.d/kde-np
 %_kde_bindir/kbuildsycoca4
 %_kde_bindir/kcookiejar4
 %_kde_bindir/kde4-config
@@ -1049,6 +1050,7 @@ make -C build DESTDIR=%buildroot install
 # Install kde pam configuration file
 install -d -m 0755 %buildroot%_sysconfdir/pam.d/
 install -m 0644 %SOURCE1 %buildroot%_sysconfdir/pam.d/kde
+ln -sf kde %buildroot%_sysconfdir/pam.d/kde-np
 
 # Libraries are in /opt
 %if %mdkversion <= 200810
