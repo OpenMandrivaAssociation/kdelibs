@@ -8,10 +8,11 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 4
+Release: %mkrel 5
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-post-4.0.98-translation-fix.patch
+Patch2: kdelibs-post-4.0.98-findboost.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1024,7 +1025,8 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p0
-%patch1 -p0
+%patch1 -p0 -b .post4098
+%patch2 -p0 -b .post49098
 
 %build
 %cmake_kde4
