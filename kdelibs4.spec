@@ -11,9 +11,7 @@ URL: http://www.kde.org
 Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
-Patch1: kdelibs-post-4.0.98-translation-fix.patch
-Patch2: kdelibs-post-4.0.98-findboost.patch
-Patch3: kdelibs-4.0.98-liblzma.patch
+Patch1: kdelibs-4.0.98-liblzma.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1027,9 +1025,7 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p0
-%patch1 -p0 -b .post4098
-%patch2 -p0 -b .post49098
-%patch3 -p1 -b .liblzma
+%patch1 -p1 -b .liblzma
 
 %build
 %cmake_kde4
