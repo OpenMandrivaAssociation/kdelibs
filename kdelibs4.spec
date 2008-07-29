@@ -8,10 +8,24 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
+Patch100: kdelibs-post-4.1.0-rev837460.patch
+Patch101: kdelibs-post-4.1.0-rev838117.patch
+Patch102: kdelibs-post-4.1.0-rev838208.patch
+Patch103: kdelibs-post-4.1.0-rev838505.patch
+Patch104: kdelibs-post-4.1.0-rev838712.patch
+Patch105: kdelibs-post-4.1.0-rev839036.patch
+Patch106: kdelibs-post-4.1.0-rev837147.patch
+Patch107: kdelibs-post-4.1.0-rev837228.patch
+Patch108: kdelibs-post-4.1.0-rev839227.patch
+Patch109: kdelibs-post-4.1.0-rev837850.patch
+Patch110: kdelibs-post-4.1.0-rev837857.patch
+Patch111: kdelibs-post-4.1.0-rev838695.patch
+Patch112: kdelibs-post-4.1.0-rev839199.patch
+Patch113: kdelibs-post-4.1.0-rev838499.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1026,6 +1040,21 @@ This packages contains all development documentation for kdelibs
 %setup -q -n kdelibs-%version
 %patch0 -p0
 %patch1 -p1 -b .liblzma
+# Post410
+%patch100 -p0 -b .post410
+%patch101 -p0 -b .post410
+%patch102 -p0 -b .post410
+%patch103 -p0 -b .post410
+%patch104 -p0 -b .post410
+%patch105 -p0 -b .post410
+%patch106 -p0 -b .post410
+%patch107 -p0 -b .post410
+%patch108 -p0 -b .post410
+%patch109 -p0 -b .post410
+%patch110 -p0 -b .post410
+%patch111 -p0 -b .post410
+%patch112 -p0 -b .post410
+%patch113 -p0 -b .post410
 
 %build
 %cmake_kde4
