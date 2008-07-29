@@ -65,7 +65,11 @@ BuildRequires: automoc
 BuildRequires: phonon-devel >= 4.2
 BuildRequires: xpm-devel
 BuildRequires: xft2-devel
+%if %mdkversion < 200900
+BuildRequires: lzma-devel
+%else
 BuildRequires: liblzma-devel >= 4.9
+%endif
 
 %description 
 Libraries for the K Desktop Environment.
