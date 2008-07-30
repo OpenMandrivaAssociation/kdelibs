@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
@@ -110,6 +110,7 @@ Group: System/Libraries
 Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Requires: kde4-config-file 
 Requires: kde4-l10n
+Requires: phonon-backend >= 4.2.0
 
 %description -n %libkdecore
 KDE 4 core library.
