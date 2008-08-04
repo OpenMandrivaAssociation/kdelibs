@@ -43,7 +43,7 @@ Patch127: kdelibs-post-4.1.0-rev841276.patch
 Patch128: kdelibs-post-4.1.0-rev841286.patch
 Patch129: kdelibs-post-4.1.0-rev841613.patch
 Patch130: kdelibs-post-4.1.0-rev841625.patch
-Patch131: kdelibs-post-4.1.0-rev837775.patch
+Patch131: kdelibs-backport-4.2-rev837775.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
