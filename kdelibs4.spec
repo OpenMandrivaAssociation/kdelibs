@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 4
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
@@ -26,6 +26,23 @@ Patch110: kdelibs-post-4.1.0-rev837857.patch
 Patch111: kdelibs-post-4.1.0-rev838695.patch
 Patch112: kdelibs-post-4.1.0-rev839199.patch
 Patch113: kdelibs-post-4.1.0-rev838499.patch
+Patch114: kdelibs-post-4.1.0-rev839700.patch
+Patch115: kdelibs-post-4.1.0-rev839978.patch
+Patch116: kdelibs-post-4.1.0-rev840047.patch
+Patch117: kdelibs-post-4.1.0-rev840288.patch
+Patch118: kdelibs-post-4.1.0-rev840377.patch
+Patch119: kdelibs-post-4.1.0-rev840379.patch
+Patch120: kdelibs-post-4.1.0-rev840463.patch
+Patch121: kdelibs-post-4.1.0-rev840622.patch
+Patch122: kdelibs-post-4.1.0-rev840916.patch
+Patch123: kdelibs-post-4.1.0-rev841067.patch
+Patch124: kdelibs-post-4.1.0-rev841089.patch
+Patch125: kdelibs-post-4.1.0-rev841092.patch
+Patch126: kdelibs-post-4.1.0-rev841120.patch
+Patch127: kdelibs-post-4.1.0-rev841276.patch
+Patch128: kdelibs-post-4.1.0-rev841286.patch
+Patch129: kdelibs-post-4.1.0-rev841613.patch
+Patch130: kdelibs-post-4.1.0-rev841625.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1060,6 +1077,23 @@ This packages contains all development documentation for kdelibs
 %patch111 -p0 -b .post410
 %patch112 -p0 -b .post410
 %patch113 -p0 -b .post410
+%patch114 -p0 -b .post410
+%patch115 -p0 -b .post410
+%patch116 -p0 -b .post410
+%patch117 -p0 -b .post410
+%patch118 -p0 -b .post410
+%patch119 -p0 -b .post410
+%patch120 -p0 -b .post410
+%patch121 -p0 -b .post410
+%patch122 -p0 -b .post410
+%patch123 -p0 -b .post410
+%patch124 -p0 -b .post410
+%patch125 -p0 -b .post410
+%patch126 -p0 -b .post410
+%patch127 -p0 -b .post410
+%patch128 -p0 -b .post410
+%patch129 -p0 -b .post410
+%patch130 -p0 -b .post410
 
 %build
 %cmake_kde4
