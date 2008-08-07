@@ -1169,7 +1169,7 @@ if [ -z \$PKG_CONFIG_PATH ]; then
     PKG_CONFIG_PATH=%{_kde_libdir}/pkgconfig
 	export PKG_CONFIG_PATH
 else
-	if [ -z $(echo \$PKG_CONFIG_PATH | grep %{_kde_libdir}/pkgconfig) ]; then
+	if [ -z \$(echo \$PKG_CONFIG_PATH | grep %{_kde_libdir}/pkgconfig) ]; then
     	PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:%{_kde_libdir}/pkgconfig
 		export PKG_CONFIG_PATH XDG_DATA_DIRS PATH
 	fi
