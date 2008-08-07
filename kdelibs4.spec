@@ -1173,9 +1173,8 @@ else
 		export PKG_CONFIG_PATH XDG_DATA_DIRS PATH
 	fi
 fi
-%endif # <= 200810
-
 EOF
+%endif # <= 200810
 
 %clean
 rm -fr %buildroot
