@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 9
+Release: %mkrel 10
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
@@ -53,7 +53,7 @@ Patch137: kdelibs-post-4.1.0-rev842384.patch
 Patch138: kdelibs-post-4.1.0-rev842620.patch
 Patch200: kdelibs-backport-4.2-rev837775.patch
 Patch201: kdelibs-backports-4.2-rev843168.patch
-Patch202: kdelibs-backports-4.2-rev843219.patch
+Patch201: kdelibs-backports-4.2-rev843219.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1119,7 +1119,6 @@ This packages contains all development documentation for kdelibs
 # Backports
 %patch200 -p0 -b .backport420
 %patch201 -p0 -b .backport420
-%patch202 -p0 -b .backport420
 
 %build
 %cmake_kde4
