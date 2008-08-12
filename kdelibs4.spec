@@ -8,10 +8,11 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 10
+Release: %mkrel 11
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
+# Post 4.1 patches
 Patch100: kdelibs-post-4.1.0-rev836885.patch
 Patch101: kdelibs-post-4.1.0-rev837147.patch
 Patch102: kdelibs-post-4.1.0-rev837228.patch
@@ -51,6 +52,23 @@ Patch135: kdelibs-post-4.1.0-rev842307.patch
 Patch136: kdelibs-post-4.1.0-rev842350.patch
 Patch137: kdelibs-post-4.1.0-rev842384.patch
 Patch138: kdelibs-post-4.1.0-rev842620.patch
+Patch139: kdelibs-post-4.1.0-rev843224.patch
+Patch140: kdelibs-post-4.1.0-rev843313.patch
+Patch141: kdelibs-post-4.1.0-rev843320.patch
+Patch142: kdelibs-post-4.1.0-rev843323.patch
+Patch143: kdelibs-post-4.1.0-rev843330.patch
+Patch144: kdelibs-post-4.1.0-rev843791.patch
+Patch145: kdelibs-post-4.1.0-rev844383.patch
+Patch146: kdelibs-post-4.1.0-rev844825.patch
+Patch147: kdelibs-post-4.1.0-rev844830.patch
+Patch148: kdelibs-post-4.1.0-rev844907.patch
+Patch149: kdelibs-post-4.1.0-rev845064.patch
+Patch150: kdelibs-post-4.1.0-rev845252.patch
+Patch151: kdelibs-post-4.1.0-rev845293.patch
+Patch152: kdelibs-post-4.1.0-rev845330.patch
+Patch153: kdelibs-post-4.1.0-rev845369.patch
+Patch154: kdelibs-post-4.1.0-rev845385.patch
+Patch155: kdelibs-post-4.1.0-rev845792.patch
 Patch200: kdelibs-backport-4.2-rev837775.patch
 Patch201: kdelibs-backports-4.2-rev843219.patch
 BuildRequires: kde4-macros >= 4.1-8
@@ -1115,6 +1133,23 @@ This packages contains all development documentation for kdelibs
 %patch136 -p0 -b .post410
 %patch137 -p0 -b .post410
 %patch138 -p0 -b .post410
+%patch139 -p0 -b .post410
+%patch140 -p0 -b .post410
+%patch141 -p0 -b .post410
+%patch142 -p0 -b .post410
+%patch143 -p0 -b .post410
+%patch144 -p0 -b .post410
+%patch145 -p0 -b .post410
+%patch146 -p0 -b .post410
+%patch147 -p0 -b .post410
+%patch148 -p0 -b .post410
+%patch149 -p0 -b .post410
+%patch150 -p0 -b .post410
+%patch151 -p0 -b .post410
+%patch152 -p0 -b .post410
+%patch153 -p0 -b .post410
+%patch154 -p0 -b .post410
+%patch155 -p0 -b .post410
 # Backports
 %patch200 -p0 -b .backport420
 %patch201 -p0 -b .backport420
