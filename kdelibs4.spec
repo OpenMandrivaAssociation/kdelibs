@@ -71,6 +71,7 @@ Patch154: kdelibs-post-4.1.0-rev845385.patch
 Patch155: kdelibs-post-4.1.0-rev845792.patch
 Patch200: kdelibs-backport-4.2-rev837775.patch
 Patch201: kdelibs-backports-4.2-rev843219.patch
+Patch202: kdelibs-backports-4.2-rev842406.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1153,6 +1154,7 @@ This packages contains all development documentation for kdelibs
 # Backports
 %patch200 -p0 -b .backport420
 %patch201 -p0 -b .backport420
+%patch202 -p0 -b .backport420
 
 %build
 %cmake_kde4
