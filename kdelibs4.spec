@@ -1112,7 +1112,7 @@ This packages contains all development documentation for kdelibs
 %setup -q -n kdelibs-%version
 %patch0 -p0
 %patch1 -p1 -b .liblzma
-%patch2 -p1 -b .iaora
+%patch2 -p0 -b .iaora
 # Post410
 # already applied - keep for reference
 #patch100 -p0 -b .post410
