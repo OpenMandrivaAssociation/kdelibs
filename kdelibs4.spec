@@ -8,10 +8,11 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 13
+Release: %mkrel 14
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
+Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
 # Post 4.1 patches
 Patch100:kdelibs-post-4.1.0-rev836885.patch
 Patch101:kdelibs-post-4.1.0-rev837147.patch
@@ -173,6 +174,8 @@ Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
 Requires: kde4-config-file 
 Requires: kde4-l10n
 Requires: phonon-backend >= 4.2.0
+Requires: qt4-style-iaora
+Requires: kde4-style-iaora
 
 %description -n %libkdecore
 KDE 4 core library.
@@ -1109,6 +1112,7 @@ This packages contains all development documentation for kdelibs
 %setup -q -n kdelibs-%version
 %patch0 -p0
 %patch1 -p1 -b .liblzma
+%patch2 -p1 -b .iaora
 # Post410
 # already applied - keep for reference
 #patch100 -p0 -b .post410
