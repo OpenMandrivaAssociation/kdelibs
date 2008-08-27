@@ -1194,7 +1194,8 @@ This packages contains all development documentation for kdelibs
 %patch200 -p0 -b .backport420
 %patch201 -p0 -b .backport420
 %patch202 -p0 -b .backport420
-%patch203 -p0 -b .backport420
+#%patch203 -p0 -b .backport420
+
 %build
 %cmake_kde4
 
