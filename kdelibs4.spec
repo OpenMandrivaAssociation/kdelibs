@@ -3,96 +3,21 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.1.0
+Version: 4.1.1
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 15
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
-# Post 4.1 patches
-Patch100:kdelibs-post-4.1.0-rev836885.patch
-Patch101:kdelibs-post-4.1.0-rev837147.patch
-Patch102:kdelibs-post-4.1.0-rev837228.patch
-Patch103:kdelibs-post-4.1.0-rev837460.patch
-Patch104:kdelibs-post-4.1.0-rev837850.patch
-Patch105:kdelibs-post-4.1.0-rev837857.patch
-Patch106:kdelibs-post-4.1.0-rev838117.patch
-Patch107:kdelibs-post-4.1.0-rev838208.patch
-Patch108:kdelibs-post-4.1.0-rev838499.patch
-Patch109:kdelibs-post-4.1.0-rev838505.patch
-Patch110:kdelibs-post-4.1.0-rev838695.patch
-Patch111:kdelibs-post-4.1.0-rev838712.patch
-Patch112:kdelibs-post-4.1.0-rev839036.patch
-Patch113:kdelibs-post-4.1.0-rev839199.patch
-Patch114:kdelibs-post-4.1.0-rev839227.patch
-Patch115:kdelibs-post-4.1.0-rev839700.patch
-Patch116:kdelibs-post-4.1.0-rev839978.patch
-Patch117:kdelibs-post-4.1.0-rev840047.patch
-Patch118:kdelibs-post-4.1.0-rev840288.patch
-Patch119:kdelibs-post-4.1.0-rev840377.patch
-Patch120:kdelibs-post-4.1.0-rev840379.patch
-Patch121:kdelibs-post-4.1.0-rev840463.patch
-Patch122:kdelibs-post-4.1.0-rev840622.patch
-Patch123:kdelibs-post-4.1.0-rev840916.patch
-Patch124:kdelibs-post-4.1.0-rev841067.patch
-Patch125:kdelibs-post-4.1.0-rev841089.patch
-Patch126:kdelibs-post-4.1.0-rev841092.patch
-Patch127:kdelibs-post-4.1.0-rev841120.patch
-Patch128:kdelibs-post-4.1.0-rev841276.patch
-Patch129:kdelibs-post-4.1.0-rev841286.patch
-Patch130:kdelibs-post-4.1.0-rev841613.patch
-Patch131:kdelibs-post-4.1.0-rev841625.patch
-Patch132:kdelibs-post-4.1.0-rev841962.patch
-Patch133:kdelibs-post-4.1.0-rev842007.patch
-Patch134:kdelibs-post-4.1.0-rev842176.patch
-Patch135:kdelibs-post-4.1.0-rev842307.patch
-Patch136:kdelibs-post-4.1.0-rev842350.patch
-Patch137:kdelibs-post-4.1.0-rev842384.patch
-Patch138:kdelibs-post-4.1.0-rev842620.patch
-Patch139:kdelibs-post-4.1.0-rev843224.patch
-Patch140:kdelibs-post-4.1.0-rev843313.patch
-Patch141:kdelibs-post-4.1.0-rev843320.patch
-Patch142:kdelibs-post-4.1.0-rev843323.patch
-Patch143:kdelibs-post-4.1.0-rev843330.patch
-Patch144:kdelibs-post-4.1.0-rev843791.patch
-Patch145:kdelibs-post-4.1.0-rev844383.patch
-Patch146:kdelibs-post-4.1.0-rev844825.patch
-Patch147:kdelibs-post-4.1.0-rev844830.patch
-Patch148:kdelibs-post-4.1.0-rev844907.patch
-Patch149:kdelibs-post-4.1.0-rev845064.patch
-Patch150:kdelibs-post-4.1.0-rev845252.patch
-Patch151:kdelibs-post-4.1.0-rev845293.patch
-Patch152:kdelibs-post-4.1.0-rev845330.patch
-Patch153:kdelibs-post-4.1.0-rev845369.patch
-Patch154:kdelibs-post-4.1.0-rev845385.patch
-Patch155:kdelibs-post-4.1.0-rev845792.patch
-Patch156:kdelibs-post-4.1.0-rev846526.patch
-Patch157:kdelibs-post-4.1.0-rev846622.patch
-Patch158:kdelibs-post-4.1.0-rev846672.patch
-Patch159:kdelibs-post-4.1.0-rev846709.patch
-Patch160:kdelibs-post-4.1.0-rev846733.patch
-Patch161:kdelibs-post-4.1.0-rev847605.patch
-Patch162:kdelibs-post-4.1.0-rev847753.patch
-Patch163:kdelibs-post-4.1.0-rev847754.patch
-Patch164:kdelibs-post-4.1.0-rev847758.patch
-Patch165:kdelibs-post-4.1.0-rev847763.patch
-Patch166:kdelibs-post-4.1.0-rev848078.patch
-Patch167:kdelibs-post-4.1.0-rev848108.patch
-Patch168:kdelibs-post-4.1.0-rev848170.patch
-Patch169:kdelibs-post-4.1.0-rev848802.patch
-Patch170:kdelibs-post-4.1.0-rev848852.patch
-# Backports
-
 # Backports
 Patch200: kdelibs-backport-4.2-rev837775.patch
 Patch201: kdelibs-backports-4.2-rev843219.patch
 Patch202: kdelibs-backports-4.2-rev842406.patch
 Patch203: kdelibs-backports-4.2-rev849009.patch
-
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -1117,84 +1042,11 @@ This packages contains all development documentation for kdelibs
 %patch0 -p0
 %patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
-# Post410
-# already applied - keep for reference
-#patch100 -p0 -b .post410
-%patch101 -p0 -b .post410 
-%patch102 -p0 -b .post410 
-%patch103 -p0 -b .post410 
-%patch104 -p0 -b .post410 
-%patch105 -p0 -b .post410 
-%patch106 -p0 -b .post410 
-%patch107 -p0 -b .post410 
-%patch108 -p0 -b .post410 
-%patch109 -p0 -b .post410 
-%patch110 -p0 -b .post410 
-%patch111 -p0 -b .post410 
-%patch112 -p0 -b .post410 
-%patch113 -p0 -b .post410 
-%patch114 -p0 -b .post410 
-%patch115 -p0 -b .post410 
-%patch116 -p0 -b .post410 
-%patch117 -p0 -b .post410 
-%patch118 -p0 -b .post410 
-%patch119 -p0 -b .post410 
-%patch120 -p0 -b .post410 
-%patch121 -p0 -b .post410 
-%patch122 -p0 -b .post410 
-%patch123 -p0 -b .post410 
-%patch124 -p0 -b .post410 
-%patch125 -p0 -b .post410 
-%patch126 -p0 -b .post410 
-%patch127 -p0 -b .post410 
-%patch128 -p0 -b .post410 
-%patch129 -p0 -b .post410 
-%patch130 -p0 -b .post410 
-%patch131 -p0 -b .post410 
-%patch132 -p0 -b .post410 
-%patch133 -p0 -b .post410 
-%patch134 -p0 -b .post410 
-%patch135 -p0 -b .post410 
-%patch136 -p0 -b .post410 
-%patch137 -p0 -b .post410 
-%patch138 -p0 -b .post410 
-%patch139 -p0 -b .post410 
-%patch140 -p0 -b .post410 
-%patch141 -p0 -b .post410 
-%patch142 -p0 -b .post410 
-%patch143 -p0 -b .post410 
-%patch144 -p0 -b .post410 
-%patch145 -p0 -b .post410 
-%patch146 -p0 -b .post410 
-%patch147 -p0 -b .post410 
-%patch148 -p0 -b .post410 
-%patch149 -p0 -b .post410 
-%patch150 -p0 -b .post410 
-%patch151 -p0 -b .post410 
-%patch152 -p0 -b .post410 
-%patch153 -p0 -b .post410 
-%patch154 -p0 -b .post410 
-%patch155 -p0 -b .post410 
-%patch156 -p0 -b .post410 
-%patch157 -p0 -b .post410 
-%patch158 -p0 -b .post410 
-%patch159 -p0 -b .post410 
-%patch160 -p0 -b .post410 
-%patch161 -p0 -b .post410 
-%patch162 -p0 -b .post410 
-%patch163 -p0 -b .post410 
-%patch164 -p0 -b .post410 
-%patch165 -p0 -b .post410 
-%patch166 -p0 -b .post410 
-%patch167 -p0 -b .post410 
-%patch168 -p0 -b .post410 
-%patch169 -p0 -b .post410 
-%patch170 -p0 -b .post410 
 # Backports
 %patch200 -p0 -b .backport420
 %patch201 -p0 -b .backport420
 %patch202 -p0 -b .backport420
-#%patch203 -p0 -b .backport420
+#patch203 -p0 -b .backport420
 
 %build
 %cmake_kde4
