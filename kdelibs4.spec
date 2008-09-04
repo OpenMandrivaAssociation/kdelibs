@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 4
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
@@ -105,6 +105,7 @@ Requires: kde4-l10n
 Requires: phonon-backend >= 4.2.0
 Requires: qt4-style-iaora
 Requires: kde4-style-iaora
+Requires: kdelibs4-core = %{version}
 
 %description -n %libkdecore
 KDE 4 core library.
@@ -1008,15 +1009,16 @@ KDE 4 system core files.
 %_kde_mandir/man7/qtoptions.7.*
 %_kde_mandir/man8/kbuildsycoca4.8.*
 %_kde_datadir/icons
+%_kde_datadir/locale/all_languages
 %if %mdkversion <= 200810
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %endif
 #Do not include this file because provided by desktop-common-data
 %exclude %_kde_sysconfdir/xdg/menus/applications.menu
 
+# Devel stuff 0 included in kdelibs4-devel
 %exclude %_kde_appsdir/cmake/modules/*
 %exclude %_kde_libdir/kde4/plugins/designer
-%exclude %_kde_datadir/locale/all_languages
 
 #--------------------------------------------------------------
 
