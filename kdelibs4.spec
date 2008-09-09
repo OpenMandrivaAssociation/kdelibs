@@ -8,16 +8,18 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 5
+Release: %mkrel 6
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
 
-Patch10:  kdelibs-post-4.1.1-rev858160.patch
+# Post 4.1.1 patches
+Patch100: kdelibs-post-4.1.1-rev858160.patch
+Patch101: kdelibs-post-4.1.1-rev858795.patch
 
 # Backports
-Patch200: kdelibs-backport-4.2-rev837775.patch
+Patch200: kdelibs-backports-4.2-rev837775.patch
 Patch201: kdelibs-backports-4.2-rev843219.patch
 Patch202: kdelibs-backports-4.2-rev842406.patch
 Patch203: kdelibs-backports-4.2-rev849009.patch
@@ -1047,7 +1049,9 @@ This packages contains all development documentation for kdelibs
 %patch0 -p0
 %patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
-%patch10 -p0 -b .post411
+# post 4.1.1
+%patch100 -p0 -b .post411
+%patch101 -p0 -b .post411
 # Backports
 %patch200 -p0 -b .backport420
 %patch201 -p0 -b .backport420
