@@ -3,23 +3,16 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.1.1
+Version: 4.1.2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 9
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.0.81-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
-
-# Post 4.1.1 patches
-Patch100: kdelibs-post-4.1.1-rev858160.patch
-Patch101: kdelibs-post-4.1.1-rev858795.patch
-Patch102: kdelibs-post-4.1.1-rev861089.patch
-Patch103: kdelibs-post-4.1.1-rev861402.patch
-Patch104: kdelibs-post-4.1.1-rev861920.patch
 
 # Backports
 Patch200: kdelibs-backports-4.2-rev837775.patch
@@ -1052,12 +1045,6 @@ This packages contains all development documentation for kdelibs
 %patch0 -p0
 %patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
-# post 4.1.1
-%patch100 -p0 -b .post411
-%patch101 -p0 -b .post411
-%patch102 -p0 -b .post411
-%patch103 -p0 -b .post411
-%patch104 -p1 -b .post411
 # Backports
 %patch200 -p0 -b .backport420
 %patch201 -p0 -b .backport420
