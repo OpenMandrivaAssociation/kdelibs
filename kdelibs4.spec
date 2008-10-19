@@ -13,6 +13,7 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
+Patch3: kdelibs-4.1.2-desktop-translation.patch
 
 # Backports
 BuildRequires: kde4-macros >= 4.1-8
@@ -1020,6 +1021,7 @@ This packages contains all development documentation for kdelibs
 %patch0 -p0
 #%patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
+%patch3 -p0 
 # Backports
 
 %build
