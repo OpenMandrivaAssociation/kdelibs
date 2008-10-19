@@ -3,23 +3,18 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.1.2
+Version: 4.1.70
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 5
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
-Patch3: kdelibs-4.1.2-desktop-translation.patch
-Patch100: kdelibs-post-4.1.2-rev867092.patch
+
 # Backports
-Patch200: kdelibs-backports-4.2-rev837775.patch
-Patch201: kdelibs-backports-4.2-rev843219.patch
-Patch202: kdelibs-backports-4.2-rev842406.patch
-Patch203: kdelibs-backports-4.2-rev849009.patch
 BuildRequires: kde4-macros >= 4.1-8
 BuildRequires: cmake >= 2.4.5
 BuildRequires: qt4-devel >= 4.4.0
@@ -673,43 +668,17 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-%package -n kwallet-daemon
-Summary: Kwallet daemon
-Group: Development/KDE and Qt
-
-%description -n kwallet-daemon
-Kwallet daemon.
-
-%files -n kwallet-daemon
-%defattr(-,root,root)
-%_kde_bindir/kwalletd
-
-#------------------------------------------------	
-
-%define kwalletbackend_major 4
-%define libkwalletbackend %mklibname kwalletbackend %kwalletbackend_major
-
-%package -n %libkwalletbackend
-Summary: KDE 4 core library
-Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
-Obsoletes: %{_lib}kwalletbackend5 < 3.93.0-0.714006.1
-Requires: kwallet-daemon 
-
-%description -n %libkwalletbackend
-KDE 4 core library.
-
-%if %mdkversion < 200900
-%post -n %libkwalletbackend -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libkwalletbackend -p /sbin/ldconfig
-%endif
-
-%files -n %libkwalletbackend
-%defattr(-,root,root)
-%_kde_libdir/libkwalletbackend.so.%{kwalletbackend_major}*
-
+#%package -n kwallet-daemon
+#Summary: Kwallet daemon
+#Group: Development/KDE and Qt
+#
+#%description -n kwallet-daemon
+#Kwallet daemon.
+#
+#%files -n kwallet-daemon
+#%defattr(-,root,root)
+#%_kde_bindir/kwalletd
+#
 #------------------------------------------------	
 
 %define solid_major 4
@@ -884,7 +853,7 @@ Requires: %libkrossui = %version
 Requires: %libktexteditor = %version
 Requires: %libkunittest = %version
 Requires: %libkutils = %version
-Requires: %libkwalletbackend = %version
+#Requires: %libkwalletbackend = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
 Requires: %libkpty = %version
@@ -924,7 +893,6 @@ browsing.
 %_kde_libdir/libktexteditor.so
 %_kde_libdir/libkunittest.so
 %_kde_libdir/libkutils.so
-%_kde_libdir/libkwalletbackend.so
 %_kde_libdir/libnepomuk.so
 %_kde_libdir/libkde3support.so
 %_kde_libdir/libkpty.so
@@ -936,6 +904,7 @@ browsing.
 %_kde_libdir/libkio.so
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
+%_kde_libdir/libkformulalib.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1.*
@@ -1003,6 +972,7 @@ KDE 4 system core files.
 %_kde_appsdir/katepart
 %_kde_appsdir/kcertpart
 %_kde_appsdir/kcharselect
+%_kde_appsdir/formulashape
 %_kde_docdir/HTML/en/sonnet
 %_kde_docdir/HTML/en/common/*
 %_kde_mandir/man1/kde4-config.1.*
@@ -1010,8 +980,12 @@ KDE 4 system core files.
 %_kde_mandir/man7/kdeoptions.7.*
 %_kde_mandir/man7/qtoptions.7.*
 %_kde_mandir/man8/kbuildsycoca4.8.*
+%_kde_mandir/man8/kcookiejar4.8.*
+%_kde_mandir/man8/kdeinit4.8.*
+%_kde_mandir/man8/meinproc4.8.*
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
+%_kde_appsdir/koffice/icons/hicolor/22x22/actions/formulashape.png
 %if %mdkversion <= 200810
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %endif
@@ -1044,16 +1018,9 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p0
-%patch1 -p1 -b .liblzma
+#%patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
-%patch3 -p0 -b .translation
-# Patch from branch
-%patch100 -p1 -b .post412
 # Backports
-%patch200 -p0 -b .backport420
-%patch201 -p0 -b .backport420
-%patch202 -p0 -b .backport420
-#patch203 -p0 -b .backport420
 
 %build
 %cmake_kde4
