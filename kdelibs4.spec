@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 1
+Release: %mkrel 2
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.0.98-liblzma.patch
@@ -785,7 +785,6 @@ KDE 4 core library.
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
-Conflicts: kdelibs4-core < 3.90.2-0.678253 
 Requires: kde4-macros
 Requires: acl-devel
 Requires: qt4-devel >= 4.4.0
@@ -861,6 +860,8 @@ Requires: %libkpty = %version
 Requires: %libkjsapi = %version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
+Conflicts: kdelibs4-core < 3.90.2-0.678253 
+Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 %if %mdkversion > 200810
 Conflicts: %{_lib}kdecore4-devel < 30000000:3.5.9-11
 Conflicts: %{_lib}kjsembed1-devel < 1:3.5.9-2
