@@ -876,7 +876,7 @@ browsing.
 
 %files devel
 %defattr(-,root,root,-)
-%_mandir/man1/kdecmake.*
+%_mandir/man1/kdecmake.1*
 %_kde_prefix/include/*
 %_kde_appsdir/cmake/modules/*
 %_kde_datadir/dbus-1/*/*
@@ -910,7 +910,7 @@ browsing.
 %_kde_libdir/libkformulalib.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
-%_kde_mandir/man1/checkXML.1.*
+%_kde_mandir/man1/checkXML.1*
 %_kde_bindir/kconfig_compiler
 %exclude %_kde_libdir/libkdeinit4_*
 
@@ -978,14 +978,14 @@ KDE 4 system core files.
 %_kde_appsdir/formulashape
 %_kde_docdir/HTML/en/sonnet
 %_kde_docdir/HTML/en/common/*
-%_kde_mandir/man1/kde4-config.1.*
-%_kde_mandir/man1/makekdewidgets.1.*
-%_kde_mandir/man7/kdeoptions.7.*
-%_kde_mandir/man7/qtoptions.7.*
-%_kde_mandir/man8/kbuildsycoca4.8.*
-%_kde_mandir/man8/kcookiejar4.8.*
-%_kde_mandir/man8/kdeinit4.8.*
-%_kde_mandir/man8/meinproc4.8.*
+%_kde_mandir/man1/kde4-config.1*
+%_kde_mandir/man1/makekdewidgets.1*
+%_kde_mandir/man7/kdeoptions.7*
+%_kde_mandir/man7/qtoptions.7*
+%_kde_mandir/man8/kbuildsycoca4.8*
+%_kde_mandir/man8/kcookiejar4.8*
+%_kde_mandir/man8/kdeinit4.8*
+%_kde_mandir/man8/meinproc4.8*
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
 %_kde_appsdir/koffice/icons/hicolor/22x22/actions/formulashape.png
