@@ -8,10 +8,10 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 2
+Release: %mkrel 3
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
-Patch1: kdelibs-4.0.98-liblzma.patch
+Patch1: kdelibs-4.1.71-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 
@@ -1021,7 +1021,7 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p0
-#%patch1 -p1 -b .liblzma
+%patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
 %patch3 -p0 
 # Backports
