@@ -920,7 +920,7 @@ Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
 Suggests: enchant-dictionary
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
-Conflicts: kdelibs4-devel < 4.1.70-4
+Conflicts: kdelibs4-devel < 4.1.71-4
 %if %mdkversion > 200810
 Conflicts: kdelibs-common < 30000000:3.5.9-11
 Conflicts: kjsembed < 1:3.5.9-2
