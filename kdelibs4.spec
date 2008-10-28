@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 4
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -907,7 +907,6 @@ browsing.
 %_kde_libdir/libkio.so
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
-%_kde_libdir/libkformulalib.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -921,8 +920,7 @@ Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
 Suggests: enchant-dictionary
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
-Conflicts: kdelibs4-devel < 4.0.0-5
-Conflicts: kdelibs4-devel < 4.0.0-5
+Conflicts: kdelibs4-devel < 4.1.70-4
 %if %mdkversion > 200810
 Conflicts: kdelibs-common < 30000000:3.5.9-11
 Conflicts: kjsembed < 1:3.5.9-2
@@ -954,6 +952,8 @@ KDE 4 system core files.
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
+# Needed by kdeedu4 apps
+%_kde_libdir/libkformulalib.so
 %_kde_datadir/config
 %_kde_datadir/mime/*
 %_kde_datadir/kde4
