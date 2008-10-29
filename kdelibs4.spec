@@ -8,12 +8,13 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 4
+Release: %mkrel 5
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
+Patch4: kdelibs-4.1.71-add-kde-menu.patch 
 
 # Backports
 BuildRequires: kde4-macros >= 4.1-8
@@ -978,8 +979,7 @@ KDE 4 system core files.
 %if %mdkversion <= 200810
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %endif
-#Do not include this file because provided by desktop-common-data
-%exclude %_kde_sysconfdir/xdg/menus/applications.menu
+%_kde_sysconfdir/xdg/kde4/menus/applications.menu
 
 # Devel stuff 0 included in kdelibs4-devel
 %exclude %_kde_appsdir/cmake/modules/*
@@ -1010,6 +1010,8 @@ This packages contains all development documentation for kdelibs
 %patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
 %patch3 -p0 
+%patch4 -p0
+
 # Backports
 
 %build
