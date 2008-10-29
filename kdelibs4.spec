@@ -669,19 +669,6 @@ KDE 4 core library.
 
 #------------------------------------------------	
 
-#%package -n kwallet-daemon
-#Summary: Kwallet daemon
-#Group: Development/KDE and Qt
-#
-#%description -n kwallet-daemon
-#Kwallet daemon.
-#
-#%files -n kwallet-daemon
-#%defattr(-,root,root)
-#%_kde_bindir/kwalletd
-#
-#------------------------------------------------	
-
 %define solid_major 4
 %define libsolid %mklibname solid %solid_major
 
@@ -853,7 +840,6 @@ Requires: %libkrossui = %version
 Requires: %libktexteditor = %version
 Requires: %libkunittest = %version
 Requires: %libkutils = %version
-#Requires: %libkwalletbackend = %version
 Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
 Requires: %libkpty = %version
