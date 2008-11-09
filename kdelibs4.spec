@@ -8,7 +8,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 5
+Release: %mkrel 6
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -437,14 +437,14 @@ KDE 4 core library.
 #------------------------------------------------	
 
 %define knewstuff2_major 4
-%define libknewstuff2 %mklibname knewstuff2 %knewstuff2_major
+%define libknewstuff2 %mklibname knewstuff2_ %knewstuff2_major
 
 %package -n %libknewstuff2
 Summary: KDE 4 core library
 Group: System/Libraries
 Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}knewstuff25 < 3.93.0-0.714006.1
- 
+Obsoletes: %{_lib}knewstuff24 < 4.1.71-6
 
 %description -n %libknewstuff2
 KDE 4 core library.
