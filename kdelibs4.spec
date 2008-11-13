@@ -9,7 +9,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 8
+Release: %mkrel 9
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -898,7 +898,7 @@ Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 3.90.2-0.678253 
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
-Conflicts: kdebase4-workspace-devel < 2:4.1.71-1 
+Conflicts: kdebase4-workspace-devel < 2:4.1.73-1
 %if %mdkversion > 200810
 Conflicts: %{_lib}kdecore4-devel < 30000000:3.5.9-11
 Conflicts: %{_lib}kjsembed1-devel < 1:3.5.9-2
@@ -964,7 +964,7 @@ Conflicts: kdelibs-common < 30000000:3.5.9-11
 Conflicts: kjsembed < 1:3.5.9-2
 %endif
 Requires: shared-mime-info
-
+Conflicts:  kdebase4-workspace < 2:4.1.73-1
 %description core
 KDE 4 system core files.
 
