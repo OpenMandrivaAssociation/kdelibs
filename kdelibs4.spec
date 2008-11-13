@@ -3,7 +3,7 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.1.71
+Version: 4.1.73
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
@@ -770,6 +770,53 @@ KDE 4 core library.
 
 #------------------------------------------------
 
+%define libplasma_major 3
+%define libplasma %mklibname plasma %{libplasma_major}
+
+%package -n %libplasma
+Summary: KDE 4 core library
+Group: System/Libraries
+Obsoletes: %{_lib}kdebase46 <= 1:3.80.3
+Obsoletes: %{_lib}plasma1 < 1:4.0.80-4
+
+%description -n %libplasma
+KDE 4 core library.
+
+%if %mdkversion < 200900
+%post -n %libplasma -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
+%postun -n %libplasma -p /sbin/ldconfig
+%endif
+
+%files -n %libplasma
+%defattr(-,root,root)
+%_kde_libdir/libplasma.so.%{libplasma_major}*
+
+#------------------------------------------------
+%define libkformula_major 4
+%define libkformula %mklibname kformula %{libkformula_major}
+
+%package -n %libkformula
+Summary: KDE 4 core library
+Group: System/Libraries
+
+%description -n %libkformula
+KDE 4 core library.
+
+%if %mdkversion < 200900
+%post -n %libkformula -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
+%postun -n %libkformula -p /sbin/ldconfig
+%endif
+
+%files -n %libkformula
+%defattr(-,root,root)
+%_kde_libdir/libkformula.so.%{libkformula_major}*
+
+#------------------------------------------------
+
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -845,6 +892,8 @@ Requires: %libsolid = %version
 Requires: %libthreadweaver = %version
 Requires: %libkpty = %version
 Requires: %libkjsapi = %version
+Requires: %libplasma = %version
+Requires: %libkformula = %version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 3.90.2-0.678253 
@@ -894,6 +943,8 @@ browsing.
 %_kde_libdir/libkio.so
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
+%_kde_libdir/libplasma.so
+%_kde_libdir/libkformula.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -939,8 +990,6 @@ KDE 4 system core files.
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
 %_kde_libdir/libkdeinit4_*
-# Needed by kdeedu4 apps
-%_kde_libdir/libkformulalib.so
 %_kde_datadir/config
 %_kde_datadir/mime/*
 %_kde_datadir/kde4
@@ -973,6 +1022,10 @@ KDE 4 system core files.
 %_kde_mandir/man8/kcookiejar4.8*
 %_kde_mandir/man8/kdeinit4.8*
 %_kde_mandir/man8/meinproc4.8*
+%_kde_mandir/man1/kjs.1.*
+%_kde_mandir/man1/kjscmd.1.*
+%_kde_mandir/man1/kross.1.*
+%_kde_mandir/man8/kded4.8.*
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
 %_kde_appsdir/koffice/icons/hicolor/22x22/actions/formulashape.png
