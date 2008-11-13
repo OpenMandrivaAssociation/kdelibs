@@ -18,8 +18,7 @@ Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.71-add-kde-menu.patch 
 
 # Backports
-BuildRequires: kde4-macros >= 4.1-8
-BuildRequires: cmake >= 2.4.5
+BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
