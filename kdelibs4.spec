@@ -9,7 +9,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 7
+Release: %mkrel 8
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -104,7 +104,7 @@ Requires: kde4-l10n
 Requires: phonon-backend >= 4.2.0
 Requires: qt4-style-iaora
 Requires: kde4-style-iaora
-Requires: kdelibs4-core = %{version}
+Requires: kdelibs4-core = %epoch:%{version}
 
 %description -n %libkdecore
 KDE 4 core library.
@@ -864,6 +864,7 @@ Requires: soprano-devel >= 2.0.98
 Requires: automoc
 Requires: xpm-devel
 Requires: xft2-devel
+Provides:  plasma-devel = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
 Requires: %libkdefakes = %epoch:%version
