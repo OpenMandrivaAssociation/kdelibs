@@ -4,11 +4,12 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.1.73
+Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 6
+Release: %mkrel 7
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -823,8 +824,7 @@ Summary: Header files and documentation for compiling KDE applications
 Requires: kde4-macros
 Requires: acl-devel
 Requires: qt4-devel >= 4.4.0
-Requires: kdelibs4-core = %version
-Requires: cmake
+Requires: kdelibs4-core = %epoch:%version
 Requires: automoc
 Requires: soprano-devel
 Requires: strigi-devel
@@ -865,35 +865,35 @@ Requires: soprano-devel >= 2.0.98
 Requires: automoc
 Requires: xpm-devel
 Requires: xft2-devel
-Requires: %libkde3support = %version
-Requires: %libkdecore = %version
-Requires: %libkdefakes = %version
-Requires: %libkdesu = %version
-Requires: %libkdeui = %version
-Requires: %libkdnssd = %version
-Requires: %libkfile = %version
-Requires: %libkhtml = %version
-Requires: %libkimproxy = %version
-Requires: %libkio = %version
-Requires: %libkjsembed = %version
-Requires: %libkjs = %version
-Requires: %libkmediaplayer = %version
-Requires: %libnepomuk = %version
-Requires: %libknewstuff2 = %version
-Requires: %libknotifyconfig = %version
-Requires: %libkntlm = %version
-Requires: %libkparts = %version
-Requires: %libkrosscore = %version
-Requires: %libkrossui = %version
-Requires: %libktexteditor = %version
-Requires: %libkunittest = %version
-Requires: %libkutils = %version
-Requires: %libsolid = %version
-Requires: %libthreadweaver = %version
-Requires: %libkpty = %version
-Requires: %libkjsapi = %version
-Requires: %libplasma = %version
-Requires: %libkformula = %version
+Requires: %libkde3support = %epoch:%version
+Requires: %libkdecore = %epoch:%version
+Requires: %libkdefakes = %epoch:%version
+Requires: %libkdesu = %epoch:%version
+Requires: %libkdeui =%epoch: %version
+Requires: %libkdnssd = %epoch:%version
+Requires: %libkfile = %epoch:%version
+Requires: %libkhtml = %epoch:%version
+Requires: %libkimproxy = %epoch:%version
+Requires: %libkio = %epoch:%version
+Requires: %libkjsembed = %epoch:%version
+Requires: %libkjs = %epoch:%version
+Requires: %libkmediaplayer = %epoch:%version
+Requires: %libnepomuk = %epoch:%version
+Requires: %libknewstuff2 = %epoch:%version
+Requires: %libknotifyconfig = %epoch:%version
+Requires: %libkntlm = %epoch:%version
+Requires: %libkparts = %epoch:%version
+Requires: %libkrosscore = %epoch:%version
+Requires: %libkrossui = %epoch:%version
+Requires: %libktexteditor = %epoch:%version
+Requires: %libkunittest = %epoch:%version
+Requires: %libkutils = %epoch:%version
+Requires: %libsolid = %epoch:%version
+Requires: %libthreadweaver = %epoch:%version
+Requires: %libkpty = %epoch:%version
+Requires: %libkjsapi = %epoch:%version
+Requires: %libplasma = %epoch:%version
+Requires: %libkformula = %epoch:%version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 3.90.2-0.678253 
