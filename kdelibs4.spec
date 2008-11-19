@@ -1014,6 +1014,15 @@ KDE 4 system core files.
 %_kde_appsdir/formulashape
 %_kde_docdir/HTML/en/sonnet
 %_kde_docdir/HTML/en/common/*
+%_kde_docdir/HTML/en/kioslave/data
+%_kde_docdir/HTML/en/kioslave/file
+%_kde_docdir/HTML/en/kioslave/ftp
+%_kde_docdir/HTML/en/kioslave/help
+%_kde_docdir/HTML/en/kioslave/http
+%_kde_docdir/HTML/en/kioslave/mailto
+%_kde_docdir/HTML/en/kioslave/rlogin
+%_kde_docdir/HTML/en/kioslave/telnet
+%_kde_docdir/HTML/en/kioslave/webdav
 %_kde_mandir/man1/kde4-config.1*
 %_kde_mandir/man1/makekdewidgets.1*
 %_kde_mandir/man7/kdeoptions.7*
