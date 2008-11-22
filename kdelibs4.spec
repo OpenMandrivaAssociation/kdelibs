@@ -108,7 +108,7 @@ Requires: kde4-config-file
 Requires: kde4-l10n
 Requires: phonon-backend >= 4.2.0
 Requires: qt4-style-iaora
-#Requires: kde4-style-iaora
+Requires: kde4-style-iaora
 Requires: kdelibs4-core = %epoch:%{version}
 
 %description -n %libkdecore
