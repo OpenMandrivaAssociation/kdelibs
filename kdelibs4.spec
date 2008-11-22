@@ -9,7 +9,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 6
+Release: %mkrel 7
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -18,6 +18,10 @@ Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.71-add-kde-menu.patch 
 Patch5: kdelibs-4.1.73-menu-button-plasma-icon.patch
 # Backports
+Patch100: kdelibs-4.1.80-rev887054.patch
+Patch101: kdelibs-4.1.80-rev886850.patch
+Patch102: kdelibs-4.1.80-rev887077.patch
+
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -1077,7 +1081,9 @@ This packages contains all development documentation for kdelibs
 #%patch5 -p0
 
 # Backports
-
+%patch100 -p0
+%patch101 -p0
+%patch102 -p0
 %build
 %cmake_kde4
 
