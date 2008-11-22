@@ -58,6 +58,7 @@ BuildRequires: automoc
 BuildRequires: phonon-devel >= 4.2
 BuildRequires: xpm-devel
 BuildRequires: xft2-devel
+BuildRequires: libxml2-utils
 %if %mdkversion < 200900
 BuildRequires: lzma-devel
 %else
