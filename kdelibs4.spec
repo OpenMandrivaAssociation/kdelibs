@@ -11,7 +11,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 4
+Release: %mkrel 5
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -867,7 +867,8 @@ Requires: soprano-devel >= 2.0.98
 Requires: automoc
 Requires: xpm-devel
 Requires: xft2-devel
-Provides:  plasma-devel = %epoch:%version
+Provides: plasma-devel = %epoch:%version
+Provides: devel(libkephal)
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
 Requires: %libkdefakes = %epoch:%version
