@@ -1,8 +1,6 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
-%define _requires_exceptions devel\(libkephal\)
-
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.1.80
