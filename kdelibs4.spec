@@ -16,7 +16,7 @@ Patch1: kdelibs-4.1.71-liblzma.patch
 Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.71-add-kde-menu.patch 
-Patch5: kdelibs-4.1.73-menu-button-plasma-icon.patch
+Patch5: kdelibs-4.1.80-menu-button-plasma-icon.patch
 # Backports
 Patch100: kdelibs-4.1.80-rev887054.patch
 Patch101: kdelibs-4.1.80-rev886850.patch
@@ -1078,7 +1078,7 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
 %patch4 -p0
-#%patch5 -p0
+%patch5 -p0
 
 # Backports
 %patch100 -p0
