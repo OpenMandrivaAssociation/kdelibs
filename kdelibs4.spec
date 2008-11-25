@@ -9,7 +9,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 9
+Release: %mkrel 10
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
@@ -1076,7 +1076,7 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
 %patch4 -p0
-#%patch5 -p0
+%patch5 -p0
 
 # Backports
 %patch103 -p0
