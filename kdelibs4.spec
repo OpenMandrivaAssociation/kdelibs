@@ -1076,7 +1076,7 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
 %patch4 -p0
-%patch5 -p0
+#%patch5 -p0
 
 # Backports
 %patch103 -p0
