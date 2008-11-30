@@ -3,22 +3,21 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.1.80
+Version: 4.1.81
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 10
+Release: %mkrel 1
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
-Patch2: kdelibs-4.1.0-overrides-oxygen-iaora.patch
+Patch2: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.71-add-kde-menu.patch 
 Patch5: kdelibs-4.1.80-menu-button-plasma-icon.patch
 # Backports
-Patch103: kdelibs-4.1.80-rev888589.patch 
 
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
@@ -1078,11 +1077,8 @@ This packages contains all development documentation for kdelibs
 %patch4 -p0
 %patch5 -p0
 
-# Backports
-%patch103 -p0
 %build
 %cmake_kde4
-
 %make
 
 %if %{compile_apidox}
