@@ -15,7 +15,7 @@ Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.71-liblzma.patch
 Patch2: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
-Patch4: kdelibs-4.1.71-add-kde-menu.patch 
+Patch4: kdelibs-4.1.85-add-kde-menu.patch 
 Patch5: kdelibs-4.1.80-menu-button-plasma-icon.patch
 # Backports
 
