@@ -19,6 +19,7 @@ Patch4: kdelibs-4.1.85-add-kde-menu.patch
 Patch5: kdelibs-4.1.80-menu-button-plasma-icon.patch
 # Backports
 Patch100:      kdelibs-4.1.85-rev895934.patch
+Patch101:      kdelibs-4.1.85-testing-escape.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -1078,7 +1079,7 @@ This packages contains all development documentation for kdelibs
 %patch5 -p0
 
 %patch100 -p0
-
+%patch101 -p0
 %build
 %cmake_kde4
 %make
