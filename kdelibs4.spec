@@ -16,11 +16,8 @@ Patch1: kdelibs-4.1.71-liblzma.patch
 Patch2: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.85-add-kde-menu.patch 
-Patch5: kdelibs-4.1.80-menu-button-plasma-icon.patch
+Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 # Backports
-Patch100:      kdelibs-4.1.85-rev895934.patch
-Patch101:      kdelibs-4.1.85-testing-escape.patch
-Patch102:      kdelibs-4.1.85-testing-filesharing.patch
 Patch103:      kdelibs-4.1.85-testing-kbo160221.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
@@ -1081,9 +1078,6 @@ This packages contains all development documentation for kdelibs
 %patch4 -p0
 %patch5 -p0
 
-%patch100 -p0
-%patch101 -p0
-%patch102 -p1
 %patch103 -p1
 
 %build
