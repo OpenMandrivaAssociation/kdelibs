@@ -796,28 +796,6 @@ KDE 4 core library.
 %_kde_libdir/libplasma.so.%{libplasma_major}*
 
 #------------------------------------------------
-%define libkformula_major 4
-%define libkformula %mklibname kformula %{libkformula_major}
-
-%package -n %libkformula
-Summary: KDE 4 core library
-Group: System/Libraries
-
-%description -n %libkformula
-KDE 4 core library.
-
-%if %mdkversion < 200900
-%post -n %libkformula -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libkformula -p /sbin/ldconfig
-%endif
-
-%files -n %libkformula
-%defattr(-,root,root)
-%_kde_libdir/libkformula.so.%{libkformula_major}*
-
-#------------------------------------------------
 
 %package devel
 Group: Development/KDE and Qt
