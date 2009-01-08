@@ -873,7 +873,6 @@ Requires: %libthreadweaver = %epoch:%version
 Requires: %libkpty = %epoch:%version
 Requires: %libkjsapi = %epoch:%version
 Requires: %libplasma = %epoch:%version
-Requires: %libkformula = %epoch:%version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 3.90.2-0.678253 
