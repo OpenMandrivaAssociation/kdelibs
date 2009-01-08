@@ -923,7 +923,6 @@ browsing.
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
 %_kde_libdir/libplasma.so
-%_kde_libdir/libkformula.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
