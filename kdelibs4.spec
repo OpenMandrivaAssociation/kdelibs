@@ -990,7 +990,6 @@ KDE 4 system core files.
 %_kde_appsdir/katepart
 %_kde_appsdir/kcertpart
 %_kde_appsdir/kcharselect
-%_kde_appsdir/formulashape
 %_kde_docdir/HTML/en/sonnet
 %_kde_docdir/HTML/en/common/*
 %_kde_docdir/HTML/en/kioslave/data
@@ -1016,7 +1015,6 @@ KDE 4 system core files.
 %_kde_mandir/man8/kded4.8.*
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
-%_kde_appsdir/koffice/icons/hicolor/22x22/actions/formulashape.png
 %if %mdkversion <= 200810
 %attr(0755,root,root) %_sysconfdir/profile.d/*
 %endif
