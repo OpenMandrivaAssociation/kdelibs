@@ -9,7 +9,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 3
+Release: %mkrel 4
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.85-xz-support.patch
@@ -20,7 +20,9 @@ Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 Patch6: kdelibs-4.1.96-fix-kdepimlibs-cmake.patch
 
 # Backports
-Patch103:      kdelibs-4.1.85-testing-kbo160221.patch
+Patch100:      kdelibs-backport-4.2-rev909478.patch
+#Testing
+Patch200:      kdelibs-4.1.85-testing-kbo160221.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -1054,7 +1056,8 @@ This packages contains all development documentation for kdelibs
 %patch4 -p0
 %patch5 -p0
 %patch6 -p1
-%patch103 -p1
+%patch100 -p1
+%patch200 -p1
 
 %build
 %cmake_kde4
