@@ -9,7 +9,7 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Release: %mkrel 4
+Release: %mkrel 5
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.85-xz-support.patch
@@ -17,7 +17,6 @@ Patch2: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.85-add-kde-menu.patch 
 Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
-Patch6: kdelibs-4.1.96-fix-kdepimlibs-cmake.patch
 
 # Backports
 Patch100:      kdelibs-backport-4.2-rev909478.patch
@@ -1055,7 +1054,6 @@ This packages contains all development documentation for kdelibs
 #%patch3 -p0 
 %patch4 -p0
 %patch5 -p0
-%patch6 -p1
 %patch100 -p1
 %patch200 -p1
 
