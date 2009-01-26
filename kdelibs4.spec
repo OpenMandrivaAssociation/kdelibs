@@ -18,8 +18,10 @@ Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.85-add-kde-menu.patch 
 Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 Patch6: kdelibs-4.2.0-update-certificats.patch
+Patch7: kdelibs-4.2.0-iconwidget-keepproportion.patch
 # Backports
 Patch101: kdelibs-nepomuk-trunk-rev915020.patch
+Patch102: kdelibs-backport-4.2-rev915328.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
 BuildRequires: kde4-macros >= 4.1.71
@@ -853,10 +855,12 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
 %patch4 -p0
-%patch5 -p0
+#%patch5 -p0
 %patch6 -p0
+%patch7 -p1 -b .iconwidget_keepproportion
 
-%patch101 -p0
+#%patch101 -p0
+%patch102 -p1 -b .rev915328
 %patch200 -p1
 
 %build
