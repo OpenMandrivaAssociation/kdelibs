@@ -63,7 +63,7 @@ BuildRequires: phonon-devel >= 4.2
 BuildRequires: xpm-devel
 BuildRequires: xft2-devel
 BuildRequires: libxml2-utils
-BuildRequires: liblzma-devel >= 4.9
+BuildRequires: liblzma-devel >= 4.999.7
 
 %description 
 Libraries for the K Desktop Environment.
