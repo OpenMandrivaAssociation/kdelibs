@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.0
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -20,7 +20,7 @@ Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 Patch6: kdelibs-4.2.0-update-certificats.patch
 Patch7: kdelibs-4.2.0-iconwidget-keepproportion.patch
 # Backports
-Patch101: kdelibs-nepomuk-trunk-rev915020.patch
+Patch101: kdelibs-nepomuk-trunk-rev918238.patch
 Patch102: kdelibs-backport-4.2-rev915328.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
@@ -859,7 +859,7 @@ This packages contains all development documentation for kdelibs
 %patch6 -p0
 %patch7 -p1 -b .iconwidget_keepproportion
 
-#%patch101 -p0
+%patch101 -p1
 %patch102 -p1 -b .rev915328
 %patch200 -p1
 
