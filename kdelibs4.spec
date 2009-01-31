@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.0
-Release: %mkrel 6
+Release: %mkrel 7
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -28,6 +28,7 @@ Patch105: kdelibs-backport-4.2-rev918403.patch
 Patch106: kdelibs-backport-4.2-rev917170.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
+Patch201: kdelibs-testing-mdv47378.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -870,6 +871,7 @@ This packages contains all development documentation for kdelibs
 %patch105 -p1 -b .backport_from_branch
 %patch106 -p1 -b .backport_from_branch
 %patch200 -p1
+%patch201 -p1
 %build
 %cmake_kde4
 %make
