@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.0
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -23,6 +23,9 @@ Patch7: kdelibs-4.2.0-iconwidget-keepproportion.patch
 Patch101: kdelibs-nepomuk-trunk-rev918238.patch
 Patch102: kdelibs-backport-4.2-rev915328.patch
 Patch103: kdelibs-backport-4.2-rev918838.patch
+Patch104: kdelibs-backport-4.2-rev918654.patch
+Patch105: kdelibs-backport-4.2-rev918403.patch
+Patch106: kdelibs-backport-4.2-rev917170.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
 BuildRequires: kde4-macros >= 4.1.71
@@ -862,7 +865,10 @@ This packages contains all development documentation for kdelibs
 
 %patch101 -p1
 %patch102 -p1 -b .rev915328
-%patch103 -p1
+%patch103 -p1 -b .backport_from_branch
+%patch104 -p1 -b .backport_from_branch
+%patch105 -p1 -b .backport_from_branch
+%patch106 -p1 -b .backport_from_branch
 %patch200 -p1
 %build
 %cmake_kde4
