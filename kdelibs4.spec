@@ -876,7 +876,7 @@ This packages contains all development documentation for kdelibs
 %patch105 -p1 -b .backport_from_branch
 %patch106 -p1 -b .backport_from_branch
 %patch107 -p0 -b .backport_from_trunk
-%patch108 -p1 -b .backport_from_branch
+%patch108 -p0 -b .backport_from_branch
 %patch200 -p1
 %patch201 -p1
 %patch202 -p1
