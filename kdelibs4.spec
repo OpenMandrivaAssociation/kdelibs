@@ -28,7 +28,6 @@ Patch104: kdelibs-backport-4.2-rev918654.patch
 Patch105: kdelibs-backport-4.2-rev918403.patch
 Patch106: kdelibs-backport-4.2-rev917170.patch
 Patch107: kdelibs-backport-4.3-rev927169.patch
-Patch108: kdelibs-backport-4.2-rev927891.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
 Patch201: kdelibs-testing-mdv47378.patch
@@ -876,7 +875,6 @@ This packages contains all development documentation for kdelibs
 %patch105 -p1 -b .backport_from_branch
 %patch106 -p1 -b .backport_from_branch
 %patch107 -p0 -b .backport_from_trunk
-%patch108 -p0 -b .backport_from_branch
 %patch200 -p1
 %patch201 -p1
 %patch202 -p1
