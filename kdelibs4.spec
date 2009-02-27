@@ -3,8 +3,8 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.2.0
-Release: %mkrel 15
+Version: 4.2.1
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -18,22 +18,14 @@ Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.85-add-kde-menu.patch 
 Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 Patch6: kdelibs-4.2.0-update-certificats.patch
-Patch7: kdelibs-4.2.0-iconwidget-keepproportion.patch
+Patch7: kdelibs-4.2.1-iconwidget-keepproportion.patch
 Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch 
 # Backports
-Patch101: kdelibs-nepomuk-trunk-rev918238.patch
-Patch102: kdelibs-backport-4.2-rev915328.patch
-Patch103: kdelibs-backport-4.2-rev918838.patch
-Patch104: kdelibs-backport-4.2-rev918654.patch
-Patch105: kdelibs-backport-4.2-rev918403.patch
-Patch106: kdelibs-backport-4.2-rev917170.patch
-Patch107: kdelibs-backport-4.3-rev927169.patch
-Patch108: kdelibs-backport-4.2-rev927886.patch
-Patch109: kdelibs-4.2.0-notification-4.2.1-backport.patch
+Patch101: kdelibs-nepomuk-trunk-rev932765.patch
+Patch102: kdelibs-backport-4.3-rev927169.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
 Patch201: kdelibs-testing-mdv47378.patch
-Patch202: kdelibs-4.2.0-plasma-qt45.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -870,18 +862,12 @@ This packages contains all development documentation for kdelibs
 %patch7 -p1 -b .iconwidget_keepproportion
 %patch8 -p1 -b .konqueror_big_page
 
-%patch101 -p1
-%patch102 -p1 -b .rev915328
-%patch103 -p1 -b .backport_from_branch
-%patch104 -p1 -b .backport_from_branch
-%patch105 -p1 -b .backport_from_branch
-%patch106 -p1 -b .backport_from_branch
-%patch107 -p0 -b .backport_from_trunk
-%patch108 -p0 -b .backport_from_branch
-%patch109 -p0 -b .backport_from_branch
-%patch200 -p1
+%patch101 -p0
+%patch102 -p0 -b .backport_from_trunk
+# Disabled for now
+#patch200 -p1
 %patch201 -p1
-%patch202 -p1
+
 %build
 %cmake_kde4
 %make
