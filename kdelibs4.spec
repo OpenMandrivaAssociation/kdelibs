@@ -1,10 +1,11 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
+
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.1
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -20,12 +21,14 @@ Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 Patch6: kdelibs-4.2.0-update-certificats.patch
 Patch7: kdelibs-4.2.1-iconwidget-keepproportion.patch
 Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch 
+Patch9: kdelibs-revert-4.2-rev921138.patch
 # Backports
 Patch101: kdelibs-nepomuk-trunk-rev932765.patch
 Patch102: kdelibs-backport-4.3-rev927169.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
 Patch201: kdelibs-testing-mdv47378.patch
+Patch202: kdelibs-revert-4.2-rev921138.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -867,7 +870,7 @@ This packages contains all development documentation for kdelibs
 # Disabled for now
 #patch200 -p1
 %patch201 -p1
-
+%patch202 -p0
 %build
 %cmake_kde4
 %make
