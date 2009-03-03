@@ -12,7 +12,7 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
-Patch1: kdelibs-4.1.85-xz-support.patch
+Patch1: kdelibs-4.2.1-xz-support.patch
 Patch2: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.85-add-kde-menu.patch 
