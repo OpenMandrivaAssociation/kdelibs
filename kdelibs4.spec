@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.1
-Release: %mkrel 6
+Release: %mkrel 7
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -20,6 +20,7 @@ Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 Patch6: kdelibs-4.2.0-update-certificats.patch
 Patch7: kdelibs-4.2.1-iconwidget-keepproportion.patch
 Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch 
+Patch9: kdelibs-4.2.1-mandriva-about.patch
 # Backports
 Patch101: kdelibs-nepomuk-trunk-rev932765.patch
 Patch102: kdelibs-backport-4.3-rev927169.patch
@@ -863,6 +864,7 @@ This packages contains all development documentation for kdelibs
 %patch6 -p0
 %patch7 -p1 -b .iconwidget_keepproportion
 %patch8 -p1 -b .konqueror_big_page
+%patch9 -p0 -b .about
 
 %patch101 -p0
 %patch102 -p0 -b .backport_from_trunk
