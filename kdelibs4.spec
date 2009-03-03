@@ -1,11 +1,10 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
-
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.1
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -25,6 +24,7 @@ Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch
 Patch101: kdelibs-nepomuk-trunk-rev932765.patch
 Patch102: kdelibs-backport-4.3-rev927169.patch
 Patch103: kdelibs-backport-4.3-rev930506.patch
+Patch104: kdelibs-backport-4.3-rev931769.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
 Patch201: kdelibs-testing-mdv47378.patch
@@ -867,6 +867,7 @@ This packages contains all development documentation for kdelibs
 %patch101 -p0
 %patch102 -p0 -b .backport_from_trunk
 %patch103 -p0 -b .backport_from_trunk
+%patch104 -p0 -b .backport_from_trunk
 # Disabled for now
 #patch200 -p1
 %patch201 -p1
