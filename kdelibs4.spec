@@ -26,9 +26,6 @@ Patch10:kdelibs-4.2.1-plasma-svg-cache.patch
 Patch101: kdelibs-nepomuk-trunk-rev932765.patch
 Patch102: kdelibs-backport-4.3-rev927169.patch
 Patch103: kdelibs-backport-4.3-rev930506.patch
-Patch104: kdelibs-backport-4.3-rev931769.patch
-Patch105: kdelibs-backport-4.3-rev934710.patch
-Patch106: kdelibs-backport-4.2.2-rev938657.patch
 #Testing
 Patch200: kdelibs-4.1.85-testing-kbo160221.patch
 Patch201: kdelibs-testing-mdv47378.patch
@@ -869,9 +866,6 @@ This packages contains all development documentation for kdelibs
 %patch101 -p0
 %patch102 -p0 -b .backport_from_trunk
 %patch103 -p0 -b .backport_from_trunk
-%patch104 -p0 -b .backport_from_trunk
-%patch105 -p0 -b .backport_from_trunk
-%patch106 -p0 -b .backport_from_branch
 
 # Disabled for now
 #patch200 -p1
