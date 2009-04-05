@@ -23,13 +23,13 @@ Patch9: kdelibs-4.2.1-mandriva-about.patch
 Patch10: kdelibs-4.2.1-plasma-svg-cache.patch
 Patch11: kdelibs-4.2.2-runtime-qt-locale-initialized.patch
 # Backports
-Patch101: kdelibs-nepomuk-trunk-rev932765.patch
-Patch102: kdelibs-backport-4.3-rev927169.patch
-Patch103: kdelibs-backport-4.3-rev930506.patch
+Patch201: kdelibs-nepomuk-trunk-rev932765.patch
+Patch202: kdelibs-backport-4.3-rev927169.patch
+Patch203: kdelibs-backport-4.3-rev930506.patch
 #Testing
-Patch200: kdelibs-4.1.85-testing-kbo160221.patch
-Patch201: kdelibs-testing-mdv47378.patch
-Patch202: kdelibs-testing-mdv49069.patch
+Patch300: kdelibs-4.1.85-testing-kbo160221.patch
+Patch301: kdelibs-testing-mdv47378.patch
+Patch302: kdelibs-testing-mdv49069.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -865,14 +865,14 @@ This packages contains all development documentation for kdelibs
 %patch10 -p0 -b .plasma_svg_cache
 %patch11 -p0 -b .qt44_45
 
-%patch101 -p0
-%patch102 -p0 -b .backport_from_trunk
-%patch103 -p0 -b .backport_from_trunk
+%patch201 -p0
+%patch202 -p0 -b .backport_from_trunk
+%patch203 -p0 -b .backport_from_trunk
 
 # Disabled for now
-#patch200 -p1
-%patch201 -p1
-%patch202 -p0
+#patch300 -p1
+%patch301 -p1
+%patch302 -p0
 
 %build
 %cmake_kde4
