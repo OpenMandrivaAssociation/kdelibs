@@ -22,6 +22,24 @@ Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch
 Patch9: kdelibs-4.2.1-mandriva-about.patch
 Patch10: kdelibs-4.2.1-plasma-svg-cache.patch
 Patch11: kdelibs-4.2.2-runtime-qt-locale-initialized.patch
+Patch100: kdelibs-backport-4.2.3-rev947575.patch
+Patch101: kdelibs-backport-4.2.3-rev947656.patch
+Patch102: kdelibs-backport-4.2.3-rev948254.patch
+Patch103: kdelibs-backport-4.2.3-rev948298.patch
+Patch104: kdelibs-backport-4.2.3-rev948318.patch
+Patch105: kdelibs-backport-4.2.3-rev948342.patch
+Patch106: kdelibs-backport-4.2.3-rev948348.patch
+Patch107: kdelibs-backport-4.2.3-rev948350.patch
+Patch108: kdelibs-backport-4.2.3-rev948351.patch
+Patch109: kdelibs-backport-4.2.3-rev948352.patch
+Patch110: kdelibs-backport-4.2.3-rev948353.patch
+Patch111: kdelibs-backport-4.2.3-rev948444.patch
+Patch112: kdelibs-backport-4.2.3-rev948589.patch
+Patch113: kdelibs-backport-4.2.3-rev948748.patch
+Patch114: kdelibs-backport-4.2.3-rev948757.patch
+Patch115: kdelibs-backport-4.2.3-rev948882.patch
+Patch116: kdelibs-backport-4.2.3-rev949036.patch
+Patch117: kdelibs-backport-4.2.3-rev949054.patch
 # Backports
 Patch201: kdelibs-nepomuk-trunk-rev932765.patch
 Patch202: kdelibs-backport-4.3-rev927169.patch
@@ -864,6 +882,25 @@ This packages contains all development documentation for kdelibs
 %patch9 -p0 -b .about
 %patch10 -p0 -b .plasma_svg_cache
 %patch11 -p0 -b .qt44_45
+
+%patch100 -p0
+%patch101 -p0
+%patch102 -p0
+%patch103 -p0
+%patch104 -p0
+%patch105 -p0
+%patch106 -p0
+%patch107 -p0
+%patch108 -p0
+%patch109 -p0
+%patch110 -p0
+%patch111 -p0
+%patch112 -p0
+%patch113 -p0
+%patch114 -p0
+%patch115 -p0
+%patch116 -p0
+%patch117 -p0
 
 %patch201 -p0
 %patch202 -p0 -b .backport_from_trunk
