@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.2
-Release: %mkrel 12
+Release: %mkrel 13
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -42,6 +42,12 @@ Patch115: kdelibs-backport-4.2.3-rev948882.patch
 Patch116: kdelibs-backport-4.2.3-rev949036.patch
 Patch117: kdelibs-backport-4.2.3-rev949054.patch
 Patch118: kdelibs-backport-4.2.3-rev948320.patch
+Patch119: kdelibs-backport-4.2.3-rev950360.patch
+Patch120: kdelibs-backport-4.2.3-rev951041.patch
+Patch121: kdelibs-backport-4.2.3-rev951134.patch
+Patch122: kdelibs-backport-4.2.3-rev951145.patch
+Patch123: kdelibs-backport-4.2.3-rev951214.patch
+
 # Backports
 Patch201: kdelibs-nepomuk-trunk-rev932765.patch
 Patch202: kdelibs-backport-4.3-rev927169.patch
@@ -911,6 +917,11 @@ This packages contains all development documentation for kdelibs
 %patch116 -p0
 %patch117 -p0
 %patch118 -p0
+%patch119 -p0
+%patch120 -p0
+%patch121 -p0
+%patch122 -p0
+%patch123 -p0
 
 %patch201 -p0
 %patch202 -p0 -b .backport_from_trunk
