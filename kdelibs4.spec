@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.2
-Release: %mkrel 18
+Release: %mkrel 19
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -111,6 +111,7 @@ BuildRequires: xpm-devel
 BuildRequires: xft2-devel
 BuildRequires: libxml2-utils
 BuildRequires: liblzma-devel >= 4.999.7
+BuildRequires: libutempter-devel
 
 %description 
 Libraries for the K Desktop Environment.
