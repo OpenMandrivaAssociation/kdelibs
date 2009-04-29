@@ -1,81 +1,29 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
-
+%define kde_snapshot svn%revision
+%define revision 954171
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.2.2
-Release: %mkrel 26
+Version: 4.2.70
+Release: %mkrel 0.%kde_snapshot.1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%kde_snapshot.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
-Patch1: kdelibs-4.2.1-xz-support.patch
 Patch2: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.85-add-kde-menu.patch 
-Patch5: kdelibs-4.1.96-menu-button-plasma-icon.patch
 Patch6: kdelibs-4.2.0-update-certificats.patch
 Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch 
-Patch9: kdelibs-4.2.1-mandriva-about.patch
-Patch10: kdelibs-4.2.1-plasma-svg-cache.patch
-Patch11: kdelibs-4.2.2-runtime-qt-locale-initialized.patch
+Patch9: kdelibs-4.2.70-mandriva-about.patch
+Patch11: kdelibs-4.2.70-runtime-qt-locale-initialized.patch
 Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
-Patch100: kdelibs-backport-4.2.3-rev947575.patch
-Patch101: kdelibs-backport-4.2.3-rev947656.patch
-Patch102: kdelibs-backport-4.2.3-rev948254.patch
-Patch103: kdelibs-backport-4.2.3-rev948298.patch
-Patch104: kdelibs-backport-4.2.3-rev948318.patch
-Patch105: kdelibs-backport-4.2.3-rev948342.patch
-Patch106: kdelibs-backport-4.2.3-rev948348.patch
-Patch107: kdelibs-backport-4.2.3-rev948350.patch
-Patch108: kdelibs-backport-4.2.3-rev948351.patch
-Patch109: kdelibs-backport-4.2.3-rev948352.patch
-Patch110: kdelibs-backport-4.2.3-rev948353.patch
-Patch111: kdelibs-backport-4.2.3-rev948444.patch
-Patch112: kdelibs-backport-4.2.3-rev948589.patch
-Patch113: kdelibs-backport-4.2.3-rev948748.patch
-Patch114: kdelibs-backport-4.2.3-rev948757.patch
-Patch115: kdelibs-backport-4.2.3-rev948882.patch
-Patch116: kdelibs-backport-4.2.3-rev949036.patch
-Patch117: kdelibs-backport-4.2.3-rev949054.patch
-Patch118: kdelibs-backport-4.2.3-rev948320.patch
-Patch119: kdelibs-backport-4.2.3-rev950360.patch
-Patch120: kdelibs-backport-4.2.3-rev951041.patch
-Patch121: kdelibs-backport-4.2.3-rev951134.patch
-Patch122: kdelibs-backport-4.2.3-rev951145.patch
-Patch123: kdelibs-backport-4.2.3-rev951214.patch
-Patch124: kdelibs-backport-4.2.3-rev950465.patch
-Patch125: kdelibs-backport-4.2.3-rev950876.patch
-Patch126: kdelibs-backport-4.2.3-rev950983.patch
-Patch127: kdelibs-backport-4.2.3-rev951367.patch
-Patch128: kdelibs-backport-4.2.3-rev951343.patch
-Patch129: kdelibs-backport-4.2.3-rev951351.patch
-Patch130: kdelibs-backport-4.2.3-rev951532.patch
-Patch131: kdelibs-backport-4.2.3-rev951697.patch
-Patch132: kdelibs-backport-4.2.3-rev951666.patch
-Patch133: kdelibs-backport-4.2.3-rev952346.patch
-Patch134: kdelibs-backport-4.2.3-rev955821.patch
-Patch135: kdelibs-backport-4.2.3-rev955904.patch 
-Patch136: kdelibs-backport-4.2.3-rev956037.patch
-# Backports
-Patch201: kdelibs-nepomuk-trunk-rev932765.patch
-Patch202: kdelibs-backport-4.3-rev927169.patch
-Patch203: kdelibs-backport-4.3-rev930506.patch
-Patch204: kdelibs-backport-4.3.0-rev949887.patch
-Patch205: kdelibs-backport-4.3.0-rev949394.patch
-Patch206: kdelibs-backport-4.3.0-rev949392.patch
-Patch207: kdelibs-backport-4.3.0-rev948028.patch
-Patch208: kdelibs-backport-4.3.0-rev947737.patch
-Patch209: kdelibs-backport-4.3.0-rev947736.patch
-Patch210: kdelibs-backport-4.3-rev945677.patch
 #Testing
-Patch300: kdelibs-4.1.85-testing-kbo160221.patch
 Patch301: kdelibs-testing-mdv47378.patch
-Patch302: kdelibs-testing-mdv49069.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -899,73 +847,19 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
-%setup -q -n kdelibs-%version
+%setup -q -n kdelibs-%version.%kde_snapshot
 %patch0 -p0
-%patch1 -p1 -b .liblzma
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
 %patch4 -p0
-#%patch5 -p0
 %patch6 -p0
 %patch8 -p1 -b .konqueror_big_page
 %patch9 -p0 -b .about
-%patch10 -p0 -b .plasma_svg_cache
 %patch11 -p0 -b .qt44_45
-%patch12 -p1 -b .kdeglobals_nocache
+# Still needed ?
+#%patch12 -p1 -b .kdeglobals_nocache
 
-%patch100 -p0
-%patch101 -p0
-%patch102 -p0
-%patch103 -p0
-%patch104 -p0
-%patch105 -p0
-%patch106 -p0
-%patch107 -p0
-%patch108 -p0
-%patch109 -p0
-%patch110 -p0
-%patch111 -p0
-%patch112 -p0
-%patch113 -p0
-%patch114 -p0
-%patch115 -p0
-%patch116 -p0
-%patch117 -p0
-%patch118 -p0
-%patch119 -p0
-%patch120 -p0
-%patch121 -p0
-%patch122 -p0
-%patch123 -p0
-%patch124 -p0
-%patch125 -p0
-%patch126 -p0
-%patch127 -p0
-%patch128 -p0
-%patch129 -p0
-%patch130 -p0
-%patch131 -p0
-%patch132 -p0
-%patch133 -p0
-%patch134 -p0
-%patch135 -p0
-%patch136 -p0
-
-%patch201 -p0
-%patch202 -p0 -b .backport_from_trunk
-%patch203 -p0 -b .backport_from_trunk
-%patch204 -p0 -b .backport_from_trunk
-%patch205 -p0 -b .backport_from_trunk
-%patch206 -p0 -b .backport_from_trunk
-%patch207 -p0 -b .backport_from_trunk
-%patch208 -p0 -b .backport_from_trunk
-%patch209 -p0 -b .backport_from_trunk
-%patch210 -p0 -b .backport_from_trunk
-
-# Disabled for now
-#patch300 -p1
 %patch301 -p1
-%patch302 -p0
 
 %build
 %cmake_kde4
