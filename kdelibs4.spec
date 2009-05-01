@@ -6,7 +6,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.70
-Release: %mkrel 0.%kde_snapshot.1
+Release: %mkrel 0.%kde_snapshot.2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -683,7 +683,8 @@ Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 3.90.2-0.678253 
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
-Conflicts: kdebase4-workspace-devel < 2:4.1.73-1
+Conflicts: kdebase4-workspace-devel < 2:4.2.2-19
+Conflicts: kdebase4-runtime < 1:4.2.2-8
 Obsoletes: %{_lib}kdecore4-devel < 30000000:3.5.9-11
 Obsoletes: %{_lib}kjsembed1-devel < 1:3.5.9-2
 
