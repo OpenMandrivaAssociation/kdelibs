@@ -5,7 +5,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.71
-Release: %mkrel 0.%kde_snapshot.2
+Release: %mkrel 0.%kde_snapshot.1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -780,7 +780,7 @@ KDE 4 system core files.
 %_kde_appsdir/LICENSES
 %_kde_appsdir/ktexteditor_kdatatool
 %_kde_appsdir/ktexteditor_insertfile
-%_kde_appsdir/ktexteditor_docwordcompletion
+#%_kde_appsdir/ktexteditor_docwordcompletion
 %_kde_appsdir/kssl
 %_kde_appsdir/ksgmltools2
 %_kde_appsdir/knewstuff
