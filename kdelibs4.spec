@@ -1,11 +1,10 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
-%define kde_snapshot svn%revision
-%define revision 954171
+%define kde_snapshot svn961800
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.2.70
+Version: 4.2.71
 Release: %mkrel 0.%kde_snapshot.2
 Epoch:   2
 Group: Graphical desktop/KDE
