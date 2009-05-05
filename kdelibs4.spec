@@ -5,7 +5,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.71
-Release: %mkrel 0.%kde_snapshot.1
+Release: %mkrel 0.%kde_snapshot.2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -21,6 +21,8 @@ Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch
 Patch9: kdelibs-4.2.70-mandriva-about.patch
 Patch11: kdelibs-4.2.70-runtime-qt-locale-initialized.patch
 Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
+#official backports
+Patch100: kdelibs-4.2.71-rev981856.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 BuildRequires: kde4-macros >= 4.1.71
@@ -858,6 +860,7 @@ This packages contains all development documentation for kdelibs
 %patch11 -p0 -b .qt44_45
 # Still needed ?
 #%patch12 -p1 -b .kdeglobals_nocache
+%patch100 -p1 -b .lzma
 
 %patch301 -p1
 
