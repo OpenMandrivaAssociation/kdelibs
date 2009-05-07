@@ -22,7 +22,6 @@ Patch9: kdelibs-4.2.70-mandriva-about.patch
 Patch11: kdelibs-4.2.70-runtime-qt-locale-initialized.patch
 Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
 #official backports
-Patch100: kdelibs-4.2.71-rev981856.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 BuildRequires: kde4-macros >= 4.1.71
@@ -860,7 +859,6 @@ This packages contains all development documentation for kdelibs
 %patch11 -p0 -b .qt44_45
 # Still needed ?
 #%patch12 -p1 -b .kdeglobals_nocache
-%patch100 -p1 -b .lzma
 
 %patch301 -p1
 
