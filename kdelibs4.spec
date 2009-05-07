@@ -4,20 +4,20 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.2.71
-Release: %mkrel 0.%kde_snapshot.2
+Version: 4.2.85
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL: http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.%kde_snapshot.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch2: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3: kdelibs-4.1.2-desktop-translation.patch
 Patch4: kdelibs-4.1.85-add-kde-menu.patch 
 Patch6: kdelibs-4.2.0-update-certificats.patch
-Patch8: kdelibs-4.2.0-fix_konqueror_crash_on_big_tables.patch 
+Patch8: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
 Patch9: kdelibs-4.2.70-mandriva-about.patch
 Patch11: kdelibs-4.2.70-runtime-qt-locale-initialized.patch
 Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
@@ -849,7 +849,7 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
-%setup -q -n kdelibs-%version.%kde_snapshot
+%setup -q -n kdelibs-%version
 %patch0 -p0
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
