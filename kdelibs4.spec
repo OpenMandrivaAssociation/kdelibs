@@ -5,7 +5,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.85
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -728,7 +728,6 @@ browsing.
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
 %_kde_libdir/libplasma.so
-%_kde_libdir/libknotificationitem-1.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -742,7 +741,7 @@ Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
 Suggests: enchant-dictionary
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
-Conflicts: kdelibs4-devel < 4.1.71-4
+Conflicts: kdelibs4-devel < 2:4.2.85-4
 %if %mdkversion >= 200910
 Obsoletes: kdelibs-common < 30000000:3.5.10-6
 %endif
@@ -773,6 +772,7 @@ KDE 4 system core files.
 %_kde_bindir/preparetips
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
+%_kde_libdir/libknotificationitem-1.so
 %attr(4755,root,root) %_kde_libdir/kde4/libexec/fileshareset
 %_kde_libdir/libkdeinit4_*
 %_kde_datadir/config
