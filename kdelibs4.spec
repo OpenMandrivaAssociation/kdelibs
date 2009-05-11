@@ -5,7 +5,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.85
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -25,6 +25,7 @@ Patch13: kdelibs-4.2.85-add-experimental.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
+Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
 BuildRequires: aspell-devel
@@ -864,6 +865,7 @@ This packages contains all development documentation for kdelibs
 %patch13 -p1 -b .merge-experimental_branch
 
 %patch301 -p1
+%patch302 -p1
 
 %build
 %cmake_kde4
