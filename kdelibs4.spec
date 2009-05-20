@@ -19,10 +19,10 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
 %if %branch
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%kde_snapshot.tar.bz2
-#Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version%kde_snapshot.tar.bz2
+Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version%kde_snapshot.tar.bz2
 %else
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
-#Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
+Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
 %endif
 Patch0:  kdelibs-4.1.2-add-extra-catalogs.patch
 Patch2:  kdelibs-4.1.81-overrides-oxygen-iaora.patch
@@ -867,6 +867,13 @@ This packages contains all development documentation for kdelibs
 %setup -q -n kdelibs-%version
 %endif
 
+tar xjvf %SOURCE1
+%if %branch
+mv kdelibs-experimental-%version%kde_snapshot experimental
+%else
+mv kdelibs-experimental-%version experimental
+%endif
+
 %patch0 -p0
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
@@ -877,7 +884,6 @@ This packages contains all development documentation for kdelibs
 %patch11 -p0 -b .qt44_45
 # Still needed ?
 #%patch12 -p1 -b .kdeglobals_nocache
-%patch13 -p1 -b .merge-experimental_branch
 
 %patch301 -p1
 %patch302 -p1
