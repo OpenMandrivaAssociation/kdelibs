@@ -19,8 +19,10 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
 %if %branch
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%kde_snapshot.tar.bz2
+#Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version%kde_snapshot.tar.bz2
 %else
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+#Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
 %endif
 Patch0:  kdelibs-4.1.2-add-extra-catalogs.patch
 Patch2:  kdelibs-4.1.81-overrides-oxygen-iaora.patch
@@ -794,7 +796,6 @@ KDE 4 system core files.
 %_kde_appsdir/LICENSES
 %_kde_appsdir/ktexteditor_kdatatool
 %_kde_appsdir/ktexteditor_insertfile
-#%_kde_appsdir/ktexteditor_docwordcompletion
 %_kde_appsdir/kssl
 %_kde_appsdir/ksgmltools2
 %_kde_appsdir/knewstuff
@@ -805,7 +806,6 @@ KDE 4 system core files.
 %_kde_appsdir/kconf_update
 %_kde_appsdir/kcm_componentchooser
 %_kde_appsdir/katepart
-%_kde_appsdir/kcertpart
 %_kde_appsdir/kcharselect
 %_kde_docdir/HTML/en/sonnet
 %_kde_docdir/HTML/en/common/*
