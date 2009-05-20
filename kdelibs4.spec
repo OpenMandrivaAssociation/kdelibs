@@ -1,6 +1,12 @@
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
+
+%if %branch
 %define kde_snapshot svn969966
+%endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -11,7 +17,11 @@ Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
+%if %branch
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%kde_snapshot.tar.bz2
+%else
+Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+%endif
 Patch0:  kdelibs-4.1.2-add-extra-catalogs.patch
 Patch2:  kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3:  kdelibs-4.1.2-desktop-translation.patch
@@ -851,7 +861,12 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
+%if %branch
 %setup -q -n kdelibs-%version%kde_snapshot
+%else
+%setup -q -n kdelibs-%version
+%endif
+
 %patch0 -p0
 %patch2 -p0 -b .iaora
 #%patch3 -p0 
