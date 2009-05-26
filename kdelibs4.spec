@@ -34,7 +34,7 @@ Patch9:  kdelibs-4.2.70-mandriva-about.patch
 Patch11: kdelibs-4.2.70-runtime-qt-locale-initialized.patch
 Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
 #official backports
-Patch101: kdelibs-r969968.patch
+Patch101: kdelibs-4.2.87-t969968-fixFindLibKonq-cmake.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
