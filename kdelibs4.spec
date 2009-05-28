@@ -5,13 +5,13 @@
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
 %if %branch
-%define kde_snapshot svn969966
+%define kde_snapshot svn973768
 %endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.2.87
-Release: %mkrel 2
+Version: 4.2.88
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
