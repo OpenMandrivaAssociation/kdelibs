@@ -1,4 +1,4 @@
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
 %define compile_apidox 0
@@ -10,7 +10,7 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.2.88
+Version: 4.2.90
 Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
