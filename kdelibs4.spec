@@ -31,7 +31,7 @@ Patch4:  kdelibs-4.1.85-add-kde-menu.patch
 Patch6:  kdelibs-4.2.0-update-certificats.patch
 Patch8:  kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
 Patch9:  kdelibs-4.2.70-mandriva-about.patch
-Patch11: kdelibs-4.2.70-runtime-qt-locale-initialized.patch
+Patch11: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
 #official backports
 #Testing
