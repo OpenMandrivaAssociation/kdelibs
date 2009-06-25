@@ -11,7 +11,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.95
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -616,6 +616,24 @@ KDE 4 core library.
 
 #------------------------------------------------
 
+%define libknotificationitem_1_major 1
+%define libknotificationitem_1 %mklibname knotificationitem-1 %{libknotificationitem_1_major}
+
+%package -n %libknotificationitem_1
+Summary: KDE 4 core library
+Group: System/Libraries
+Obsoletes: %{_lib}kdebase46 <= 1:3.80.3
+Obsoletes: %{_lib}plasma1 < 1:4.0.80-4
+
+%description -n %libknotificationitem_1
+KDE 4 core library.
+
+%files -n %libknotificationitem_1
+%defattr(-,root,root)
+%_kde_libdir/libknotificationitem-1.so.%{libknotificationitem_1_major}*
+
+#------------------------------------------------
+
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -692,6 +710,7 @@ Requires: %libthreadweaver = %epoch:%version
 Requires: %libkpty = %epoch:%version
 Requires: %libkjsapi = %epoch:%version
 Requires: %libplasma = %epoch:%version
+Requires: %libknotificationitem_1 = %epoch:%version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 3.90.2-0.678253 
