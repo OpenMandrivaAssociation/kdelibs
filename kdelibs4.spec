@@ -11,7 +11,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.95
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -714,7 +714,7 @@ Requires: %libplasma = %epoch:%version
 Requires: %libknotificationitem_1 = %epoch:%version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
-Conflicts: kdelibs4-core < 4.2.95-2
+Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: kdebase4-workspace-devel < 2:4.2.2-19
 Conflicts: kdebase4-runtime < 1:4.2.2-8
@@ -760,6 +760,7 @@ browsing.
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
 %_kde_libdir/libplasma.so
+%_kde_libdir/libknotificationitem-1.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -804,7 +805,6 @@ KDE 4 system core files.
 %_kde_bindir/preparetips
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*
-%_kde_libdir/libknotificationitem-1.so
 %attr(4755,root,root) %_kde_libdir/kde4/libexec/fileshareset
 %_kde_libdir/libkdeinit4_*
 %_kde_datadir/config
