@@ -11,7 +11,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.95
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -33,6 +33,7 @@ Patch8:  kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch
 Patch9:  kdelibs-4.2.70-mandriva-about.patch
 Patch11: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
+Patch13: kdelibs-4.2.95-fix-kross-lib.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
@@ -713,7 +714,7 @@ Requires: %libplasma = %epoch:%version
 Requires: %libknotificationitem_1 = %epoch:%version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
-Conflicts: kdelibs4-core < 3.90.2-0.678253 
+Conflicts: kdelibs4-core < 4.2.95-2
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: kdebase4-workspace-devel < 2:4.2.2-19
 Conflicts: kdebase4-runtime < 1:4.2.2-8
@@ -902,7 +903,7 @@ mv kdelibs-experimental-%version experimental
 %patch11 -p0 -b .qt44_45
 # Still needed ?
 #%patch12 -p1 -b .kdeglobals_nocache
-
+%patch13 -p1
 %patch301 -p1
 %patch302 -p1
 
