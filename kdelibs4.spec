@@ -77,7 +77,7 @@ BuildRequires: phonon-devel >= 4.2
 BuildRequires: xpm-devel
 BuildRequires: xft2-devel
 BuildRequires: libxml2-utils
-BuildRequires: liblzma-devel >= 4.999.7
+BuildRequires: liblzma-devel
 BuildRequires: libutempter-devel
 
 %description 
@@ -123,9 +123,6 @@ KDE 4 core library.
 %files -n %libkdecore
 %defattr(-,root,root)
 %_kde_libdir/libkdecore.so.%{kdecore_major}*
-%if %mdkversion <= 200810
-%_sysconfdir/ld.so.conf.d/%{_lib}kde4.conf
-%endif
 
 #------------------------------------------------	
 
@@ -718,8 +715,10 @@ Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: kdebase4-workspace-devel < 2:4.2.2-19
 Conflicts: kdebase4-runtime < 1:4.2.2-8
+%if %mdkversion >= 200910
 Obsoletes: %{_lib}kdecore4-devel < 30000000:3.5.9-11
 Obsoletes: %{_lib}kjsembed1-devel < 1:3.5.9-2
+%endif
 
 %description devel
 This package includes the header files you will need to compile applications 
@@ -777,8 +776,8 @@ Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 2:4.2.85-4
 %if %mdkversion >= 200910
 Obsoletes: kdelibs-common < 30000000:3.5.10-6
-%endif
 Conflicts: kjsembed < 1:3.5.9-2
+%endif
 Requires: shared-mime-info
 Conflicts:  kdebase4-workspace < 2:4.1.73-1
 %description core
