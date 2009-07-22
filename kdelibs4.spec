@@ -1,29 +1,16 @@
-%define branch 0
-%{?_branch: %{expand: %%global branch 1}}
-
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
-%if %branch
-%define kde_snapshot svn973768
-%endif
-
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.2.96
+Version: 4.2.98
 Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
-%if %branch
-Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%kde_snapshot.tar.bz2
-Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version%kde_snapshot.tar.bz2
-%else
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
-Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
-%endif
 Patch0:  kdelibs-4.1.2-add-extra-catalogs.patch
 Patch2:  kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch3:  kdelibs-4.1.2-desktop-translation.patch
@@ -32,7 +19,6 @@ Patch6:  kdelibs-4.2.0-update-certificats.patch
 Patch8:  kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
 Patch9:  kdelibs-4.2.70-mandriva-about.patch
 Patch11: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
-Patch12: kdelibs-4.1.72-no-cache-kdeglobals-paths.patch
 Patch13: kdelibs-4.2.95-fix-kross-lib.patch
 #official backports
 #Testing
@@ -614,24 +600,6 @@ KDE 4 core library.
 
 #------------------------------------------------
 
-%define libknotificationitem_1_major 1
-%define libknotificationitem_1 %mklibname knotificationitem-1 %{libknotificationitem_1_major}
-
-%package -n %libknotificationitem_1
-Summary: KDE 4 core library
-Group: System/Libraries
-Obsoletes: %{_lib}kdebase46 <= 1:3.80.3
-Obsoletes: %{_lib}plasma1 < 1:4.0.80-4
-
-%description -n %libknotificationitem_1
-KDE 4 core library.
-
-%files -n %libknotificationitem_1
-%defattr(-,root,root)
-%_kde_libdir/libknotificationitem-1.so.%{libknotificationitem_1_major}*
-
-#------------------------------------------------
-
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -708,7 +676,6 @@ Requires: %libthreadweaver = %epoch:%version
 Requires: %libkpty = %epoch:%version
 Requires: %libkjsapi = %epoch:%version
 Requires: %libplasma = %epoch:%version
-Requires: %libknotificationitem_1 = %epoch:%version
 Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 4.2.95-3
@@ -759,7 +726,6 @@ browsing.
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
 %_kde_libdir/libplasma.so
-%_kde_libdir/libknotificationitem-1.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -879,29 +845,14 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
-%if %branch
-%setup -q -n kdelibs-%version%kde_snapshot
-%else
 %setup -q -n kdelibs-%version
-%endif
-
-tar xjvf %SOURCE1
-%if %branch
-mv kdelibs-experimental-%version%kde_snapshot experimental
-%else
-mv kdelibs-experimental-%version experimental
-%endif
-
 %patch0 -p0
 %patch2 -p0 -b .iaora
-#%patch3 -p0 
 %patch4 -p0
 %patch6 -p0
 %patch8 -p1 -b .konqueror_big_page
 %patch9 -p0 -b .about
 %patch11 -p0 -b .qt44_45
-# Still needed ?
-#%patch12 -p1 -b .kdeglobals_nocache
 %patch13 -p1
 %patch301 -p1
 %patch302 -p1
