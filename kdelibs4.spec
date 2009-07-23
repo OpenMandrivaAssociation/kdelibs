@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.2.98
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -604,8 +604,9 @@ KDE 4 core library.
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
 Requires: kde4-macros
+Requires: automoc4
 Requires: acl-devel
-Requires: qt4-devel >= 4.4.0
+Requires: qt4-devel >= 3:4.5.2
 Requires: kdelibs4-core = %epoch:%version
 Requires: automoc
 Requires: soprano-devel
@@ -676,12 +677,11 @@ Requires: %libthreadweaver = %epoch:%version
 Requires: %libkpty = %epoch:%version
 Requires: %libkjsapi = %epoch:%version
 Requires: %libplasma = %epoch:%version
-Requires: automoc
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
-Conflicts: kdebase4-workspace-devel < 2:4.2.2-19
-Conflicts: kdebase4-runtime < 1:4.2.2-8
+Conflicts: kdebase4-workspace-devel <= 2:4.2.4
+Conflicts: kdebase4-runtime <= 1:4.2.4
 %if %mdkversion >= 200910
 Obsoletes: %{_lib}kdecore4-devel < 30000000:3.5.9-11
 Obsoletes: %{_lib}kjsembed1-devel < 1:3.5.9-2
@@ -875,43 +875,6 @@ make -C build DESTDIR=%buildroot install
    mkdir -p %buildroot/%_docdir/kde4/api
    cp -av kdelibs-%version-apidocs %buildroot/%_docdir/kde4/api/kdelibs
 %endif 
-
-%if %mdkversion <= 200810
-
-# Libraries are in /opt
-install -d -m 0755 %buildroot/%_sysconfdir/ld.so.conf.d
-echo "%_kde_libdir" > %buildroot/%_sysconfdir/ld.so.conf.d/%{_lib}kde4.conf
-
-# Env entry for setup kde4  environment
-install -d -m 0755 %buildroot/%_sysconfdir/profile.d
-cat > %buildroot%_sysconfdir/profile.d/kde4env.sh << EOF
-#!/bin/bash
-
-if [ -z \$PATH ]; then
-    PATH=%{_bindir}:/bin:%{_kde_bindir}
-else
-    PATH=\$PATH:%{_bindir}:%{_kde_bindir}
-fi
-
-if [ -z \$XDG_DATA_DIRS ]; then
-    XDG_DATA_DIRS=%{_datadir}:%{_kde_datadir}
-else
-    XDG_DATA_DIRS=\$XDG_DATA_DIRS:%{_datadir}:%{_kde_datadir}
-fi
-
-export XDG_DATA_DIRS PATH
-
-if [ -z \$PKG_CONFIG_PATH ]; then
-    PKG_CONFIG_PATH=%{_kde_libdir}/pkgconfig
-	export PKG_CONFIG_PATH
-else
-	if [ -z \$(echo \$PKG_CONFIG_PATH | grep %{_kde_libdir}/pkgconfig) ]; then
-    	PKG_CONFIG_PATH=\$PKG_CONFIG_PATH:%{_kde_libdir}/pkgconfig
-		export PKG_CONFIG_PATH XDG_DATA_DIRS PATH
-	fi
-fi
-EOF
-%endif # <= 200810
 
 %clean
 rm -fr %buildroot
