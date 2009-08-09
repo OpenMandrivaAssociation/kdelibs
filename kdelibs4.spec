@@ -607,6 +607,7 @@ Requires: kde4-macros
 Requires: automoc4
 Requires: acl-devel
 Requires: qt4-devel >= 3:4.5.2
+Requires: qt4-qtdbus
 Requires: kdelibs4-core = %epoch:%version
 Requires: automoc
 Requires: soprano-devel
