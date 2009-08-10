@@ -26,6 +26,7 @@ Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.4.0
+BuildRequires: qt4-qtdbus
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
 BuildRequires: avahi-compat-libdns_sd-devel 
