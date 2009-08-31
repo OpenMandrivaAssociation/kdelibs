@@ -1,10 +1,12 @@
+%define subrel 1
+
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.3.0
-Release: %mkrel 7
+Version: 4.3.1
+Release: %mkrel 0
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -881,3 +883,8 @@ make -C build DESTDIR=%buildroot install
 %clean
 rm -fr %buildroot
 
+
+%changelog
+* Sat Aug 29 2009 Helio Chissini de Castro <helio@kde.org>
+* KDE 4.3.1 Mandriva 2009.1 x86_64
+- Non supported build
