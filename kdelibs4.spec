@@ -268,7 +268,7 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kjsembed5 < 3.93.0-0.714006.1
- 
+Obsoletes: kde3-kjsembed <= 1:3.5.10-3 
 
 %description -n %libkjsembed
 KDE 4 core library.
