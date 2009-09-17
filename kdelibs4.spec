@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.1
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -268,8 +268,10 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Conflicts: %{_lib}kdecore5 >= 30000000:3.80.3
 Obsoletes: %{_lib}kjsembed5 < 3.93.0-0.714006.1
-Obsoletes: kde3-kjsembed <= 1:3.5.10-3 
-
+%if %mdkversion >= 200100
+Obsoletes: kde3-kjsembed < 1:3.5.10-4
+Obsoletes: kjsembed < 1:3.5.10-4
+%endif
 %description -n %libkjsembed
 KDE 4 core library.
 
@@ -740,7 +742,6 @@ Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 2:4.2.85-4
 %if %mdkversion >= 200910
 Obsoletes: kdelibs-common < 30000000:3.5.10-6
-Conflicts: kjsembed < 1:3.5.9-2
 %endif
 Requires: shared-mime-info
 Conflicts:  kdebase4-workspace < 2:4.1.73-1
