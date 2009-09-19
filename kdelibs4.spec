@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.1
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -743,7 +743,7 @@ Conflicts: kdelibs4-devel < 2:4.2.85-4
 %if %mdkversion >= 200910
 Obsoletes: kdelibs-common < 30000000:3.5.10-6
 %endif
-%if %mdkversion >= 200100
+%if %mdkversion >= 201000
 Obsoletes: kdelibs3-common < 30000000:3.5.10-12
 %endif
 Requires: shared-mime-info
