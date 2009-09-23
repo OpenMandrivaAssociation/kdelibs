@@ -4,22 +4,23 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.1
-Release: %mkrel 7
+Release: %mkrel 8
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
-Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
-Patch0:  kdelibs-4.1.2-add-extra-catalogs.patch
-Patch2:  kdelibs-4.1.81-overrides-oxygen-iaora.patch
-Patch3:  kdelibs-4.1.2-desktop-translation.patch
-Patch4:  kdelibs-4.1.85-add-kde-menu.patch 
-Patch6:  kdelibs-4.2.0-update-certificats.patch
-Patch8:  kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
-Patch9:  kdelibs-4.2.70-mandriva-about.patch
-Patch11: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
-Patch13: kdelibs-4.2.95-fix-kross-lib.patch
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
+Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
+Patch2: kdelibs-4.1.85-add-kde-menu.patch 
+Patch3: kdelibs-4.2.0-update-certificats.patch
+Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
+Patch5: kdelibs-4.2.70-mandriva-about.patch
+Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
+Patch7: kdelibs-4.2.95-fix-kross-lib.patch
+# Nepomuk related http://doc4.mandriva.org/bin/view/labs/nepomuk-scribo
+Patch8: kdelibs-4.3.1-smartfile-nepomuk.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
@@ -849,13 +850,14 @@ This packages contains all development documentation for kdelibs
 %prep
 %setup -q -n kdelibs-%version
 %patch0 -p0
-%patch2 -p0 -b .iaora
-%patch4 -p0
-%patch6 -p0
-%patch8 -p1 -b .konqueror_big_page
-%patch9 -p0 -b .about
-%patch11 -p0 -b .qt44_45
-%patch13 -p1
+%patch1 -p0 -b .iaora
+%patch2 -p0
+%patch3 -p0
+%patch4 -p1 -b .konqueror_big_page
+%patch5 -p0 -b .about
+%patch6 -p0 -b .qt44_45
+%patch7 -p1
+%patch8 -p0 -b .nepomuk
 %patch301 -p1
 %patch302 -p1
 
