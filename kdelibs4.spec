@@ -1,6 +1,10 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
+%define bootstrap 0
+%{?_without_bootstrap: %global bootstrap 0}
+%{?_with_bootstrap: %global bootstrap 1}
+ 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.1
@@ -578,10 +582,6 @@ KDE 4 core library.
 Summary: KDE 4 core library
 Group: System/Libraries
 
-%define bootstrap 0
-%{?_without_bootstrap: %global bootstrap 0}
-%{?_with_bootstrap: %global bootstrap 1}
- 
 
 %description -n %libkjsapi
 KDE 4 core library.
