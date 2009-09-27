@@ -4,7 +4,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.1
-Release: %mkrel 9
+Release: %mkrel 10
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -98,11 +98,13 @@ KDE 4 core library.
 Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: %{_lib}kdecore5 >= 30000000:3.80.3
+Requires: phonon-backend >= 4.2.0
+%if !%{bootstrap}
 Requires: kde4-config-file 
 Requires: kde4-l10n
-Requires: phonon-backend >= 4.2.0
 Requires: qt4-style-iaora
 Requires: kde4-style-iaora
+%endif
 Requires: kdelibs4-core = %epoch:%{version}
 
 %description -n %libkdecore
@@ -576,6 +578,10 @@ KDE 4 core library.
 Summary: KDE 4 core library
 Group: System/Libraries
 
+%define bootstrap 0
+%{?_without_bootstrap: %global bootstrap 0}
+%{?_with_bootstrap: %global bootstrap 1}
+ 
 
 %description -n %libkjsapi
 KDE 4 core library.
