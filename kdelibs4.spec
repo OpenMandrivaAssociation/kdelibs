@@ -8,7 +8,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.2
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -26,6 +26,7 @@ Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 # Nepomuk related http://doc4.mandriva.org/bin/view/labs/nepomuk-scribo
 Patch8: kdelibs-4.3.1-smartfile-nepomuk.patch
 #official backports
+Patch100: kdelibs-4.3.2-b1032185-mutex-localization.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
@@ -864,6 +865,7 @@ This packages contains all development documentation for kdelibs
 %patch6 -p0 -b .qt44_45
 %patch7 -p1
 %patch8 -p0 -b .nepomuk
+%patch100 -p0 -b .branch
 %patch301 -p1
 %patch302 -p1
 
