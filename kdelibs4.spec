@@ -8,7 +8,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.2
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -30,7 +30,20 @@ Patch100: kdelibs-4.3.2-b1031269-send-KioError.patch
 Patch101: kdelibs-4.3.2-b1031638-fix-ksycoca-option.patch
 Patch102: kdelibs-4.3.2-b1031746-fix-moving-folder.patch
 Patch103: kdelibs-4.3.2-b1032185-mutex-localization.patch
-Patch104: kdelibs-4.3.2-b1033582-add-activate-method.patch
+Patch104: kdelibs-4.3.2-b1032192-add-missing-header.patch
+Patch105: kdelibs-4.3.2-b1032366-fix-mimetype-sort.patch
+Patch106: kdelibs-4.3.2-b1032497-fix-copy-in-frame.patch
+Patch107: kdelibs-4.3.2-b1032707-fix-i18n.patch
+Patch108: kdelibs-4.3.2-b1032787-fix-hide-widget.patch 
+Patch109: kdelibs-4.3.2-b1032809-fix-focus-readonly.patch
+Patch110: kdelibs-4.3.2-b1032895-fix-xdg-read.patch
+Patch111: kdelibs-4.3.2-b1033582-add-activate-method.patch
+Patch112: kdelibs-4.3.2-b1033587-fix-memleak-and-crash.patch
+Patch113: kdelibs-4.3.2-b1033708-new-compiled-pmap.patch
+Patch114: kdelibs-4.3.2-b1033735-fix-indentation.patch
+Patch115: kdelibs-4.3.2-b1033737-kate-fix-scrolling.patch
+Patch116: kdelibs-4.3.2-b1033947-khtml-Do-not-lose-imagelike-object-on-reattach.patch
+Patch117: kdelibs-4.3.2-b1033984-fix-crash.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
@@ -874,6 +887,19 @@ This packages contains all development documentation for kdelibs
 %patch102 -p0 -b .branch
 %patch103 -p0 -b .branch
 %patch104 -p0 -b .branch
+%patch105 -p0 -b .branch
+%patch106 -p0 -b .branch
+%patch107 -p0 -b .branch
+%patch108 -p0 -b .branch
+%patch109 -p0 -b .branch
+%patch110 -p0 -b .branch
+%patch111 -p0 -b .branch
+%patch112 -p0 -b .branch
+%patch113 -p0 -b .branch
+%patch114 -p0 -b .branch
+%patch115 -p0 -b .branch
+%patch116 -p0 -b .branch
+%patch117 -p0 -b .branch
 %patch301 -p1
 %patch302 -p1
 
