@@ -8,7 +8,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.2
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -25,6 +25,7 @@ Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 # Nepomuk related http://doc4.mandriva.org/bin/view/labs/nepomuk-scribo
 Patch8: kdelibs-4.3.1-smartfile-nepomuk.patch
+Patch9: kdelibs-4.3.2-desktop-translation.patch
 #official backports
 Patch100: kdelibs-4.3.2-b1031269-send-KioError.patch
 Patch101: kdelibs-4.3.2-b1031638-fix-ksycoca-option.patch
@@ -882,6 +883,7 @@ This packages contains all development documentation for kdelibs
 %patch6 -p0 -b .qt44_45
 %patch7 -p1
 %patch8 -p0 -b .nepomuk
+%patch9 -p0 -b .trans
 %patch100 -p0 -b .branch
 %patch101 -p0 -b .branch
 %patch102 -p0 -b .branch
