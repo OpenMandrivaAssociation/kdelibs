@@ -8,7 +8,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.2
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -45,6 +45,7 @@ Patch114: kdelibs-4.3.2-b1033735-fix-indentation.patch
 Patch115: kdelibs-4.3.2-b1033737-kate-fix-scrolling.patch
 Patch116: kdelibs-4.3.2-b1033947-khtml-Do-not-lose-imagelike-object-on-reattach.patch
 Patch117: kdelibs-4.3.2-b1033984-fix-crash.patch
+Patch118: kdelibs-4.3.2-b1036221-fix-anonymous-user.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
@@ -902,6 +903,7 @@ This packages contains all development documentation for kdelibs
 %patch115 -p0 -b .branch
 %patch116 -p0 -b .branch
 %patch117 -p0 -b .branch
+%patch118 -p0 -b .branch
 %patch301 -p1
 %patch302 -p1
 
