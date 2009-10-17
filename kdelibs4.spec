@@ -8,7 +8,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.2
-Release: %mkrel 6
+Release: %mkrel 7
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -765,6 +765,7 @@ browsing.
 Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
 Suggests: enchant-dictionary
+Suggests: xdg-utils
 Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
 Conflicts: kdelibs4-devel < 2:4.2.85-4
 %if %mdkversion >= 200910
@@ -775,6 +776,7 @@ Obsoletes: kdelibs3-common < 30000000:3.5.10-12
 %endif
 Requires: shared-mime-info
 Conflicts:  kdebase4-workspace < 2:4.1.73-1
+
 %description core
 KDE 4 system core files.
 
