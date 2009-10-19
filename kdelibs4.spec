@@ -92,6 +92,7 @@ BuildRequires: xft2-devel
 BuildRequires: libxml2-utils
 BuildRequires: liblzma-devel
 BuildRequires: libutempter-devel
+BuildRequires: rootcerts
 
 %description 
 Libraries for the K Desktop Environment.
@@ -762,21 +763,22 @@ browsing.
 
 #--------------------------------------------------------------
 
-%package core
-Group: Graphical desktop/KDE
-Summary: KDE 4 system core files
-Suggests: enchant-dictionary
-Suggests: xdg-utils
-Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
-Conflicts: kdelibs4-devel < 2:4.2.85-4
+%package    core
+Group:      Graphical desktop/KDE
+Summary:    KDE 4 system core files
+Suggests:   enchant-dictionary
+Suggests:   xdg-utils
+Obsoletes:  kdelibs4-common < 3.93.0-0.714006.1
+Conflicts:  kdelibs4-devel < 2:4.2.85-4
 %if %mdkversion >= 200910
-Obsoletes: kdelibs-common < 30000000:3.5.10-6
+Obsoletes:  kdelibs-common < 30000000:3.5.10-6
 %endif
 %if %mdkversion >= 201000
-Obsoletes: kdelibs3-common < 30000000:3.5.10-12
+Obsoletes:  kdelibs3-common < 30000000:3.5.10-12
 %endif
-Requires: shared-mime-info
+Requires:   shared-mime-info
 Conflicts:  kdebase4-workspace < 2:4.1.73-1
+Requires:   rootcerts
 
 %description core
 KDE 4 system core files.
@@ -930,6 +932,9 @@ make -C build DESTDIR=%buildroot install
    mkdir -p %buildroot/%_docdir/kde4/api
    cp -av kdelibs-%version-apidocs %buildroot/%_docdir/kde4/api/kdelibs
 %endif 
+
+%__rm -fr %buildroot%_kde_appsdir/kssl/ca-bundle.crt
+ln -snf %_sysconfdir/pki/tls/certs/ca-bundle.crt %buildroot%_kde_appsdir/kssl/ca-bundle.crt
 
 %clean
 rm -fr %buildroot
