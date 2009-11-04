@@ -6,21 +6,22 @@
 %{?_with_bootstrap: %global bootstrap 1}
 
 %define epoch_kdelibs3 30000000
- 
+
+%define kde_snapshot svn1040395
+
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.3.2
-Release: %mkrel 11
+Version: 4.3.73
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%{kde_snapshot}.tar.bz2
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch 
-Patch3: kdelibs-4.2.0-update-certificats.patch
 Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
 Patch5: kdelibs-4.2.70-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
@@ -29,27 +30,6 @@ Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 Patch8: kdelibs-4.3.1-smartfile-nepomuk.patch
 Patch9: kdelibs-4.3.2-desktop-translation.patch
 #official backports
-Patch100: kdelibs-4.3.2-b1031269-send-KioError.patch
-Patch101: kdelibs-4.3.2-b1031638-fix-ksycoca-option.patch
-Patch102: kdelibs-4.3.2-b1031746-fix-moving-folder.patch
-Patch103: kdelibs-4.3.2-b1032185-mutex-localization.patch
-Patch104: kdelibs-4.3.2-b1032192-add-missing-header.patch
-Patch105: kdelibs-4.3.2-b1032366-fix-mimetype-sort.patch
-Patch106: kdelibs-4.3.2-b1032497-fix-copy-in-frame.patch
-Patch107: kdelibs-4.3.2-b1032707-fix-i18n.patch
-Patch108: kdelibs-4.3.2-b1032787-fix-hide-widget.patch 
-Patch109: kdelibs-4.3.2-b1032809-fix-focus-readonly.patch
-Patch110: kdelibs-4.3.2-b1032895-fix-xdg-read.patch
-Patch111: kdelibs-4.3.2-b1033582-add-activate-method.patch
-Patch112: kdelibs-4.3.2-b1033587-fix-memleak-and-crash.patch
-Patch113: kdelibs-4.3.2-b1033708-new-compiled-pmap.patch
-Patch114: kdelibs-4.3.2-b1033735-fix-indentation.patch
-Patch115: kdelibs-4.3.2-b1033737-kate-fix-scrolling.patch
-Patch116: kdelibs-4.3.2-b1033947-khtml-Do-not-lose-imagelike-object-on-reattach.patch
-Patch117: kdelibs-4.3.2-b1033984-fix-crash.patch
-Patch118: kdelibs-4.3.2-b1035539-Restrict-XMLHttpRequest.patch
-Patch119: kdelibs-4.3.2-b1036221-fix-anonymous-user.patch
-Patch120: kdelibs-4.3.2-b1036731-nepomuk-fix.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
@@ -622,8 +602,6 @@ KDE 4 core library.
 %package -n %libplasma
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdebase46 <= 1:3.80.3
-Obsoletes: %{_lib}plasma1 < 1:4.0.80-4
 
 %description -n %libplasma
 KDE 4 core library.
@@ -631,6 +609,22 @@ KDE 4 core library.
 %files -n %libplasma
 %defattr(-,root,root)
 %_kde_libdir/libplasma.so.%{libplasma_major}*
+
+#------------------------------------------------
+
+%define libkunitconversion_major 4
+%define libkunitconversion %mklibname kunitconversion %{libkunitconversion_major}
+
+%package -n %libkunitconversion
+Summary: KDE 4 core library
+Group: System/Libraries
+
+%description -n %libkunitconversion
+KDE 4 core library.
+
+%files -n %libkunitconversion
+%defattr(-,root,root)
+%_kde_libdir/libkunitconversion.so.%{libkunitconversion_major}*
 
 #------------------------------------------------
 
@@ -712,10 +706,11 @@ Requires: %libthreadweaver = %epoch:%version
 Requires: %libkpty = %epoch:%version
 Requires: %libkjsapi = %epoch:%version
 Requires: %libplasma = %epoch:%version
+Requires: %libkunitconversion = %epoch:%version
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
-Conflicts: kdebase4-workspace-devel <= 2:4.2.4
+Conflicts: kdebase4-workspace-devel < 2:4.3.73-1
 Conflicts: kdebase4-runtime <= 1:4.2.4
 
 %description devel
@@ -757,6 +752,7 @@ browsing.
 %_kde_libdir/libthreadweaver.so
 %_kde_libdir/libkjsapi.so
 %_kde_libdir/libplasma.so
+%_kde_libdir/libkunitconversion.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -852,10 +848,12 @@ KDE 4 system core files.
 %_kde_mandir/man8/kded4.8.*
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
-%if %mdkversion <= 200810
-%attr(0755,root,root) %_sysconfdir/profile.d/*
-%endif
+%_sysconfdir/dbus-1/system.d/org.kde.auth.conf
+%_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
+%_kde_datadir/PolicyKit/policy/org.kde.kcontrol.kcmremotewidgets.policy
+%_kde_appsdir/kauth
+%_kde_appsdir/plasma
 
 # Devel stuff 0 included in kdelibs4-devel
 %exclude %_kde_appsdir/cmake/modules/*
@@ -881,41 +879,18 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
-%setup -q -n kdelibs-%version
-%patch0 -p0
+%setup -q -n kdelibs-%version%{kde_snapshot}
+%patch0 -p0 -b .extra_catalogs
 %patch1 -p0 -b .iaora
 %patch2 -p0
-%patch3 -p0
 %patch4 -p1 -b .konqueror_big_page
 %patch5 -p0 -b .about
 %patch6 -p0 -b .qt44_45
-%patch7 -p1
-%patch8 -p0 -b .nepomuk
-%patch9 -p0 -b .trans
-%patch100 -p0 -b .branch
-%patch101 -p0 -b .branch
-%patch102 -p0 -b .branch
-%patch103 -p0 -b .branch
-%patch104 -p0 -b .branch
-%patch105 -p0 -b .branch
-%patch106 -p0 -b .branch
-%patch107 -p0 -b .branch
-%patch108 -p0 -b .branch
-%patch109 -p0 -b .branch
-%patch110 -p0 -b .branch
-%patch111 -p0 -b .branch
-%patch112 -p0 -b .branch
-%patch113 -p0 -b .branch
-%patch114 -p0 -b .branch
-%patch115 -p0 -b .branch
-%patch116 -p0 -b .branch
-%patch117 -p0 -b .branch
-%patch118 -p0 -b .branch
-%patch119 -p0 -b .branch
-%patch120 -p0 -b .branch
+# Need to be added again ? ( need to be checked )
+#%patch7 -p1
 
 %patch301 -p1
-%patch302 -p1
+%patch302 -p0
 
 %build
 %cmake_kde4
