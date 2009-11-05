@@ -26,9 +26,7 @@ Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch
 Patch5: kdelibs-4.2.70-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
-# Nepomuk related http://doc4.mandriva.org/bin/view/labs/nepomuk-scribo
-Patch8: kdelibs-4.3.1-smartfile-nepomuk.patch
-Patch9: kdelibs-4.3.2-desktop-translation.patch
+Patch8: kdelibs-4.3.73-honor-hal-lock.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
@@ -888,6 +886,7 @@ This packages contains all development documentation for kdelibs
 %patch6 -p0 -b .qt44_45
 # Need to be added again ? ( need to be checked )
 #%patch7 -p1
+%patch8 -p0 -b .hal-lock
 
 %patch301 -p1
 %patch302 -p0
