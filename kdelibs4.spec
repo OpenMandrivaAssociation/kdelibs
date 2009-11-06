@@ -74,7 +74,10 @@ BuildRequires: libxml2-utils
 BuildRequires: liblzma-devel
 BuildRequires: libutempter-devel
 BuildRequires: rootcerts
-
+BuildRequires: flex
+BuildRequires: bison
+BuildRequires: qca2-devel
+BuildRequires: polkit-qt-devel 
 %description 
 Libraries for the K Desktop Environment.
 
