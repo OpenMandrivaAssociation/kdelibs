@@ -1,3 +1,6 @@
+%define branch 1
+%{?_branch: %{expand: %%global branch 1}}
+
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
@@ -7,18 +10,27 @@
 
 %define epoch_kdelibs3 30000000
 
+
+%if %branch
 %define kde_snapshot svn1040395
+%endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.73
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%{kde_snapshot}.tar.bz2
+%if %branch
+Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%kde_snapshot.tar.bz2
+Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version%kde_snapshot.tar.bz2
+%else
+Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
+%endif
 Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch 
@@ -711,6 +723,7 @@ Requires: %libplasma = %epoch:%version
 Requires: %libkunitconversion = %epoch:%version
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Obsoletes: kdelibs4-experimental-devel < 2:4.3.73-1 
+Provides:  kdelibs4-experimental-devel = %epoch:%version
 Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: kdebase4-workspace-devel < 2:4.3.73-1
@@ -882,7 +895,20 @@ This packages contains all development documentation for kdelibs
 #--------------------------------------------------------------
 
 %prep
-%setup -q -n kdelibs-%version%{kde_snapshot}
+
+%if %branch
+%setup -q -n kdelibs-%version%kde_snapshot
+%else
+%setup -q -n kdelibs-%version
+%endif
+
+tar xjvf %SOURCE1
+%if %branch
+mv kdelibs-experimental-%version%kde_snapshot experimental
+%else
+mv kdelibs-experimental-%version experimental
+%endif
+
 %patch0 -p0 -b .extra_catalogs
 %patch1 -p0 -b .iaora
 %patch2 -p0
