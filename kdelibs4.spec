@@ -18,7 +18,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.73
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -641,7 +641,7 @@ KDE 4 core library.
 %_kde_libdir/libkunitconversion.so.%{libkunitconversion_major}*
 
 #------------------------------------------------
-
+%if 0
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -776,7 +776,7 @@ browsing.
 %exclude %_kde_libdir/libkdeinit4_*
 
 #--------------------------------------------------------------
-
+%endif
 %package    core
 Group:      Graphical desktop/KDE
 Summary:    KDE 4 system core files
