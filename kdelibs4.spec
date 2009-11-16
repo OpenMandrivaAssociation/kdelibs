@@ -18,7 +18,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.75
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -755,7 +755,6 @@ Requires: %libkunitconversion = %epoch:%version
 Requires: %libkdewebkit = %epoch:%version
 Requires: %libnepomukquery = %epoch:%version
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
-Obsoletes: webkitkde-devel
 Obsoletes: kdelibs4-experimental-devel < 2:4.3.73-1 
 Provides:  kdelibs4-experimental-devel = %epoch:%version
 Conflicts: kdelibs4-core < 4.2.95-3
