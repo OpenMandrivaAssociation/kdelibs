@@ -12,13 +12,13 @@
 
 
 %if %branch
-%define kde_snapshot svn1040395
+%define kde_snapshot svn1048496
 %endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.3.73
-Release: %mkrel 5
+Version: 4.3.75
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -35,10 +35,9 @@ Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch 
 Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
-Patch5: kdelibs-4.2.70-mandriva-about.patch
+Patch5: kdelibs-4.3.75-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
-Patch8: kdelibs-4.3.73-honor-hal-lock.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
@@ -642,6 +641,38 @@ KDE 4 core library.
 
 #------------------------------------------------
 
+%define libnepomukquery_major 4
+%define libnepomukquery %mklibname nepomukquery %{libnepomukquery_major}
+
+%package -n %libnepomukquery
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libnepomukquery
+KDE 4 library.
+
+%files -n %libnepomukquery
+%defattr(-,root,root)
+%_kde_libdir/libnepomukquery.so.%{libnepomukquery_major}*
+
+#------------------------------------------------
+
+%define libkdewebkit_major 5
+%define libkdewebkit %mklibname kdewebkit %{libkdewebkit_major}
+
+%package -n %libkdewebkit
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkdewebkit
+KDE 4 library.
+
+%files -n %libkdewebkit
+%defattr(-,root,root)
+%_kde_libdir/libkdewebkit.so.%{libkdewebkit_major}*
+
+#------------------------------------------------
+
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -721,6 +752,8 @@ Requires: %libkpty = %epoch:%version
 Requires: %libkjsapi = %epoch:%version
 Requires: %libplasma = %epoch:%version
 Requires: %libkunitconversion = %epoch:%version
+Requires: %libkdewebkit = %epoch:%version
+Requires: %libnepomukquery = %epoch:%version
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Obsoletes: kdelibs4-experimental-devel < 2:4.3.73-1 
 Provides:  kdelibs4-experimental-devel = %epoch:%version
@@ -769,6 +802,8 @@ browsing.
 %_kde_libdir/libkjsapi.so
 %_kde_libdir/libplasma.so
 %_kde_libdir/libkunitconversion.so
+%_kde_libdir/libnepomukquery.so
+%_kde_libdir/libkdewebkit.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -916,7 +951,6 @@ mv kdelibs-experimental-%version experimental
 %patch6 -p0 -b .qt44_45
 # Need to be added again ? ( need to be checked )
 #%patch7 -p1
-%patch8 -p0 -b .hal-lock
 
 %patch301 -p1
 %patch302 -p0
