@@ -18,7 +18,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.75
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -759,7 +759,7 @@ Obsoletes: kdelibs4-experimental-devel < 2:4.3.73-1
 Provides:  kdelibs4-experimental-devel = %epoch:%version
 Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
-Conflicts: kdebase4-workspace-devel < 2:4.3.73-1
+Conflicts: kdebase4-workspace-devel < 2:4.3.75-1
 Conflicts: kdebase4-runtime <= 1:4.2.4
 
 %description devel
