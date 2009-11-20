@@ -771,7 +771,7 @@ browsing.
 %files devel
 %defattr(-,root,root,-)
 %_mandir/man1/kdecmake.1*
-%_kde_prefix/include/*
+%_kde_includedir/*
 %_kde_appsdir/cmake/modules/*
 %_kde_datadir/dbus-1/*/*
 %_kde_libdir/libkdefakes.so
