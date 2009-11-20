@@ -761,7 +761,7 @@ Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: kdebase4-workspace-devel < 2:4.3.75-1
 Conflicts: kdebase4-runtime <= 1:4.2.4
-Conflicts: webkitkde-devel < 0.0-0.1050148.2
+Conflicts: webkitkde-devel < 0.0-0.1050148.3
 
 %description devel
 This package includes the header files you will need to compile applications 
