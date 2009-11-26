@@ -42,7 +42,6 @@ Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
-Patch303: test
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
@@ -956,7 +955,6 @@ mv kdelibs-experimental-%version experimental
 
 %patch301 -p1
 %patch302 -p0
-%patch303 -p0
 
 %build
 %cmake_kde4
