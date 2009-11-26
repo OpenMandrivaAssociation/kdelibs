@@ -671,6 +671,23 @@ KDE 4 library.
 %defattr(-,root,root)
 %_kde_libdir/libkdewebkit.so.%{libkdewebkit_major}*
 
+
+#------------------------------------------------
+
+%define libknewstuff3_major 4
+%define libknewstuff3 %mklibname knewstuff3 %{libknewstuff3_major}
+
+%package -n %libknewstuff3
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libknewstuff3
+KDE 4 library.
+
+%files -n %libknewstuff3
+%defattr(-,root,root)
+%_kde_libdir/libknewstuff3.so.%{libknewstuff3_major}*
+
 #------------------------------------------------
 
 %package devel
@@ -754,6 +771,7 @@ Requires: %libplasma = %epoch:%version
 Requires: %libkunitconversion = %epoch:%version
 Requires: %libkdewebkit = %epoch:%version
 Requires: %libnepomukquery = %epoch:%version
+Requires: %libknewstuff3 = %epoch:%version
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Obsoletes: kdelibs4-experimental-devel < 2:4.3.73-1 
 Provides:  kdelibs4-experimental-devel = %epoch:%version
@@ -805,6 +823,7 @@ browsing.
 %_kde_libdir/libkunitconversion.so
 %_kde_libdir/libnepomukquery.so
 %_kde_libdir/libkdewebkit.so
+%_kde_libdir/libknewstuff3.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -863,6 +882,7 @@ KDE 4 system core files.
 %_kde_appsdir/LICENSES
 %_kde_appsdir/ktexteditor_kdatatool
 %_kde_appsdir/ktexteditor_insertfile
+%_kde_appsdir/ktexteditor_exporter
 %_kde_appsdir/kssl
 %_kde_appsdir/ksgmltools2
 %_kde_appsdir/knewstuff
