@@ -43,7 +43,7 @@ Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
 BuildRequires: kde4-macros >= 4.1.71
-BuildRequires: qt4-devel >= 4.6.0-0.beta1.1
+BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
@@ -696,7 +696,7 @@ Summary: Header files and documentation for compiling KDE applications
 Requires: kde4-macros
 Requires: automoc4
 Requires: acl-devel
-Requires: qt4-devel >= 3:4.5.2
+Requires: qt4-devel >= 4:4.6.0
 Requires: qt4-qtdbus
 Requires: kdelibs4-core = %epoch:%version
 Requires: automoc
