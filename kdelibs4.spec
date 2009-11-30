@@ -18,7 +18,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.77
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -42,6 +42,7 @@ Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
+Patch303: kdelibs-4.3.77-fix-kbuildsycoca-crash.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
@@ -975,6 +976,7 @@ mv kdelibs-experimental-%version experimental
 
 %patch301 -p1
 %patch302 -p0
+%patch303 -p0
 
 %build
 %cmake_kde4
