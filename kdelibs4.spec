@@ -21,7 +21,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.80
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -98,6 +98,7 @@ BuildRequires: bison
 BuildRequires: qca2-devel
 BuildRequires: polkit-qt-devel 
 BuildRequires: shared-desktop-ontologies-devel
+BuildRequires: attica-devel
 
 %description 
 Libraries for the K Desktop Environment.
