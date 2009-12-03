@@ -1,5 +1,8 @@
-%define branch 1
+%define branch 0
 %{?_branch: %{expand: %%global branch 1}}
+
+%define experimental 0
+%{?_experimental: %{expand: %%global experimental 1}}
 
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
@@ -17,8 +20,8 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.3.77
-Release: %mkrel 2
+Version: 4.3.80
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -26,12 +29,16 @@ BuildRoot: %_tmppath/%name-%version-%release-root
 URL:     http://www.kde.org
 %if %branch
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version%kde_snapshot.tar.bz2
+%if %experimental
 Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version%kde_snapshot.tar.bz2
+%endif
 %else
 Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+%if %experimental
 Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
 %endif
-Patch0: kdelibs-4.1.2-add-extra-catalogs.patch
+%endif
+Patch0: kdelibs-4.3.80-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch 
 Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
@@ -41,8 +48,8 @@ Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
+# TODO: See with upstream solid team if this can be integrated upstream
 Patch302: kdelibs-4.2.85-mount-crypto-devices.patch
-Patch303: kdelibs-4.3.77-fix-kbuildsycoca-crash.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
@@ -90,6 +97,7 @@ BuildRequires: flex
 BuildRequires: bison
 BuildRequires: qca2-devel
 BuildRequires: polkit-qt-devel 
+BuildRequires: shared-desktop-ontologies-devel
 
 %description 
 Libraries for the K Desktop Environment.
@@ -958,11 +966,13 @@ This packages contains all development documentation for kdelibs
 %setup -q -n kdelibs-%version
 %endif
 
+%if %experimental
 tar xjvf %SOURCE1
 %if %branch
 mv kdelibs-experimental-%version%kde_snapshot experimental
 %else
 mv kdelibs-experimental-%version experimental
+%endif
 %endif
 
 %patch0 -p0 -b .extra_catalogs
@@ -975,8 +985,7 @@ mv kdelibs-experimental-%version experimental
 #%patch7 -p1
 
 %patch301 -p1
-%patch302 -p0
-%patch303 -p0
+#%patch302 -p1
 
 %build
 %cmake_kde4
