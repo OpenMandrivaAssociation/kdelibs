@@ -21,7 +21,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.80
-Release: %mkrel 3 
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -749,6 +749,7 @@ Requires: soprano-devel >= 2.0.98
 Requires: automoc
 Requires: xpm-devel
 Requires: xft2-devel
+Requires: shared-desktop-ontologies-devel
 Provides: plasma-devel = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
