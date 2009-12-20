@@ -858,8 +858,8 @@ Obsoletes:  kdelibs3-common < %{epoch_kdelibs3}:3.5.10-12
 Requires:   shared-mime-info
 Conflicts:  kdebase4-workspace < 2:4.1.73-1
 Requires:   rootcerts
-Requires: shared-desktop-ontologies
-
+Requires:   shared-desktop-ontologies
+Obsoletes:  lilypond-kde4 < 0.2-3
 %description core
 KDE 4 system core files.
 
