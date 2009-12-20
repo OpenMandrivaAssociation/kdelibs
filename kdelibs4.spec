@@ -20,8 +20,8 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.3.80
-Release: %mkrel 5
+Version: 4.3.85
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -38,7 +38,7 @@ Source:  ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
 %endif
 %endif
-Patch0: kdelibs-4.3.80-add-extra-catalogs.patch
+Patch0: kdelibs-4.3.85-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch 
 Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
