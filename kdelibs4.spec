@@ -21,7 +21,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.85
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -45,6 +45,7 @@ Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch
 Patch5: kdelibs-4.3.75-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
+Patch8: kdelibs-4.3.85-use-timeline.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
@@ -986,6 +987,7 @@ mv kdelibs-experimental-%version experimental
 %patch6 -p0 -b .qt44_45
 # Need to be added again ? ( need to be checked )
 #%patch7 -p1
+%patch8 -p0
 
 %patch301 -p1
 #%patch302 -p1
