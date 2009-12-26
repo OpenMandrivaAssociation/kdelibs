@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.85
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -72,7 +72,6 @@ BuildRequires: libsasl-devel
 BuildRequires: libtiff-devel
 BuildRequires: libvorbis-devel
 BuildRequires: pam-devel
-BuildRequires: X11-devel
 BuildRequires: libalsa-devel
 BuildRequires: libmad-devel
 BuildRequires: gdbm-devel
@@ -733,7 +732,6 @@ Requires: libsasl-devel
 Requires: libtiff-devel
 Requires: libvorbis-devel
 Requires: pam-devel
-Requires: X11-devel
 Requires: libalsa-devel
 Requires: libmad-devel
 Requires: gdbm-devel
