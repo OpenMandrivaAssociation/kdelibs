@@ -66,8 +66,6 @@ BuildRequires: pcre-devel
 BuildRequires: fam-devel
 BuildRequires: bzip2-devel
 BuildRequires: libart_lgpl-devel
-BuildRequires: libjpeg-devel
-BuildRequires: libpng-devel
 BuildRequires: libsasl-devel
 BuildRequires: libtiff-devel
 BuildRequires: libvorbis-devel
