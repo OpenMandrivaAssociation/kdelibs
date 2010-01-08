@@ -48,7 +48,6 @@ Patch8: kdelibs-4.3.85-use-timeline.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
-Patch302: kdelibs-4.3.85-t1065500-fix-enable-final.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
@@ -985,7 +984,6 @@ mv kdelibs-experimental-%version experimental
 %patch8 -p0
 
 %patch301 -p1
-%patch302 -p1
 
 %build
 %cmake_kde4 -DKDE4_ENABLE_FINAL=ON
