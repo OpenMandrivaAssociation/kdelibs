@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.90
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -786,6 +786,7 @@ Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: kdebase4-workspace-devel < 2:4.3.75-1
 Conflicts: kdebase4-runtime <= 1:4.2.4
 Conflicts: webkitkde-devel < 0.0-0.1050148.3
+Conflicts: kdeplatform4-devel < 4:0.9.97-3
 
 %description devel
 This package includes the header files you will need to compile applications 
