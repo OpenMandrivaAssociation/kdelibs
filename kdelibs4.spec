@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.90
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -45,6 +45,7 @@ Patch5: kdelibs-4.3.75-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 Patch8: kdelibs-4.3.85-use-timeline.patch
+Patch9: kdelibs-fix-containment.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
@@ -983,6 +984,7 @@ mv kdelibs-experimental-%version experimental
 # Need to be added again ? ( need to be checked )
 #%patch7 -p1
 %patch8 -p0
+%patch9 -p0
 
 %patch301 -p1
 
