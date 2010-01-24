@@ -92,7 +92,7 @@ BuildRequires: rootcerts
 BuildRequires: flex
 BuildRequires: bison
 BuildRequires: qca2-devel
-BuildRequires: polkit-qt-1-devel
+BuildRequires: polkit-qt-devel
 BuildRequires: shared-desktop-ontologies-devel
 BuildRequires: attica-devel
 BuildRequires: libxscrnsaver-devel
@@ -989,7 +989,7 @@ mv kdelibs-experimental-%version experimental
 %patch301 -p1
 
 %build
-%cmake_kde4 -DKDE4_ENABLE_FINAL=ON -DKAUTH_BACKEND=PolkitQt-1
+%cmake_kde4 -DKDE4_ENABLE_FINAL=ON -DKAUTH_BACKEND=PolkitQt
 %make
 
 %if %{compile_apidox}
