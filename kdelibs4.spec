@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.95
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -984,7 +984,7 @@ mv kdelibs-experimental-%version experimental
 # Need to be added again ? ( need to be checked )
 #%patch7 -p1
 %patch8 -p0
-#%patch9 -p0
+%patch9 -p0
 
 %patch301 -p1
 
