@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.3.98
-Release: %mkrel 5
+Release: %mkrel 6
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -39,8 +39,8 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 %endif
 Patch0: kdelibs-4.3.85-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
-Patch2: kdelibs-4.1.85-add-kde-menu.patch 
-Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch 
+Patch2: kdelibs-4.1.85-add-kde-menu.patch
+Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch
 Patch5: kdelibs-4.3.75-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
@@ -93,7 +93,7 @@ BuildRequires: rootcerts
 BuildRequires: flex
 BuildRequires: bison
 BuildRequires: qca2-devel
-BuildRequires: polkit-qt-devel
+BuildRequires: polkit-qt-1-devel
 BuildRequires: shared-desktop-ontologies-devel
 BuildRequires: attica-devel
 BuildRequires: libxscrnsaver-devel
@@ -990,7 +990,7 @@ mv kdelibs-experimental-%version experimental
 %patch301 -p1
 
 %build
-%cmake_kde4 -DKAUTH_BACKEND=PolkitQt
+%cmake_kde4 -DKDE4_AUTH_BACKEND_NAME=PolkitQt-1
 %make
 
 %if %{compile_apidox}
