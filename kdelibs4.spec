@@ -932,7 +932,7 @@ KDE 4 system core files.
 %_sysconfdir/dbus-1/system.d/org.kde.auth.conf
 %_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
-#%_kde_datadir/PolicyKit/policy/org.kde.kcontrol.kcmremotewidgets.policy
+%_kde_datadir/polkit-1/actions/org.kde.kcontrol.kcmremotewidgets.policy
 %_kde_appsdir/kauth
 %_kde_appsdir/plasma
 
