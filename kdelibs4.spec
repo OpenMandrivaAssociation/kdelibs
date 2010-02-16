@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.0
-Release: %mkrel 13
+Release: %mkrel 14
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -49,6 +49,7 @@ Patch9: kdelibs-fix-containment.patch
 Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
 Patch11:kdelibs-4.4.0-use-timeline.patch
 #official backports
+Patch100: kdelibs-4.4.0-b1090919-do-not-slow-searches.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 BuildRequires: kde4-macros >= 4.1.71
@@ -990,6 +991,7 @@ mv kdelibs-experimental-%version experimental
 ## BROKEN, need to be fixed before enabled back
 #%patch10 -p0
 %patch11 -p0
+%patch100 -p0
 %patch301 -p1
 
 %build
