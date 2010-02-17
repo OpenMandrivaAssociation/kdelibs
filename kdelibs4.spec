@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.0
-Release: %mkrel 15
+Release: %mkrel 16
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -50,6 +50,7 @@ Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
 Patch11:kdelibs-4.4.0-use-timeline.patch
 #official backports
 Patch100: kdelibs-4.4.0-b1090919-do-not-slow-searches.patch
+Patch101: kdelibs-4.4.0-b1091753-fix-crash.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.4.0-fix-detect-shared-folder.patch
@@ -994,6 +995,8 @@ mv kdelibs-experimental-%version experimental
 #%patch10 -p0
 %patch11 -p0
 %patch100 -p0
+%patch101 -p0
+
 %patch301 -p1
 %patch302 -p0
 
