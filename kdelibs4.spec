@@ -59,8 +59,6 @@ Patch302: kdelibs-4.4.0-fix-detect-shared-folder.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
-BuildRequires: aspell-devel
-BuildRequires: hspell-devel
 BuildRequires: avahi-compat-libdns_sd-devel 
 BuildRequires: avahi-client-devel
 BuildRequires: enchant-devel
@@ -719,8 +717,6 @@ Requires: strigi-devel
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires: libxml2-utils
-Requires: aspell-devel
-Requires: hspell-devel
 Requires: avahi-compat-libdns_sd-devel 
 Requires: avahi-client-devel
 Requires: enchant-devel
