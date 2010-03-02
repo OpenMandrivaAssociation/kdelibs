@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.1
-Release: %mkrel 17
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -49,12 +49,8 @@ Patch9: kdelibs-fix-containment.patch
 Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
 Patch11:kdelibs-4.4.0-use-timeline.patch
 #official backports
-Patch100: kdelibs-4.4.0-b1090919-do-not-slow-searches.patch
-Patch101: kdelibs-4.4.0-b1091753-fix-crash.patch
-Patch102: kdelibs-4.4.0-b1095564-fix-regexp-filter.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
-Patch302: kdelibs-4.4.0-fix-detect-shared-folder.patch
 
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
@@ -991,11 +987,7 @@ mv kdelibs-experimental-%version experimental
 ## BROKEN, need to be fixed before enabled back
 #%patch10 -p0
 %patch11 -p0
-%patch100 -p0
-%patch101 -p0
-%patch102 -p0
 %patch301 -p1
-%patch302 -p0
 
 %build
 %cmake_kde4 -DKDE4_AUTH_BACKEND_NAME=PolkitQt-1
