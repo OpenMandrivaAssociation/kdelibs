@@ -40,7 +40,6 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 Patch0: kdelibs-4.3.85-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
-Patch4: kdelibs-4.2.85-fix_konqueror_crash_on_big_tables.patch
 Patch5: kdelibs-4.3.75-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
@@ -979,7 +978,6 @@ mv kdelibs-experimental-%version experimental
 %patch0 -p0 -b .extra_catalogs
 %patch1 -p0 -b .iaora
 %patch2 -p0
-%patch4 -p1 -b .konqueror_big_page
 %patch5 -p0 -b .about
 %patch6 -p0 -b .qt44_45
 # Need to be added again ? ( need to be checked )
