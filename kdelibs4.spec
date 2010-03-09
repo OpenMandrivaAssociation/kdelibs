@@ -48,7 +48,9 @@ Patch8: kdelibs-4.4.0-add-default-places.patch
 Patch9: kdelibs-fix-containment.patch
 Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
 Patch11:kdelibs-4.4.0-use-timeline.patch
-#official backports
+# official backports
+# Trunk patches
+Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 
@@ -987,6 +989,7 @@ mv kdelibs-experimental-%version experimental
 ## BROKEN, need to be fixed before enabled back
 #%patch10 -p0
 %patch11 -p0
+%patch200 -p0
 %patch301 -p1
 
 %build
