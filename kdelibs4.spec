@@ -52,7 +52,7 @@ Patch11:kdelibs-4.4.0-use-timeline.patch
 Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
-
+Patch302: kdelibs-4.4.1-sync-solid-with-trunk.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
@@ -989,6 +989,7 @@ mv kdelibs-experimental-%version experimental
 %patch11 -p0
 %patch200 -p0
 %patch301 -p1
+%patch302 -p0
 
 %build
 %cmake_kde4 -DKDE4_AUTH_BACKEND_NAME=PolkitQt-1
