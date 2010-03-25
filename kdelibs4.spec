@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.1
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -47,6 +47,7 @@ Patch8: kdelibs-4.4.0-add-default-places.patch
 Patch9: kdelibs-fix-containment.patch
 Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
 Patch11:kdelibs-4.4.0-use-timeline.patch
+Patch12:kdelibs-4.4.1-add-confirmation-window.patch 
 # official backports
 # Trunk patches
 Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
@@ -987,6 +988,7 @@ mv kdelibs-experimental-%version experimental
 ## BROKEN, need to be fixed before enabled back
 #%patch10 -p0
 %patch11 -p0
+%patch12 -p0
 %patch200 -p0
 %patch301 -p1
 %patch302 -p0
