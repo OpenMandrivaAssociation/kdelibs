@@ -988,7 +988,7 @@ mv kdelibs-experimental-%version experimental
 ## BROKEN, need to be fixed before enabled back
 #%patch10 -p0
 %patch11 -p0
-%patch12 -p0
+%patch12 -p1
 %patch200 -p0
 %patch301 -p1
 #%patch302 -p0
