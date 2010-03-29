@@ -991,7 +991,7 @@ mv kdelibs-experimental-%version experimental
 %patch12 -p0
 %patch200 -p0
 %patch301 -p1
-%patch302 -p0
+#%patch302 -p0
 
 %build
 %cmake_kde4 -DKDE4_AUTH_BACKEND_NAME=PolkitQt-1
