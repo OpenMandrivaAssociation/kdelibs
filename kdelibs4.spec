@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.2
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -991,7 +991,6 @@ mv kdelibs-experimental-%version experimental
 %patch12 -p1
 %patch200 -p0
 %patch301 -p1
-%patch302 -p0
 
 %build
 %cmake_kde4 -DKDE4_AUTH_BACKEND_NAME=PolkitQt-1
