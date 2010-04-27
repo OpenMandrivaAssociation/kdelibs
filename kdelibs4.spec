@@ -48,6 +48,7 @@ Patch9: kdelibs-fix-containment.patch
 Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
 Patch11:kdelibs-4.4.0-use-timeline.patch
 Patch12:kdelibs-4.4.1-add-confirmation-window.patch 
+Patch13:kdelibs-4.4.2-usr-abrt-instead-of-drkonqi.patch
 # official backports
 # Trunk patches
 Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
@@ -989,6 +990,8 @@ mv kdelibs-experimental-%version experimental
 #%patch10 -p0
 %patch11 -p0
 %patch12 -p1
+# DO NOT ACTIVATE FOR THE MOMENT
+#%patch13 -p0
 %patch200 -p0
 %patch301 -p1
 
