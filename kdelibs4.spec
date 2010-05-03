@@ -11,6 +11,10 @@
 %{?_without_bootstrap: %global bootstrap 0}
 %{?_with_bootstrap: %global bootstrap 1}
 
+# DO NOT REMOVE DRKONQI SUPPORT FOR THE MOMENT
+%define with_drkonqi 1
+%{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
+
 %define epoch_kdelibs3 30000000
 
 %if %branch
@@ -990,8 +994,9 @@ mv kdelibs-experimental-%version experimental
 #%patch10 -p0
 %patch11 -p0
 %patch12 -p1
-# DO NOT ACTIVATE FOR THE MOMENT
-#%patch13 -p0
+%if ! %with_drkonqi
+%patch13 -p0
+%endif
 %patch200 -p0
 %patch301 -p1
 
