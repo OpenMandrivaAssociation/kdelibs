@@ -24,7 +24,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.2
-Release: %mkrel 4
+Release: %mkrel 5
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -56,6 +56,7 @@ Patch13:kdelibs-4.4.2-usr-abrt-instead-of-drkonqi.patch
 # official backports
 # Trunk patches
 Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
+Patch201: kdelibs-4.4.2-use-nepomuk-from-trunk.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.4.1-sync-solid-with-trunk.patch
@@ -998,6 +999,7 @@ mv kdelibs-experimental-%version experimental
 %patch13 -p0
 %endif
 %patch200 -p0
+%patch201 -p0
 %patch301 -p1
 
 %build
