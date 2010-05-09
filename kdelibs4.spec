@@ -24,7 +24,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.3
-Release: %mkrel 3
+Release: %mkrel 4
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -58,6 +58,8 @@ Patch100: kdelibs-4.4.3-b1121957-khtml-html5-fix.patch
 Patch101: kdelibs-4.4.3-b1122130-fix-nl.patch
 Patch102: kdelibs-4.4.3-b1122506-revert-commit-1108644.patch
 Patch103: kdelibs-4.4.3-b1122692-khtml-fix-lynksys-confpage.patch
+Patch104: kdelibs-4.4.3-b1123435-allow-router-empty-username.patch
+Patch105: kdelibs-4.4.3-b1123596-add-new-french-translator.patch
 # Trunk patches
 Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
 Patch201: kdelibs-4.4.2-use-nepomuk-from-trunk.patch
@@ -1006,6 +1008,8 @@ mv kdelibs-experimental-%version experimental
 %patch101 -p1
 %patch102 -p1
 %patch103 -p1
+%patch104 -p1
+%patch105 -p1
 %patch200 -p0
 %patch201 -p0
 %patch301 -p1
