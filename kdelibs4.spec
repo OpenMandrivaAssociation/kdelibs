@@ -44,7 +44,7 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 Patch0: kdelibs-4.3.85-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
-Patch5: kdelibs-4.3.75-mandriva-about.patch
+Patch5: kdelibs-4.4.3-mandriva-about.patch
 Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 Patch8: kdelibs-4.4.0-add-default-places.patch
