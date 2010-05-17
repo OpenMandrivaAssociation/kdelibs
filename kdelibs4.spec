@@ -24,7 +24,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.3
-Release: %mkrel 7
+Release: %mkrel 8
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -61,6 +61,16 @@ Patch102: kdelibs-4.4.3-b1122506-revert-commit-1108644.patch
 Patch103: kdelibs-4.4.3-b1122692-khtml-fix-lynksys-confpage.patch
 Patch104: kdelibs-4.4.3-b1123435-allow-router-empty-username.patch
 Patch105: kdelibs-4.4.3-b1123596-add-new-french-translator.patch
+Patch106: kdelibs-4.4.3-b1124675-fix-checkUserAuth-DBUS-call.patch
+Patch107: kdelibs-4.4.3-b1124935-kate-add-help-autocompletion.patch
+Patch108: kdelibs-4.4.3-b1124936-kate-fix-modified-flags.patch
+Patch109: kdelibs-4.4.3-b1125185-javascript-fix.patch
+Patch110: kdelibs-4.4.3-b1125875-fix-shown-debug.patch
+Patch111: kdelibs-4.4.3-b1126218-fix-crash-with-netbook.patch
+Patch112: kdelibs-4.4.3-b1126664-fix-natural-sorting.patch
+Patch113: kdelibs-4.4.3-b1127443-dont-double-escape-urls.patch
+Patch114: kdelibs-4.4.3-b1127472-fix-natural-sorting.patch
+Patch115: kdelibs-4.4.3-b1127474-fix-typo.patch
 # Trunk patches
 Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
 Patch201: kdelibs-4.4.2-use-nepomuk-from-trunk.patch
@@ -1006,12 +1016,24 @@ mv kdelibs-experimental-%version experimental
 %patch13 -p0
 %endif
 %patch14 -p0
+
 %patch100 -p0
 %patch101 -p1
 %patch102 -p1
 %patch103 -p1
 %patch104 -p1
 %patch105 -p1
+%patch106 -p1
+%patch107 -p1
+%patch108 -p1
+%patch109 -p1
+%patch110 -p1
+%patch111 -p1
+%patch112 -p1
+%patch113 -p1
+%patch114 -p1
+%patch115 -p1
+
 %patch200 -p0
 %patch201 -p0
 %patch301 -p1
