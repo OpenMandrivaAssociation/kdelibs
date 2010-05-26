@@ -24,7 +24,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.3
-Release: %mkrel 9
+Release: %mkrel 10
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -74,6 +74,8 @@ Patch115: kdelibs-4.4.3-b1127474-fix-typo.patch
 # Trunk patches
 Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
 Patch201: kdelibs-4.4.2-use-nepomuk-from-trunk.patch
+Patch202: kdelibs-4.4.3-t1130778-nepomuk-fix-crash.patch
+Patch203: kdelibs-4.4.3-t1130786-nepomuk-fix-loop.patch
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
 Patch302: kdelibs-4.4.1-sync-solid-with-trunk.patch
@@ -1036,6 +1038,8 @@ mv kdelibs-experimental-%version experimental
 
 %patch200 -p0
 %patch201 -p0
+%patch202 -p0
+%patch203 -p0
 %patch301 -p1
 
 %build
