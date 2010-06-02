@@ -24,7 +24,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.3
-Release: %mkrel 11
+Release: %mkrel 12
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -45,7 +45,6 @@ Patch0: kdelibs-4.3.85-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 Patch5: kdelibs-4.4.3-mandriva-about.patch
-Patch6: kdelibs-4.2.95-runtime-qt-locale-initialized.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 Patch8: kdelibs-4.4.0-add-default-places.patch
 Patch9: kdelibs-fix-containment.patch
@@ -1005,7 +1004,6 @@ mv kdelibs-experimental-%version experimental
 %patch1 -p0 -b .iaora
 %patch2 -p0
 %patch5 -p0 -b .about
-%patch6 -p0 -b .qt44_45
 # Need to be added again ? ( need to be checked )
 #%patch7 -p1
 %patch8 -p0
