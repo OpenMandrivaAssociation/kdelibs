@@ -24,7 +24,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.4.3
-Release: %mkrel 12
+Release: %mkrel 13
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -53,6 +53,7 @@ Patch11:kdelibs-4.4.0-use-timeline.patch
 Patch12:kdelibs-4.4.1-add-confirmation-window.patch 
 Patch13:kdelibs-4.4.2-usr-abrt-instead-of-drkonqi.patch
 Patch14: kdelibs-4.4.2-FindFFmpeg.cmake.patch
+Patch15: kdelibs-4.4.3-fix-pushbutton-size.patch
 # official backports
 Patch100: kdelibs-4.4.3-b1121957-khtml-html5-fix.patch
 Patch101: kdelibs-4.4.3-b1122130-fix-nl.patch
@@ -1016,6 +1017,7 @@ mv kdelibs-experimental-%version experimental
 %patch13 -p0
 %endif
 %patch14 -p0
+%patch15 -p0
 
 %patch100 -p0
 %patch101 -p1
