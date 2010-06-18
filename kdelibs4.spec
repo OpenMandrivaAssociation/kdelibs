@@ -913,7 +913,6 @@ KDE 4 system core files.
 %_kde_datadir/mime/*
 %_kde_datadir/kde4
 %_kde_appsdir/proxyscout
-%_kde_appsdir/nepomuk
 %_kde_appsdir/LICENSES
 %_kde_appsdir/ktexteditor_kdatatool
 %_kde_appsdir/ktexteditor_insertfile
