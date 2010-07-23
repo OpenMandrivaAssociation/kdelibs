@@ -11,20 +11,16 @@
 %{?_without_bootstrap: %global bootstrap 0}
 %{?_with_bootstrap: %global bootstrap 1}
 
-# DO NOT REMOVE DRKONQI SUPPORT FOR THE MOMENT
-%define with_drkonqi 1
-%{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
-
 %define epoch_kdelibs3 30000000
 
 %if %branch
-%define kde_snapshot svn1053190
+%define kde_snapshot svn1138650
 %endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.4.3
-Release: %mkrel 16
+Version: 4.4.92
+Release: %mkrel 1
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -44,42 +40,16 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 Patch0: kdelibs-4.3.85-add-extra-catalogs.patch
 Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
-Patch5: kdelibs-4.4.3-mandriva-about.patch
+Patch5: kdelibs-4.4.92-mandriva-about.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
 Patch8: kdelibs-4.4.0-add-default-places.patch
 Patch9: kdelibs-fix-containment.patch
 Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
 Patch11:kdelibs-4.4.0-use-timeline.patch
-Patch12:kdelibs-4.4.1-add-confirmation-window.patch 
-Patch13:kdelibs-4.4.2-usr-abrt-instead-of-drkonqi.patch
-Patch14: kdelibs-4.4.2-FindFFmpeg.cmake.patch
-Patch15: kdelibs-4.4.3-fix-pushbutton-size.patch
-# official backports
-Patch100: kdelibs-4.4.3-b1121957-khtml-html5-fix.patch
-Patch101: kdelibs-4.4.3-b1122130-fix-nl.patch
-Patch102: kdelibs-4.4.3-b1122506-revert-commit-1108644.patch
-Patch103: kdelibs-4.4.3-b1122692-khtml-fix-lynksys-confpage.patch
-Patch104: kdelibs-4.4.3-b1123435-allow-router-empty-username.patch
-Patch105: kdelibs-4.4.3-b1123596-add-new-french-translator.patch
-Patch106: kdelibs-4.4.3-b1124675-fix-checkUserAuth-DBUS-call.patch
-Patch107: kdelibs-4.4.3-b1124935-kate-add-help-autocompletion.patch
-Patch108: kdelibs-4.4.3-b1124936-kate-fix-modified-flags.patch
-Patch109: kdelibs-4.4.3-b1125185-javascript-fix.patch
-Patch110: kdelibs-4.4.3-b1125875-fix-shown-debug.patch
-Patch111: kdelibs-4.4.3-b1126218-fix-crash-with-netbook.patch
-Patch112: kdelibs-4.4.3-b1126664-fix-natural-sorting.patch
-Patch113: kdelibs-4.4.3-b1127443-dont-double-escape-urls.patch
-Patch114: kdelibs-4.4.3-b1127472-fix-natural-sorting.patch
-Patch115: kdelibs-4.4.3-b1127474-fix-typo.patch
-# Trunk patches
-Patch200: kdelibs-4.4.1-t1098322-fix-kdialog-focus.patch
-Patch201: kdelibs-4.4.2-use-nepomuk-from-trunk.patch
-Patch202: kdelibs-4.4.3-t1130778-nepomuk-fix-crash.patch
-Patch203: kdelibs-4.4.3-t1130786-nepomuk-fix-loop.patch
-Patch204: kdelibs-4.4.3-t1112516-add-UDS-Entry.patch
+#official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
-Patch302: kdelibs-4.4.1-sync-solid-with-trunk.patch
+
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
 BuildRequires: qt4-qtdbus
@@ -125,6 +95,9 @@ BuildRequires: polkit-qt-1-devel
 BuildRequires: shared-desktop-ontologies-devel
 BuildRequires: attica-devel
 BuildRequires: libxscrnsaver-devel
+BuildRequires: libdbusmenu-qt-devel 
+BuildRequires: docbook-dtd42-xml
+BuildRequires: docbook-style-xsl
 
 %description 
 Libraries for the K Desktop Environment.
@@ -726,6 +699,87 @@ KDE 4 library.
 
 #------------------------------------------------
 
+%define libkatepartinterfaces_major 4
+%define libkatepartinterfaces %mklibname katepartinterfaces %{libkatepartinterfaces_major}
+
+%package -n %libkatepartinterfaces
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkatepartinterfaces
+KDE 4 library.
+
+%files -n %libkatepartinterfaces
+%defattr(-,root,root)
+%_kde_libdir/libkatepartinterfaces.so.%{libkatepartinterfaces_major}*
+
+#------------------------------------------------
+
+%define libkcmutils_major 4
+%define libkcmutils %mklibname kcmutils %{libkcmutils_major}
+
+%package -n %libkcmutils
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkcmutils
+KDE 4 library.
+
+%files -n %libkcmutils
+%defattr(-,root,root)
+%_kde_libdir/libkcmutils.so.%{libkcmutils_major}*
+
+#------------------------------------------------
+
+%define libkprintutils_major 4
+%define libkprintutils %mklibname kprintutils %{libkprintutils_major}
+
+%package -n %libkprintutils
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkprintutils
+KDE 4 library.
+
+%files -n %libkprintutils
+%defattr(-,root,root)
+%_kde_libdir/libkprintutils.so.%{libkprintutils_major}*
+
+#------------------------------------------------
+
+%define libkidletime_major 4
+%define libkidletime %mklibname kidletime %{libkidletime_major}
+
+%package -n %libkidletime
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkidletime
+KDE 4 library.
+
+%files -n %libkidletime
+%defattr(-,root,root)
+%_kde_libdir/libkidletime.so.%{libkidletime_major}*
+
+
+#------------------------------------------------
+
+%define libkemoticons_major 4
+%define libkemoticons %mklibname kemoticons %{libkemoticons_major}
+
+%package -n %libkemoticons
+Summary: KDE 4 library
+Group: System/Libraries
+
+%description -n %libkemoticons
+KDE 4 library.
+
+%files -n %libkemoticons
+%defattr(-,root,root)
+%_kde_libdir/libkemoticons.so.%{libkemoticons_major}*
+
+#------------------------------------------------
+
 %package devel
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
@@ -806,6 +860,11 @@ Requires: %libkunitconversion = %epoch:%version
 Requires: %libkdewebkit = %epoch:%version
 Requires: %libnepomukquery = %epoch:%version
 Requires: %libknewstuff3 = %epoch:%version
+Requires: %libkatepartinterfaces = %epoch:%version
+Requires: %libkcmutils = %epoch:%version
+Requires: %libkemoticons = %epoch:%version
+Requires: %libkidletime = %epoch:%version
+Requires: %libkprintutils = %epoch:%version
 Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
 Obsoletes: kdelibs4-experimental-devel < 2:4.3.73-1 
 Provides:  kdelibs4-experimental-devel = %epoch:%version
@@ -859,6 +918,11 @@ browsing.
 %_kde_libdir/libnepomukquery.so
 %_kde_libdir/libkdewebkit.so
 %_kde_libdir/libknewstuff3.so
+%_kde_libdir/libkprintutils.so
+%_kde_libdir/libkidletime.so
+%_kde_libdir/libkemoticons.so
+%_kde_libdir/libkcmutils.so
+%_kde_libdir/libkatepartinterfaces.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -880,6 +944,7 @@ Obsoletes:  kdelibs-common < %{epoch_kdelibs3}:3.5.10-6
 Obsoletes:  kdelibs3-common < %{epoch_kdelibs3}:3.5.10-12
 %endif
 Requires:   shared-mime-info
+Requires:   docbook-dtd42-xml 
 Conflicts:  kdebase4-workspace < 2:4.1.73-1
 Requires:   rootcerts
 Requires:   shared-desktop-ontologies
@@ -904,6 +969,7 @@ KDE 4 system core files.
 %_kde_bindir/kwrapper4
 %_kde_bindir/makekdewidgets
 %_kde_bindir/meinproc4
+%_kde_bindir/meinproc4_simple
 %_kde_bindir/nepomuk-rcgen
 %_kde_bindir/preparetips
 %dir %_kde_libdir/kde4
@@ -918,6 +984,8 @@ KDE 4 system core files.
 %_kde_appsdir/ktexteditor_kdatatool
 %_kde_appsdir/ktexteditor_insertfile
 %_kde_appsdir/ktexteditor_exporter
+%_kde_appsdir/ktexteditor_iconinserter
+%_kde_appsdir/ktexteditor_insanehtml_le
 %_kde_appsdir/kssl
 %_kde_appsdir/ksgmltools2
 %_kde_appsdir/knewstuff
@@ -955,9 +1023,7 @@ KDE 4 system core files.
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
 %_sysconfdir/dbus-1/system.d/org.kde.auth.conf
-%_sysconfdir/dbus-1/system.d/org.kde.kcontrol.kcmremotewidgets.conf
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
-%_kde_datadir/polkit-1/actions/org.kde.kcontrol.kcmremotewidgets.policy
 %_kde_appsdir/kauth
 %_kde_appsdir/plasma
 
@@ -1005,45 +1071,11 @@ mv kdelibs-experimental-%version experimental
 %patch1 -p0 -b .iaora
 %patch2 -p0
 %patch5 -p0 -b .about
-# Need to be added again ? ( need to be checked )
-#%patch7 -p1
-%patch8 -p0
+####%patch8 -p0
 %patch9 -p0
-## BROKEN, need to be fixed before enabled back
-#%patch10 -p0
 %patch11 -p0
-%patch12 -p1
-%if ! %with_drkonqi
-%patch13 -p0
-%endif
-%patch14 -p0
-%patch15 -p0
-
-%patch100 -p0
-%patch101 -p1
-%patch102 -p1
-%patch103 -p1
-%patch104 -p1
-%patch105 -p1
-%patch106 -p1
-%patch107 -p1
-%patch108 -p1
-%patch109 -p1
-%patch110 -p1
-%patch111 -p1
-%patch112 -p1
-%patch113 -p1
-%patch114 -p1
-%patch115 -p1
-
-%patch200 -p0
-%patch201 -p0
-%patch202 -p0
-%patch203 -p0
-%patch204 -p0
 
 %patch301 -p1
-
 %build
 %cmake_kde4 -DKDE4_AUTH_BACKEND_NAME=PolkitQt-1
 %make
