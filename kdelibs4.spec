@@ -20,7 +20,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.5.0
-Release: %mkrel 2
+Release: %mkrel 3
 Epoch:   2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -42,10 +42,9 @@ Patch1: kdelibs-4.1.81-overrides-oxygen-iaora.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 Patch5: kdelibs-4.4.92-mandriva-about.patch
 Patch7: kdelibs-4.2.95-fix-kross-lib.patch
-Patch8: kdelibs-4.4.0-add-default-places.patch
+Patch8: kdelibs-4.5.0-add-default-places.patch
 Patch9: kdelibs-fix-containment.patch
 Patch10:kdelibs-4.3.98-fix-supportedprotocols.patch
-Patch11:kdelibs-4.4.0-use-timeline.patch
 #official backports
 #Testing
 Patch301: kdelibs-testing-mdv47378.patch
@@ -1071,9 +1070,8 @@ mv kdelibs-experimental-%version experimental
 %patch1 -p0 -b .iaora
 %patch2 -p0
 %patch5 -p0 -b .about
-####%patch8 -p0
+%patch8 -p0
 %patch9 -p0
-%patch11 -p0
 
 %patch301 -p1
 %build
