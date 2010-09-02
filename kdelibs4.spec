@@ -770,6 +770,22 @@ KDE    4  library.
 
 #------------------------------------------------
 
+%define    libnepomukutils_major  4
+%define    libnepomukutils  %mklibname  nepomukutils  %{libnepomukutils_major}
+
+%package    -n  %libnepomukutils
+Summary:    KDE  4  library
+Group:    System/Libraries
+
+%description    -n  %libnepomukutils
+KDE    4  library.
+
+%files    -n  %libnepomukutils
+%defattr(-,root,root)
+%_kde_libdir/libnepomukutils.so.%{libnepomukutils_major}*
+
+#------------------------------------------------
+
 %package    devel
 Group:    Development/KDE  and  Qt
 Summary:    Header  files  and  documentation  for  compiling  KDE  applications
@@ -855,6 +871,7 @@ Requires:    %libkcmutils  =  %epoch:%version
 Requires:    %libkemoticons  =  %epoch:%version
 Requires:    %libkidletime  =  %epoch:%version
 Requires:    %libkprintutils  =  %epoch:%version
+Requires:    %libnepomukutils  =  %epoch:%version
 Obsoletes:    %{_lib}kdecore5-devel  <  3.93.0-0.714006.1
 Obsoletes:    kdelibs4-experimental-devel  <  2:4.3.73-1  
 Provides:      kdelibs4-experimental-devel  =  %epoch:%version
