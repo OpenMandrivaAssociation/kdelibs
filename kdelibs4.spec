@@ -20,7 +20,7 @@
 Name:    kdelibs4
 Summary:          K  Desktop  Environment  -  Libraries
 Version:          4.5.67
-Release:          %mkrel  1
+Release:          %mkrel  2
 Epoch:              2
 Group:              Graphical desktop/KDE
 License:          ARTISTIC  BSD  GPL_V2  LGPL_V2  QPL_V1.0
@@ -930,6 +930,7 @@ browsing.
 %_kde_libdir/libkemoticons.so
 %_kde_libdir/libkcmutils.so
 %_kde_libdir/libkatepartinterfaces.so
+%_kde_libdir/libnepomukutils.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
