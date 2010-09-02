@@ -787,7 +787,7 @@ KDE    4  library.
 #------------------------------------------------
 
 %package    devel
-Group:    Development/KDE  and  Qt
+Group:    Development/KDE and Qt
 Summary:    Header  files  and  documentation  for  compiling  KDE  applications
 Requires:    kde4-macros
 Requires:    automoc4
@@ -1043,7 +1043,7 @@ KDE    4  system  core  files.
 
 %if    %{compile_apidox}
 %package    apidoc
-Group:    Development/KDE  and  Qt
+Group:    Development/KDE and Qt
 Summary:    Development  documentation  for  %name
 Requires:    qt4-doc
 Obsoletes:    kdelibs4-apidoc  <  3.93.0-0.714006.1
