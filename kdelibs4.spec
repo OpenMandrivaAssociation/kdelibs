@@ -22,7 +22,7 @@ Summary:          K  Desktop  Environment  -  Libraries
 Version:          4.5.67
 Release:          %mkrel  1
 Epoch:              2
-Group:              Graphical  desktop/KDE
+Group:              Graphical desktop/KDE
 License:          ARTISTIC  BSD  GPL_V2  LGPL_V2  QPL_V1.0
 BuildRoot:      %_tmppath/%name-%version-%release-root
 URL:                  http://www.kde.org
@@ -921,7 +921,7 @@ browsing.
 
 #--------------------------------------------------------------
 %package          core
-Group:              Graphical  desktop/KDE
+Group:              Graphical desktop/KDE
 Summary:          KDE  4  system  core  files
 Suggests:        enchant-dictionary
 Suggests:        xdg-utils
