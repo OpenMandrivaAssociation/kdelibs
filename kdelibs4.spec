@@ -14,13 +14,13 @@
 %define    epoch_kdelibs3  30000000
 
 %if    %branch
-%define    kde_snapshot  svn1165394
+%define    kde_snapshot  svn1170578
 %endif
 
 Name:    kdelibs4
 Summary:          K  Desktop  Environment  -  Libraries
-Version:          4.5.65
-Release:          %mkrel  3
+Version:          4.5.67
+Release:          %mkrel  1
 Epoch:              2
 Group:              Graphical  desktop/KDE
 License:          ARTISTIC  BSD  GPL_V2  LGPL_V2  QPL_V1.0
