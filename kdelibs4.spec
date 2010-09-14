@@ -14,13 +14,13 @@
 %define    epoch_kdelibs3  30000000
 
 %if    %branch
-%define    kde_snapshot  svn1170578
+%define    kde_snapshot  svn1174542
 %endif
 
 Name:    kdelibs4
 Summary:          K  Desktop  Environment  -  Libraries
-Version:          4.5.67
-Release:          %mkrel  2
+Version:          4.5.68
+Release:          %mkrel  1
 Epoch:              2
 Group:              Graphical desktop/KDE
 License:          ARTISTIC  BSD  GPL_V2  LGPL_V2  QPL_V1.0
@@ -38,8 +38,6 @@ Source1:      ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental
 %endif
 %endif
 Patch2:      kdelibs-4.1.85-add-kde-menu.patch
-Patch10:    kdelibs-4.3.98-fix-supportedprotocols.patch
-
 BuildRequires:    kde4-macros  >=  4.1.71
 BuildRequires:    qt4-devel  >=  4:4.6.0-0.beta1.1
 BuildRequires:    qt4-qtdbus
@@ -88,6 +86,8 @@ BuildRequires:    libxscrnsaver-devel
 BuildRequires:    libdbusmenu-qt-devel  
 BuildRequires:    docbook-dtd42-xml
 BuildRequires:    docbook-style-xsl
+BuildRequires:    aspell-devel
+BuildRequires:    hspell-devel
 
 %description    
 Libraries    for  the  K  Desktop  Environment.
@@ -1074,7 +1074,6 @@ mv    kdelibs-experimental-%version%kde_snapshot  experimental
 mv    kdelibs-experimental-%version  experimental
 %endif
 %endif
-%patch10    -p0
 %patch2    -p0
 
 %build
