@@ -674,11 +674,12 @@ KDE 4 library.
 #------------------------------------------------
 
 %define libknewstuff3_major 4
-%define libknewstuff3 %mklibname knewstuff3 %{libknewstuff3_major}
+%define libknewstuff3 %mklibname knewstuff3_ %{libknewstuff3_major}
 
 %package -n %libknewstuff3
 Summary: KDE 4 library
 Group: System/Libraries
+Obsoletes: %{_lib}knewstuff34 < 2:4.5.68-2
 
 %description -n %libknewstuff3
 KDE 4 library.
