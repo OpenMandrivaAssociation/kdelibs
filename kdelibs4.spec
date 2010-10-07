@@ -60,6 +60,7 @@ BuildRequires: libart_lgpl-devel
 BuildRequires: libsasl-devel
 BuildRequires: libtiff-devel
 BuildRequires: libvorbis-devel
+BuildRequires: udev-devel
 BuildRequires: pam-devel
 BuildRequires: libalsa-devel
 BuildRequires: libmad-devel
@@ -938,7 +939,6 @@ browsing.
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
 %_kde_bindir/kconfig_compiler
-%exclude %_kde_libdir/libkdeinit4_*
 
 #--------------------------------------------------------------
 %package core
@@ -984,8 +984,14 @@ KDE 4 system core files.
 %_kde_bindir/nepomuk-rcgen
 %_kde_bindir/preparetips
 %dir %_kde_libdir/kde4
-%_kde_libdir/kde4/*
+%_kde_libdir/kde4/*.so
+%dir %_kde_libdir/kde4/libexec
+%_kde_libdir/kde4/libexec/*
 %attr(4755,root,root) %_kde_libdir/kde4/libexec/fileshareset
+%dir  %_kde_libdir/kde4/plugins
+%_kde_libdir/kde4/plugins/imageformats
+%_kde_libdir/kde4/plugins/kauth
+%_kde_libdir/kde4/plugins/script
 %_kde_libdir/libkdeinit4_*
 %_kde_datadir/config
 %_kde_datadir/mime/*
@@ -1037,10 +1043,6 @@ KDE 4 system core files.
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
 %_kde_appsdir/kauth
 %_kde_appsdir/plasma
-
-# Devel stuff 0 included in kdelibs4-devel
-%exclude %_kde_appsdir/cmake/modules/*
-%exclude %_kde_libdir/kde4/plugins/designer
 
 #--------------------------------------------------------------
 
