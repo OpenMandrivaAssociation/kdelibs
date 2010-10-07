@@ -14,13 +14,17 @@
 %define epoch_kdelibs3 30000000
 
 %if %branch
-%define kde_snapshot svn1174542
+%define kde_snapshot svn1183355
 %endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.5.68
+Version: 4.5.71
+%if %branch
+Release: %mkrel -c %kde_snapshot 1
+%else
 Release: %mkrel 1
+%endif
 Epoch: 2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -39,7 +43,7 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 %endif
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 BuildRequires: kde4-macros >= 4.1.71
-BuildRequires: qt4-devel >= 4:4.6.0-0.beta1.1
+BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
 BuildRequires: avahi-compat-libdns_sd-devel 
 BuildRequires: avahi-client-devel
@@ -65,9 +69,9 @@ BuildRequires: OpenEXR-devel
 BuildRequires: libacl-devel
 BuildRequires: krb5-devel
 BuildRequires: ungif-devel
-BuildRequires: strigi-devel >= 0.5.9
+BuildRequires: strigi-devel >= 0.6.3
 BuildRequires: shared-mime-info
-BuildRequires: soprano-devel >= 4:2.5.62
+BuildRequires: soprano-devel >= 4:2.5.60
 BuildRequires: automoc
 BuildRequires: phonon-devel >= 4.2
 BuildRequires: xpm-devel
@@ -793,11 +797,10 @@ Summary: Header files and documentation for compiling KDE applications
 Requires: kde4-macros
 Requires: automoc4
 Requires: acl-devel
-Requires: qt4-devel >= 4:4.6.0
+Requires: qt4-devel >= 4:4.7.0
 Requires: qt4-qtdbus
 Requires: kdelibs4-core = %epoch:%version
-Requires: automoc
-Requires: soprano-devel
+Requires: soprano-devel >= 4:2.5.60
 Requires: strigi-devel
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
@@ -827,13 +830,12 @@ Requires: OpenEXR-devel
 Requires: libacl-devel
 Requires: krb5-devel
 Requires: ungif-devel
-Requires: strigi-devel >= 0.5.9
+Requires: strigi-devel >= 0.6.3
 Requires: shared-mime-info
 Requires: soprano-devel >= 2.0.98
-Requires: automoc
 Requires: xpm-devel
 Requires: xft2-devel
-Requires: shared-desktop-ontologies-devel
+Requires: shared-desktop-ontologies-devel >= 0.5
 Provides: plasma-devel = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
