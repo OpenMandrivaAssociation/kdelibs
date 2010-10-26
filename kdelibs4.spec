@@ -14,12 +14,12 @@
 %define epoch_kdelibs3 30000000
 
 %if %branch
-%define kde_snapshot svn1183355
+%define kde_snapshot svn1189851
 %endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.5.71
+Version: 4.5.74
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
@@ -84,7 +84,7 @@ BuildRequires: rootcerts
 BuildRequires: flex
 BuildRequires: bison
 BuildRequires: qca2-devel
-BuildRequires: polkit-qt-1-devel
+BuildRequires: polkit-qt-1-devel >= 0.98.1
 BuildRequires: shared-desktop-ontologies-devel
 BuildRequires: attica-devel
 BuildRequires: libxscrnsaver-devel
@@ -996,6 +996,8 @@ KDE 4 system core files.
 %_kde_datadir/config
 %_kde_datadir/mime/*
 %_kde_datadir/kde4
+%_kde_applicationsdir/kmailservice.desktop
+%_kde_applicationsdir/ktelnetservice.desktop
 %_kde_appsdir/proxyscout
 %_kde_appsdir/LICENSES
 %_kde_appsdir/ktexteditor_kdatatool
@@ -1081,7 +1083,7 @@ tar xjvf %SOURCE1
 %patch2 -p0
 
 %build
-%cmake_kde4 -DKDE4_AUTH_BACKEND_NAME=PolkitQt-1
+%cmake_kde4
 %make
 
 %if %{compile_apidox}
