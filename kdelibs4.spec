@@ -14,12 +14,12 @@
 %define epoch_kdelibs3 30000000
 
 %if %branch
-%define kde_snapshot svn1189851
+%define kde_snapshot svn1190377
 %endif
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.5.74
+Version: 4.5.73
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
