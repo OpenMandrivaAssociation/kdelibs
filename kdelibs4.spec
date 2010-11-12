@@ -1048,6 +1048,21 @@ KDE 4 system core files.
 
 #--------------------------------------------------------------
 
+%package -n kde-l10n-en_US
+Summary: Language files for KDE4 English
+Group: System/Internationalization
+Provides: kde4-l10n
+Requires: locales-en_US
+
+%description -n kde-l10n-en_US
+Provides American English translations for KDE 4
+
+%files -n kde-l10n-en_US
+%defattr(-,root,root)
+%_kde_datadir/locale/en_US/entry.desktop
+
+#--------------------------------------------------------------
+
 %if %{compile_apidox}
 %package apidoc
 Group: Development/KDE and Qt
