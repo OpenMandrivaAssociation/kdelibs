@@ -21,7 +21,7 @@ Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.5.76
 %if %branch
-Release: %mkrel -c %kde_snapshot 1
+Release: %mkrel -c %kde_snapshot 2
 %else
 Release: %mkrel 1
 %endif
@@ -1053,6 +1053,7 @@ Summary: Language files for KDE4 English
 Group: System/Internationalization
 Provides: kde4-l10n
 Requires: locales-en_US
+Conflicts: kdebase4-runtime < 1:4.5.76
 
 %description -n kde-l10n-en_US
 Provides American English translations for KDE 4
