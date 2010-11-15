@@ -14,7 +14,7 @@
 %define epoch_kdelibs3 30000000
 
 %if %branch
-%define kde_snapshot svn1195844
+%define kde_snapshot svn1197335
 %endif
 
 Name: kdelibs4
