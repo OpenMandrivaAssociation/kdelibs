@@ -21,7 +21,7 @@ Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.5.76
 %if %branch
-Release: %mkrel -c %kde_snapshot 2
+Release: %mkrel -c %kde_snapshot 3
 %else
 Release: %mkrel 1
 %endif
@@ -955,7 +955,8 @@ Obsoletes: kdelibs-common < %{epoch_kdelibs3}:3.5.10-6
 Obsoletes: kdelibs3-common < %{epoch_kdelibs3}:3.5.10-12
 %endif
 Requires: shared-mime-info
-Requires: docbook-dtd42-xml 
+Requires: docbook-dtd42-xml
+Requires: docbook-style-xsl
 Conflicts: kdebase4-workspace < 2:4.1.73-1
 Requires: rootcerts
 Requires: shared-desktop-ontologies
