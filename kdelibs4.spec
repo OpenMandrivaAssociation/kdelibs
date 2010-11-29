@@ -7,6 +7,9 @@
 %define compile_apidox 0
 %{?_with_apidox: %{expand: %%global compile_apidox 1}}
 
+%define with_drkonqi 0
+%{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
+
 %define bootstrap 0
 %{?_without_bootstrap: %global bootstrap 0}
 %{?_with_bootstrap: %global bootstrap 1}
@@ -23,7 +26,7 @@ Version: 4.5.80
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 1
+Release: %mkrel 2
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -42,6 +45,7 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 %endif
 %endif
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
+Patch3: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
@@ -1098,6 +1102,9 @@ tar xjvf %SOURCE1
 %endif
 %endif
 %patch2 -p0
+%if ! %with_drkonqi
+%patch3 -p0
+%endif
 
 %build
 %cmake_kde4
