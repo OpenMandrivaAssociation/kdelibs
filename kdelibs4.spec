@@ -26,7 +26,7 @@ Version: 4.5.80
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 2
+Release: %mkrel 3
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -965,6 +965,8 @@ Conflicts: kdebase4-workspace < 2:4.1.73-1
 Requires: rootcerts
 Requires: shared-desktop-ontologies
 Obsoletes: lilypond-kde4 < 0.2-3
+Requires:  abrt
+
 %description core
 KDE 4 system core files.
 
