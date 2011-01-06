@@ -22,7 +22,7 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.5.90
+Version: 4.5.95
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
