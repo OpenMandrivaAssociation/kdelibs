@@ -26,7 +26,7 @@ Version: 4.5.95
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 5
+Release: %mkrel 6
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -46,6 +46,9 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 %endif
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 Patch3: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
+# Trunk Patch
+Patch100: kdelibs-4.5.95-mdv-solid-backend-udev-udevmanager-fix-crash-kde#251356.patch
+
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
@@ -1107,6 +1110,7 @@ tar xjvf %SOURCE1
 %if ! %with_drkonqi
 %patch3 -p0
 %endif
+%patch100 -p0
 
 %build
 %cmake_kde4
