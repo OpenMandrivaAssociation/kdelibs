@@ -10,10 +10,6 @@
 %define with_drkonqi 0
 %{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
 
-%define bootstrap 0
-%{?_without_bootstrap: %global bootstrap 0}
-%{?_with_bootstrap: %global bootstrap 1}
-
 %define epoch_kdelibs3 30000000
 
 %if %branch
@@ -26,7 +22,7 @@ Version: 4.6.0
 %if %branch
 Release: %mkrel -c %kde_snapshot 1
 %else
-Release: %mkrel 1
+Release: %mkrel 2
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -130,12 +126,8 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Obsoletes: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
 Requires: phonon-backend >= 4.2.0
-%if !%{bootstrap}
 Requires: kde4-config-file 
 Requires: kde4-l10n
-Requires: qt4-style-iaora
-Requires: kde4-style-iaora
-%endif
 Requires: kdelibs4-core = %epoch:%{version}
 
 %description -n %libkdecore
