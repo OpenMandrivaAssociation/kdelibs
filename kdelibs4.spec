@@ -20,9 +20,9 @@ Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.6.1
 %if %branch
-Release: %mkrel -c %kde_snapshot 1
+Release: 0.%kde_snapshot.1
 %else
-Release: %mkrel 2
+Release: 3
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -40,6 +40,7 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%version.tar.bz2
 %endif
 %endif
+Patch1: kdelibs-4.5.85-add-extra-catalogs.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 Patch3: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 
@@ -1096,6 +1097,7 @@ tar xjvf %SOURCE1
   mv kdelibs-experimental-%version experimental
 %endif
 %endif
+%patch1 -p0
 %patch2 -p0
 %if ! %with_drkonqi
 %patch3 -p0
