@@ -16,6 +16,9 @@
 %define kde_snapshot svn1198704
 %endif
 
+%define udisk_backend 0
+
+
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.6.1
@@ -94,6 +97,9 @@ BuildRequires: docbook-dtd42-xml
 BuildRequires: docbook-style-xsl
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
+%if %udisk_backend
+Buildrequires: udev-devel
+%endif
 
 %description 
 Libraries for the K Desktop Environment.
