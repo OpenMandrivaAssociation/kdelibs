@@ -22,7 +22,7 @@ Version: 4.6.1
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 3
+Release: 4
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -62,7 +62,6 @@ BuildRequires: libart_lgpl-devel
 BuildRequires: libsasl-devel
 BuildRequires: libtiff-devel
 BuildRequires: libvorbis-devel
-BuildRequires: udev-devel
 BuildRequires: pam-devel
 BuildRequires: libalsa-devel
 BuildRequires: libmad-devel
@@ -76,7 +75,7 @@ BuildRequires: strigi-devel >= 0.6.3
 BuildRequires: shared-mime-info
 BuildRequires: soprano-devel >= 4:2.5.60
 BuildRequires: automoc
-BuildRequires: phonon-devel >= 4.2
+BuildRequires: phonon-devel >= 2:4.2
 BuildRequires: xpm-devel
 BuildRequires: xft2-devel
 BuildRequires: libxml2-utils
