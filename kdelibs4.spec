@@ -16,8 +16,7 @@
 %define kde_snapshot svn1198704
 %endif
 
-%define udisk_backend 0
-
+%define udisk_backend 1
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -25,7 +24,7 @@ Version: 4.6.1
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 4
+Release: 5
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
