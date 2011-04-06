@@ -45,7 +45,6 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 Patch1: kdelibs-4.5.85-add-extra-catalogs.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 Patch3: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
-Patch100: kdelibs-4.6.1-fix-CVE-2011-1168.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
@@ -1106,7 +1105,6 @@ tar xjvf %SOURCE1
 %if ! %with_drkonqi
 %patch3 -p0
 %endif
-%patch100 -p1
 
 %build
 %cmake_kde4
