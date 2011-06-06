@@ -117,7 +117,6 @@ Obsoletes: %{_lib}kde3support5 < 3.93.0-0.714006.1
 KDE 4 core library.
 
 %files -n %libkde3support
-%defattr(-,root,root)
 %_kde_libdir/libkde3support.so.%{kde3support_major}*
 
 #------------------------------------------------	
@@ -128,7 +127,6 @@ KDE 4 core library.
 %package -n %libkdecore
 Summary: KDE 4 core library
 Group: System/Libraries
-Obsoletes: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
 Requires: phonon-backend >= 4.2.0
 Requires: kde4-config-file 
 Requires: kde4-l10n
@@ -138,7 +136,6 @@ Requires: kdelibs4-core = %epoch:%{version}
 KDE 4 core library.
 
 %files -n %libkdecore
-%defattr(-,root,root)
 %_kde_libdir/libkdecore.so.%{kdecore_major}*
 
 #------------------------------------------------	
@@ -149,14 +146,11 @@ KDE 4 core library.
 %package -n %libkdefakes
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
- 
 
 %description -n %libkdefakes
 KDE 4 core library.
 
 %files -n %libkdefakes
-%defattr(-,root,root)
 %_kde_libdir/libkdefakes.so.%{kdefakes_major}*
 
 #------------------------------------------------	
@@ -167,13 +161,11 @@ KDE 4 core library.
 %package -n %libkdesu
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3 
 
 %description -n %libkdesu
 KDE 4 core library.
 
 %files -n %libkdesu
-%defattr(-,root,root)
 %_kde_libdir/libkdesu.so.%{kdesu_major}*
 
 #------------------------------------------------	
@@ -184,14 +176,11 @@ KDE 4 core library.
 %package -n %libkdeui
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
- 
 
 %description -n %libkdeui
 KDE 4 core library.
 
 %files -n %libkdeui
-%defattr(-,root,root)
 %_kde_libdir/libkdeui.so.%{kdeui_major}*
 
 #------------------------------------------------	
@@ -202,15 +191,11 @@ KDE 4 core library.
 %package -n %libkdnssd
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kdnssd5 < 3.93.0-0.714006.1
  
-
 %description -n %libkdnssd
 KDE 4 core library.
 
 %files -n %libkdnssd
-%defattr(-,root,root)
 %_kde_libdir/libkdnssd.so.%{kdnssd_major}*
 
 #------------------------------------------------	
@@ -221,15 +206,11 @@ KDE 4 core library.
 %package -n %libkfile
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kfile5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkfile
 KDE 4 core library.
 
 %files -n %libkfile
-%defattr(-,root,root)
 %_kde_libdir/libkfile.so.%{kfile_major}*
 
 #------------------------------------------------	
@@ -240,14 +221,11 @@ KDE 4 core library.
 %package -n %libkhtml
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
- 
 
 %description -n %libkhtml
 KDE 4 core library.
 
 %files -n %libkhtml
-%defattr(-,root,root)
 %_kde_libdir/libkhtml.so.%{khtml_major}*
 
 #------------------------------------------------	
@@ -258,15 +236,11 @@ KDE 4 core library.
 %package -n %libkimproxy
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kimproxy5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkimproxy
 KDE 4 core library.
 
 %files -n %libkimproxy
-%defattr(-,root,root)
 %_kde_libdir/libkimproxy.so.%{kimproxy_major}*
 
 #------------------------------------------------	
@@ -277,14 +251,11 @@ KDE 4 core library.
 %package -n %libkio
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
- 
 
 %description -n %libkio
 KDE 4 core library.
 
 %files -n %libkio
-%defattr(-,root,root)
 %_kde_libdir/libkio.so.%{kio_major}*
 
 #------------------------------------------------	
@@ -295,17 +266,11 @@ KDE 4 core library.
 %package -n %libkjsembed
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kjsembed5 < 3.93.0-0.714006.1
-%if %mdkversion >= 201000
-Obsoletes: kde3-kjsembed < 1:3.5.10-4
-Obsoletes: kjsembed < 1:3.5.10-4
-%endif
+
 %description -n %libkjsembed
 KDE 4 core library.
 
 %files -n %libkjsembed
-%defattr(-,root,root)
 %_kde_libdir/libkjsembed.so.%{kjsembed_major}*
 
 #------------------------------------------------	
@@ -316,15 +281,11 @@ KDE 4 core library.
 %package -n %libkjs
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kjs5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkjs
 KDE 4 core library.
 
 %files -n %libkjs
-%defattr(-,root,root)
 %_kde_libdir/libkjs.so.%{kjs_major}*
 
 #------------------------------------------------	
@@ -335,15 +296,11 @@ KDE 4 core library.
 %package -n %libkmediaplayer
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kmediaplayer5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkmediaplayer
 KDE 4 core library.
 
 %files -n %libkmediaplayer
-%defattr(-,root,root)
 %_kde_libdir/libkmediaplayer.so.%{kmediaplayer_major}*
 
 #------------------------------------------------	
@@ -354,19 +311,11 @@ KDE 4 core library.
 %package -n %libnepomuk
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}knepomuk5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}nepomuk5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}kmetadata5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}konto5 < 3.93.0-0.714006.1
-Obsoletes: %{_lib}nepomukmiddleware4 < 3.93.0-0.725600.1 
-Obsoletes: %{_lib}nepomuk-middleware4 < 3.93.0-0.725600.1
 
 %description -n %libnepomuk
 KDE 4 core library.
 
 %files -n %libnepomuk
-%defattr(-,root,root)
 %_kde_libdir/libnepomuk.so.%{nepomuk_major}*
 
 #------------------------------------------------	
@@ -377,15 +326,11 @@ KDE 4 core library.
 %package -n %libknewstuff2
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}knewstuff25
-Obsoletes: %{_lib}knewstuff24 
 
 %description -n %libknewstuff2
 KDE 4 core library.
 
 %files -n %libknewstuff2
-%defattr(-,root,root)
 %_kde_libdir/libknewstuff2.so.%{knewstuff2_major}*
 
 #------------------------------------------------	
@@ -396,15 +341,11 @@ KDE 4 core library.
 %package -n %libknotifyconfig
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}knotifyconfig5 < 3.93.0-0.714006.1
- 
 
 %description -n %libknotifyconfig
 KDE 4 core library.
 
 %files -n %libknotifyconfig
-%defattr(-,root,root)
 %_kde_libdir/libknotifyconfig.so.%{knotifyconfig_major}*
 
 #------------------------------------------------	
@@ -415,15 +356,11 @@ KDE 4 core library.
 %package -n %libkntlm
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kntlm5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkntlm
 KDE 4 core library.
 
 %files -n %libkntlm
-%defattr(-,root,root)
 %_kde_libdir/libkntlm.so.%{kntlm_major}*
 
 #------------------------------------------------	
@@ -434,15 +371,11 @@ KDE 4 core library.
 %package -n %libkparts
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kparts5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkparts
 KDE 4 core library.
 
 %files -n %libkparts
-%defattr(-,root,root)
 %_kde_libdir/libkparts.so.%{kparts_major}*
 
 #------------------------------------------------	
@@ -453,15 +386,11 @@ KDE 4 core library.
 %package -n %libkrosscore
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}krosscore5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkrosscore
 KDE 4 core library.
 
 %files -n %libkrosscore
-%defattr(-,root,root)
 %_kde_libdir/libkrosscore.so.%{krosscore_major}*
 
 #------------------------------------------------	
@@ -472,15 +401,11 @@ KDE 4 core library.
 %package -n %libkrossui
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}krossui5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkrossui
 KDE 4 core library.
 
 %files -n %libkrossui
-%defattr(-,root,root)
 %_kde_libdir/libkrossui.so.%{krossui_major}*
 
 #------------------------------------------------	
@@ -491,15 +416,11 @@ KDE 4 core library.
 %package -n %libktexteditor
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}ktexteditor5 < 3.93.0-0.714006.1
- 
 
 %description -n %libktexteditor
 KDE 4 core library.
 
 %files -n %libktexteditor
-%defattr(-,root,root)
 %_kde_libdir/libktexteditor.so.%{ktexteditor_major}*
 
 #------------------------------------------------	
@@ -510,15 +431,11 @@ KDE 4 core library.
 %package -n %libkunittest
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kunittest5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkunittest
 KDE 4 core library.
 
 %files -n %libkunittest
-%defattr(-,root,root)
 %_kde_libdir/libkunittest.so.%{kunittest_major}*
 
 #------------------------------------------------	
@@ -529,15 +446,11 @@ KDE 4 core library.
 %package -n %libkutils
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}kutils5 < 3.93.0-0.714006.1
- 
 
 %description -n %libkutils
 KDE 4 core library.
 
 %files -n %libkutils
-%defattr(-,root,root)
 %_kde_libdir/libkutils.so.%{kutils_major}*
 
 #------------------------------------------------	
@@ -548,15 +461,11 @@ KDE 4 core library.
 %package -n %libsolid
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}solid5 < 3.93.0-0.714006.1
  
-
 %description -n %libsolid
 KDE 4 core library.
 
 %files -n %libsolid
-%defattr(-,root,root)
 %_kde_libdir/libsolid.so.%{solid_major}*
 
 #------------------------------------------------
@@ -567,15 +476,11 @@ KDE 4 core library.
 %package -n %libthreadweaver
 Summary: KDE 4 core library
 Group: System/Libraries
-Conflicts: %{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes: %{_lib}threadweaver5 < 3.93.0-0.714006.1
- 
 
 %description -n %libthreadweaver
 KDE 4 core library.
 
 %files -n %libthreadweaver
-%defattr(-,root,root)
 %_kde_libdir/libthreadweaver.so.%{threadweaver_major}*
 
 #------------------------------------------------
@@ -586,13 +491,11 @@ KDE 4 core library.
 %package -n %libkpty
 Summary: KDE 4 core library
 Group: System/Libraries
- 
 
 %description -n %libkpty
 KDE 4 core library.
 
 %files -n %libkpty
-%defattr(-,root,root)
 %_kde_libdir/libkpty.so.%{kpty_major}*
 
 #------------------------------------------------
@@ -604,12 +507,10 @@ KDE 4 core library.
 Summary: KDE 4 core library
 Group: System/Libraries
 
-
 %description -n %libkjsapi
 KDE 4 core library.
 
 %files -n %libkjsapi
-%defattr(-,root,root)
 %_kde_libdir/libkjsapi.so.%{kjsapi_major}*
 
 #------------------------------------------------
@@ -625,7 +526,6 @@ Group: System/Libraries
 KDE 4 core library.
 
 %files -n %libplasma
-%defattr(-,root,root)
 %_kde_libdir/libplasma.so.%{libplasma_major}*
 
 #------------------------------------------------
@@ -641,7 +541,6 @@ Group: System/Libraries
 KDE 4 core library.
 
 %files -n %libkunitconversion
-%defattr(-,root,root)
 %_kde_libdir/libkunitconversion.so.%{libkunitconversion_major}*
 
 #------------------------------------------------
@@ -657,7 +556,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libnepomukquery
-%defattr(-,root,root)
 %_kde_libdir/libnepomukquery.so.%{libnepomukquery_major}*
 
 #------------------------------------------------
@@ -673,7 +571,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libkdewebkit
-%defattr(-,root,root)
 %_kde_libdir/libkdewebkit.so.%{libkdewebkit_major}*
 
 
@@ -685,13 +582,11 @@ KDE 4 library.
 %package -n %libknewstuff3
 Summary: KDE 4 library
 Group: System/Libraries
-Obsoletes: %{_lib}knewstuff34 < 2:4.5.68-2
 
 %description -n %libknewstuff3
 KDE 4 library.
 
 %files -n %libknewstuff3
-%defattr(-,root,root)
 %_kde_libdir/libknewstuff3.so.%{libknewstuff3_major}*
 
 #------------------------------------------------
@@ -707,7 +602,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libkatepartinterfaces
-%defattr(-,root,root)
 %_kde_libdir/libkatepartinterfaces.so.%{libkatepartinterfaces_major}*
 
 #------------------------------------------------
@@ -723,7 +617,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libkcmutils
-%defattr(-,root,root)
 %_kde_libdir/libkcmutils.so.%{libkcmutils_major}*
 
 #------------------------------------------------
@@ -739,7 +632,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libkprintutils
-%defattr(-,root,root)
 %_kde_libdir/libkprintutils.so.%{libkprintutils_major}*
 
 #------------------------------------------------
@@ -755,7 +647,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libkidletime
-%defattr(-,root,root)
 %_kde_libdir/libkidletime.so.%{libkidletime_major}*
 
 
@@ -772,7 +663,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libkemoticons
-%defattr(-,root,root)
 %_kde_libdir/libkemoticons.so.%{libkemoticons_major}*
 
 #------------------------------------------------
@@ -788,7 +678,6 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libnepomukutils
-%defattr(-,root,root)
 %_kde_libdir/libnepomukutils.so.%{libnepomukutils_major}*
 
 #------------------------------------------------
@@ -877,13 +766,7 @@ Requires: %libnepomukutils = %epoch:%version
 Requires: %libplasma = %epoch:%version
 Requires: %libsolid = %epoch:%version
 Requires: %libthreadweaver = %epoch:%version
-Obsoletes: %{_lib}kdecore5-devel < 3.93.0-0.714006.1
-Obsoletes: kdelibs4-experimental-devel < 2:4.3.73-1 
-Provides: kdelibs4-experimental-devel = %epoch:%version
-Conflicts: kdelibs4-core < 4.2.95-3
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
-Conflicts: kdebase4-workspace-devel < 2:4.3.75-1
-Conflicts: kdebase4-runtime <= 1:4.2.4
 Conflicts: webkitkde-devel < 0.0-0.1050148.3
 Conflicts: kdeplatform4-devel < 4:0.9.97-3
 
@@ -893,7 +776,6 @@ for KDE. Also included is the KDE API documentation in HTML format for easy
 browsing.
 
 %files devel
-%defattr(-,root,root,-)
 %_mandir/man1/kdecmake.1*
 %_kde_includedir/*
 %_kde_appsdir/cmake/modules/*
@@ -947,14 +829,6 @@ Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
 Suggests: enchant-dictionary
 Suggests: xdg-utils
-Obsoletes: kdelibs4-common < 3.93.0-0.714006.1
-Conflicts: kdelibs4-devel < 2:4.2.85-4
-%if %mdkversion >= 200910
-Obsoletes: kdelibs-common < %{epoch_kdelibs3}:3.5.10-6
-%endif
-%if %mdkversion >= 201000
-Obsoletes: kdelibs3-common < %{epoch_kdelibs3}:3.5.10-12
-%endif
 Requires: shared-mime-info
 Requires: docbook-dtd42-xml
 Requires: docbook-style-xsl
@@ -968,7 +842,6 @@ Requires:  abrt
 KDE 4 system core files.
 
 %files core
-%defattr(-,root,root,-)
 %_kde_bindir/kbuildsycoca4
 %_kde_bindir/kcookiejar4
 %_kde_bindir/kde4-config
@@ -1063,7 +936,6 @@ Conflicts: kdebase4-runtime < 1:4.5.76
 Provides American English translations for KDE 4
 
 %files -n kde-l10n-en_US
-%defattr(-,root,root)
 %_kde_datadir/locale/en_US/entry.desktop
 
 #--------------------------------------------------------------
@@ -1073,13 +945,11 @@ Provides American English translations for KDE 4
 Group: Development/KDE and Qt
 Summary: Development documentation for %name
 Requires: qt4-doc
-Obsoletes: kdelibs4-apidoc < 3.93.0-0.714006.1
 
 %description apidoc
 This packages contains all development documentation for kdelibs
 
 %files apidoc
-%defattr(-,root,root,-)
 %_docdir/kde4/api/*
 %endif
 
@@ -1116,7 +986,6 @@ tar xjvf %SOURCE1
 %endif
 
 %install
-rm -fr %buildroot
 %makeinstall_std -C build
 
 %if %{compile_apidox}
@@ -1127,5 +996,3 @@ rm -fr %buildroot
 %__rm -fr %buildroot%_kde_appsdir/kssl/ca-bundle.crt
 ln -snf %_sysconfdir/pki/tls/certs/ca-bundle.crt %buildroot%_kde_appsdir/kssl/ca-bundle.crt
 
-%clean
-rm -fr %buildroot
