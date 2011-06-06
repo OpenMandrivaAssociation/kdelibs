@@ -24,7 +24,7 @@ Version: 4.6.3
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 2
+Release: 3
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -46,6 +46,8 @@ Patch1: kdelibs-4.5.85-add-extra-catalogs.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 Patch3: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch200: kdelibs-4.6.3-sync-nepomuk-with-trunk.patch
+Patch201: kdelibs-4.6.3-add-NetworkShare-trunk.patch
+Patch202: kdelibs-4.6.3-add-missing-include.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
@@ -977,7 +979,8 @@ tar xjvf %SOURCE1
 %patch3 -p0
 %endif
 %patch200 -p1 -b .nepomuk_trunk
-
+%patch201 -p1
+%patch202 -p1
 %build
 %cmake_kde4
 %make
