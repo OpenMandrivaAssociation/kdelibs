@@ -20,7 +20,7 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.6.3
+Version: 4.6.4
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
