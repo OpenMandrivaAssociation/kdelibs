@@ -1,3 +1,6 @@
+%define bootstrap 1
+%{?_branch: %{expand: %%global bootstrap 1}}
+
 %define branch 0
 %{?_branch: %{expand: %%global branch 1}}
 
@@ -24,7 +27,7 @@ Version: 4.6.4
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 4
+Release: 5
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -133,7 +136,9 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Requires: phonon-backend >= 4.2.0
 Requires: kde4-config-file 
+%if ! %bootstrap
 Suggests: kde-l10n
+%endif
 Requires: kdelibs4-core = %epoch:%{version}
 
 %description -n %libkdecore
