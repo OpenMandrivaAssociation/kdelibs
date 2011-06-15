@@ -133,7 +133,7 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Requires: phonon-backend >= 4.2.0
 Requires: kde4-config-file 
-Requires: kde-l10n
+Suggests: kde-l10n
 Requires: kdelibs4-core = %epoch:%{version}
 
 %description -n %libkdecore
