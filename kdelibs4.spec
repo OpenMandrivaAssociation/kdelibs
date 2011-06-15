@@ -24,7 +24,7 @@ Version: 4.6.4
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 3
+Release: 4
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -133,7 +133,7 @@ Summary: KDE 4 core library
 Group: System/Libraries
 Requires: phonon-backend >= 4.2.0
 Requires: kde4-config-file 
-Requires: kde4-l10n
+Requires: kde-l10n
 Requires: kdelibs4-core = %epoch:%{version}
 
 %description -n %libkdecore
@@ -840,6 +840,7 @@ Conflicts: kdebase4-workspace < 2:4.1.73-1
 Requires: rootcerts
 Requires: shared-desktop-ontologies
 Obsoletes: lilypond-kde4 < 0.2-3
+Conflicts: kde-l10n-en_US < 2:4.6.4-1 
 Requires:  abrt
 
 %description core
@@ -926,20 +927,6 @@ KDE 4 system core files.
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
 %_kde_appsdir/kauth
 %_kde_appsdir/plasma
-
-#--------------------------------------------------------------
-
-%package -n kde-l10n-en_US
-Summary: Language files for KDE4 English
-Group: System/Internationalization
-Provides: kde4-l10n
-Requires: locales-en_US
-Conflicts: kdebase4-runtime < 1:4.5.76
-
-%description -n kde-l10n-en_US
-Provides American English translations for KDE 4
-
-%files -n kde-l10n-en_US
 %_kde_datadir/locale/en_US/entry.desktop
 
 #--------------------------------------------------------------
