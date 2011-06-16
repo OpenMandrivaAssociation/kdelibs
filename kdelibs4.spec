@@ -1,4 +1,4 @@
-%define bootstrap 1
+%define bootstrap 0
 %{?_branch: %{expand: %%global bootstrap 1}}
 
 %define branch 0
@@ -27,7 +27,7 @@ Version: 4.6.4
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 5
+Release: 6
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
