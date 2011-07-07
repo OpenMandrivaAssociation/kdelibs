@@ -23,11 +23,11 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.6.4
+Version: 4.6.90
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 6
+Release: 1
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -48,10 +48,6 @@ Source1: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-experimental-%ver
 Patch1: kdelibs-4.5.85-add-extra-catalogs.patch
 Patch2: kdelibs-4.1.85-add-kde-menu.patch
 Patch3: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
-Patch200: kdelibs-4.6.4-sync-nepomuk-with-trunk.patch
-Patch201: kdelibs-4.6.3-add-NetworkShare-trunk.patch
-Patch202: kdelibs-4.6.3-add-missing-include.patch
-Patch203: kdelibs-4.6.4-add-missing-nepomuk-include.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
@@ -971,10 +967,6 @@ tar xjvf %SOURCE1
 %if ! %with_drkonqi
 %patch3 -p0
 %endif
-%patch200 -p1 -b .nepomuk_trunk
-%patch201 -p1
-%patch202 -p1
-%patch203 -p1
 
 %build
 %cmake_kde4
