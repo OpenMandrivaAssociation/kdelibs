@@ -578,9 +578,40 @@ KDE 4 library.
 %files -n %libkdewebkit
 %_kde_libdir/libkdewebkit.so.%{libkdewebkit_major}*
 
-
 #------------------------------------------------
 
+%define kdeclarative_major 5
+%define libkdeclarative %mklibname kdeclarative %{kdeclarative_major}
+
+%package -n %libkdeclarative
+Summary: KDE 4 Core library
+Group: System/Libraries
+
+%description -n %libkdeclarative
+KDE 4 core library.
+
+%files -n %libkdeclarative
+%defattr(-,root,root)
+%_kde_libdir/libkdeclarative.so.%{kdeclarative_major}*
+
+#-------------------------------------------------
+
+%define kactivities_major 5
+%define libkactivities %mklibname kactivities %{kactivities_major}
+
+%package -n %libkactivities
+Summary: KDE 4 Core Library
+Group: System/Libraries
+
+%description -n %libkactivities
+KDE 4 core library.
+
+%files -n %libkactivities
+%defattr(-,root,root)
+%_kde_libdir/libkactivities.so.%{kactivities_major}*
+
+#------------------------------------------------	
+ 
 %define libknewstuff3_major 4
 %define libknewstuff3 %mklibname knewstuff3_ %{libknewstuff3_major}
 
@@ -593,21 +624,6 @@ KDE 4 library.
 
 %files -n %libknewstuff3
 %_kde_libdir/libknewstuff3.so.%{libknewstuff3_major}*
-
-#------------------------------------------------
-
-%define libkatepartinterfaces_major 4
-%define libkatepartinterfaces %mklibname katepartinterfaces %{libkatepartinterfaces_major}
-
-%package -n %libkatepartinterfaces
-Summary: KDE 4 library
-Group: System/Libraries
-
-%description -n %libkatepartinterfaces
-KDE 4 library.
-
-%files -n %libkatepartinterfaces
-%_kde_libdir/libkatepartinterfaces.so.%{libkatepartinterfaces_major}*
 
 #------------------------------------------------
 
@@ -733,7 +749,6 @@ Requires: xpm-devel
 Requires: xft2-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
 Provides: plasma-devel = %epoch:%version
-Requires: %libkatepartinterfaces = %epoch:%version
 Requires: %libkcmutils = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
@@ -821,8 +836,9 @@ browsing.
 %_kde_libdir/libkidletime.so
 %_kde_libdir/libkemoticons.so
 %_kde_libdir/libkcmutils.so
-%_kde_libdir/libkatepartinterfaces.so
 %_kde_libdir/libnepomukutils.so
+%_kde_libdir/libkdeclarative.so
+%_kde_libdir/libkactivities.so
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
@@ -857,6 +873,8 @@ KDE 4 system core files.
 %_kde_bindir/kdeinit4_wrapper
 %_kde_bindir/kjs
 %_kde_bindir/kjscmd
+%_kde_bindir/kfilemetadatareader
+%_kde_libdir/kde4/libexec/filesharelist
 %_kde_bindir/kross
 %_kde_bindir/kshell4
 %_kde_bindir/kunittestmodrunner
@@ -883,11 +901,6 @@ KDE 4 system core files.
 %_kde_applicationsdir/ktelnetservice.desktop
 %_kde_appsdir/proxyscout
 %_kde_appsdir/LICENSES
-%_kde_appsdir/ktexteditor_kdatatool
-%_kde_appsdir/ktexteditor_insertfile
-%_kde_appsdir/ktexteditor_exporter
-%_kde_appsdir/ktexteditor_iconinserter
-%_kde_appsdir/ktexteditor_insanehtml_le
 %_kde_appsdir/kssl
 %_kde_appsdir/ksgmltools2
 %_kde_appsdir/knewstuff
@@ -897,7 +910,6 @@ KDE 4 system core files.
 %_kde_appsdir/kdeui
 %_kde_appsdir/kconf_update
 %_kde_appsdir/kcm_componentchooser
-%_kde_appsdir/katepart
 %_kde_appsdir/kcharselect
 %_kde_docdir/HTML/en/sonnet
 %_kde_docdir/HTML/en/common/*
@@ -969,7 +981,7 @@ tar xjvf %SOURCE1
 %endif
 
 %build
-%cmake_kde4
+%cmake_kde4 -DCMAKE_VERBOSE_MAKEFILE:BOOL=OFF
 %make
 
 %if %{compile_apidox}
