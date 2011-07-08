@@ -27,7 +27,7 @@ Version: 4.6.90
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 1
+Release: 2
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
@@ -786,6 +786,9 @@ Requires: %libnepomukutils = %epoch:%version
 Requires: %libplasma = %epoch:%version
 Requires: %libsolid = %epoch:%version
 Requires: %libthreadweaver = %epoch:%version
+Requires: %libkdeclarative = %epoch:%version
+Requires: %libkactivities = %epoch:%version
+Requires: %libknewstuff3 = %epoch:%version
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: webkitkde-devel < 0.0-0.1050148.3
 Conflicts: kdeplatform4-devel < 4:0.9.97-3
