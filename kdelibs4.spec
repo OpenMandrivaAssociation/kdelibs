@@ -23,11 +23,11 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.6.90
+Version: 4.6.95
 %if %branch
 Release: 0.%kde_snapshot.1
 %else
-Release: 2
+Release: 1
 %endif
 Epoch: 2
 Group: Graphical desktop/KDE
