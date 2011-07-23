@@ -618,6 +618,7 @@ KDE 4 core library.
 %package -n %libknewstuff3
 Summary: KDE 4 library
 Group: System/Libraries
+%rename %{_lib}knewstuff34
 
 %description -n %libknewstuff3
 KDE 4 library.
