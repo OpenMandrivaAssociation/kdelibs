@@ -24,11 +24,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.6.95
-%if %branch
-Release: 0.%kde_snapshot.1
-%else
-Release: 1
-%endif
+Release: %{?branch:0.%{kde_snapshot}.}2
 Epoch: 2
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
