@@ -858,7 +858,7 @@ Requires: rootcerts
 Requires: shared-desktop-ontologies
 Obsoletes: lilypond-kde4 < 0.2-3
 Conflicts: kde-l10n-en_US < 2:4.6.4-1 
-Conflicts: kdebase4-runtime < 1:4.6.90
+Conflicts: kdebase4-runtime < 1:4.6.0
 Requires:  abrt
 
 %description core
