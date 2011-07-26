@@ -890,7 +890,6 @@ KDE 4 system core files.
 %_kde_applicationsdir/ktelnetservice.desktop
 %_kde_appsdir/proxyscout
 %_kde_appsdir/LICENSES
-%_kde_appsdir/ktexteditor_exporter
 %_kde_appsdir/ktexteditor_iconinserter
 %_kde_appsdir/ktexteditor_insanehtml_le
 %_kde_appsdir/kssl
