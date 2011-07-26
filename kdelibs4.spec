@@ -826,7 +826,6 @@ browsing.
 %_kde_libdir/libkidletime.so
 %_kde_libdir/libkemoticons.so
 %_kde_libdir/libkcmutils.so
-%_kde_libdir/libkatepartinterfaces.so
 %_kde_libdir/libnepomukutils.so
 %_kde_libdir/libkactivities.so
 %_kde_libdir/libkdeclarative.so
