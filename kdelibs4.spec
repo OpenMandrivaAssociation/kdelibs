@@ -899,7 +899,6 @@ KDE 4 system core files.
 %_kde_appsdir/kdeui
 %_kde_appsdir/kconf_update
 %_kde_appsdir/kcm_componentchooser
-%_kde_appsdir/katepart
 %_kde_appsdir/kcharselect
 %_kde_docdir/HTML/en/sonnet
 %_kde_docdir/HTML/en/common/*
