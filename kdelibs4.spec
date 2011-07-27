@@ -721,7 +721,6 @@ Requires: xpm-devel
 Requires: xft2-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
 Provides: plasma-devel = %epoch:%version
-Requires: %libkatepartinterfaces = %epoch:%version
 Requires: %libkcmutils = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
