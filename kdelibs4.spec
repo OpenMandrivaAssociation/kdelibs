@@ -505,7 +505,7 @@ Group: System/Libraries
 KDE 4 core library.
 
 %files -n %libplasma
-#%_kde_libdir/libplasma.so.%{libplasma_major}*
+%_kde_libdir/libplasma.so.%{libplasma_major}*
 
 #--------------------------------------------------------------------
 
@@ -567,21 +567,6 @@ KDE 4 library.
 
 %files -n %libknewstuff3
 %_kde_libdir/libknewstuff3.so.%{libknewstuff3_major}*
-
-#--------------------------------------------------------------------
-
-%define libkatepartinterfaces_major 4
-%define libkatepartinterfaces %mklibname katepartinterfaces %{libkatepartinterfaces_major}
-
-%package -n %libkatepartinterfaces
-Summary: KDE 4 library
-Group: System/Libraries
-
-%description -n %libkatepartinterfaces
-KDE 4 library.
-
-%files -n %libkatepartinterfaces
-#%_kde_libdir/libkatepartinterfaces.so.%{libkatepartinterfaces_major}*
 
 #--------------------------------------------------------------------
 
@@ -686,7 +671,7 @@ Group: System/Libraries
 KDE 4 library.
 
 %files -n %libkdeclarative
-%_kde_libdir/libkdeclarative.so.%{libkdeclarative_major}
+%_kde_libdir/libkdeclarative.so.%{libkdeclarative_major}*
 
 #--------------------------------------------------------------------
 
@@ -873,6 +858,7 @@ KDE 4 system core files.
 %_kde_bindir/meinproc4_simple
 %_kde_bindir/nepomuk-rcgen
 %_kde_bindir/preparetips
+%_kde_bindir/kfilemetadatareader
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*.so
 %dir %_kde_libdir/kde4/libexec
