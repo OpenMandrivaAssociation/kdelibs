@@ -827,7 +827,7 @@ Summary:    KDE 4 system core files
 Conflicts:  kdebase4-workspace < 2:4.1.73-1
 Obsoletes:  lilypond-kde4 < 0.2-3
 Conflicts:  kdebase4-runtime < 1:4.6.0
-Obsoletes:  kde-l10n-en_US
+Conflicts:  kde-l10n-en_US < 4:4.7.41-1
 Requires:   shared-mime-info
 Requires:   docbook-dtd42-xml
 Requires:   docbook-style-xsl
