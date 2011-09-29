@@ -822,20 +822,21 @@ browsing.
 
 #----------------------------------------------------------------------------------
 %package core
-Group: Graphical desktop/KDE
-Summary: KDE 4 system core files
-Suggests: enchant-dictionary
-Suggests: xdg-utils
-Requires: shared-mime-info
-Requires: docbook-dtd42-xml
-Requires: docbook-style-xsl
-Conflicts: kdebase4-workspace < 2:4.1.73-1
-Requires: rootcerts
-Requires: shared-desktop-ontologies
-Obsoletes: lilypond-kde4 < 0.2-3
-Conflicts: kde-l10n-en_US < 2:4.6.4-1 
-Conflicts: kdebase4-runtime < 1:4.6.0
-Requires:  abrt
+Group:      Graphical desktop/KDE
+Summary:    KDE 4 system core files
+Conflicts:  kdebase4-workspace < 2:4.1.73-1
+Obsoletes:  lilypond-kde4 < 0.2-3
+Conflicts:  kde-l10n-en_US < 2:4.6.4-1 
+Conflicts:  kdebase4-runtime < 1:4.6.0
+Conflicts:  kde-l10n-en_US < 3:4.7.41
+Requires:   shared-mime-info
+Requires:   docbook-dtd42-xml
+Requires:   docbook-style-xsl
+Requires:   rootcerts
+Requires:   shared-desktop-ontologies
+Requires:   abrt
+Suggests:   enchant-dictionary
+Suggests:   xdg-utils
 
 %description core
 KDE 4 system core files.
