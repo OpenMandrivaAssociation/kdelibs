@@ -8,8 +8,9 @@
 %{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
 
 %define epoch_kdelibs3 30000000
-
 %define udisk_backend 1
+%define major4 4
+
 
 Name:		kdelibs4
 Summary:         K Desktop Environment - Libraries
