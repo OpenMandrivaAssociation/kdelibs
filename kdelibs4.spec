@@ -725,7 +725,7 @@ Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
 Requires: xft2-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
-Provides: plasma-devel = %epoch:%version
+Provides: plasma-devel = %{epoch}:%{version}-%{release}
 Requires: %libkcmutils = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
