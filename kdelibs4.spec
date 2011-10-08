@@ -833,6 +833,7 @@ browsing.
 %package core
 Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
+Requires:  abrt
 Suggests: enchant-dictionary
 Suggests: xdg-utils
 Requires: shared-mime-info
@@ -842,9 +843,8 @@ Conflicts: kdebase4-workspace < 2:4.1.73-1
 Requires: rootcerts
 Requires: shared-desktop-ontologies
 Obsoletes: lilypond-kde4 < 0.2-3
-Conflicts: kde-l10n-en_US < 2:4.6.4-1 
+Conflicts: kde-l10n-en_US
 Conflicts: kdebase4-runtime < 1:4.6.0
-Requires:  abrt
 
 %description core
 KDE 4 system core files.
