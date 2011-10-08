@@ -78,7 +78,7 @@ BuildRequires: aspell-devel
 BuildRequires: hspell-devel
 BuildRequires:   grantlee-devel
 %if %udisk_backend
-Buildrequires: udev-devel
+BuildRequires: udev-devel
 %endif
 
 %description 
@@ -916,7 +916,7 @@ KDE 4 system core files.
 %_kde_mandir/man8/kded4.8.*
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
-%_sysconfdir/dbus-1/system.d/org.kde.auth.conf
+%{_kde_sysconfdir}/dbus-1/system.d/org.kde.auth.conf
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
 %_kde_appsdir/kauth
 %_kde_appsdir/plasma
@@ -934,7 +934,7 @@ Requires: qt4-doc
 This packages contains all development documentation for kdelibs
 
 %files apidoc
-%_docdir/kde4/api/*
+%{_kde_docdir}/kde4/api/*
 %endif
 
 #----------------------------------------------------------------------------------
@@ -961,10 +961,10 @@ This packages contains all development documentation for kdelibs
 %makeinstall_std -C build
 
 %if %{compile_apidox}
-  mkdir -p %buildroot/%_docdir/kde4/api
-  cp -av kdelibs-%version-apidocs %buildroot/%_docdir/kde4/api/kdelibs
+  mkdir -p %{buildroot}%{_kde_docdir}/kde4/api
+  cp -av kdelibs-%version-apidocs %{buildroot}%{_kde_docdir}/kde4/api/kdelibs
 %endif 
 
 %__rm -fr %buildroot%_kde_appsdir/kssl/ca-bundle.crt
-ln -snf %_sysconfdir/pki/tls/certs/ca-bundle.crt %buildroot%_kde_appsdir/kssl/ca-bundle.crt
+ln -snf %{_kde_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
