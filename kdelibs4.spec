@@ -74,6 +74,7 @@ BuildRequires: docbook-dtd42-xml
 BuildRequires: docbook-style-xsl
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
+BuildRequires:   grantlee-devel
 %if %udisk_backend
 Buildrequires: udev-devel
 %endif
