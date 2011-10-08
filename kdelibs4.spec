@@ -7,9 +7,11 @@
 %define with_drkonqi 0
 %{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
 
-%define epoch_kdelibs3 30000000
-
 %define udisk_backend 1
+
+%define epoch_kdelibs3 30000000
+%define major4 4
+
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
@@ -816,7 +818,8 @@ browsing.
 %_kde_libdir/libnepomukutils.so
 %_kde_libdir/libkactivities.so
 %_kde_libdir/libkdeclarative.so
-%_kde_libdir/kde4/plugins/designer
+%_kde_libdir/kde4/plugins/designer/
+%{_kde_libdir}/kde4/plugins/script/libkrossqtsplugin.so
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
 %_kde_bindir/kconfig_compiler
@@ -869,7 +872,7 @@ KDE 4 system core files.
 %dir  %_kde_libdir/kde4/plugins
 %_kde_libdir/kde4/plugins/imageformats
 %_kde_libdir/kde4/plugins/kauth
-%_kde_libdir/kde4/plugins/script
+%{_kde_libdir}/kde4/plugins/script/libkrossqtsplugin.so.%{major4}*
 %_kde_libdir/libkdeinit4_*
 %_kde_datadir/config
 %_kde_datadir/mime/*
