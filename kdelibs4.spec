@@ -7,16 +7,14 @@
 %define with_drkonqi 0
 %{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
 
-%define udisk_backend 1
-
 %define epoch_kdelibs3 30000000
-%define major4 4
 
+%define udisk_backend 1
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.7.41
-Release: 3
+Release: 5
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -76,9 +74,8 @@ BuildRequires: docbook-dtd42-xml
 BuildRequires: docbook-style-xsl
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
-BuildRequires:   grantlee-devel
 %if %udisk_backend
-BuildRequires: udev-devel
+Buildrequires: udev-devel
 %endif
 
 %description 
@@ -725,7 +722,7 @@ Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
 Requires: xft2-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
-Provides: plasma-devel = %{epoch}:%{version}-%{release}
+Provides: plasma-devel = %epoch:%version
 Requires: %libkcmutils = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
@@ -775,15 +772,7 @@ for KDE. Also included is the KDE API documentation in HTML format for easy
 browsing.
 
 %files devel
-%{_kde_mandir}/man1/checkXML.1*
-%{_kde_mandir}/man1/kdecmake.1*
-%{_kde_mandir}/man1/makekdewidgets.1*
-%{_kde_mandir}/man8/meinproc4.8*
-%{_kde_bindir}/checkXML
-%{_kde_bindir}/kconfig_compiler
-%{_kde_bindir}/makekdewidgets
-%{_kde_bindir}/meinproc4
-%{_kde_bindir}/meinproc4_simple
+%_mandir/man1/kdecmake.1*
 %_kde_includedir/*
 %_kde_appsdir/cmake/modules/*
 %_kde_datadir/dbus-1/*/*
@@ -826,14 +815,15 @@ browsing.
 %_kde_libdir/libnepomukutils.so
 %_kde_libdir/libkactivities.so
 %_kde_libdir/libkdeclarative.so
-%_kde_libdir/kde4/plugins/designer/
-%{_kde_libdir}/kde4/plugins/script/libkrossqtsplugin.so
+%_kde_libdir/kde4/plugins/designer
+%_kde_bindir/checkXML
+%_kde_mandir/man1/checkXML.1*
+%_kde_bindir/kconfig_compiler
 
 #----------------------------------------------------------------------------------
 %package core
 Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
-Requires:  abrt
 Suggests: enchant-dictionary
 Suggests: xdg-utils
 Requires: shared-mime-info
@@ -843,8 +833,9 @@ Conflicts: kdebase4-workspace < 2:4.1.73-1
 Requires: rootcerts
 Requires: shared-desktop-ontologies
 Obsoletes: lilypond-kde4 < 0.2-3
-Conflicts: kde-l10n-en_US
+Conflicts: kde-l10n-en_US < 2:4.6.4-1 
 Conflicts: kdebase4-runtime < 1:4.6.0
+Requires:  abrt
 
 %description core
 KDE 4 system core files.
@@ -863,6 +854,9 @@ KDE 4 system core files.
 %_kde_bindir/kshell4
 %_kde_bindir/kunittestmodrunner
 %_kde_bindir/kwrapper4
+%_kde_bindir/makekdewidgets
+%_kde_bindir/meinproc4
+%_kde_bindir/meinproc4_simple
 %_kde_bindir/nepomuk-rcgen
 %_kde_bindir/preparetips
 %_kde_bindir/kfilemetadatareader
@@ -874,7 +868,7 @@ KDE 4 system core files.
 %dir  %_kde_libdir/kde4/plugins
 %_kde_libdir/kde4/plugins/imageformats
 %_kde_libdir/kde4/plugins/kauth
-%{_kde_libdir}/kde4/plugins/script/libkrossqtsplugin.so.%{major4}*
+%_kde_libdir/kde4/plugins/script
 %_kde_libdir/libkdeinit4_*
 %_kde_datadir/config
 %_kde_datadir/mime/*
@@ -905,18 +899,20 @@ KDE 4 system core files.
 %_kde_docdir/HTML/en/kioslave/telnet
 %_kde_docdir/HTML/en/kioslave/webdav
 %_kde_mandir/man1/kde4-config.1*
+%_kde_mandir/man1/makekdewidgets.1*
 %_kde_mandir/man7/kdeoptions.7*
 %_kde_mandir/man7/qtoptions.7*
 %_kde_mandir/man8/kbuildsycoca4.8*
 %_kde_mandir/man8/kcookiejar4.8*
 %_kde_mandir/man8/kdeinit4.8*
+%_kde_mandir/man8/meinproc4.8*
 %_kde_mandir/man1/kjs.1.*
 %_kde_mandir/man1/kjscmd.1.*
 %_kde_mandir/man1/kross.1.*
 %_kde_mandir/man8/kded4.8.*
 %_kde_datadir/icons
 %_kde_datadir/locale/all_languages
-%{_kde_sysconfdir}/dbus-1/system.d/org.kde.auth.conf
+%_sysconfdir/dbus-1/system.d/org.kde.auth.conf
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
 %_kde_appsdir/kauth
 %_kde_appsdir/plasma
@@ -934,7 +930,7 @@ Requires: qt4-doc
 This packages contains all development documentation for kdelibs
 
 %files apidoc
-%{_kde_docdir}/kde4/api/*
+%_docdir/kde4/api/*
 %endif
 
 #----------------------------------------------------------------------------------
@@ -961,10 +957,10 @@ This packages contains all development documentation for kdelibs
 %makeinstall_std -C build
 
 %if %{compile_apidox}
-  mkdir -p %{buildroot}%{_kde_docdir}/kde4/api
-  cp -av kdelibs-%version-apidocs %{buildroot}%{_kde_docdir}/kde4/api/kdelibs
+  mkdir -p %buildroot/%_docdir/kde4/api
+  cp -av kdelibs-%version-apidocs %buildroot/%_docdir/kde4/api/kdelibs
 %endif 
 
 %__rm -fr %buildroot%_kde_appsdir/kssl/ca-bundle.crt
-ln -snf %{_kde_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
+ln -snf %_sysconfdir/pki/tls/certs/ca-bundle.crt %buildroot%_kde_appsdir/kssl/ca-bundle.crt
 
