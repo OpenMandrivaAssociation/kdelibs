@@ -11,10 +11,13 @@
 
 %define udisk_backend 1
 
+# exclude libkactivities or not
+%define no_libkactivities 1
+
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.7.41
-Release: 6
+Release: 7
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -650,6 +653,7 @@ KDE 4 library.
 
 #--------------------------------------------------------------------
 
+%if ! %no_libkactivities
 %define libkactivities_major 6
 %define libkactivities %mklibname kactivities %{libkactivities_major}
 
@@ -662,6 +666,7 @@ KDE 4 library.
 
 %files -n %libkactivities
 %_kde_libdir/libkactivities.so.%{libkactivities_major}*
+%endif
 
 #--------------------------------------------------------------------
 
@@ -763,7 +768,9 @@ Requires: %libnepomukutils = %epoch:%version
 Requires: %libplasma = %epoch:%version
 Requires: %libsolid = %epoch:%version
 Requires: %libthreadweaver = %epoch:%version
+%if ! %no_libkactivities
 Requires: %libkactivities = %epoch:%version
+%endif
 Requires: %libkdeclarative = %epoch:%version
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: webkitkde-devel < 0.0-0.1050148.3
@@ -953,7 +960,7 @@ This packages contains all development documentation for kdelibs
 
 %build
 
-%cmake_kde4
+%cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
 
 %if %{compile_apidox}
   cd ..
