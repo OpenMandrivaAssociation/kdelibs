@@ -17,7 +17,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.7.41
-Release: 10
+Release: 11
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -770,6 +770,8 @@ Requires: %libsolid = %epoch:%version
 Requires: %libthreadweaver = %epoch:%version
 %if ! %no_libkactivities
 Requires: %libkactivities = %epoch:%version
+%else
+Requires: libkactivities-devel
 %endif
 Requires: %libkdeclarative = %epoch:%version
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
