@@ -26,10 +26,6 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch1: kdelibs-4.1.85-add-kde-menu.patch
 Patch2: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3: kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
-Patch4: kdelibs-4.7.41-fix-libpng-builderror.patch
-Patch5: security_01_CVE-2009-2702.diff
-Patch6: kubuntu_87_kssl_security_fix.diff
-Patch7: kubuntu_88_kioslave_security_fix.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
@@ -957,10 +953,6 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0
 %endif
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1 -b .CVE-2009-2702
-%patch6 -p1 -b .CVE-2011-3365
-%patch7 -p1 -b .CVE-2011-3365-kioslave
 
 %build
 
