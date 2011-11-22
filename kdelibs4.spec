@@ -17,7 +17,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.7.80
-Release: 1
+Release: 2
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -685,7 +685,7 @@ KDE 4 library.
 Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
 Requires: kde4-macros
-Requires: automoc4
+Requires:	automoc4
 Requires: acl-devel
 Requires: qt4-devel >= 4:4.7.0
 Requires: qt4-qtdbus
