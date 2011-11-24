@@ -727,7 +727,7 @@ Requires: strigi-devel >= 0.6.3
 Requires: shared-mime-info
 Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
-Requires: xft2-devel
+Requires: libxft-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
 Provides: plasma-devel = %{epoch}:%{version}-%{release}
 Requires: %libkcmutils = %epoch:%version
