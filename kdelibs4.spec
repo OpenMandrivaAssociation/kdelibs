@@ -61,7 +61,7 @@ BuildRequires: soprano-devel >= 4:2.5.60
 BuildRequires: automoc
 BuildRequires: phonon-devel >= 2:4.2
 BuildRequires: xpm-devel
-BuildRequires: xft2-devel
+BuildRequires: libxft-devel
 BuildRequires: libxml2-utils
 BuildRequires: liblzma-devel
 BuildRequires: libutempter-devel
