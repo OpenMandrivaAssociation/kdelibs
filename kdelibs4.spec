@@ -783,6 +783,11 @@ for KDE. Also included is the KDE API documentation in HTML format for easy
 browsing.
 
 %files devel
+%{_kde_bindir}/makekdewidgets
+%{_kde_bindir}/meinproc4
+%{_kde_bindir}/meinproc4_simple
+%{_kde_mandir}/man1/makekdewidgets.1*
+%{_kde_mandir}/man8/meinproc4.8*
 %_mandir/man1/kdecmake.1*
 %_kde_includedir/*
 %_kde_appsdir/cmake/modules/*
@@ -868,9 +873,6 @@ KDE 4 system core files.
 %_kde_bindir/kshell4
 %_kde_bindir/kunittestmodrunner
 %_kde_bindir/kwrapper4
-%_kde_bindir/makekdewidgets
-%_kde_bindir/meinproc4
-%_kde_bindir/meinproc4_simple
 %_kde_bindir/nepomuk-rcgen
 %_kde_bindir/preparetips
 %_kde_bindir/kfilemetadatareader
@@ -926,13 +928,11 @@ KDE 4 system core files.
 %_kde_docdir/HTML/en/kioslave/telnet
 %_kde_docdir/HTML/en/kioslave/webdav
 %_kde_mandir/man1/kde4-config.1*
-%_kde_mandir/man1/makekdewidgets.1*
 %_kde_mandir/man7/kdeoptions.7*
 %_kde_mandir/man7/qtoptions.7*
 %_kde_mandir/man8/kbuildsycoca4.8*
 %_kde_mandir/man8/kcookiejar4.8*
 %_kde_mandir/man8/kdeinit4.8*
-%_kde_mandir/man8/meinproc4.8*
 %_kde_mandir/man1/kjs.1.*
 %_kde_mandir/man1/kjscmd.1.*
 %_kde_mandir/man1/kross.1.*
