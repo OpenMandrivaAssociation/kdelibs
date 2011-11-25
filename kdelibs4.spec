@@ -14,10 +14,12 @@
 # exclude libkactivities or not
 %define no_libkactivities 1
 
+%define major4 4
+
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.7.80
-Release: 2
+Release: 3
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -59,7 +61,7 @@ BuildRequires: soprano-devel >= 4:2.5.60
 BuildRequires: automoc
 BuildRequires: phonon-devel >= 2:4.2
 BuildRequires: xpm-devel
-BuildRequires: libxft-devel
+BuildRequires: xft2-devel
 BuildRequires: libxml2-utils
 BuildRequires: liblzma-devel
 BuildRequires: libutempter-devel
@@ -76,8 +78,9 @@ BuildRequires: docbook-dtd42-xml
 BuildRequires: docbook-style-xsl
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
+BuildRequires: grantlee-devel
 %if %udisk_backend
-Buildrequires: udev-devel
+BuildRequires: udev-devel
 %endif
 
 %description 
@@ -726,7 +729,7 @@ Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
 Requires: xft2-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
-Provides: plasma-devel = %epoch:%version
+Provides: plasma-devel = %{epoch}:%{version}-%{release}
 Requires: %libkcmutils = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
@@ -780,6 +783,11 @@ for KDE. Also included is the KDE API documentation in HTML format for easy
 browsing.
 
 %files devel
+%{_kde_bindir}/makekdewidgets
+%{_kde_bindir}/meinproc4
+%{_kde_bindir}/meinproc4_simple
+%{_kde_mandir}/man1/makekdewidgets.1*
+%{_kde_mandir}/man8/meinproc4.8*
 %_mandir/man1/kdecmake.1*
 %_kde_includedir/*
 %_kde_appsdir/cmake/modules/*
@@ -829,6 +837,7 @@ browsing.
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
 %_kde_bindir/kconfig_compiler
+%{_kde_libdir}/kde4/plugins/script/libkrossqtsplugin.so
 
 #----------------------------------------------------------------------------------
 %package core
@@ -843,7 +852,7 @@ Conflicts: kdebase4-workspace < 2:4.1.73-1
 Requires: rootcerts
 Requires: shared-desktop-ontologies
 Obsoletes: lilypond-kde4 < 0.2-3
-Conflicts: kde-l10n-en_US < 2:4.6.4-1 
+Conflicts: kde-l10n-en_US
 Conflicts: kdebase4-runtime < 1:4.6.0
 Requires:  abrt
 
@@ -864,21 +873,31 @@ KDE 4 system core files.
 %_kde_bindir/kshell4
 %_kde_bindir/kunittestmodrunner
 %_kde_bindir/kwrapper4
-%_kde_bindir/makekdewidgets
-%_kde_bindir/meinproc4
-%_kde_bindir/meinproc4_simple
 %_kde_bindir/nepomuk-rcgen
 %_kde_bindir/preparetips
 %_kde_bindir/kfilemetadatareader
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*.so
 %dir %_kde_libdir/kde4/libexec
-%_kde_libdir/kde4/libexec/*
-%attr(4755,root,root) %_kde_libdir/kde4/libexec/fileshareset
-%dir  %_kde_libdir/kde4/plugins
+%{_kde_libdir}/kde4/libexec/filesharelist
+%attr(4755,root,root) %{_kde_libdir}/kde4/libexec/fileshareset
+# Zé: due to security -> kio/misc/kpac/README.wpad
+%attr(4755,root,root) %{_kde_libdir}/kde4/libexec/kauth-policy-gen
+%{_kde_libdir}/kde4/libexec/kconf_update
+%{_kde_libdir}/kde4/libexec/kdesu_stub
+%{_kde_libdir}/kde4/libexec/kio_http_cache_cleaner
+%{_kde_libdir}/kde4/libexec/kioslave
+%{_kde_libdir}/kde4/libexec/klauncher
+%{_kde_libdir}/kde4/libexec/kmailservice
+%{_kde_libdir}/kde4/libexec/kpac_dhcp_helper
+%{_kde_libdir}/kde4/libexec/ksendbugmail
+%{_kde_libdir}/kde4/libexec/ktelnetservice
+%{_kde_libdir}/kde4/libexec/lnusertemp
+%{_kde_libdir}/kde4/libexec/start_kdeinit
+%{_kde_libdir}/kde4/libexec/start_kdeinit_wrapper
+%dir %_kde_libdir/kde4/plugins
 %_kde_libdir/kde4/plugins/imageformats
 %_kde_libdir/kde4/plugins/kauth
-%_kde_libdir/kde4/plugins/script
 %_kde_libdir/libkdeinit4_*
 %_kde_datadir/config
 %_kde_datadir/mime/*
@@ -909,13 +928,11 @@ KDE 4 system core files.
 %_kde_docdir/HTML/en/kioslave/telnet
 %_kde_docdir/HTML/en/kioslave/webdav
 %_kde_mandir/man1/kde4-config.1*
-%_kde_mandir/man1/makekdewidgets.1*
 %_kde_mandir/man7/kdeoptions.7*
 %_kde_mandir/man7/qtoptions.7*
 %_kde_mandir/man8/kbuildsycoca4.8*
 %_kde_mandir/man8/kcookiejar4.8*
 %_kde_mandir/man8/kdeinit4.8*
-%_kde_mandir/man8/meinproc4.8*
 %_kde_mandir/man1/kjs.1.*
 %_kde_mandir/man1/kjscmd.1.*
 %_kde_mandir/man1/kross.1.*
@@ -923,10 +940,11 @@ KDE 4 system core files.
 %_kde_datadir/icons/*
 %_kde_datadir/locale/all_languages
 %_sysconfdir/dbus-1/system.d/org.kde.auth.conf
-%_kde_sysconfdir/xdg/kde4/menus/applications.menu
+%_sysconfdir/xdg/kde4/menus/applications.menu
 %_kde_appsdir/kauth
 %_kde_appsdir/plasma
 %_kde_datadir/locale/en_US/entry.desktop
+%{_kde_libdir}/kde4/plugins/script/libkrossqtsplugin.so.%{major4}*
 
 #----------------------------------------------------------------------------------
 
@@ -940,7 +958,7 @@ Requires: qt4-doc
 This packages contains all development documentation for kdelibs
 
 %files apidoc
-%_docdir/kde4/api/*
+%{_kde_docdir}/kde4/api/*
 %endif
 
 #----------------------------------------------------------------------------------
