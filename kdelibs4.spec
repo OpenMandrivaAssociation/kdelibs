@@ -937,7 +937,10 @@ KDE 4 system core files.
 %_kde_mandir/man1/kjscmd.1.*
 %_kde_mandir/man1/kross.1.*
 %_kde_mandir/man8/kded4.8.*
-%_kde_datadir/icons/*
+%_kde_iconsdir/hicolor/*/actions/presence_away.png
+%_kde_iconsdir/hicolor/*/actions/presence_offline.png
+%_kde_iconsdir/hicolor/*/actions/presence_online.png
+%_kde_iconsdir/hicolor/*/actions/presence_unknown.png
 %_kde_datadir/locale/all_languages
 %_sysconfdir/dbus-1/system.d/org.kde.auth.conf
 %_sysconfdir/xdg/kde4/menus/applications.menu
