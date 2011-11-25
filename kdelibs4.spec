@@ -692,7 +692,6 @@ Requires: qt4-devel >= 4:4.7.0
 Requires: qt4-qtdbus
 Requires: kdelibs4-core = %{EVRD}
 Requires: soprano-devel >= 4:2.5.60
-Requires: strigi-devel
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires: libxml2-utils
@@ -723,7 +722,6 @@ Requires: krb5-devel
 Requires: ungif-devel
 Requires: strigi-devel >= 0.6.3
 Requires: shared-mime-info
-Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
 Requires: libxft-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
