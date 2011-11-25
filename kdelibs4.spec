@@ -920,7 +920,7 @@ KDE 4 system core files.
 %_kde_mandir/man1/kjscmd.1.*
 %_kde_mandir/man1/kross.1.*
 %_kde_mandir/man8/kded4.8.*
-%_kde_datadir/icons
+%_kde_datadir/icons/*
 %_kde_datadir/locale/all_languages
 %_sysconfdir/dbus-1/system.d/org.kde.auth.conf
 %_kde_sysconfdir/xdg/kde4/menus/applications.menu
