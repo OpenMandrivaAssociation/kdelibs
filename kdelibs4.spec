@@ -773,6 +773,7 @@ Requires: %libkdeclarative = %epoch:%version
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: webkitkde-devel < 0.0-0.1050148.3
 Conflicts: kdeplatform4-devel < 4:0.9.97-3
+Conflicts: %name-core < 5:4.7.80-4
 
 %description devel
 This package includes the header files you will need to compile applications 
@@ -828,7 +829,9 @@ browsing.
 %_kde_libdir/kde4/plugins/designer
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
+%_kde_mandir/man1/makekdewidgets.1*
 %_kde_bindir/kconfig_compiler
+%_kde_bindir/makekdewidgets
 
 #----------------------------------------------------------------------------------
 %package core
@@ -864,7 +867,6 @@ KDE 4 system core files.
 %_kde_bindir/kshell4
 %_kde_bindir/kunittestmodrunner
 %_kde_bindir/kwrapper4
-%_kde_bindir/makekdewidgets
 %_kde_bindir/meinproc4
 %_kde_bindir/meinproc4_simple
 %_kde_bindir/nepomuk-rcgen
@@ -909,7 +911,6 @@ KDE 4 system core files.
 %_kde_docdir/HTML/en/kioslave/telnet
 %_kde_docdir/HTML/en/kioslave/webdav
 %_kde_mandir/man1/kde4-config.1*
-%_kde_mandir/man1/makekdewidgets.1*
 %_kde_mandir/man7/kdeoptions.7*
 %_kde_mandir/man7/qtoptions.7*
 %_kde_mandir/man8/kbuildsycoca4.8*
