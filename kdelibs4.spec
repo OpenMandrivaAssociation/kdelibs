@@ -77,7 +77,7 @@ BuildRequires: docbook-style-xsl
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
 %if %udisk_backend
-Buildrequires: udev-devel
+BuildRequires: udev-devel
 %endif
 
 %description 
