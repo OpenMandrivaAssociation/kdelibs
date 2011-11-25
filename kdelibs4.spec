@@ -17,7 +17,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.7.80
-Release: 4
+Release: 5
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -690,7 +690,7 @@ Requires:	automoc4
 Requires: acl-devel
 Requires: qt4-devel >= 4:4.7.0
 Requires: qt4-qtdbus
-Requires: kdelibs4-core = %epoch:%version-%release
+Requires: kdelibs4-core = %{EVRD}
 Requires: soprano-devel >= 4:2.5.60
 Requires: strigi-devel
 # add requires on libxml2-utils, as when building most kde applications,
@@ -725,51 +725,51 @@ Requires: strigi-devel >= 0.6.3
 Requires: shared-mime-info
 Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
-Requires: xft2-devel
+Requires: libxft-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
-Requires: %libkcmutils = %epoch:%version-%release
-Requires: %libkde3support = %epoch:%version-%release
-Requires: %libkdecore = %epoch:%version-%release
-Requires: %libkdefakes = %epoch:%version-%release
-Requires: %libkdesu = %epoch:%version-%release
-Requires: %libkdeui = %epoch:%version-%release
-Requires: %libkdewebkit = %epoch:%version-%release
-Requires: %libkdnssd = %epoch:%version-%release
-Requires: %libkemoticons = %epoch:%version-%release
-Requires: %libkfile = %epoch:%version-%release
-Requires: %libkhtml = %epoch:%version-%release
-Requires: %libkidletime = %epoch:%version-%release
-Requires: %libkimproxy = %epoch:%version-%release
-Requires: %libkio = %epoch:%version-%release
-Requires: %libkjsapi = %epoch:%version-%release
-Requires: %libkjsembed = %epoch:%version-%release
-Requires: %libkjs = %epoch:%version-%release
-Requires: %libkmediaplayer = %epoch:%version-%release
-Requires: %libknewstuff2 = %epoch:%version-%release
-Requires: %libknewstuff3 = %epoch:%version-%release
-Requires: %libknotifyconfig = %epoch:%version-%release
-Requires: %libkntlm = %epoch:%version-%release
-Requires: %libkparts = %epoch:%version-%release
-Requires: %libkprintutils = %epoch:%version-%release
-Requires: %libkpty = %epoch:%version-%release
-Requires: %libkrosscore = %epoch:%version-%release
-Requires: %libkrossui = %epoch:%version-%release
-Requires: %libktexteditor = %epoch:%version-%release
-Requires: %libkunitconversion = %epoch:%version-%release
-Requires: %libkunittest = %epoch:%version-%release
-Requires: %libkutils = %epoch:%version-%release
-Requires: %libnepomuk = %epoch:%version-%release
-Requires: %libnepomukquery = %epoch:%version-%release
-Requires: %libnepomukutils = %epoch:%version-%release
-Requires: %libplasma = %epoch:%version-%release
-Requires: %libsolid = %epoch:%version-%release
-Requires: %libthreadweaver = %epoch:%version-%release
+Requires: %libkcmutils = %{EVRD}
+Requires: %libkde3support = %{EVRD}
+Requires: %libkdecore = %{EVRD}
+Requires: %libkdefakes = %{EVRD}
+Requires: %libkdesu = %{EVRD}
+Requires: %libkdeui = %{EVRD}
+Requires: %libkdewebkit = %{EVRD}
+Requires: %libkdnssd = %{EVRD}
+Requires: %libkemoticons = %{EVRD}
+Requires: %libkfile = %{EVRD}
+Requires: %libkhtml = %{EVRD}
+Requires: %libkidletime = %{EVRD}
+Requires: %libkimproxy = %{EVRD}
+Requires: %libkio = %{EVRD}
+Requires: %libkjsapi = %{EVRD}
+Requires: %libkjsembed = %{EVRD}
+Requires: %libkjs = %{EVRD}
+Requires: %libkmediaplayer = %{EVRD}
+Requires: %libknewstuff2 = %{EVRD}
+Requires: %libknewstuff3 = %{EVRD}
+Requires: %libknotifyconfig = %{EVRD}
+Requires: %libkntlm = %{EVRD}
+Requires: %libkparts = %{EVRD}
+Requires: %libkprintutils = %{EVRD}
+Requires: %libkpty = %{EVRD}
+Requires: %libkrosscore = %{EVRD}
+Requires: %libkrossui = %{EVRD}
+Requires: %libktexteditor = %{EVRD}
+Requires: %libkunitconversion = %{EVRD}
+Requires: %libkunittest = %{EVRD}
+Requires: %libkutils = %{EVRD}
+Requires: %libnepomuk = %{EVRD}
+Requires: %libnepomukquery = %{EVRD}
+Requires: %libnepomukutils = %{EVRD}
+Requires: %libplasma = %{EVRD}
+Requires: %libsolid = %{EVRD}
+Requires: %libthreadweaver = %{EVRD}
 %if ! %no_libkactivities
-Requires: %libkactivities = %epoch:%version-%release
+Requires: %libkactivities = %{EVRD}
 %else
 Requires: libkactivities-devel
 %endif
-Requires: %libkdeclarative = %epoch:%version-%release
+Requires: %libkdeclarative = %{EVRD}
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: webkitkde-devel < 0.0-0.1050148.3
 Conflicts: kdeplatform4-devel < 4:0.9.97-3
