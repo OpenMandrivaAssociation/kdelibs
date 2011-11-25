@@ -76,6 +76,7 @@ BuildRequires: docbook-dtd42-xml
 BuildRequires: docbook-style-xsl
 BuildRequires: aspell-devel
 BuildRequires: hspell-devel
+BuildRequires: grantlee-devel
 %if %udisk_backend
 BuildRequires: udev-devel
 %endif
@@ -726,7 +727,6 @@ Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
 Requires: xft2-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
-Provides: plasma-devel = %epoch:%version
 Requires: %libkcmutils = %epoch:%version
 Requires: %libkde3support = %epoch:%version
 Requires: %libkdecore = %epoch:%version
