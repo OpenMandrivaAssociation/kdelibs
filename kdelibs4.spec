@@ -690,7 +690,7 @@ Requires:	automoc4
 Requires: acl-devel
 Requires: qt4-devel >= 4:4.7.0
 Requires: qt4-qtdbus
-Requires: kdelibs4-core = %epoch:%version
+Requires: kdelibs4-core = %epoch:%version-%release
 Requires: soprano-devel >= 4:2.5.60
 Requires: strigi-devel
 # add requires on libxml2-utils, as when building most kde applications,
@@ -727,49 +727,49 @@ Requires: soprano-devel >= 2.0.98
 Requires: xpm-devel
 Requires: xft2-devel
 Requires: shared-desktop-ontologies-devel >= 0.5
-Requires: %libkcmutils = %epoch:%version
-Requires: %libkde3support = %epoch:%version
-Requires: %libkdecore = %epoch:%version
-Requires: %libkdefakes = %epoch:%version
-Requires: %libkdesu = %epoch:%version
-Requires: %libkdeui = %epoch:%version
-Requires: %libkdewebkit = %epoch:%version
-Requires: %libkdnssd = %epoch:%version
-Requires: %libkemoticons = %epoch:%version
-Requires: %libkfile = %epoch:%version
-Requires: %libkhtml = %epoch:%version
-Requires: %libkidletime = %epoch:%version
-Requires: %libkimproxy = %epoch:%version
-Requires: %libkio = %epoch:%version
-Requires: %libkjsapi = %epoch:%version
-Requires: %libkjsembed = %epoch:%version
-Requires: %libkjs = %epoch:%version
-Requires: %libkmediaplayer = %epoch:%version
-Requires: %libknewstuff2 = %epoch:%version
-Requires: %libknewstuff3 = %epoch:%version
-Requires: %libknotifyconfig = %epoch:%version
-Requires: %libkntlm = %epoch:%version
-Requires: %libkparts = %epoch:%version
-Requires: %libkprintutils = %epoch:%version
-Requires: %libkpty = %epoch:%version
-Requires: %libkrosscore = %epoch:%version
-Requires: %libkrossui = %epoch:%version
-Requires: %libktexteditor = %epoch:%version
-Requires: %libkunitconversion = %epoch:%version
-Requires: %libkunittest = %epoch:%version
-Requires: %libkutils = %epoch:%version
-Requires: %libnepomuk = %epoch:%version
-Requires: %libnepomukquery = %epoch:%version
-Requires: %libnepomukutils = %epoch:%version
-Requires: %libplasma = %epoch:%version
-Requires: %libsolid = %epoch:%version
-Requires: %libthreadweaver = %epoch:%version
+Requires: %libkcmutils = %epoch:%version-%release
+Requires: %libkde3support = %epoch:%version-%release
+Requires: %libkdecore = %epoch:%version-%release
+Requires: %libkdefakes = %epoch:%version-%release
+Requires: %libkdesu = %epoch:%version-%release
+Requires: %libkdeui = %epoch:%version-%release
+Requires: %libkdewebkit = %epoch:%version-%release
+Requires: %libkdnssd = %epoch:%version-%release
+Requires: %libkemoticons = %epoch:%version-%release
+Requires: %libkfile = %epoch:%version-%release
+Requires: %libkhtml = %epoch:%version-%release
+Requires: %libkidletime = %epoch:%version-%release
+Requires: %libkimproxy = %epoch:%version-%release
+Requires: %libkio = %epoch:%version-%release
+Requires: %libkjsapi = %epoch:%version-%release
+Requires: %libkjsembed = %epoch:%version-%release
+Requires: %libkjs = %epoch:%version-%release
+Requires: %libkmediaplayer = %epoch:%version-%release
+Requires: %libknewstuff2 = %epoch:%version-%release
+Requires: %libknewstuff3 = %epoch:%version-%release
+Requires: %libknotifyconfig = %epoch:%version-%release
+Requires: %libkntlm = %epoch:%version-%release
+Requires: %libkparts = %epoch:%version-%release
+Requires: %libkprintutils = %epoch:%version-%release
+Requires: %libkpty = %epoch:%version-%release
+Requires: %libkrosscore = %epoch:%version-%release
+Requires: %libkrossui = %epoch:%version-%release
+Requires: %libktexteditor = %epoch:%version-%release
+Requires: %libkunitconversion = %epoch:%version-%release
+Requires: %libkunittest = %epoch:%version-%release
+Requires: %libkutils = %epoch:%version-%release
+Requires: %libnepomuk = %epoch:%version-%release
+Requires: %libnepomukquery = %epoch:%version-%release
+Requires: %libnepomukutils = %epoch:%version-%release
+Requires: %libplasma = %epoch:%version-%release
+Requires: %libsolid = %epoch:%version-%release
+Requires: %libthreadweaver = %epoch:%version-%release
 %if ! %no_libkactivities
-Requires: %libkactivities = %epoch:%version
+Requires: %libkactivities = %epoch:%version-%release
 %else
 Requires: libkactivities-devel
 %endif
-Requires: %libkdeclarative = %epoch:%version
+Requires: %libkdeclarative = %epoch:%version-%release
 Conflicts: koffice-devel < 11:1.9.95.9-2mdv
 Conflicts: webkitkde-devel < 0.0-0.1050148.3
 Conflicts: kdeplatform4-devel < 4:0.9.97-3
