@@ -834,6 +834,7 @@ browsing.
 %_kde_bindir/makekdewidgets
 
 #----------------------------------------------------------------------------------
+
 %package core
 Group: Graphical desktop/KDE
 Summary: KDE 4 system core files
@@ -875,9 +876,22 @@ KDE 4 system core files.
 %dir %_kde_libdir/kde4
 %_kde_libdir/kde4/*.so
 %dir %_kde_libdir/kde4/libexec
-%_kde_libdir/kde4/libexec/*
-%attr(4755,root,root) %_kde_libdir/kde4/libexec/fileshareset
-%dir  %_kde_libdir/kde4/plugins
+%{_kde_libdir}/kde4/libexec/filesharelist
+%attr(4755,root,root) %{_kde_libdir}/kde4/libexec/fileshareset
+%{_kde_libdir}/kde4/libexec/kauth-policy-gen
+%{_kde_libdir}/kde4/libexec/kconf_update
+%{_kde_libdir}/kde4/libexec/kdesu_stub
+%{_kde_libdir}/kde4/libexec/kio_http_cache_cleaner
+%{_kde_libdir}/kde4/libexec/kioslave
+%{_kde_libdir}/kde4/libexec/klauncher
+%{_kde_libdir}/kde4/libexec/kmailservice
+%attr(4755,root,root) %{_kde_libdir}/kde4/libexec/kpac_dhcp_helper
+%{_kde_libdir}/kde4/libexec/ksendbugmail
+%{_kde_libdir}/kde4/libexec/ktelnetservice
+%{_kde_libdir}/kde4/libexec/lnusertemp
+%{_kde_libdir}/kde4/libexec/start_kdeinit
+%{_kde_libdir}/kde4/libexec/start_kdeinit_wrapper
+%dir %_kde_libdir/kde4/plugins
 %_kde_libdir/kde4/plugins/imageformats
 %_kde_libdir/kde4/plugins/kauth
 %_kde_libdir/kde4/plugins/script
