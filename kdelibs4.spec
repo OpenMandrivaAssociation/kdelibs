@@ -687,11 +687,8 @@ Group: Development/KDE and Qt
 Summary: Header files and documentation for compiling KDE applications
 Requires: kde4-macros
 Requires:	automoc4
-Requires: acl-devel
-Requires: qt4-devel >= 4:4.7.0
 Requires: qt4-qtdbus
 Requires: kdelibs4-core = %{EVRD}
-Requires: soprano-devel >= 4:2.5.60
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires: libxml2-utils
@@ -702,12 +699,7 @@ Requires: libxslt-proc
 Requires: libxslt-devel
 Requires: openssl-devel
 Requires: cups-devel >= 1.2
-Requires: pcre-devel
-Requires: fam-devel
-Requires: bzip2-devel
 Requires: libart_lgpl-devel
-Requires: libjpeg-devel
-Requires: libpng-devel
 Requires: libsasl-devel
 Requires: libtiff-devel
 Requires: libvorbis-devel
@@ -717,10 +709,8 @@ Requires: libmad-devel
 Requires: gdbm-devel
 Requires: jasper-devel
 Requires: OpenEXR-devel
-Requires: libacl-devel
 Requires: krb5-devel
 Requires: ungif-devel
-Requires: strigi-devel >= 0.6.3
 Requires: shared-mime-info
 Requires: xpm-devel
 Requires: libxft-devel
@@ -845,7 +835,7 @@ Conflicts: kdebase4-workspace < 2:4.1.73-1
 Requires: rootcerts
 Requires: shared-desktop-ontologies
 Obsoletes: lilypond-kde4 < 0.2-3
-Conflicts: kde-l10n-en_US < 2:4.6.4-1 
+Obsoletes: kde-l10n-en_US
 Conflicts: kdebase4-runtime < 1:4.6.0
 Requires:  abrt
 
