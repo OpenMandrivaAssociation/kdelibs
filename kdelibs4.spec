@@ -160,6 +160,7 @@ KDE 4 core library.
 %package -n %libkdeui
 Summary: KDE 4 core library
 Group: System/Libraries
+Requires: dbus-x11
 
 %description -n %libkdeui
 KDE 4 core library.
