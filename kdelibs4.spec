@@ -17,7 +17,7 @@
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
 Version: 4.8.0
-Release: 1
+Release: 2
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -26,6 +26,7 @@ Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
 Patch1: kdelibs-4.1.85-add-kde-menu.patch
 Patch2: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3: kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
+Patch100: kdelibs-4.8.0-plasma.patch
 BuildRequires: kde4-macros >= 4.1.71
 BuildRequires: qt4-devel >= 4:4.7.0
 BuildRequires: qt4-qtdbus
@@ -960,7 +961,7 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0
 %endif
 %patch3 -p1
-
+%patch100 -p1
 %build
 
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
