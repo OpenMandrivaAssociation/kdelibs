@@ -62,6 +62,7 @@ BuildRequires: phonon-devel >= 2:4.2
 BuildRequires: xpm-devel
 BuildRequires: libxml2-utils
 BuildRequires: libxft-devel
+BuildRequires: libxi-devel
 BuildRequires: liblzma-devel
 BuildRequires: libutempter-devel
 BuildRequires: rootcerts
