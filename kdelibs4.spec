@@ -28,7 +28,7 @@ Patch2: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3: kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
 Patch100: kdelibs-4.8.0-plasma.patch
 BuildRequires: kde4-macros >= 4.1.71
-BuildRequires: pkgconfig(QtCore) >= 4:4.7.0
+BuildRequires: pkgconfig(QtCore) >= 4.7.0
 BuildRequires: pkgconfig(QtDBus)
 BuildRequires: pkgconfig(avahi-compat-libdns_sd)
 BuildRequires: pkgconfig(avahi-client)
@@ -58,7 +58,7 @@ BuildRequires: pkgconfig(libstreams) >= 0.6.3
 BuildRequires: shared-mime-info
 BuildRequires: pkgconfig(soprano >= 2.5.60
 BuildRequires: automoc
-BuildRequires: pkgconfig(phonon) >= 2:4.2
+BuildRequires: pkgconfig(phonon) >= 4.2
 BuildRequires: pkgconfig(xpm)
 BuildRequires: libxml2-utils
 BuildRequires: pkgconfig(xft)
@@ -68,7 +68,7 @@ BuildRequires: utempter-devel
 BuildRequires: rootcerts
 BuildRequires: flex
 BuildRequires: bison
-BuildRequires: pkgconfig(Æqca2)
+BuildRequires: pkgconfig(qca2)
 BuildRequires: polkit-qt-1-devel >= 0.98.1
 BuildRequires: pkgconfig(shared-desktop-ontologies)
 BuildRequires: pkgconfig(attica)
