@@ -71,7 +71,7 @@ BuildRequires: bison
 BuildRequires: pkgconfig(qca2)
 BuildRequires: polkit-qt-1-devel >= 0.98.1
 BuildRequires: pkgconfig(shared-desktop-ontologies)
-BuildRequires: pkgconfig(attica)
+BuildRequires: pkgconfig(libattica)
 BuildRequires: pkgconfig(xscrnsaver)
 BuildRequires: pkgconfig(dbusmenu-qt)
 BuildRequires: docbook-dtd42-xml
