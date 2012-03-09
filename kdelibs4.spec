@@ -56,7 +56,7 @@ BuildRequires: krb5-devel
 BuildRequires: ungif-devel
 BuildRequires: pkgconfig(libstreams) >= 0.6.3
 BuildRequires: shared-mime-info
-BuildRequires: pkgconfig(soprano >= 2.5.60
+BuildRequires: pkgconfig(soprano) >= 2.5.60
 BuildRequires: automoc
 BuildRequires: pkgconfig(phonon) >= 4.2
 BuildRequires: pkgconfig(xpm)
