@@ -821,6 +821,7 @@ browsing.
 %_kde_bindir/checkXML
 %_kde_mandir/man1/checkXML.1*
 %_kde_mandir/man1/makekdewidgets.1*
+%_kde_mandir/man1/kconfig_compiler.1.*
 %_kde_bindir/kconfig_compiler
 %_kde_bindir/makekdewidgets
 
@@ -926,6 +927,7 @@ KDE 4 system core files.
 %_kde_mandir/man1/kjscmd.1.*
 %_kde_mandir/man1/kross.1.*
 %_kde_mandir/man8/kded4.8.*
+%_kde_mandir/man1/preparetips.1.*
 %_kde_iconsdir/hicolor/*/actions/presence_away.png
 %_kde_iconsdir/hicolor/*/actions/presence_offline.png
 %_kde_iconsdir/hicolor/*/actions/presence_online.png
