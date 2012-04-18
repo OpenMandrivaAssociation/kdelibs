@@ -16,13 +16,13 @@
 
 Name: kdelibs4
 Summary: K Desktop Environment - Libraries
-Version: 4.8.1
-Release: 2
+Version: 4.8.2
+Release: 1
 Epoch: 5
 Group: Graphical desktop/KDE
 License: ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 URL: http://www.kde.org
-Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.bz2
+Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/kdelibs-%version.tar.xz
 Patch1: kdelibs-4.1.85-add-kde-menu.patch
 Patch2: kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3: kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
