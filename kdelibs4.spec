@@ -776,6 +776,7 @@ browsing.
 %_mandir/man1/kdecmake.1*
 %_kde_includedir/*
 %_kde_appsdir/cmake/modules/*
+%_kde_appsdir/cmake/KDeclarative
 %_kde_libdir/libkdefakes.so
 %_kde_libdir/libkdesu.so
 %_kde_libdir/libkdnssd.so
