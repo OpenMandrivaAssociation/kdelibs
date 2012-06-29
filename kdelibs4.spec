@@ -33,63 +33,63 @@ Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
 Patch204:	kdelibs-4.8.1-kfile-knewfilemenu-removed-LinkToDevice.patch
 BuildRequires:	kde4-macros >= 4.1.71
-BuildRequires:	qt4-devel >= 4:4.7.0
-BuildRequires:	qt4-qtdbus
-BuildRequires:	avahi-compat-libdns_sd-devel
-BuildRequires:	avahi-client-devel
-BuildRequires:	enchant-devel
+BuildRequires:	pkgconfig(QtCore) >= 4:4.7.0
+BuildRequires:	pkgconfig(QtDBus)
+BuildRequires:	pkgconfig(avahi-compat-libdns_sd)
+BuildRequires:	pkgconfig(avahi-client)
+BuildRequires:	pkgconfig(enchant)
 BuildRequires:	libxslt-proc
-BuildRequires:	libxslt-devel
-BuildRequires:	libxml2 >= 2.4.11
-BuildRequires:	openssl-devel
+BuildRequires:	pkgconfig(libxslt)
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.4.11
+BuildRequires:	pkgconfig(openssl)
 BuildRequires:	cups-devel >= 1.2
 BuildRequires:	pcre-devel
-BuildRequires:	fam-devel
+BuildRequires:	pkgconfig(gamin)
 BuildRequires:	bzip2-devel
-BuildRequires:	libart_lgpl-devel
+BuildRequires:	pkgconfig(libart-2.0)
 BuildRequires:	libsasl-devel
-BuildRequires:	libtiff-devel
-BuildRequires:	libvorbis-devel
+BuildRequires:	pkgconfig(libtiff-4)
+BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig(alsa)
-BuildRequires:	libmad-devel
+BuildRequires:	pkgconfig(mad)
 BuildRequires:	gdbm-devel
-BuildRequires:	jasper-devel
-BuildRequires:	OpenEXR-devel
-BuildRequires:	libacl-devel
+BuildRequires:	pkgconfig(jasper)
+BuildRequires:	pkgconfig(OpenEXR)
+BuildRequires:	acl-devel
 BuildRequires:	krb5-devel
 BuildRequires:	ungif-devel
-BuildRequires:	strigi-devel >= 0.6.3
+BuildRequires:	pkgconfig(libstreams) >= 0.6.3
 BuildRequires:	shared-mime-info
 %if %{build_nepomuk}
-BuildRequires:	soprano-devel >= 4:2.7.57
+BuildRequires:	pkgconfig(soprano) >= 4:2.7.57
 %else
-BuildConflicts:	soprano-devel
+BuildConflicts:	pkgconfig(soprano)
 %endif
 BuildRequires:	automoc
-BuildRequires:	phonon-devel >= 2:4.2
-BuildRequires:	xpm-devel
+BuildRequires:	pkgconfig(phonon)
+BuildRequires:	pkgconfig(xpm)
 BuildRequires:	libxml2-utils
-BuildRequires:	libxft-devel
-BuildRequires:	libxi-devel
-BuildRequires:	liblzma-devel
+BuildRequires:	pkgconfig(xft)
+BuildRequires:	pkgconfig(xi)
+BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	libutempter-devel
 BuildRequires:	rootcerts
 BuildRequires:	flex
 BuildRequires:	bison
-BuildRequires:	qca2-devel
+BuildRequires:	pkgconfig(qca2)
 BuildRequires:	polkit-qt-1-devel >= 0.98.1
-BuildRequires:	shared-desktop-ontologies-devel
-BuildRequires:	attica-devel
-BuildRequires:	libxscrnsaver-devel
-BuildRequires:	libdbusmenu-qt-devel 
+BuildRequires:	pkgconfig(shared-desktop-ontologies)
+BuildRequires:	pkgconfig(libattica)
+BuildRequires:	pkgconfig(xscrnsaver)
+BuildRequires:	pkgconfig(dbusmenu-qt)
 BuildRequires:	docbook-dtd42-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	aspell-devel
 BuildRequires:	hspell-devel
 BuildRequires:	grantlee-devel
 %if %{udisk_backend}
-BuildRequires:	udev-devel
+BuildRequires:	pkgconfig(udev)
 %endif
 #Possible features to be added:
 #BuildRequires:	hupnp-devel
