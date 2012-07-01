@@ -457,8 +457,8 @@ KDE 4 core library.
 %define libthreadweaver %mklibname threadweaver %{threadweaver_major}
 
 %package -n %{libthreadweaver}
-Summary: KDE 4 core library
-Group: System/Libraries
+Summary:	KDE 4 core library
+Group:		System/Libraries
 
 %description -n %{libthreadweaver}
 KDE 4 core library.
@@ -549,7 +549,7 @@ KDE 4 library.
 %package -n %{libknewstuff3}
 Summary:	KDE 4 library
 Group:		System/Libraries
-%rename		%{_lib}knewstuff34
+Obsoletes:	%{_lib}knewstuff34 < %{EVRD}
 
 %description -n %{libknewstuff3}
 KDE 4 library.
@@ -711,29 +711,29 @@ Requires:	kdelibs4-core = %{EVRD}
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires:	libxml2-utils
-Requires:	avahi-compat-libdns_sd-devel
-Requires:	avahi-client-devel
-Requires:	enchant-devel
+Requires:	pkgconfig(avahi-compat-libdns_sd)
+Requires:	pkgconfig(avahi-client)
+Requires:	pkgconfig(enchant)
 Requires:	libxslt-proc
-Requires:	libxslt-devel
-Requires:	openssl-devel
+Requires:	pkgconfig(libxslt)
+Requires:	pkgconfig(openssl)
 Requires:	cups-devel >= 1.2
-Requires:	libart_lgpl-devel
+Requires:	pkgconfig(libart-2.0)
 Requires:	libsasl-devel
-Requires:	libtiff-devel
-Requires:	libvorbis-devel
+Requires:	pkgconfig(libtiff-4)
+Requires:	pkgconfig(vorbis)
 Requires:	pam-devel
 Requires:	pkgconfig(alsa)
-Requires:	libmad-devel
+Requires:	pkgconfig(mad)
 Requires:	gdbm-devel
-Requires:	jasper-devel
-Requires:	OpenEXR-devel
+Requires:	pkgconfig(jasper)
+Requires:	pkgconfig(OpenEXR)
 Requires:	krb5-devel
 Requires:	ungif-devel
 Requires:	shared-mime-info
-Requires:	xpm-devel
-Requires:	libxft-devel
-Requires:	shared-desktop-ontologies-devel >= 0.5
+Requires:	pkgconfig(xpm)
+Requires:	pkgconfig(xft)
+Requires:	pkgconfig(shared-desktop-ontologies)
 Requires:	%{libkcmutils} = %{EVRD}
 Requires:	%{libkde3support} = %{EVRD}
 Requires:	%{libkdecore} = %{EVRD}
@@ -854,7 +854,6 @@ Suggests:	xdg-utils
 Requires:	shared-mime-info
 Requires:	docbook-dtd42-xml
 Requires:	docbook-style-xsl
-Conflicts:	kdebase4-workspace < 2:4.1.73-1
 Requires:	rootcerts
 Requires:	shared-desktop-ontologies
 Obsoletes:	lilypond-kde4 < 0.2-3
