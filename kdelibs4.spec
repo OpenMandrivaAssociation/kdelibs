@@ -33,7 +33,7 @@ Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
 Patch204:	kdelibs-4.8.1-kfile-knewfilemenu-removed-LinkToDevice.patch
 BuildRequires:	kde4-macros >= 4.1.71
-BuildRequires:	pkgconfig(QtCore) >= 4:4.7.0
+BuildRequires:	pkgconfig(QtCore)
 BuildRequires:	pkgconfig(QtDBus)
 BuildRequires:	pkgconfig(avahi-compat-libdns_sd)
 BuildRequires:	pkgconfig(avahi-client)
@@ -62,7 +62,7 @@ BuildRequires:	ungif-devel
 BuildRequires:	pkgconfig(libstreams) >= 0.6.3
 BuildRequires:	shared-mime-info
 %if %{build_nepomuk}
-BuildRequires:	pkgconfig(soprano) >= 4:2.7.57
+BuildRequires:	pkgconfig(soprano) > 2.7.57
 %else
 BuildConflicts:	pkgconfig(soprano)
 %endif
