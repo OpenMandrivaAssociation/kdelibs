@@ -18,7 +18,7 @@
 
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
-Version: 4.9.2
+Version: 4.9.3
 Release: 1
 Epoch:		5
 Group:		Graphical desktop/KDE
