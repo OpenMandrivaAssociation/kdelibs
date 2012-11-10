@@ -1,0 +1,22 @@
+Index: plasma/corona.cpp
+===================================================================
+--- a/plasma/corona.cpp
++++ b/plasma/corona.cpp	2012-01-19 20:30:14.123207455 -0300
+@@ -113,7 +113,7 @@
+     if (configName.isEmpty() || configName == d->configName) {
+         c = config();
+     } else {
+-        c = KSharedConfig::openConfig(configName, KConfig::SimpleConfig);
++        c = KSharedConfig::openConfig(configName);
+     }
+ 
+     d->saveLayout(c);
+@@ -337,7 +337,7 @@
+ KSharedConfigPtr Corona::config() const
+ {
+     if (!d->config) {
+-        d->config = KSharedConfig::openConfig(d->configName, KConfig::SimpleConfig);
++        d->config = KSharedConfig::openConfig(d->configName);
+     }
+ 
+     return d->config;

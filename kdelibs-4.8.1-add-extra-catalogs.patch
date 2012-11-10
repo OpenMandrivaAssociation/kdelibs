@@ -1,0 +1,15 @@
+diff -urN kdelibs-4.8.1.orig/kdecore/localization/klocale_kde.cpp kdelibs-4.8.1/kdecore/localization/klocale_kde.cpp
+--- kdelibs-4.8.1.orig/kdecore/localization/klocale_kde.cpp	2012-03-12 13:30:02.802640459 +0400
++++ kdelibs-4.8.1/kdecore/localization/klocale_kde.cpp	2012-03-12 13:35:07.945461112 +0400
+@@ -319,6 +319,11 @@
+         m_catalogNames.append(KCatalogName(QString::fromLatin1("kdeqt")));
+         m_catalogNames.append(KCatalogName(QString::fromLatin1("solid_qt")));
+         m_catalogNames.append(KCatalogName(QString::fromLatin1("kdecalendarsystems")));
++        // Catalogs added by Mandriva
++        KGlobal::dirs()->addResourceDir("locale", QString::fromLatin1("/usr/share/locale"));
++        m_catalogNames.append(KCatalogName(QString::fromLatin1("xdg-user-dirs")));
++        m_catalogNames.append(KCatalogName(QString::fromLatin1("mandriva-kde-translation")));
++        m_catalogNames.append(KCatalogName(QString::fromLatin1("menu-messages")));
+         m_numberOfSysCatalogs = m_catalogNames.size() - numberOfCatalogs;
+ 
+         updateCatalogs(); // evaluate this for all languages

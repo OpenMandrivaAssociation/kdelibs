@@ -1,0 +1,45 @@
+diff -Nuar kdelibs-4.8.1/kfile/knewfilemenu.cpp kdelibs-4.8.1_new/kfile/knewfilemenu.cpp
+--- kdelibs-4.8.1/kfile/knewfilemenu.cpp	2012-03-01 01:55:52.000000000 +0400
++++ kdelibs-4.8.1_new/kfile/knewfilemenu.cpp	2012-04-04 16:07:59.977548493 +0400
+@@ -575,7 +575,7 @@
+ {
+     QMenu* menu = q->menu();
+     menu->clear();
+-    m_menuDev->menu()->clear();
++    //m_menuDev->menu()->clear();
+     m_newDirAction = 0;
+ 
+     QSet<QString> seenTexts;
+@@ -672,9 +672,9 @@
+                         linkPath = act;
+                     } else if (KDesktopFile::isDesktopFile(templatePath)) {
+                         KDesktopFile df(templatePath);
+-                        if (df.readType() == "FSDevice")
+-                            m_menuDev->menu()->addAction(act);
+-                        else
++                        //if (df.readType() == "FSDevice")
++                        //    m_menuDev->menu()->addAction(act);
++                        //else
+                             menu->addAction(act);
+                     }
+                     else
+@@ -699,8 +699,8 @@
+         if (linkURL) menu->addAction(linkURL);
+         if (linkPath) menu->addAction(linkPath);
+         if (linkApp) menu->addAction(linkApp);
+-        Q_ASSERT(m_menuDev);
+-        menu->addAction(m_menuDev);
++        //Q_ASSERT(m_menuDev);
++        //menu->addAction(m_menuDev);
+     }
+ }
+ 
+@@ -974,7 +974,7 @@
+ 
+     d->m_actionCollection->addAction(name, this);
+ 
+-    d->m_menuDev = new KActionMenu(KIcon("drive-removable-media"), i18n("Link to Device"), this);
++    //d->m_menuDev = new KActionMenu(KIcon("drive-removable-media"), i18n("Link to Device"), this);
+ }
+ 
+ KNewFileMenu::~KNewFileMenu()
