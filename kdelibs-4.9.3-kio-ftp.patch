@@ -1,0 +1,26 @@
+commit 027fa2bfac385307f1087de28a4e066afb3e5266
+Author: Sergey Borovkov <sergey.borovkov@osinit.ru>
+Date:   Mon Nov 19 17:19:27 2012 +0400
+
+    kio_ftp: Properly stat dirs when high detalization is requested
+
+diff --git a/kioslave/ftp/ftp.cpp b/kioslave/ftp/ftp.cpp
+index e9545b2..923db80 100644
+--- a/kioslave/ftp/ftp.cpp
++++ b/kioslave/ftp/ftp.cpp
+@@ -1424,12 +1424,13 @@ void Ftp::stat(const KUrl &url)
+      return;
+   }
+ 
+-  if (!isDir)
++  // List dir only when high detalization is requested
++  if (!isDir || details > 2)
+   {
+     // It is a file or it doesn't exist, try going to parent directory
+     parentDir = tempurl.directory(KUrl::AppendTrailingSlash);
+     // With files we can do "LIST <filename>" to avoid listing the whole dir
+-    listarg = filename;
++    listarg = !isDir ? filename : parentDir;
+   }
+   else
+   {

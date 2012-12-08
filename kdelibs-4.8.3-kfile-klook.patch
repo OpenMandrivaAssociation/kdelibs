@@ -1,0 +1,55 @@
+diff -Nuar kdelibs-4.8.3.orig/kfile/kdiroperator.cpp kdelibs-4.8.3/kfile/kdiroperator.cpp
+--- kdelibs-4.8.3.orig/kfile/kdiroperator.cpp	2012-03-01 01:55:52.000000000 +0400
++++ kdelibs-4.8.3/kfile/kdiroperator.cpp	2012-09-07 17:49:12.236676508 +0400
+@@ -836,6 +836,22 @@
+     }
+ }
+ 
++void KDirOperator::previewItem()
++{
++    const KFileItemList list = selectedItems();
++    QStringList urlList;
++
++    foreach(KFileItem item, list) {
++        urlList.append(item.url().url());
++    }
++
++    if (!list.isEmpty()) {
++        QProcess* process = new QProcess();
++        connect(process, SIGNAL(finished(int)), process,SLOT(deleteLater()));
++        process->start(QString("klook"), urlList);
++    }
++}
++
+ KIO::CopyJob * KDirOperator::trash(const KFileItemList& items,
+                                    QWidget *parent,
+                                    bool ask, bool showProgress)
+@@ -1883,6 +1899,13 @@
+     action->setShortcuts(KShortcut(Qt::SHIFT + Qt::Key_Delete));
+     connect(action, SIGNAL(triggered(bool)), this, SLOT(deleteSelected()));
+ 
++    // KLook
++    KAction* openInKLook = actionCollection()->addAction("open_in_KLook");
++    openInKLook->setText(i18nc("@action:inmenu", "Preview"));
++    openInKLook->setShortcut(Qt::Key_Space);
++    openInKLook->setIcon(KIcon("klook"));
++    connect(openInKLook, SIGNAL(triggered()), this, SLOT(previewItem()));
++
+     // the sort menu actions
+     KActionMenu *sortMenu = new KActionMenu(i18n("Sorting"), this);
+     d->actionCollection->addAction("sorting menu",  sortMenu);
+diff -Nuar kdelibs-4.8.3.orig/kfile/kdiroperator.h kdelibs-4.8.3/kfile/kdiroperator.h
+--- kdelibs-4.8.3.orig/kfile/kdiroperator.h	2011-07-27 22:34:36.000000000 +0400
++++ kdelibs-4.8.3/kfile/kdiroperator.h	2012-09-07 17:49:12.237676508 +0400
+@@ -733,6 +733,11 @@
+     virtual void deleteSelected();
+ 
+     /**
++     * Previews item in klook
++     */
++    virtual void previewItem();
++
++    /**
+      * Enables/disables actions that are selection dependent. Call this e.g.
+      * when you are about to show a popup menu using some of KDirOperators
+      * actions.
