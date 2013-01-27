@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   kdelibs-4.9.4.tar.xz: b2fe70261207a96a26b5d8789379f134e3e070be
+sources:
+  kdelibs-4.9.98.tar.xz: 5ee02b6316664f3d33d8e510b2bb249de89b487a

@@ -18,13 +18,19 @@
 
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
-Version:	4.9.4
+Version:	4.9.98
 Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 URL:		http://www.kde.org
-Source:		ftp://ftp.kde.org/pub/kde/stable/%{version}/src/kdelibs-%{version}.tar.xz
+%define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
+%if %is_beta
+%define ftpdir unstable
+%else
+%define ftpdir stable
+%endif
+Source:		ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdelibs-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
@@ -96,8 +102,8 @@ BuildRequires:	grantlee-devel
 %if %{udisk_backend}
 BuildRequires:	pkgconfig(udev)
 %endif
-#Possible features to be added:
-#BuildRequires:	hupnp-devel
+#Optional, but let's build support for what we can
+BuildRequires:	hupnp-devel media-player-info
 
 %description
 Libraries for the K Desktop Environment.
@@ -877,6 +883,8 @@ KDE 4 system core files.
 %{_kde_bindir}/kdeinit4_wrapper
 %{_kde_bindir}/kjs
 %{_kde_bindir}/kjscmd
+%{_kde_bindir}/kmailservice
+%{_kde_bindir}/ktelnetservice
 %{_kde_bindir}/kross
 %{_kde_bindir}/kshell4
 %{_kde_bindir}/kunittestmodrunner
@@ -899,10 +907,8 @@ KDE 4 system core files.
 %{_kde_libdir}/kde4/libexec/kio_http_cache_cleaner
 %{_kde_libdir}/kde4/libexec/kioslave
 %{_kde_libdir}/kde4/libexec/klauncher
-%{_kde_libdir}/kde4/libexec/kmailservice
 %attr(4755,root,root) %{_kde_libdir}/kde4/libexec/kpac_dhcp_helper
 %{_kde_libdir}/kde4/libexec/ksendbugmail
-%{_kde_libdir}/kde4/libexec/ktelnetservice
 %{_kde_libdir}/kde4/libexec/lnusertemp
 %{_kde_libdir}/kde4/libexec/start_kdeinit
 %{_kde_libdir}/kde4/libexec/start_kdeinit_wrapper
