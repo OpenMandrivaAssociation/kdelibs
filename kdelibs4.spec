@@ -19,7 +19,7 @@
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
 Version:	4.9.98
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -35,6 +35,7 @@ Source100:	%{name}.rpmlintrc
 Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
+Patch4:		kdelibs-4.9.98-find-samba.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -993,6 +994,7 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0
 %endif
 %patch3 -p1
+%patch4 -p1 -b .findSamba~
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1

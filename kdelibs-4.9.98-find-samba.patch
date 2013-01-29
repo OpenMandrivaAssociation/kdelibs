@@ -1,0 +1,11 @@
+--- kdelibs-4.9.98/cmake/modules/FindSamba.cmake.bero	2013-01-29 01:41:55.716317725 +0100
++++ kdelibs-4.9.98/cmake/modules/FindSamba.cmake	2013-01-29 01:42:52.850643758 +0100
+@@ -17,7 +17,7 @@ if(SAMBA_INCLUDE_DIR AND SAMBA_LIBRARIES
+     set(Samba_FIND_QUIETLY TRUE)
+ endif(SAMBA_INCLUDE_DIR AND SAMBA_LIBRARIES)
+ 
+-find_path(SAMBA_INCLUDE_DIR NAMES libsmbclient.h )
++find_path(SAMBA_INCLUDE_DIR NAMES libsmbclient.h PATH_SUFFIXES samba-5.0 samba5 samba-4.1 samba-4.0 samba4 samba-3.3 samba-3.0 samba3 samba)
+ 
+ find_library(SAMBA_LIBRARIES NAMES smbclient )
+ 
