@@ -19,7 +19,7 @@
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
 Version:	4.9.98
-Release:	2
+Release:	3
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -30,7 +30,7 @@ URL:		http://www.kde.org
 %else
 %define ftpdir stable
 %endif
-Source:		ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdelibs-%{version}.tar.xz
+Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/kdelibs-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
@@ -1025,6 +1025,9 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 
 
 %changelog
+* Thu Jan 31 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 4.9.98-2
+- rebuild
+
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.9.4-1
 - New version 4.9.4
 
