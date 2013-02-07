@@ -18,8 +18,8 @@
 
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
-Version:	4.9.98
-Release:	3
+Version:	4.10.0
+Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -1025,6 +1025,9 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 
 
 %changelog
+* Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.0-1
+- New version 4.10.0
+
 * Thu Jan 31 2013 Per Øyvind Karlsen <peroyvind@mandriva.org> 4.9.98-2
 - rebuild
 
