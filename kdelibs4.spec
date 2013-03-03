@@ -36,6 +36,7 @@ Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
 Patch4:		kdelibs-4.9.98-find-samba.patch
+Patch5:		kdelibs-4.10.0-giflib5.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -995,6 +996,7 @@ This packages contains all development documentation for kdelibs
 %endif
 %patch3 -p1
 %patch4 -p1 -b .findSamba~
+%patch5 -p1 -b .giflib5~
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
