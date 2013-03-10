@@ -19,7 +19,7 @@
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
 Version:	4.10.1
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -1025,8 +1025,10 @@ This packages contains all development documentation for kdelibs
 rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
-
 %changelog
+* Sun Mar 10 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.1-2
+- Add patch for giflib5 support
+
 * Sat Mar 09 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.1-1
 - New version 4.10.1
 

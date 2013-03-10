@@ -1,23 +1,27 @@
---- ./khtml/imload/decoders/gifloader.cpp.orig	2013-03-03 20:33:53.193609598 +0000
-+++ ./khtml/imload/decoders/gifloader.cpp	2013-03-03 20:36:00.510614750 +0000
-@@ -300,10 +300,8 @@
+diff -Naur kdelibs-4.10.0/khtml/imload/decoders/gifloader.cpp kdelibs-4.10.0-giflib5/khtml/imload/decoders/gifloader.cpp
+--- kdelibs-4.10.0/khtml/imload/decoders/gifloader.cpp	2013-01-23 21:44:22.000000000 +0000
++++ kdelibs-4.10.0-giflib5/khtml/imload/decoders/gifloader.cpp	2013-02-11 14:47:32.856000000 +0000
+@@ -300,7 +300,11 @@
      }
      
      
--    static unsigned int decode16Bit(char* signedLoc)
-+    static unsigned int decode16Bit(unsigned char* loc)
++#if GIFLIB_MAJOR >= 5
++    static unsigned int decode16Bit(unsigned char* signedLoc)
++#else
+     static unsigned int decode16Bit(char* signedLoc)
++#endif
      {
--        unsigned char* loc = reinterpret_cast<unsigned char*>(signedLoc);
--    
-         //GIFs are little-endian
-         return loc[0] | (((unsigned int)loc[1]) << 8);
-     }
-@@ -348,7 +346,7 @@
+         unsigned char* loc = reinterpret_cast<unsigned char*>(signedLoc);
+     
+@@ -348,7 +352,11 @@
      virtual int processEOF()
      {
          //Feed the buffered data to libUnGif
--        GifFileType* file = DGifOpen(this, gifReaderBridge);
-+        GifFileType* file = DGifOpen(this, gifReaderBridge,NULL);
++#if GIFLIB_MAJOR >= 5
++        GifFileType* file = DGifOpen(this, gifReaderBridge, NULL);
++#else
+         GifFileType* file = DGifOpen(this, gifReaderBridge);
++#endif
          
          if (!file)
              return Error;
