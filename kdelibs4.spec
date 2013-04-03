@@ -18,8 +18,8 @@
 
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
-Version:	4.10.1
-Release:	2
+Version:	4.10.2
+Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -36,7 +36,6 @@ Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
 Patch4:		kdelibs-4.9.98-find-samba.patch
-Patch5:		kdelibs-4.10.0-giflib5.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -996,7 +995,6 @@ This packages contains all development documentation for kdelibs
 %endif
 %patch3 -p1
 %patch4 -p1 -b .findSamba~
-%patch5 -p1 -b .giflib5~
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -1026,6 +1024,10 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Apr 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.2-1
+- New version 4.10.2
+- Drop giflib5 patch (merged in upstream)
+
 * Sun Mar 10 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.1-2
 - Add patch for giflib5 support
 
