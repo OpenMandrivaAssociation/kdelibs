@@ -19,13 +19,13 @@
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
 Version:	4.10.2
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 URL:		http://www.kde.org
 %define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %is_beta
+%if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
@@ -59,7 +59,7 @@ BuildRequires:	pcre-devel
 BuildRequires:	pkgconfig(gamin)
 BuildRequires:	bzip2-devel
 BuildRequires:	pkgconfig(libart-2.0)
-BuildRequires:	libsasl-devel
+BuildRequires:	sasl-devel
 BuildRequires:	tiff-devel
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pam-devel
@@ -731,7 +731,7 @@ Requires:	pkgconfig(libxslt)
 Requires:	pkgconfig(openssl)
 Requires:	cups-devel >= 1.2
 Requires:	pkgconfig(libart-2.0)
-Requires:	libsasl-devel
+Requires:	sasl-devel
 Requires:	tiff-devel
 Requires:	pkgconfig(vorbis)
 Requires:	pam-devel
@@ -1027,6 +1027,7 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 * Wed Apr 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.2-1
 - New version 4.10.2
 - Drop giflib5 patch (merged in upstream)
+- Change libsasl-devel to sasl-devel in BuildRequires and Requires
 
 * Sun Mar 10 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.1-2
 - Add patch for giflib5 support
