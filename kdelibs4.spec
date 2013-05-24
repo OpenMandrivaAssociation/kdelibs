@@ -19,12 +19,12 @@
 Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
 Version:	4.10.3
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 URL:		http://www.kde.org
-%define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
+%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
@@ -36,6 +36,8 @@ Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
 Patch4:		kdelibs-4.9.98-find-samba.patch
+# Don't create .config etc folders in filesystem root
+Patch5:		kdelibs-4.9.5-kauthhelper.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -995,6 +997,7 @@ This packages contains all development documentation for kdelibs
 %endif
 %patch3 -p1
 %patch4 -p1 -b .findSamba~
+%patch5 -p1
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -1024,6 +1027,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Thu May 23 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.3-2
+- Add patch to avoid creation of .config etc folders in filesystem root
+
 * Tue May 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.3-1
 - New version 4.10.3
 
