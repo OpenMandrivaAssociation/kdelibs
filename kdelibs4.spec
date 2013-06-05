@@ -16,14 +16,14 @@
 
 %define build_nepomuk 1
 
-Name:		kdelibs4
 Summary:	K Desktop Environment - Libraries
-Version:	4.10.3
-Release:	2
+Name:		kdelibs4
+Version:	4.10.4
+Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
-URL:		http://www.kde.org
+Url:		http://www.kde.org
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -1027,6 +1027,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Jun 05 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.4-1
+- New version 4.10.4
+
 * Thu May 23 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.3-2
 - Add patch to avoid creation of .config etc folders in filesystem root
 
