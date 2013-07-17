@@ -18,9 +18,9 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
-Version:	4.10.5
-Release:	1
 Epoch:		5
+Version:	4.10.5
+Release:	2
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 Url:		http://www.kde.org
@@ -46,67 +46,68 @@ Patch206:	kdelibs-4.8.3-kfile-klook.patch
 Patch207:	kdelibs4-4.9.3-iconwidget-revert-commit-c6160d14.patch
 Patch208:	kdelibs-4.9.3-kio-ftp.patch
 Patch209:	kdelibs-4.9.3-improve-mimetypedetectionforwebdav.patch
+BuildRequires:	automoc
+BuildRequires:	bison
+BuildRequires:	docbook-dtd42-xml
+BuildRequires:	docbook-style-xsl
+BuildRequires:	flex
 BuildRequires:	kde4-macros >= 4.1.71
-BuildRequires:	pkgconfig(QtCore)
-BuildRequires:	pkgconfig(QtDBus)
-BuildRequires:	pkgconfig(avahi-compat-libdns_sd)
-BuildRequires:	pkgconfig(avahi-client)
-BuildRequires:	pkgconfig(enchant)
-BuildRequires:	libxslt-proc
-BuildRequires:	pkgconfig(libxslt)
-BuildRequires:	pkgconfig(libxml-2.0) >= 2.4.11
-BuildRequires:	pkgconfig(openssl)
-BuildRequires:	cups-devel >= 1.2
-BuildRequires:	pcre-devel
-BuildRequires:	pkgconfig(gamin)
+BuildRequires:	libxml2-utils
+BuildRequires:	shared-mime-info
+BuildRequires:	rootcerts
+BuildRequires:	xsltproc
+BuildRequires:	acl-devel
+BuildRequires:	aspell-devel
 BuildRequires:	bzip2-devel
-BuildRequires:	pkgconfig(libart-2.0)
+BuildRequires:	cups-devel >= 1.2
+BuildRequires:	gdbm-devel
+BuildRequires:	grantlee-devel
+BuildRequires:	hspell-devel
+BuildRequires:	krb5-devel
+BuildRequires:	libutempter-devel
+BuildRequires:	pam-devel
+BuildRequires:	pcre-devel
+BuildRequires:	polkit-qt-1-devel >= 0.98.1
 BuildRequires:	sasl-devel
 BuildRequires:	tiff-devel
-BuildRequires:	pkgconfig(vorbis)
-BuildRequires:	pam-devel
-BuildRequires:	pkgconfig(alsa)
-BuildRequires:	pkgconfig(mad)
-BuildRequires:	gdbm-devel
-BuildRequires:	pkgconfig(jasper)
-BuildRequires:	pkgconfig(OpenEXR)
-BuildRequires:	acl-devel
-BuildRequires:	krb5-devel
 BuildRequires:	ungif-devel
+BuildRequires:	pkgconfig(alsa)
+BuildRequires:	pkgconfig(avahi-compat-libdns_sd)
+BuildRequires:	pkgconfig(avahi-client)
+BuildRequires:	pkgconfig(dbusmenu-qt)
+BuildRequires:	pkgconfig(enchant)
+BuildRequires:	pkgconfig(gamin)
+BuildRequires:	pkgconfig(jasper)
+BuildRequires:	pkgconfig(libart-2.0)
+BuildRequires:	pkgconfig(libattica)
+BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libstreams) >= 0.6.3
-BuildRequires:	shared-mime-info
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.4.11
+BuildRequires:	pkgconfig(libxslt)
+BuildRequires:	pkgconfig(mad)
+BuildRequires:	pkgconfig(openssl)
+BuildRequires:	pkgconfig(OpenEXR)
 %if %{build_nepomuk}
 BuildRequires:	pkgconfig(soprano) > 2.7.57
 %else
 BuildConflicts:	pkgconfig(soprano)
 %endif
-BuildRequires:	automoc
 BuildRequires:	pkgconfig(phonon)
-BuildRequires:	pkgconfig(xpm)
-BuildRequires:	libxml2-utils
+BuildRequires:	pkgconfig(qca2)
+BuildRequires:	pkgconfig(shared-desktop-ontologies)
+BuildRequires:	pkgconfig(QtCore)
+BuildRequires:	pkgconfig(QtDBus)
+BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(xft)
 BuildRequires:	pkgconfig(xi)
-BuildRequires:	pkgconfig(liblzma)
-BuildRequires:	libutempter-devel
-BuildRequires:	rootcerts
-BuildRequires:	flex
-BuildRequires:	bison
-BuildRequires:	pkgconfig(qca2)
-BuildRequires:	polkit-qt-1-devel >= 0.98.1
-BuildRequires:	pkgconfig(shared-desktop-ontologies)
-BuildRequires:	pkgconfig(libattica)
 BuildRequires:	pkgconfig(xscrnsaver)
-BuildRequires:	pkgconfig(dbusmenu-qt)
-BuildRequires:	docbook-dtd42-xml
-BuildRequires:	docbook-style-xsl
-BuildRequires:	aspell-devel
-BuildRequires:	hspell-devel
-BuildRequires:	grantlee-devel
+BuildRequires:	pkgconfig(xpm)
 %if %{udisk_backend}
 BuildRequires:	pkgconfig(udev)
 %endif
 #Optional, but let's build support for what we can
-BuildRequires:	hupnp-devel media-player-info
+BuildRequires:	hupnp-devel
+BuildRequires:	media-player-info
 
 %description
 Libraries for the K Desktop Environment.
@@ -718,17 +719,17 @@ KDE 4 library.
 %package devel
 Group:		Development/KDE and Qt
 Summary:	Header files and documentation for compiling KDE applications
-Requires:	kde4-macros
 Requires:	automoc4
-Requires:	qt4-qtdbus
 Requires:	kdelibs4-core = %{EVRD}
+Requires:	kde4-macros
+Requires:	qt4-qtdbus
+Requires:	xsltproc
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires:	libxml2-utils
 Requires:	pkgconfig(avahi-compat-libdns_sd)
 Requires:	pkgconfig(avahi-client)
 Requires:	pkgconfig(enchant)
-Requires:	libxslt-proc
 Requires:	pkgconfig(libxslt)
 Requires:	pkgconfig(openssl)
 Requires:	cups-devel >= 1.2
