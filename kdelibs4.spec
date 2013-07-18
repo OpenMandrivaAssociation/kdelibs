@@ -18,7 +18,7 @@ Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Epoch:		5
 Version:	4.10.5
-Release:	3
+Release:	4
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 Url:		http://www.kde.org
@@ -724,27 +724,6 @@ Requires:	xsltproc
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires:	libxml2-utils
-Requires:	pkgconfig(alsa)
-Requires:	pkgconfig(avahi-compat-libdns_sd)
-Requires:	pkgconfig(avahi-client)
-Requires:	pkgconfig(enchant)
-Requires:	pkgconfig(jasper)
-Requires:	pkgconfig(libart-2.0)
-Requires:	pkgconfig(libxslt)
-Requires:	pkgconfig(mad)
-Requires:	pkgconfig(OpenEXR)
-Requires:	pkgconfig(openssl)
-Requires:	pkgconfig(shared-desktop-ontologies)
-Requires:	pkgconfig(vorbis)
-Requires:	pkgconfig(xft)
-Requires:	pkgconfig(xpm)
-Requires:	cups-devel >= 1.2
-Requires:	gdbm-devel
-Requires:	krb5-devel
-Requires:	pam-devel
-Requires:	sasl-devel
-Requires:	tiff-devel
-Requires:	ungif-devel
 Requires:	kdelibs4-core = %{EVRD}
 Requires:	%{libkcmutils} = %{EVRD}
 Requires:	%{libkde3support} = %{EVRD}
@@ -1022,6 +1001,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Jul 17 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.5-4
+- Drop most of devel package Requires
+
 * Wed Jul 17 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.5-3
 - Sort and fix BuildRequires and devel package Requires
 - Remove some no longer needed Conflicts
