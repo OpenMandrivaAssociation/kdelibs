@@ -7,8 +7,6 @@
 %define with_drkonqi 0
 %{?_with_drkonqi: %{expand: %%global with_drkonqi 1}}
 
-%define epoch_kdelibs3 30000000
-
 %define udisk_backend 1
 
 # exclude libkactivities or not
@@ -20,7 +18,7 @@ Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Epoch:		5
 Version:	4.10.5
-Release:	2
+Release:	3
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 Url:		http://www.kde.org
@@ -53,8 +51,8 @@ BuildRequires:	docbook-style-xsl
 BuildRequires:	flex
 BuildRequires:	kde4-macros >= 4.1.71
 BuildRequires:	libxml2-utils
-BuildRequires:	shared-mime-info
 BuildRequires:	rootcerts
+BuildRequires:	shared-mime-info
 BuildRequires:	xsltproc
 BuildRequires:	acl-devel
 BuildRequires:	aspell-devel
@@ -121,8 +119,6 @@ Libraries for the K Desktop Environment.
 %package -n %{libkde3support}
 Summary:	KDE 4 core library
 Group:		System/Libraries
-Conflicts:	%{_lib}kdecore5 >= %{epoch_kdelibs3}:3.80.3
-Obsoletes:	%{_lib}kde3support5 < 3.93.0-0.714006.1
 
 %description -n %{libkde3support}
 KDE 4 core library.
@@ -133,7 +129,7 @@ KDE 4 core library.
 #--------------------------------------------------------------------
 
 %define kdecore_major 5
-%define libkdecore %mklibname kdecore %kdecore_major
+%define libkdecore %mklibname kdecore %{kdecore_major}
 
 %package -n %{libkdecore}
 Summary:	KDE 4 core library
@@ -720,36 +716,36 @@ KDE 4 library.
 %package devel
 Group:		Development/KDE and Qt
 Summary:	Header files and documentation for compiling KDE applications
-Requires:	automoc4
-Requires:	kdelibs4-core = %{EVRD}
+Requires:	automoc
 Requires:	kde4-macros
 Requires:	qt4-qtdbus
+Requires:	shared-mime-info
 Requires:	xsltproc
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires:	libxml2-utils
+Requires:	pkgconfig(alsa)
 Requires:	pkgconfig(avahi-compat-libdns_sd)
 Requires:	pkgconfig(avahi-client)
 Requires:	pkgconfig(enchant)
-Requires:	pkgconfig(libxslt)
-Requires:	pkgconfig(openssl)
-Requires:	cups-devel >= 1.2
+Requires:	pkgconfig(jasper)
 Requires:	pkgconfig(libart-2.0)
+Requires:	pkgconfig(libxslt)
+Requires:	pkgconfig(mad)
+Requires:	pkgconfig(OpenEXR)
+Requires:	pkgconfig(openssl)
+Requires:	pkgconfig(shared-desktop-ontologies)
+Requires:	pkgconfig(vorbis)
+Requires:	pkgconfig(xft)
+Requires:	pkgconfig(xpm)
+Requires:	cups-devel >= 1.2
+Requires:	gdbm-devel
+Requires:	krb5-devel
+Requires:	pam-devel
 Requires:	sasl-devel
 Requires:	tiff-devel
-Requires:	pkgconfig(vorbis)
-Requires:	pam-devel
-Requires:	pkgconfig(alsa)
-Requires:	pkgconfig(mad)
-Requires:	gdbm-devel
-Requires:	pkgconfig(jasper)
-Requires:	pkgconfig(OpenEXR)
-Requires:	krb5-devel
 Requires:	ungif-devel
-Requires:	shared-mime-info
-Requires:	pkgconfig(xpm)
-Requires:	pkgconfig(xft)
-Requires:	pkgconfig(shared-desktop-ontologies)
+Requires:	kdelibs4-core = %{EVRD}
 Requires:	%{libkcmutils} = %{EVRD}
 Requires:	%{libkde3support} = %{EVRD}
 Requires:	%{libkdecore} = %{EVRD}
@@ -793,9 +789,6 @@ Requires:	%{libnepomuk} = %{EVRD}
 Requires:	%{libnepomukquery} = %{EVRD}
 Requires:	%{libnepomukutils} = %{EVRD}
 %endif
-Conflicts:	koffice-devel < 11:1.9.95.9-2mdv
-Conflicts:	webkitkde-devel < 0.0-0.1050148.3
-Conflicts:	kdeplatform4-devel < 4:0.9.97-3
 Conflicts:	%{name}-core < 5:4.7.80-4
 
 %description devel
@@ -1029,6 +1022,10 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Jul 17 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.5-3
+- Sort and fix BuildRequires and devel package Requires
+- Remove some no longer needed Conflicts
+
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.10.5-1
 - New version 4.10.5
 
