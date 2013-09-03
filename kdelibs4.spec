@@ -17,7 +17,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Epoch:		5
-Version:	4.11.0
+Version:	4.11.1
 Release:	1
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -998,6 +998,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.1-1
+- New version 4.11.1
+
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.0-1
 - New version 4.11.0
 - Drop kauthhelper patch (merged in upstream)
