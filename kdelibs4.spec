@@ -18,7 +18,7 @@ Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Epoch:		5
 Version:	4.11.1
-Release:	1
+Release:	2
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 Url:		http://www.kde.org
@@ -34,6 +34,9 @@ Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
 Patch4:		kdelibs-4.9.98-find-samba.patch
+# Battery reporting support for KDE Connect from
+# http://albertvaka.wordpress.com/2013/08/05/introducing-kde-connect/
+Patch10:	kdelibs-4.11.1-phonepower.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -969,6 +972,7 @@ This packages contains all development documentation for kdelibs
 %endif
 %patch3 -p1
 %patch4 -p1 -b .findSamba~
+%patch10 -p1 -b .phonepower~
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -998,6 +1002,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Sun Sep 15 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.1-2
+- Add phonepower patch to support battery reporting in KDE Connect
+
 * Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.1-1
 - New version 4.11.1
 
