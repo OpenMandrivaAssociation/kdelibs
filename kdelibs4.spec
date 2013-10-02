@@ -17,8 +17,8 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Epoch:		5
-Version:	4.11.1
-Release:	2
+Version:	4.11.2
+Release:	1
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 Url:		http://www.kde.org
@@ -1002,6 +1002,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-1
+- New version 4.11.2
+
 * Sun Sep 15 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.1-2
 - Add phonepower patch to support battery reporting in KDE Connect
 
