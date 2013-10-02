@@ -33,7 +33,6 @@ Source100:	%{name}.rpmlintrc
 Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
-Patch4:		kdelibs-4.9.98-find-samba.patch
 # Battery reporting support for KDE Connect from
 # http://albertvaka.wordpress.com/2013/08/05/introducing-kde-connect/
 Patch10:	kdelibs-4.11.1-phonepower.patch
@@ -971,7 +970,6 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0
 %endif
 %patch3 -p1
-%patch4 -p1 -b .findSamba~
 %patch10 -p1 -b .phonepower~
 %patch100 -p1
 %patch200 -p1
@@ -1004,6 +1002,7 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 %changelog
 * Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-1
 - New version 4.11.2
+- Drop find-samba patch because samba4 detection was fixed in upstream
 
 * Sun Sep 15 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.1-2
 - Add phonepower patch to support battery reporting in KDE Connect
