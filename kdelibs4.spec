@@ -17,7 +17,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Version:	4.11.2
-Release:	2
+Release:	3
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -39,6 +39,9 @@ Patch10:	kdelibs-4.11.1-phonepower.patch
 # Revert upsteam commit because it leads to incorrect icons on desktop
 # For example, application shortcuts are displayed with x-desktop mimetype icon
 Patch11:	kdelibs-4.11.2-delayed-icons.patch
+# Revert upstream commit because it leads to ugly empty dialog popup when
+# adding new empty panel or RocketBar
+Patch12:	kdelibs-4.11.2-containment-config.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -975,6 +978,7 @@ This packages contains all development documentation for kdelibs
 %patch3 -p1
 %patch10 -p1 -b .phonepower~
 %patch11 -p1 -b .delayed~
+%patch12 -p1 -R
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -1004,8 +1008,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
-* Tue Oct 22 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-2
+* Tue Oct 22 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-3
 - Add delayed icons patch to fix issue with incorrect icons on desktop
+- Add containment config patch to fix issue with empty dialog when adding panel
 
 * Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-1
 - New version 4.11.2
