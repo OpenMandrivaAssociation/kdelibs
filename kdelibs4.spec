@@ -16,9 +16,9 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
-Epoch:		5
 Version:	4.11.2
-Release:	1
+Release:	2
+Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
 Url:		http://www.kde.org
@@ -36,6 +36,9 @@ Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
 # Battery reporting support for KDE Connect from
 # http://albertvaka.wordpress.com/2013/08/05/introducing-kde-connect/
 Patch10:	kdelibs-4.11.1-phonepower.patch
+# Revert upsteam commit because it leads to incorrect icons on desktop
+# For example, application shortcuts are displayed with x-desktop mimetype icon
+Patch11:	kdelibs-4.11.2-delayed-icons.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -971,6 +974,7 @@ This packages contains all development documentation for kdelibs
 %endif
 %patch3 -p1
 %patch10 -p1 -b .phonepower~
+%patch11 -p1 -b .delayed~
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -1000,6 +1004,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Tue Oct 22 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-2
+- Add delayed icons patch to fix issue with incorrect icons on desktop
+
 * Wed Oct 02 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-1
 - New version 4.11.2
 - Drop find-samba patch because samba4 detection was fixed in upstream

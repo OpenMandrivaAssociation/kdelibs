@@ -1,0 +1,30 @@
+diff -urN kdelibs-4.11.2/kio/kio/kfileitem.cpp kdelibs-4.11.2-patched/kio/kio/kfileitem.cpp
+--- kdelibs-4.11.2/kio/kio/kfileitem.cpp	2013-08-29 03:57:06.000000000 +1100
++++ kdelibs-4.11.2-patched/kio/kio/kfileitem.cpp	2013-10-22 17:40:18.749276889 +1100
+@@ -792,7 +792,7 @@
+         d->m_bMimeTypeKnown = true;
+     }
+ 
+-    if (d->m_delayedMimeTypes) { // if we delayed getting the iconName up till now, this is the right point in time to do so
++    if (isSlow() && d->m_delayedMimeTypes) { // if we delayed getting the iconName up till now, this is the right point in time to do so
+         d->m_delayedMimeTypes = false;
+         d->m_useIconNameCache = false;
+         (void)iconName();
+@@ -817,7 +817,7 @@
+     if (!d) {
+         return false;
+     }
+-    return d->m_bMimeTypeKnown && (!d->m_delayedMimeTypes);
++    return d->m_bMimeTypeKnown && (!d->m_delayedMimeTypes || !isSlow());
+ }
+ 
+ QString KFileItem::mimeComment() const
+@@ -902,7 +902,7 @@
+         mime = mimeTypePtr();
+     }
+ 
+-    const bool delaySlowOperations = d->m_delayedMimeTypes;
++    const bool delaySlowOperations = isSlow() && d->m_delayedMimeTypes;
+ 
+     if (isLocalUrl && !delaySlowOperations && mime->is("application/x-desktop")) {
+         d->m_iconName = iconFromDesktopFile(url.toLocalFile());
