@@ -16,8 +16,8 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
-Version:	4.11.2
-Release:	3
+Version:	4.11.3
+Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
@@ -1008,6 +1008,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Nov 06 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.3-1
+- New version 4.11.3
+
 * Tue Oct 22 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.2-3
 - Add delayed icons patch to fix issue with incorrect icons on desktop
 - Add containment config patch to fix issue with empty dialog when adding panel
