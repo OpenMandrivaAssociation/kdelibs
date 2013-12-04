@@ -16,7 +16,7 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
-Version:	4.11.3
+Version:	4.11.4
 Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
@@ -1008,6 +1008,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Dec 04 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.4-1
+- New version 4.11.4
+
 * Wed Nov 06 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.3-1
 - New version 4.11.3
 
