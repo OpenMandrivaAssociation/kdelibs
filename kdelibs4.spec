@@ -1008,7 +1008,7 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
-* Tue Jan 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.1-1
+* Tue Jan 14 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.1-1
 - New version 4.12.1
 
 * Wed Dec 04 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.11.4-1
