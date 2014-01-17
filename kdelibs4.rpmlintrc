@@ -9,3 +9,5 @@ addFilter("E: invalid-soname")
 addFilter("E: non-executable-script")
 # Not an actual problem, the packager tag is added by the build system anyway
 addFilter("E: no-packager-tag")
+# Seems to be false positive
+addFilter("E: devel-file-in-non-devel-package")
