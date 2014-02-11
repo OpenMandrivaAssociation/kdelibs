@@ -50,6 +50,7 @@ Patch206:	kdelibs-4.8.3-kfile-klook.patch
 Patch207:	kdelibs4-4.9.3-iconwidget-revert-commit-c6160d14.patch
 Patch208:	kdelibs-4.9.3-kio-ftp.patch
 Patch209:	kdelibs-4.9.3-improve-mimetypedetectionforwebdav.patch
+Patch210:	kdelibs-4.12.2-armlinking.patch
 BuildRequires:	automoc
 BuildRequires:	bison
 BuildRequires:	docbook-dtd42-xml
@@ -987,6 +988,7 @@ This packages contains all development documentation for kdelibs
 %patch207 -p1
 %patch208 -p1
 %patch209 -p1
+%patch210 -p1
 
 %build
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
