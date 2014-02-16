@@ -70,7 +70,7 @@ BuildRequires:	gdbm-devel
 BuildRequires:	grantlee-devel
 BuildRequires:	hspell-devel
 BuildRequires:	krb5-devel
-BuildRequires:	libutempter-devel
+BuildRequires:	utempter-devel
 BuildRequires:	pam-devel
 BuildRequires:	pcre-devel
 BuildRequires:	polkit-qt-1-devel >= 0.98.1
