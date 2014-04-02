@@ -49,7 +49,10 @@ Patch204:	kdelibs-4.8.1-kfile-knewfilemenu-removed-LinkToDevice.patch
 Patch206:	kdelibs-4.8.3-kfile-klook.patch
 Patch207:	kdelibs4-4.9.3-iconwidget-revert-commit-c6160d14.patch
 Patch208:	kdelibs-4.9.3-kio-ftp.patch
-Patch209:	kdelibs-4.9.3-improve-mimetypedetectionforwebdav.patch
+# Don't use HEAD to get mimetype. Sometimes servers don't return mimetype
+# with it for webdav. It's also wrong for directories - HEAD will return
+# text/xml (since it's actually file listing in XML)
+Patch209:	kdelibs-4.12.4-improve-mimetype-detection-for-webdav.patch
 Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.12.2-cmake2.8.12.2.patch
 BuildRequires:	automoc
@@ -1014,6 +1017,7 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 %changelog
 * Wed Apr 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-1
 - New version 4.12.4
+- Re-diff improve-mimetype-detection-for-webdav patch
 
 * Tue Mar 04 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.3-1
 - New version 4.12.3
