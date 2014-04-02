@@ -1,18 +1,25 @@
 diff -urN kdelibs-4.12.4/kioslave/http/http.cpp kdelibs-4.12.4-patched/kioslave/http/http.cpp
 --- kdelibs-4.12.4/kioslave/http/http.cpp	2014-03-28 07:06:12.000000000 +1100
-+++ kdelibs-4.12.4-patched/kioslave/http/http.cpp	2014-04-02 20:30:41.150250132 +1100
-@@ -331,8 +331,9 @@
- 
++++ kdelibs-4.12.4-patched/kioslave/http/http.cpp	2014-04-02 21:56:17.000000000 +1100
+@@ -323,7 +323,7 @@
+ // Since a lot of webdav servers seem not to send the content-type information
+ // for the requested directory listings, we attempt to guess the mime-type from
+ // the resource name so long as the resource is not a directory.
+-static void updateUDSEntryMimeType(UDSEntry* entry)
++static void updateUDSEntryMimeType(UDSEntry* entry, KMimeType::Ptr& mime)
+ {
+   const QString mimeType(entry->stringValue(KIO::UDSEntry::UDS_MIME_TYPE));
+   const qint64 type = entry->numberValue(KIO::UDSEntry::UDS_FILE_TYPE);
+@@ -332,7 +332,7 @@
    kDebug(7113) << "item:" << name << ", mimeType:" << mimeType;
  
-+  KMimeType::Ptr mime;
    if (mimeType.isEmpty() && type != S_IFDIR) {
 -    KMimeType::Ptr mime = KMimeType::findByUrl(name, 0, false, true);
 +    mime = KMimeType::findByUrl(name, 0, false, true);
      if (mime && !mime->isDefault()) {
        kDebug(7113) << "Setting" << mime->name() << "as guessed mime type for" << name;
        entry->insert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, mime->name());
-@@ -781,7 +782,7 @@
+@@ -781,7 +781,7 @@
      return;
    resetSessionSettings();
  
@@ -21,7 +28,7 @@ diff -urN kdelibs-4.12.4/kioslave/http/http.cpp kdelibs-4.12.4-patched/kioslave/
  }
  
  void HTTPProtocol::davSetRequest( const QByteArray& requestXML )
-@@ -790,7 +791,7 @@
+@@ -790,7 +790,7 @@
    cachePostData(requestXML);
  }
  
@@ -30,7 +37,7 @@ diff -urN kdelibs-4.12.4/kioslave/http/http.cpp kdelibs-4.12.4-patched/kioslave/
  {
    UDSEntry entry;
  
-@@ -842,8 +843,8 @@
+@@ -842,8 +842,8 @@
    m_request.method = query.isEmpty() ? DAV_PROPFIND : DAV_SEARCH;
    m_request.url.setQuery(QString());
    m_request.cacheTag.policy = CC_Reload;
@@ -41,7 +48,7 @@ diff -urN kdelibs-4.12.4/kioslave/http/http.cpp kdelibs-4.12.4-patched/kioslave/
       m_request.url.adjustPath(KUrl::AddTrailingSlash);
  
    proceedUntilResponseContent( true );
-@@ -891,7 +892,7 @@
+@@ -891,7 +891,7 @@
          QString name = thisURL.fileName();
  
          // base dir of a listDir(): name should be "."
@@ -50,9 +57,13 @@ diff -urN kdelibs-4.12.4/kioslave/http/http.cpp kdelibs-4.12.4-patched/kioslave/
            name = QLatin1Char('.');
  
          entry.insert( KIO::UDSEntry::UDS_NAME, name.isEmpty() ? href.text() : name );
-@@ -903,7 +904,21 @@
+@@ -901,9 +901,24 @@
  
-       updateUDSEntryMimeType(&entry);
+       davParsePropstats( propstats, entry );
+ 
+-      updateUDSEntryMimeType(&entry);
++      KMimeType::Ptr mime;
++      updateUDSEntryMimeType(&entry, mime);
  
 -      if ( stat ) {
 +      if ( request == Mimetype ) {
@@ -109,7 +120,7 @@ diff -urN kdelibs-4.12.4/kioslave/http/http.cpp kdelibs-4.12.4-patched/kioslave/
    kDebug(7113) << m_mimeType;
 diff -urN kdelibs-4.12.4/kioslave/http/http.h kdelibs-4.12.4-patched/kioslave/http/http.h
 --- kdelibs-4.12.4/kioslave/http/http.h	2014-03-28 07:06:12.000000000 +1100
-+++ kdelibs-4.12.4-patched/kioslave/http/http.h	2014-04-02 20:21:36.581862463 +1100
++++ kdelibs-4.12.4-patched/kioslave/http/http.h	2014-04-02 21:22:18.110015973 +1100
 @@ -316,6 +316,12 @@
    void saveProxyAuthenticationForSocket();
  
