@@ -1,0 +1,145 @@
+diff -urN kdelibs-4.12.4/kioslave/http/http.cpp kdelibs-4.12.4-patched/kioslave/http/http.cpp
+--- kdelibs-4.12.4/kioslave/http/http.cpp	2014-03-28 07:06:12.000000000 +1100
++++ kdelibs-4.12.4-patched/kioslave/http/http.cpp	2014-04-02 21:56:17.000000000 +1100
+@@ -323,7 +323,7 @@
+ // Since a lot of webdav servers seem not to send the content-type information
+ // for the requested directory listings, we attempt to guess the mime-type from
+ // the resource name so long as the resource is not a directory.
+-static void updateUDSEntryMimeType(UDSEntry* entry)
++static void updateUDSEntryMimeType(UDSEntry* entry, KMimeType::Ptr& mime)
+ {
+   const QString mimeType(entry->stringValue(KIO::UDSEntry::UDS_MIME_TYPE));
+   const qint64 type = entry->numberValue(KIO::UDSEntry::UDS_FILE_TYPE);
+@@ -332,7 +332,7 @@
+   kDebug(7113) << "item:" << name << ", mimeType:" << mimeType;
+ 
+   if (mimeType.isEmpty() && type != S_IFDIR) {
+-    KMimeType::Ptr mime = KMimeType::findByUrl(name, 0, false, true);
++    mime = KMimeType::findByUrl(name, 0, false, true);
+     if (mime && !mime->isDefault()) {
+       kDebug(7113) << "Setting" << mime->name() << "as guessed mime type for" << name;
+       entry->insert(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE, mime->name());
+@@ -781,7 +781,7 @@
+     return;
+   resetSessionSettings();
+ 
+-  davStatList( url, false );
++  davStatList( url, List );
+ }
+ 
+ void HTTPProtocol::davSetRequest( const QByteArray& requestXML )
+@@ -790,7 +790,7 @@
+   cachePostData(requestXML);
+ }
+ 
+-void HTTPProtocol::davStatList( const KUrl& url, bool stat )
++void HTTPProtocol::davStatList(const KUrl& url, WebDavRequest request )
+ {
+   UDSEntry entry;
+ 
+@@ -842,8 +842,8 @@
+   m_request.method = query.isEmpty() ? DAV_PROPFIND : DAV_SEARCH;
+   m_request.url.setQuery(QString());
+   m_request.cacheTag.policy = CC_Reload;
+-  m_request.davData.depth = stat ? 0 : 1;
+-  if (!stat)
++  m_request.davData.depth = request ? 0 : 1;
++  if (request == List)
+      m_request.url.adjustPath(KUrl::AddTrailingSlash);
+ 
+   proceedUntilResponseContent( true );
+@@ -891,7 +891,7 @@
+         QString name = thisURL.fileName();
+ 
+         // base dir of a listDir(): name should be "."
+-        if ( !stat && thisURL.path(KUrl::AddTrailingSlash).length() == url.path(KUrl::AddTrailingSlash).length() )
++        if ( request == List && thisURL.path(KUrl::AddTrailingSlash).length() == url.path(KUrl::AddTrailingSlash).length() )
+           name = QLatin1Char('.');
+ 
+         entry.insert( KIO::UDSEntry::UDS_NAME, name.isEmpty() ? href.text() : name );
+@@ -901,9 +901,24 @@
+ 
+       davParsePropstats( propstats, entry );
+ 
+-      updateUDSEntryMimeType(&entry);
++      KMimeType::Ptr mime;
++      updateUDSEntryMimeType(&entry, mime);
+ 
+-      if ( stat ) {
++      if ( request == Mimetype ) {
++        if (entry.numberValue( KIO::UDSEntry::UDS_FILE_TYPE ) == S_IFDIR)
++          m_mimeType = QLatin1String("httpd/directory");
++        else
++          m_mimeType = mime.isNull()
++              ? entry.stringValue( KIO::UDSEntry::UDS_MIME_TYPE )
++              : mime->name();
++        kDebug( 7113 ) << "Emit mimetype" << m_mimeType;
++
++        mimeType( m_mimeType );
++        davFinished();
++        return;
++      }
++
++      if ( request == Stat) {
+         // return an item
+         statEntry( entry );
+         davFinished();
+@@ -916,7 +931,7 @@
+     }
+   }
+ 
+-  if ( stat || !hasResponse ) {
++  if ( request != List || !hasResponse ) {
+     error( ERR_DOES_NOT_EXIST, url.prettyUrl() );
+     return;
+   }
+@@ -4054,12 +4069,19 @@
+     return;
+   resetSessionSettings();
+ 
+-  m_request.method = HTTP_HEAD;
+-  m_request.cacheTag.policy= CC_Cache;
++  if ( m_protocol != "webdav" && m_protocol != "webdavs" )  {
++    m_request.method = HTTP_HEAD;
++    m_request.cacheTag.policy= CC_Cache;
+ 
+-  if (proceedUntilResponseHeader()) {
+-    httpClose(m_request.isKeepAlive);
+-    finished();
++    if (proceedUntilResponseHeader()) {
++      httpClose(m_request.isKeepAlive);
++      finished();
++    }
++  }
++  else {
++    m_request.method = DAV_PROPFIND;
++    m_request.cacheTag.policy= CC_Cache;
++    davStatList( url, Mimetype );
+   }
+ 
+   kDebug(7113) << m_mimeType;
+diff -urN kdelibs-4.12.4/kioslave/http/http.h kdelibs-4.12.4-patched/kioslave/http/http.h
+--- kdelibs-4.12.4/kioslave/http/http.h	2014-03-28 07:06:12.000000000 +1100
++++ kdelibs-4.12.4-patched/kioslave/http/http.h	2014-04-02 21:22:18.110015973 +1100
+@@ -316,6 +316,12 @@
+   void saveProxyAuthenticationForSocket();
+ 
+ protected:
++  enum WebDavRequest {
++      List,
++      Stat,
++      Mimetype
++  };
++
+   int readChunked();    ///< Read a chunk
+   int readLimited();    ///< Read maximum m_iSize bytes.
+   int readUnlimited();  ///< Read as much as possible.
+@@ -398,7 +404,7 @@
+    * Performs a WebDAV stat or list
+    */
+   void davSetRequest( const QByteArray& requestXML );
+-  void davStatList( const KUrl& url, bool stat = true );
++  void davStatList(const KUrl& url, WebDavRequest request = Stat );
+   void davParsePropstats( const QDomNodeList& propstats, KIO::UDSEntry& entry );
+   void davParseActiveLocks( const QDomNodeList& activeLocks,
+                             uint& lockCount );
