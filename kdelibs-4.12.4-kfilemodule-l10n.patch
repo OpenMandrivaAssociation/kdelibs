@@ -1,0 +1,24 @@
+From: Burkhard Lück <lueck@hube-lueck.de>
+Date: Thu, 10 Apr 2014 22:12:27 +0000
+Subject: Load kio4 translation catalog when loading kfile
+X-Git-Url: http://quickgit.kde.org/?p=kdelibs.git&a=commitdiff&h=0ab740a30bb9adea0a9e4c2df8a56ab72b7f8bcb
+---
+Load kio4 translation catalog when loading kfile
+
+This helps for pure Qt apps like VLC that get
+the kdelibs file dialog to get it translated properly
+---
+
+
+--- a/kfile/kfilemodule.cpp
++++ b/kfile/kfilemodule.cpp
+@@ -24,7 +24,7 @@
+ #include <kpluginfactory.h>
+ 
+ K_PLUGIN_FACTORY(KFileModuleFactory, registerPlugin<KFileModule>();)
+-K_EXPORT_PLUGIN(KFileModuleFactory("kfilemodule"))
++K_EXPORT_PLUGIN(KFileModuleFactory("kfilemodule", "kio4"))
+ 
+ KFileModule::KFileModule(QObject* parent, const QVariantList&)
+     : KAbstractFileModule(parent)
+
