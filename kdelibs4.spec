@@ -17,10 +17,10 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Version:	4.12.4
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
-License:	ARTISTIC BSD GPL_V2 LGPL_V2 QPL_V1.0
+License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
 Url:		http://www.kde.org
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
@@ -55,6 +55,8 @@ Patch208:	kdelibs-4.9.3-kio-ftp.patch
 Patch209:	kdelibs-4.12.4-improve-mimetype-detection-for-webdav.patch
 Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.12.2-cmake2.8.12.2.patch
+# Backport from upstream, fixed in 4.12.5
+Patch212:	kdelibs-4.12.4-kfilemodule-l10n.patch
 BuildRequires:	automoc
 BuildRequires:	bison
 BuildRequires:	docbook-dtd42-xml
@@ -994,6 +996,7 @@ This packages contains all development documentation for kdelibs
 %patch209 -p1
 %patch210 -p1
 %patch211 -p1
+%patch212 -p1
 
 %build
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
@@ -1015,6 +1018,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Sun Apr 13 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-2
+- Add kfilemodule-l10n patch from upstream to fix localization in kfile dialogs
+
 * Wed Apr 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-1
 - New version 4.12.4
 - Re-diff improve-mimetype-detection-for-webdav patch
