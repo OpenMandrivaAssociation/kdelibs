@@ -17,7 +17,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Version:	4.12.4
-Release:	2
+Release:	3
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -42,6 +42,9 @@ Patch11:	kdelibs-4.11.2-delayed-icons.patch
 # Revert upstream commit because it leads to ugly empty dialog popup when
 # adding new empty panel or RocketBar
 Patch12:	kdelibs-4.11.2-containment-config.patch
+# Include <QtCore/QFile> instead of <QFile> to fix build of other packages
+# that use kio - kradio etc
+Patch13:	kdelibs-4.12.4-qfile-header.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -986,6 +989,7 @@ This packages contains all development documentation for kdelibs
 %patch10 -p1 -b .phonepower~
 %patch11 -p1 -b .delayed~
 %patch12 -p1 -R
+%patch13 -p1 -b .qfile
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -1018,6 +1022,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Fri Apr 18 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-3
+- Add qfile-header patch to fix the way QFile is included in kio/global.h
+
 * Sun Apr 13 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-2
 - Add kfilemodule-l10n patch from upstream to fix localization in kfile dialogs
 
