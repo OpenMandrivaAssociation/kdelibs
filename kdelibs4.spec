@@ -59,8 +59,6 @@ Patch208:	kdelibs-4.9.3-kio-ftp.patch
 Patch209:	kdelibs-4.12.4-improve-mimetype-detection-for-webdav.patch
 Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.12.2-cmake2.8.12.2.patch
-# Backport from upstream, fixed in 4.12.5
-Patch212:	kdelibs-4.12.4-kfilemodule-l10n.patch
 BuildRequires:	automoc
 BuildRequires:	bison
 BuildRequires:	docbook-dtd42-xml
@@ -1002,7 +1000,6 @@ This packages contains all development documentation for kdelibs
 %patch209 -p1
 %patch210 -p1
 %patch211 -p1
-%patch212 -p1
 
 %build
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
@@ -1026,6 +1023,8 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 %changelog
 * Wed Jun 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.13.2-1
 - New version 4.13.2
+- Drop kfilemodule-l10n upstream patch
+- Update giflib5.1 patch
 
 * Wed May 28 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-4
 - Add giflib5.1 patch to fix build with giflib 5.1

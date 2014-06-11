@@ -5,7 +5,7 @@ diff -urN kdelibs-4.12.4/khtml/imload/decoders/gifloader.cpp kdelibs-4.12.4-patc
          
          if (DGifSlurp(file) == GIF_ERROR)
          {
-+#if GIFLIB_MAJOR >= 5 && GIFLIB_MINOR >= 1
++#if GIFLIB_MAJOR * 100 + GIFLIB_MINOR >= 501
 +            DGifCloseFile(file, NULL);
 +#else
              DGifCloseFile(file);
@@ -17,7 +17,7 @@ diff -urN kdelibs-4.12.4/khtml/imload/decoders/gifloader.cpp kdelibs-4.12.4-patc
          if (file->ImageCount > 1) {
              // Verify it..
              if (!ImageManager::isAcceptableSize(file->SWidth, file->SHeight)) {
-+#if GIFLIB_MAJOR >= 5 && GIFLIB_MINOR >= 1
++#if GIFLIB_MAJOR * 100 + GIFLIB_MINOR >= 501
 +                DGifCloseFile(file, NULL);
 +#else
                  DGifCloseFile(file);
@@ -29,7 +29,7 @@ diff -urN kdelibs-4.12.4/khtml/imload/decoders/gifloader.cpp kdelibs-4.12.4-patc
              //Extract colormap, geometry, so that we can create the frame
              SavedImage* curFrame = &file->SavedImages[frame];
              if (!ImageManager::isAcceptableSize(curFrame->ImageDesc.Width, curFrame->ImageDesc.Height)) {
-+#if GIFLIB_MAJOR >= 5 && GIFLIB_MINOR >= 1
++#if GIFLIB_MAJOR * 100 + GIFLIB_MINOR >= 501
 +                DGifCloseFile(file, NULL);
 +#else
                  DGifCloseFile(file);
@@ -41,7 +41,7 @@ diff -urN kdelibs-4.12.4/khtml/imload/decoders/gifloader.cpp kdelibs-4.12.4-patc
              frame0->animProvider = new GIFAnimProvider(frame0, image, frameProps, bgColor);
          }
          
-+#if GIFLIB_MAJOR >= 5 && GIFLIB_MINOR >= 1
++#if GIFLIB_MAJOR * 100 + GIFLIB_MINOR >= 501
 +        DGifCloseFile(file, NULL);
 +#else
          DGifCloseFile(file);
