@@ -58,7 +58,7 @@ Patch208:	kdelibs-4.9.3-kio-ftp.patch
 # text/xml (since it's actually file listing in XML)
 Patch209:	kdelibs-4.12.4-improve-mimetype-detection-for-webdav.patch
 Patch210:	kdelibs-4.12.2-armlinking.patch
-Patch211:	kdelibs-4.12.2-cmake2.8.12.2.patch
+Patch211:	kdelibs-4.13.2-kdecmake.patch
 BuildRequires:	automoc
 BuildRequires:	bison
 BuildRequires:	docbook-dtd42-xml
@@ -792,7 +792,6 @@ browsing.
 
 %files devel
 %{_datadir}/dbus-1/*/*
-%{_mandir}/man1/kdecmake.1*
 %{_kde_includedir}/*
 %{_kde_appsdir}/cmake/modules/*
 %{_kde_libdir}/libkdefakes.so
@@ -1025,6 +1024,7 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 - New version 4.13.2
 - Drop kfilemodule-l10n upstream patch
 - Update giflib5.1 patch
+- Update files, man for kdecmake is obsolete
 
 * Wed May 28 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-4
 - Add giflib5.1 patch to fix build with giflib 5.1
