@@ -16,8 +16,8 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
-Version:	4.12.4
-Release:	4
+Version:	4.13.2
+Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -1024,6 +1024,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Wed Jun 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.13.2-1
+- New version 4.13.2
+
 * Wed May 28 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.12.4-4
 - Add giflib5.1 patch to fix build with giflib 5.1
 
