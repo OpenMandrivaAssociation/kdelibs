@@ -16,7 +16,7 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
-Version:	4.13.2
+Version:	4.13.3
 Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
@@ -1020,6 +1020,9 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Tue Jul 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.13.3-1
+- New version 4.13.3
+
 * Wed Jun 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.13.2-1
 - New version 4.13.2
 - Drop kfilemodule-l10n upstream patch
