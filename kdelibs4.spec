@@ -42,9 +42,6 @@ Patch11:	kdelibs-4.11.2-delayed-icons.patch
 # Revert upstream commit because it leads to ugly empty dialog popup when
 # adding new empty panel or RocketBar
 Patch12:	kdelibs-4.11.2-containment-config.patch
-# Include <QtCore/QFile> instead of <QFile> to fix build of other packages
-# that use kio - kradio etc
-Patch13:	kdelibs-4.12.4-qfile-header.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -986,7 +983,6 @@ This packages contains all development documentation for kdelibs
 %patch10 -p1 -b .phonepower~
 %patch11 -p1 -b .delayed~
 %patch12 -p1 -R
-%patch13 -p1 -b .qfile
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -1020,6 +1016,7 @@ ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/k
 %changelog
 * Mon Sep 29 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.14.1-1
 - New version 4.14.1
+- Drop merged qfile-header patch
 
 * Tue Jul 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.13.3-1
 - New version 4.13.3
