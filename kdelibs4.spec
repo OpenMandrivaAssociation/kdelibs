@@ -17,7 +17,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Version:	4.14.2
-Release:	2
+Release:	3
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -995,6 +995,9 @@ This packages contains all development documentation for kdelibs
 %patch211 -p1
 
 %build
+# our qca pkg config is in a non standard path due to qt5/4 split
+export PKG_CONFIG_PATH=%{_libdir}/qt4/pkgconfig
+
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
 
 %if %{compile_apidox}
