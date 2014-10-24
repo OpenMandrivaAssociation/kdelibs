@@ -17,7 +17,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Version:	4.14.2
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -102,7 +102,7 @@ BuildRequires:	pkgconfig(soprano) > 2.7.57
 BuildConflicts:	pkgconfig(soprano)
 %endif
 BuildRequires:	pkgconfig(phonon)
-BuildRequires:	pkgconfig(qca2)
+BuildRequires:	qca-devel-qt4 
 BuildRequires:	pkgconfig(shared-desktop-ontologies)
 BuildRequires:	pkgconfig(QtCore)
 BuildRequires:	pkgconfig(QtDBus)
