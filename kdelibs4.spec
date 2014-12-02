@@ -17,7 +17,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Version:	4.14.3
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -42,6 +42,7 @@ Patch11:	kdelibs-4.11.2-delayed-icons.patch
 # Revert upstream commit because it leads to ugly empty dialog popup when
 # adding new empty panel or RocketBar
 Patch12:	kdelibs-4.11.2-containment-config.patch
+Patch13:	kdelibs-4.14.3-docbook-dtd45.patch
 Patch100:	kdelibs-4.8.0-plasma.patch
 Patch200:	kdelibs-4.8.1-add-extra-catalogs.patch
 Patch203:	kdelibs-4.8.95-fileplaces.patch
@@ -57,7 +58,7 @@ Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.13.2-kdecmake.patch
 BuildRequires:	automoc
 BuildRequires:	bison
-BuildRequires:	docbook-dtd42-xml
+BuildRequires:	docbook-dtd45-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	flex
 BuildRequires:	kde4-macros >= 4.1.71
@@ -725,8 +726,8 @@ KDE 4 library.
 #--------------------------------------------------------------------
 
 %package devel
-Group:		Development/KDE and Qt
 Summary:	Header files and documentation for compiling KDE applications
+Group:		Development/KDE and Qt
 Requires:	automoc
 Requires:	kde4-macros
 Requires:	qt4-qtdbus
@@ -845,17 +846,16 @@ browsing.
 #----------------------------------------------------------------------------------
 
 %package core
-Group:		Graphical desktop/KDE
 Summary:	KDE 4 system core files
-Suggests:	enchant-dictionary
-Suggests:	xdg-utils
-Requires:	shared-mime-info
-Requires:	docbook-dtd42-xml
+Group:		Graphical desktop/KDE
+Requires:	abrt
+Requires:	docbook-dtd45-xml
 Requires:	docbook-style-xsl
 Requires:	rootcerts
 Requires:	shared-desktop-ontologies
-Conflicts:	kdebase4-runtime < 1:4.6.0
-Requires:	abrt
+Requires:	shared-mime-info
+Suggests:	enchant-dictionary
+Suggests:	xdg-utils
 
 %description core
 KDE 4 system core files.
@@ -959,8 +959,8 @@ KDE 4 system core files.
 
 %if %{compile_apidox}
 %package apidoc
-Group:		Development/KDE and Qt
 Summary:	Development documentation for %{name}
+Group:		Development/KDE and Qt
 Requires:	qt4-doc
 
 %description apidoc
@@ -983,6 +983,7 @@ This packages contains all development documentation for kdelibs
 %patch10 -p1 -b .phonepower~
 %patch11 -p1 -b .delayed~
 %patch12 -p1 -R
+%patch13 -p1 -b .dtd45~
 %patch100 -p1
 %patch200 -p1
 %patch203 -p1
@@ -1014,6 +1015,10 @@ rm -fr %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 ln -snf %{_sysconfdir}/pki/tls/certs/ca-bundle.crt %{buildroot}%{_kde_appsdir}/kssl/ca-bundle.crt
 
 %changelog
+* Tue Dec 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.14.3-2
+- Use docbook-dtd45-xml instead of docbook-dtd42-xml
+- Minor cleanups
+
 * Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 5:4.14.3-1
 - New version 4.14.3
 
