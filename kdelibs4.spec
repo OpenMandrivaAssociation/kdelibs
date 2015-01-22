@@ -16,8 +16,8 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
-Version:	4.14.3
-Release:	3
+Version:	4.14.4
+Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
