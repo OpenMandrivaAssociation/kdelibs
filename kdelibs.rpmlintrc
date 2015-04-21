@@ -11,3 +11,4 @@ addFilter("E: non-executable-script")
 addFilter("E: no-packager-tag")
 # Seems to be false positive
 addFilter("E: devel-file-in-non-devel-package")
+addFilter("E: incoherent-version-in-name")
