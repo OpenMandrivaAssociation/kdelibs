@@ -729,6 +729,7 @@ KDE 4 library.
 %package devel
 Summary:	Header files and documentation for compiling KDE applications
 Group:		Development/KDE and Qt
+%rename		kdelibs4-devel
 Requires:	automoc
 Requires:	kde4-macros
 Requires:	qt4-qtdbus
