@@ -152,7 +152,7 @@ Requires:	kde4-config-file
 %if ! %{bootstrap}
 Suggests:	kde-l10n
 %endif
-Requires:	kdelibs4-core = %{EVRD}
+Requires:	kdelibs-core = %{EVRD}
 
 %description -n %{libkdecore}
 KDE 4 core library.
@@ -738,7 +738,7 @@ Requires:	xsltproc
 # add requires on libxml2-utils, as when building most kde applications,
 # it will call xmllint to validate the docbook files:
 Requires:	libxml2-utils
-Requires:	kdelibs4-core = %{EVRD}
+Requires:	kdelibs-core = %{EVRD}
 Requires:	%{libkcmutils} = %{EVRD}
 Requires:	%{libkde3support} = %{EVRD}
 Requires:	%{libkdecore} = %{EVRD}
@@ -858,6 +858,7 @@ Requires:	shared-desktop-ontologies
 Requires:	shared-mime-info
 Suggests:	enchant-dictionary
 Suggests:	xdg-utils
+%rename		kdelibs4-core
 
 %description core
 KDE 4 system core files.
