@@ -17,7 +17,7 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
-Version:	4.14.7
+Version:	4.14.8
 Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
