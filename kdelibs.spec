@@ -989,7 +989,7 @@ This packages contains all development documentation for kdelibs
 %patch13 -p1 -b .dtd45~
 %patch100 -p1
 #patch200 -p1
-%patch203 -p1
+#patch203 -p1
 %patch204 -p1
 %patch206 -p1
 %patch207 -p1
