@@ -12,7 +12,7 @@
 # exclude libkactivities or not
 %define no_libkactivities 1
 
-%define build_nepomuk 1
+%define build_nepomuk 0
 %define major_ver 15.04.1
 
 Summary:	K Desktop Environment - Libraries
