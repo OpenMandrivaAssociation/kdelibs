@@ -1001,13 +1001,15 @@ This packages contains all development documentation for kdelibs
 %build
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
 
+%make
+
 %if %{compile_apidox}
   cd ..
   doc/api/doxygen.sh --doxdatadir=${PWD}/doc/common .
 %endif
 
 %install
-%makeinstall_std -C build
+make install/fast DESTDIR=%{buildroot} -C build
 
 %if %{compile_apidox}
   mkdir -p %{buildroot}%{_docdir}/kde4/api
