@@ -999,6 +999,14 @@ This packages contains all development documentation for kdelibs
 %patch211 -p1
 
 %build
+%ifarch %{i586}
+# Use linker flags to reduce memory consumption (bfd only)
+%global ldflags %{ldflags} -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
+# Workaround for abf builds running out of memory
+export CFLAGS="$CFLAGS -g0"
+export CXXFLAGS="$CXXFLAGS -g0"
+%endif
+
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
 
 %make
