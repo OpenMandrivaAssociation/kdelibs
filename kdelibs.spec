@@ -1,4 +1,4 @@
-%define bootstrap 0
+%define bootstrap 1
 %{?_branch: %{expand: %%global bootstrap 1}}
 
 %define compile_apidox 0
