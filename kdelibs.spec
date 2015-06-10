@@ -1001,6 +1001,8 @@ This packages contains all development documentation for kdelibs
 %build
 %ifarch %{i586}
 # Use linker flags to reduce memory consumption (bfd only)
+%global CFLAGS %cflags -Werror
+%global CXXFLAGS %cxxflags -Werror
 %global LDFLAGS %{ldflags} -Wl,--no-keep-memory -Wl,--reduce-memory-overheads
 # Workaround for abf builds running out of memory
 export CFLAGS="$CFLAGS -g0"
