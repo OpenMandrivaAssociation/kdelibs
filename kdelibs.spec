@@ -1,4 +1,4 @@
-%define bootstrap 1
+%define bootstrap 0
 %{?_branch: %{expand: %%global bootstrap 1}}
 
 %define compile_apidox 0
@@ -18,7 +18,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
 Version:	4.14.9
-Release:	1
+Release:	2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -1011,7 +1011,7 @@ export CXXFLAGS="$CXXFLAGS -g0 -Werror"
 
 %cmake_kde4 -DKDE_DISTRIBUTION_TEXT="%{distribution} %{distepoch}" -DKAUTH_BACKEND:STRING="PolkitQt-1" %{?udisk_backend:-DWITH_SOLID_UDISKS2:BOOL=ON} %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF} %{?build_nepomuk:-DKIO_NO_SOPRANO:BOOL=ON}
 
-%make
+%make VERBOSE=1
 
 %if %{compile_apidox}
   cd ..
