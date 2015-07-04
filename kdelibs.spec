@@ -98,6 +98,7 @@ BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(mad)
 BuildRequires:	pkgconfig(openssl)
 BuildRequires:	pkgconfig(OpenEXR)
+BuildRequires:	pkgconfig(icu-i18n)
 %if %{build_nepomuk}
 BuildRequires:	pkgconfig(soprano) > 2.7.57
 %else
