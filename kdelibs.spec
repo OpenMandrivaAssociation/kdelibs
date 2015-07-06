@@ -1010,9 +1010,9 @@ export CFLAGS="$CFLAGS -g0 "
 export CXXFLAGS="$CXXFLAGS -g0"
 %endif
 
-%cmake_kde4 -DKDE_DISTRIBUTION_TEXT="%{distribution} %{distepoch}" -DKAUTH_BACKEND:STRING="PolkitQt-1" %{?udisk_backend:-DWITH_SOLID_UDISKS2:BOOL=ON} %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF} %{?build_nepomuk:-DKIO_NO_SOPRANO:BOOL=ON}
+%cmake_kde4 -DCMAKE_BUILD_TYPE=debugfull -DKDE_DISTRIBUTION_TEXT="%{distribution} %{distepoch}" -DKAUTH_BACKEND:STRING="PolkitQt-1" %{?udisk_backend:-DWITH_SOLID_UDISKS2:BOOL=ON} %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF} %{?build_nepomuk:-DKIO_NO_SOPRANO:BOOL=ON}
 
-%make VERBOSE=1
+%make -j1 VERBOSE=1
 
 %if %{compile_apidox}
   cd ..
