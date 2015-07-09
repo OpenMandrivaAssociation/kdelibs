@@ -59,7 +59,7 @@ Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.13.2-kdecmake.patch
 BuildRequires:	automoc
 BuildRequires:	bison
-BuildRequires:	docbook-dtd45-xml
+BuildRequires:	docbook-dtd42-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	flex
 BuildRequires:	kde4-macros >= 4.1.71
