@@ -18,7 +18,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
 Version:	4.14.10
-Release:	2
+Release:	3
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -149,7 +149,6 @@ KDE 4 core library.
 Summary:	KDE 4 core library
 Group:		System/Libraries
 Requires:	phonon-backend >= 4.2.0
-Requires:	kde4-config-file
 %if ! %{bootstrap}
 Suggests:	kde-l10n
 %endif
