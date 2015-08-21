@@ -1,0 +1,10 @@
+--- kdelibs-4.14.11/khtml/CMakeLists.txt.omv~	2015-08-21 07:29:53.848396358 +0200
++++ kdelibs-4.14.11/khtml/CMakeLists.txt	2015-08-21 07:30:15.284184310 +0200
+@@ -8,6 +8,7 @@ add_definitions(-DKDE_DEFAULT_DEBUG_AREA
+ add_definitions(-DENABLE_SVG)
+ add_definitions(-DENABLE_SVG_FONTS)
+ add_definitions(-DWTF_PLATFORM_QT)
++add_definitions(-fno-lto)
+ ########svg#########
+ 
+ add_subdirectory( tests )

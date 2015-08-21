@@ -13,12 +13,12 @@
 %define no_libkactivities 1
 
 %define build_nepomuk 0
-%define major_ver 15.04.3
+%define major_ver 15.08.0
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
-Version:	4.14.10
-Release:	3
+Version:	4.14.11
+Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -57,6 +57,8 @@ Patch208:	kdelibs-4.9.3-kio-ftp.patch
 Patch209:	kdelibs-4.12.4-improve-mimetype-detection-for-webdav.patch
 Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.13.2-kdecmake.patch
+### FIXME workaround for what seems to be a clang bug
+Patch220:	kdelibs-4.14.11-no-lto-for-khtml.patch
 BuildRequires:	automoc
 BuildRequires:	bison
 BuildRequires:	docbook-dtd45-xml
@@ -997,6 +999,8 @@ This packages contains all development documentation for kdelibs
 %patch209 -p1
 %patch210 -p1
 %patch211 -p1
+
+%patch220 -p1 -b .p220~
 
 %build
 %ifarch %{ix86}
