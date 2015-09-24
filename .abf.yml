@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   kdelibs-4.14.11.tar.xz: b25177d6247db8b83faed710f5e713a81c8f8e81
+sources:
+  kdelibs-4.14.12.tar.xz: 4e2fc81f0a21c15399e060943b6179c449e866d2
