@@ -13,7 +13,7 @@
 %define no_libkactivities 1
 
 %define build_nepomuk 0
-%define major_ver 15.08.0
+%define major_ver 15.08.3
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
