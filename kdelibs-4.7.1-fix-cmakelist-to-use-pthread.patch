@@ -3,7 +3,7 @@ Index: cmake/modules/FindKDE4Internal.cmake
 --- a/cmake/modules/FindKDE4Internal.cmake
 +++ b/cmake/modules/FindKDE4Internal.cmake	2011-09-13 10:41:13.763330797 -0300
 @@ -1214,10 +1214,10 @@
-      add_definitions (-D_BSD_SOURCE)
+      add_definitions (-D_DEFAULT_SOURCE -D_BSD_SOURCE)
     endif (CMAKE_SYSTEM_NAME MATCHES Linux OR CMAKE_SYSTEM_NAME STREQUAL GNU)
  
 -   if (CMAKE_SYSTEM_NAME STREQUAL GNU)
