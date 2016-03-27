@@ -32,6 +32,14 @@ diff --git a/kfile/kfileplacesmodel.cpp b/kfile/kfileplacesmodel.cpp
 index 24f95ad..a3ac9fb 100644
 --- a/kfile/kfileplacesmodel.cpp
 +++ b/kfile/kfileplacesmodel.cpp
+@@ -19,7 +19,6 @@
+ #include "kfileplacesmodel.h"
+ #include "kfileplacesitem_p.h"
+ #include "kglobalsettings.h"
+-#include "kfileplacessharedbookmarks_p.h"
+ 
+ #ifdef _WIN32_WCE
+ #include "Windows.h"
 @@ -61,10 +60,9 @@
  class KFilePlacesModel::Private
  {
