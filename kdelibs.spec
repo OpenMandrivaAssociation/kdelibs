@@ -17,7 +17,7 @@
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs4
 Version:	4.14.18
-Release:	0.1
+Release:	0.2
 Epoch:		5
 Group:		Graphical desktop/KDE
 License:	ARTISTIC BSD GPLv2+ LGPLv2+ QPLv1.0
@@ -28,7 +28,7 @@ Url:		http://www.kde.org
 %else
 %define ftpdir stable
 %endif
-Source0:	http://download.kde.org/%{ftpdir}/applications/15.08.3/src/kdelibs-%{version}.tar.xz
+Source0:	http://download.kde.org/%{ftpdir}/applications/15.12.3/src/kdelibs-%{version}.tar.xz
 Source100:	%{name}.rpmlintrc
 Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
@@ -55,6 +55,9 @@ Patch208:	kdelibs-4.9.3-kio-ftp.patch
 Patch209:	kdelibs-4.12.4-improve-mimetype-detection-for-webdav.patch
 Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.13.2-kdecmake.patch
+# revert change to use user-places.xbel in place of bookmarks.html
+# as this causes issues with kde 4.4
+Patch212:	0015-Remove-bookmarks-syncing-from-KFilePlacesModel-and-u.patch
 BuildRequires:	automoc
 BuildRequires:	bison
 BuildRequires:	docbook-dtd42-xml
@@ -993,6 +996,7 @@ This packages contains all development documentation for kdelibs
 %patch209 -p1
 %patch210 -p1
 %patch211 -p1
+%patch212 -p1 -R
 
 %build
 %cmake_kde4 %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF}
