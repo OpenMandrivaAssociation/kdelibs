@@ -35,6 +35,7 @@ Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
 Patch3:		kdelibs-4.7.1-fix-cmakelist-to-use-pthread.patch
 Patch4:		kdelibs-4.14.26-openssl-1.1.patch
+Patch5:		kdelibs-4.14.26-compile.patch
 # Battery reporting support for KDE Connect from
 # http://albertvaka.wordpress.com/2013/08/05/introducing-kde-connect/
 Patch10:	kdelibs-4.11.1-phonepower.patch

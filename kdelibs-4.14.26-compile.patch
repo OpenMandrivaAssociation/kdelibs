@@ -1,0 +1,11 @@
+--- kdelibs-4.14.26/kdeui/itemviews/kselectionproxymodel.cpp.omv~	2016-11-14 21:00:49.968280065 +0100
++++ kdelibs-4.14.26/kdeui/itemviews/kselectionproxymodel.cpp	2016-11-14 21:00:56.763115189 +0100
+@@ -2144,7 +2144,7 @@ QModelIndex KSelectionProxyModel::mapToS
+     if (!proxyIndex.isValid() || !sourceModel() || d->m_rootIndexList.isEmpty())
+         return QModelIndex();
+ 
+-    Q_ASSERT(proxyIndex.internalPointer() >= 0);
++    Q_ASSERT(proxyIndex.internalPointer());
+     Q_ASSERT(proxyIndex.model() == this);
+ 
+     if (proxyIndex.internalPointer() == 0)
