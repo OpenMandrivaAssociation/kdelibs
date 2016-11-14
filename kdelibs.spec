@@ -987,6 +987,8 @@ This packages contains all development documentation for kdelibs
 %patch2 -p0
 %endif
 %patch3 -p1
+%patch4 -p1 -b .ossl11~
+%patch5 -p1 -b .compile~
 %patch10 -p1 -b .phonepower~
 %patch11 -p1 -b .delayed~
 %patch12 -p1 -R
