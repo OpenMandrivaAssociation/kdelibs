@@ -13,11 +13,11 @@
 %define no_libkactivities 1
 
 %define build_nepomuk 0
-%define major_ver 16.08.3
+%define major_ver 16.12.3
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
-Version:	4.14.29
+Version:	4.14.30
 Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
@@ -1019,7 +1019,17 @@ export CFLAGS="$CFLAGS -g0 "
 export CXXFLAGS="$CXXFLAGS -g0"
 %endif
 
-%cmake_kde4 -DCMAKE_BUILD_TYPE=debugfull -DKDE_DISTRIBUTION_TEXT="%{distribution} %{distepoch}" -DKAUTH_BACKEND:STRING="PolkitQt-1" %{?udisk_backend:-DWITH_SOLID_UDISKS2:BOOL=ON} %{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF} %{?build_nepomuk:-DKIO_NO_SOPRANO:BOOL=ON}
+# kdelibs4 with OpenSSL 1.1 is broken
+%cmake_kde4 \
+	-DCMAKE_BUILD_TYPE=debugfull \
+	-DKDE_DISTRIBUTION_TEXT="%{distribution} %{distepoch}" \
+	-DKAUTH_BACKEND:STRING="PolkitQt-1" \
+	%{?udisk_backend:-DWITH_SOLID_UDISKS2:BOOL=ON} \
+	%{?no_libkactivities:-DBUILD_libkactivities:BOOL=OFF} \
+	%{?build_nepomuk:-DKIO_NO_SOPRANO:BOOL=ON} \
+%if %mdvver > 3000000
+	-DWITH_OpenSSL:BOOL=OFF
+%endif
 
 %make -j1 VERBOSE=1
 
