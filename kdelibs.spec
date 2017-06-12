@@ -13,11 +13,11 @@
 %define no_libkactivities 1
 
 %define build_nepomuk 0
-%define major_ver 17.04.0
+%define major_ver 17.04.2
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
-Version:	4.14.31
+Version:	4.14.33
 Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
