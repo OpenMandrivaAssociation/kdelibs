@@ -17,7 +17,7 @@
 
 Summary:	K Desktop Environment - Libraries
 Name:		kdelibs
-Version:	4.14.34
+Version:	4.14.38
 Release:	1
 Epoch:		5
 Group:		Graphical desktop/KDE
@@ -29,7 +29,7 @@ Url:		http://www.kde.org
 %else
 %define ftpdir stable
 %endif
-Source0:	http://download.kde.org/stable/applications/%{major_ver}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/applications/%{major_ver}/src/%{name}-%{version}.tar.gz
 Source100:	%{name}.rpmlintrc
 Patch1:		kdelibs-4.1.85-add-kde-menu.patch
 Patch2:		kdelibs-4.5.80-usr-abrt-instead-of-drkonqi.patch
