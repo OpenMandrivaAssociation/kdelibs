@@ -61,6 +61,7 @@ Patch210:	kdelibs-4.12.2-armlinking.patch
 Patch211:	kdelibs-4.13.2-kdecmake.patch
 ### FIXME workaround for what seems to be a clang bug
 Patch220:	kdelibs-4.14.11-no-lto-for-khtml.patch
+BuildRequires:	make
 BuildRequires:	automoc
 BuildRequires:	bison
 BuildRequires:	docbook-dtd45-xml
